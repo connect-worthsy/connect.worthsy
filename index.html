@@ -397,7 +397,7 @@
 
 
     <!-- UNIVERSAL SEARCH MODAL -->
-    <div id="searchModal" class="hidden fixed inset-0 z-[80] bg-brandBg overflow-y-auto">
+    <div id="searchModal" class="hidden fixed inset-0 z-[80] overflow-y-auto" style="background:rgba(30,28,110,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)">
         <div class="max-w-3xl mx-auto px-6 pt-8 pb-16">
             <div class="flex items-center justify-between mb-6">
                 <span class="logo-wordmark text-2xl text-brandAccent">SEARCH PRODUCTS</span>
@@ -689,6 +689,7 @@
             bind(mInput, document.getElementById('modalResults'), document.getElementById('modalSearchBtn'), closeModal);
             uniBtn.addEventListener('click', openModal);
             document.getElementById('searchClose').addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
             window.addEventListener('hashchange', function () { if (!modal.classList.contains('hidden')) modal.classList.add('hidden'); });
             // keep the floating button from overlapping the open mobile menu
