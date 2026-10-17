@@ -32,7 +32,7 @@ a{color:inherit}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}.top{displ
  if(!tag){notice.classList.remove('hidden');notice.innerHTML='<strong>Affiliate tracking needs activation.</strong> The storefront is ready, but WORTHSY’s Amazon Associate tag has not been configured yet. Product buttons currently open Amazon search pages without affiliate attribution.'}
  let products=[],category='All';
  const safe=(s)=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- function urlFor(p){const q=encodeURIComponent(p.name||'');return 'https://www.amazon.in/s?k='+q+(tag?'&tag='+encodeURIComponent(tag):'')}
+ function urlFor(p){const raw=String(p.link||'');if(/^https:\/\/www\.amazon\.in\/dp\//i.test(raw)){if(!tag||/[?&]tag=/.test(raw))return raw;return raw+(raw.includes('?')?'&':'?')+'tag='+encodeURIComponent(tag)}const q=encodeURIComponent(p.name||'');return 'https://www.amazon.in/s?k='+q+(tag?'&tag='+encodeURIComponent(tag):'')}
  function render(){
   const term=search.value.trim().toLowerCase();
   const list=products.filter(p=>(category==='All'||p.category===category)&&[p.name,p.description,p.category].join(' ').toLowerCase().includes(term));
