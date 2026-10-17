@@ -557,13 +557,13 @@
                 if (imgs.length) {
                     const box = el('div', 'w-full aspect-square bg-white mb-3 flex items-center justify-center overflow-hidden');
                     const main = el('img', 'pc-main w-full h-full object-contain'); main.src = imgs[0]; main.alt = p.name || ''; main.loading = 'lazy'; main.decoding = 'async';
-                    if (p.fallback_image) main.onerror = function () { main.onerror = null; main.src = p.fallback_image; };
+                    main.onerror = function () { main.onerror = null; if (imgs[0].indexOf('images/') === 0) main.src = imgs[0].slice(7); else if (p.fallback_image) main.src = p.fallback_image; };
                     box.appendChild(main); c.appendChild(box);
                     if (imgs.length > 1) {
                         const g = el('div', 'grid grid-cols-4 gap-2 mb-4');
                         imgs.forEach(function (u) {
                             const t = el('img', 'pc-thumb w-full aspect-square object-cover bg-white cursor-pointer border border-[#ccff00]/30 hover:border-brandAccent');
-                            t.src = u; t.alt = p.name || ''; t.loading = 'lazy'; t.addEventListener('click', function () { main.src = u; }); g.appendChild(t);
+                            t.src = u; t.alt = p.name || ''; t.loading = 'lazy'; t.onerror = function () { t.onerror = null; if (u.indexOf('images/') === 0) t.src = u.slice(7); }; t.addEventListener('click', function () { main.src = t.src; }); g.appendChild(t);
                         });
                         c.appendChild(g);
                     } else { box.classList.add('mb-4'); }
@@ -580,16 +580,37 @@
             }
             function empty(text) { const d = el('div', 'col-span-full text-center py-16 bg-[#252380]/60 luxury-border'); d.appendChild(el('p', 'logo-wordmark text-2xl text-brandAccent mb-2', 'Products coming soon')); d.appendChild(el('p', 'text-slate-400 text-xs font-mono', text)); return d; }
             function fill(g, items) {
-                const PAGE = 24; let n = 0;
+                const PAGE = 24; let n = 0, cur = items;
                 const more = el('button', 'mt-8 mx-auto block px-8 py-3 bg-brandAccent text-brandBg font-bold uppercase tracking-widest text-sm');
                 more.type = 'button';
                 function next() {
-                    items.slice(n, n + PAGE).forEach(function (p) { g.appendChild(card(p)); });
-                    n = Math.min(n + PAGE, items.length);
-                    if (n >= items.length) more.remove(); else more.textContent = 'Show more (' + (items.length - n) + ' left)';
+                    cur.slice(n, n + PAGE).forEach(function (p) { g.appendChild(card(p)); });
+                    n = Math.min(n + PAGE, cur.length);
+                    if (n >= cur.length) more.style.display = 'none'; else { more.style.display = ''; more.textContent = 'Show more (' + (cur.length - n) + ' left)'; }
                 }
+                function show(list) { cur = list; n = 0; g.textContent = ''; next(); }
                 more.addEventListener('click', next);
                 g.insertAdjacentElement('afterend', more);
+                const cats = [];
+                items.forEach(function (p) { if (p.category && cats.indexOf(p.category) === -1) cats.push(p.category); });
+                if (cats.length > 1 && items.length > PAGE) {
+                    const bar = el('div', 'flex flex-wrap gap-2 mb-6');
+                    const chips = [];
+                    function chip(label, list) {
+                        const b = el('button', 'px-4 py-2 text-xs font-bold uppercase tracking-widest border border-brandAccent text-brandAccent', label + ' (' + list.length + ')');
+                        b.type = 'button';
+                        b.addEventListener('click', function () {
+                            chips.forEach(function (x) { x.classList.remove('bg-brandAccent', 'text-brandBg'); x.classList.add('text-brandAccent'); });
+                            b.classList.remove('text-brandAccent'); b.classList.add('bg-brandAccent', 'text-brandBg');
+                            show(list);
+                        });
+                        chips.push(b); bar.appendChild(b); return b;
+                    }
+                    const all = chip('All', items);
+                    cats.forEach(function (c) { chip(c, items.filter(function (p) { return p.category === c; })); });
+                    all.classList.remove('text-brandAccent'); all.classList.add('bg-brandAccent', 'text-brandBg');
+                    g.insertAdjacentElement('beforebegin', bar);
+                }
                 next();
             }
             fetch('products.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (list) {
