@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090a0d">
+<meta name="description" content="Explore curated finds from WORTHSY. Shop selected products through Amazon.">
+<title>Amazon Finds | WORTHSY</title>
+<style>
+:root{color-scheme:dark;--bg:#090a0d;--panel:#12141a;--panel2:#181b22;--text:#f4f1eb;--muted:#a8a9b0;--line:#292c35;--accent:#d8b77a;--accent2:#f0d7a5}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#242019 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:24px 0;border-bottom:1px solid var(--line)}.brand{font-size:1.25rem;font-weight:800;letter-spacing:.22em;text-decoration:none}.brand span{color:var(--accent)}.back{color:var(--muted);text-decoration:none;font-size:.9rem}.hero{padding:64px 0 38px;max-width:760px}.eyebrow{color:var(--accent);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700}.hero h1{font-size:clamp(2.4rem,6vw,4.7rem);line-height:1.03;letter-spacing:-.045em;margin:16px 0}.hero p{color:var(--muted);max-width:600px;font-size:1.05rem}.tools{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 24px}.search{flex:1;min-width:220px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--text);font:inherit}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);padding:10px 14px;border-radius:999px;cursor:pointer}.filter.active,.filter:hover{border-color:var(--accent);color:var(--accent2);background:#d8b77a12}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:8px 0 56px}.card{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,var(--panel2),var(--panel));display:flex;flex-direction:column;min-width:0}.media{height:230px;background:#0e1014;display:grid;place-items:center;padding:12px}.media img{width:100%;height:100%;object-fit:contain}.placeholder{color:var(--muted);font-size:.85rem}.content{padding:18px;display:flex;flex:1;flex-direction:column}.tag{color:var(--accent);font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;font-weight:700}.content h2{font-size:1.05rem;line-height:1.4;margin:10px 0 18px}.actions{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.buy{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#17130d;text-decoration:none;font-weight:800;padding:11px 15px;border-radius:10px;font-size:.88rem}.buy:hover{background:var(--accent2)}.empty{color:var(--muted);padding:28px 0 60px}.notice{border:1px solid #d8b77a55;background:#d8b77a0c;color:var(--muted);border-radius:12px;padding:14px 16px;margin:4px 0 22px;font-size:.88rem}.notice strong{color:var(--accent2)}footer{border-top:1px solid var(--line);padding:24px 0 38px;color:var(--muted);font-size:.8rem}.hidden{display:none!important}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.grid{grid-template-columns:1fr}.media{height:250px}.hero{padding-top:46px}.top{padding:18px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" href="./index.html">WORTH<span>SY</span></a><a class="back" href="./index.html">← Back to home</a></header>
+<main>
+<section class="hero"><div class="eyebrow">The WORTHSY edit</div><h1>Good finds.<br><span style="color:var(--accent)">Thoughtfully picked.</span></h1><p>Explore our curated product picks across useful everyday essentials and standout gear. Choose a product to view current details on Amazon.</p></section>
+<div id="affiliateNotice" class="notice hidden" role="status"></div>
+<div class="tools"><input id="search" class="search" type="search" placeholder="Search products or categories…" aria-label="Search products or categories"><div id="filters" class="filters" aria-label="Filter by category"></div></div>
+<div id="grid" class="grid" aria-live="polite"></div><p id="empty" class="empty hidden">No products match that search yet.</p>
+</main>
+<footer><p>As an Amazon Associate, WORTHSY may earn from qualifying purchases when properly enrolled affiliate links are used. Product availability and prices are set by Amazon and may change.</p><p>Always check the current price, specifications, and seller details on Amazon before buying.</p></footer>
+</div>
+<script src="./amazon-config.js"></script>
+<script>
+(function(){
+ const grid=document.getElementById('grid'),filters=document.getElementById('filters'),search=document.getElementById('search'),empty=document.getElementById('empty'),notice=document.getElementById('affiliateNotice');
+ const tag=(window.WORTHSY_AMAZON_TAG||'').trim();
+ if(!tag){notice.classList.remove('hidden');notice.innerHTML='<strong>Affiliate tracking needs activation.</strong> The storefront is ready, but WORTHSY’s Amazon Associate tag has not been configured yet. Product buttons currently open Amazon search pages without affiliate attribution.'}
+ let products=[],category='All';
+ const safe=(s)=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function urlFor(p){const q=encodeURIComponent(p.name||'');return 'https://www.amazon.in/s?k='+q+(tag?'&tag='+encodeURIComponent(tag):'')}
+ function render(){
+  const term=search.value.trim().toLowerCase();
+  const list=products.filter(p=>(category==='All'||p.category===category)&&[p.name,p.description,p.category].join(' ').toLowerCase().includes(term));
+  grid.innerHTML=list.map(p=>'<article class="card"><div class="media">'+(p.images&&p.images[0]?'<img loading="lazy" alt="" src="'+p.images[0]+'">':'<span class="placeholder">WORTHSY SELECT</span>')+'</div><div class="content"><div class="tag">'+safe(p.category||'Selected product')+'</div><h2>'+safe(p.name)+'</h2><div class="actions"><span class="placeholder">'+safe(p.price||'View on Amazon')+'</span><a class="buy" rel="sponsored nofollow noopener" target="_blank" href="'+urlFor(p)+'">View on Amazon ↗</a></div></div></article>').join('');
+  empty.classList.toggle('hidden',list.length!==0);
+ }
+ function buildFilters(){
+  const cats=['All',...new Set(products.map(p=>p.category).filter(Boolean))];
+  filters.innerHTML=cats.map(c=>'<button type="button" class="filter '+(c===category?'active':'')+'" data-category="'+safe(c)+'">'+safe(c)+'</button>').join('');
+  filters.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.category;buildFilters();render()}));
+ }
+ fetch('./products.json').then(r=>{if(!r.ok)throw new Error('Could not load catalogue');return r.json()}).then(data=>{
+  products=data.filter(p=>String(p.platform||'').toLowerCase()==='amazon');
+  buildFilters();render();
+  if(!products.length){empty.classList.remove('hidden');empty.textContent='Amazon products will appear here when they are added to the WORTHSY catalogue.'}
+ }).catch(()=>{empty.classList.remove('hidden');empty.textContent='We could not load the product catalogue right now. Please try again later.'});
+ search.addEventListener('input',render);
+})();
+</script>
+</body>
+</html>
