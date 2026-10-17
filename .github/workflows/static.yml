@@ -26,13 +26,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Prepare WORTHSY Amazon storefront and affiliate links
-        env:
-          AMAZON_ASSOCIATE_TAG: ${{ secrets.AMAZON_ASSOCIATE_TAG }}
         run: |
           python - <<'PY'
           import json, os, pathlib, re
-          # Use the repository secret when configured; otherwise use the tag supplied by the site owner.
-          tag = os.environ.get("AMAZON_ASSOCIATE_TAG", "").strip() or "worthsy01-21"
+          # Amazon Associates tracking tag supplied by the site owner.
+          tag = "worthsy01-21"
           pathlib.Path("amazon-config.js").write_text(
               "window.WORTHSY_AMAZON_TAG = " + json.dumps(tag) + ";" + chr(10),
               encoding="utf-8"
