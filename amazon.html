@@ -36,7 +36,7 @@ a{color:inherit}.wrap{width:min(1180px,calc(100% - 36px));margin:auto}.top{displ
  function render(){
   const term=search.value.trim().toLowerCase();
   const list=products.filter(p=>(category==='All'||p.category===category)&&[p.name,p.description,p.category].join(' ').toLowerCase().includes(term));
-  const priceValue=p=>{const raw=String(p.price||'').replace(/,/g,'');const match=raw.match(/[0-9]+(?:\\.[0-9]+)?/);return match?Number(match[0]):Number.POSITIVE_INFINITY};
+  const priceValue=p=>{const raw=String(p.price||'').replace(/,/g,'');const match=raw.match(/[0-9]+(?:\.[0-9]+)?/);return match?Number(match[0]):Number.POSITIVE_INFINITY};
   list.sort((a,b)=>{
    const mode=sortSelect.value;
    if(mode==='name-asc')return String(a.name||'').localeCompare(String(b.name||''));
