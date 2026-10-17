@@ -19,7 +19,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: \${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,7 +27,7 @@ jobs:
 
       - name: Prepare WORTHSY Amazon storefront and affiliate links
         env:
-          AMAZON_ASSOCIATE_TAG: \${{ secrets.AMAZON_ASSOCIATE_TAG }}
+          AMAZON_ASSOCIATE_TAG: ${{ secrets.AMAZON_ASSOCIATE_TAG }}
         run: |
           python - <<'PY'
           import json, os, pathlib, re
@@ -43,7 +43,7 @@ jobs:
                   if str(product.get("platform", "")).lower() != "amazon":
                       continue
                   link = str(product.get("link", ""))
-                  if not re.match(r"^https://www\\.amazon\\.in/dp/", link, flags=re.I):
+                  if not re.match(r"^https://www\.amazon\.in/dp/", link, flags=re.I):
                       continue
                   link = re.sub(r"[?&]tag=[^&]+", "", link)
                   link = link.rstrip("?&")
@@ -55,7 +55,7 @@ jobs:
           html = path.read_text(encoding="utf-8")
           link = '<a href="./amazon.html" aria-label="Shop Amazon finds" style="position:fixed;right:18px;bottom:18px;z-index:99999;padding:12px 16px;border-radius:999px;background:#d8b77a;color:#17130d;font:700 13px/1.2 system-ui,sans-serif;text-decoration:none;box-shadow:0 8px 28px #0008">Shop Amazon Finds ↗</a>'
           if "./amazon.html" not in html:
-              match = list(re.finditer(r"</body\\s*>", html, flags=re.I))
+              match = list(re.finditer(r"</body\s*>", html, flags=re.I))
               if match:
                   m = match[-1]
                   html = html[:m.start()] + link + html[m.start():]
