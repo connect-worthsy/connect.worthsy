@@ -583,6 +583,7 @@
                 const PAGE = 24;
                 let n = 0, current = items.slice(), selectedCategory = 'All', sortMode = 'featured';
                 const isAmazon = g.dataset.platform === 'amazon';
+                const isAwin = g.dataset.platform === 'awin';
                 const more = el('button', 'mt-8 mx-auto block px-8 py-3 bg-brandAccent text-brandBg font-bold uppercase tracking-widest text-sm');
                 more.type = 'button';
                 function filteredItems() {
@@ -616,13 +617,13 @@
                 more.addEventListener('click', next);
                 g.insertAdjacentElement('afterend', more);
 
-                if (isAmazon) {
+                if (isAmazon || isAwin) {
                     const tools = el('div', 'flex flex-col gap-4 mb-6');
                     const top = el('div', 'flex flex-wrap items-center justify-between gap-3');
                     const count = el('span', 'text-xs font-mono uppercase tracking-widest text-slate-400', items.length + ' products');
                     const sortWrap = el('label', 'flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-slate-300', 'Sort by');
                     const sort = el('select', 'bg-[#252380] border border-brandAccent text-slate-100 px-4 py-3 text-xs font-mono min-w-[190px]');
-                    sort.setAttribute('aria-label', 'Sort Amazon products');
+                    sort.setAttribute('aria-label', 'Sort ' + (isAwin ? 'AWIN' : 'Amazon') + ' products');
                     [
                         ['featured', 'Featured'],
                         ['name-asc', 'Name: A–Z'],
