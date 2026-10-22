@@ -4044,5 +4044,57 @@
     ],
     "rating": 4.6,
     "review_count": 1021
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Air Fryers",
+    "name": "PHILIPS Air Fryer NA120/00, 4.2L, 1500W",
+    "description": "4.2-litre air fryer with Rapid Air technology and adjustable time and temperature controls.",
+    "link": "https://www.amazon.in/PHILIPS-Fryer-NA120-00-Technology/dp/B0D14BB5XY?tag=worthsy01-21",
+    "images": [
+      "https://www.domesticappliances.philips.co.in/cdn/shop/files/NA120_2cb12b61-918f-4aaa-895c-8b14a7d23b8e.jpg?v=1788253098&width=1600"
+    ],
+    "rating": 4.3,
+    "review_count": 4865
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "MILTON Vintage Plastic Storage Jar Set, 2 x 1L",
+    "description": "Set of two transparent, BPA-free, airtight storage jars with flip-top lids.",
+    "link": "https://www.amazon.in/dp/B0C7H2QRW1?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/81cUxV%2BVinL._AC_SL3840_.jpg"
+    ],
+    "rating": 4.5,
+    "review_count": 3510
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Wakefit Waterproof Terry Cotton Mattress Protector, Diwan Size, White",
+    "description": "Machine-washable waterproof mattress protector with a soft terry-cotton surface and fitted elastic edges. Check the size against your mattress before ordering.",
+    "link": "https://www.amazon.in/dp/B01GPY5T14?tag=worthsy01-21",
+    "images": [
+      "https://images.price.tools/images/wakefit-100-waterproof-premium-cotton-mattress-m-b1oMP4z74.jpg"
+    ],
+    "rating": 4.3,
+    "review_count": 135437
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Havells Aqua Plus Electric Kettle, 1.2L, 1250W, Black",
+    "description": "Double-wall electric kettle with a 304 stainless-steel inner body, cool-touch exterior and automatic shut-off.",
+    "link": "https://www.amazon.in/dp/B083GKDRKR?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/31S74o1sCSS.jpg"
+    ],
+    "rating": 4.4,
+    "review_count": 46731
   }
 ]
