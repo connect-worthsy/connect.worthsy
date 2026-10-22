@@ -3990,5 +3990,445 @@
     "images": [
       "https://m.media-amazon.com/images/I/41b7x5wV6KL._SL1000_.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "OnePlus Nord Buds 2r True Wireless Earbuds",
+    "description": "Wireless earbuds with long playback and IP55 dust and water resistance.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=OnePlus%20Nord%20Buds%202r%20True%20Wireless%20Earbuds&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "OnePlus Nord Buds 3 Pro ANC Earbuds",
+    "description": "True wireless earbuds with active noise cancellation and fast charging.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=OnePlus%20Nord%20Buds%203%20Pro%20ANC%20Earbuds&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Airdopes 311 Pro Earbuds",
+    "description": "Affordable true wireless earbuds with long battery life.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=boAt%20Airdopes%20311%20Pro%20Earbuds&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earphones",
+    "name": "boAt Rockerz 255 Pro+ Bluetooth Neckband",
+    "description": "Bluetooth neckband earphones with long playback and water resistance.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=boAt%20Rockerz%20255%20Pro%2B%20Bluetooth%20Neckband&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mobile Accessories",
+    "name": "Samsung 25W USB Type-C Travel Adapter",
+    "description": "25W USB-C fast charger for compatible phones and tablets.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Samsung%2025W%20USB%20Type-C%20Travel%20Adapter&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mobile Accessories",
+    "name": "Apple 20W USB-C Power Adapter",
+    "description": "Compact USB-C power adapter for compatible Apple devices.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Apple%2020W%20USB-C%20Power%20Adapter&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mobile Accessories",
+    "name": "Ambrane Unbreakable USB-C Braided Cable",
+    "description": "Braided USB-C charging and data-sync cable.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Ambrane%20Unbreakable%20USB-C%20Braided%20Cable&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mobile Accessories",
+    "name": "Portronics Konnect L USB-C Fast Charging Cable",
+    "description": "Everyday USB-C cable for charging and syncing.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Portronics%20Konnect%20L%20USB-C%20Fast%20Charging%20Cable&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Storage",
+    "name": "SanDisk Ultra 128GB microSDXC Memory Card",
+    "description": "MicroSDXC storage for compatible phones, cameras and devices.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=SanDisk%20Ultra%20128GB%20microSDXC%20Memory%20Card&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Storage",
+    "name": "HP v236w 64GB USB Pen Drive",
+    "description": "Compact USB flash drive for everyday file storage.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=HP%20v236w%2064GB%20USB%20Pen%20Drive&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Computer Accessories",
+    "name": "STRIFF Adjustable Laptop Stand",
+    "description": "Foldable ventilated stand for laptops and tablets.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=STRIFF%20Adjustable%20Laptop%20Stand&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bags & Travel",
+    "name": "FUR JADEN Anti-Theft Laptop Backpack",
+    "description": "Laptop backpack with a combination lock and organiser compartments.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=FUR%20JADEN%20Anti-Theft%20Laptop%20Backpack&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bags & Travel",
+    "name": "Amazon Basics Electronics Travel Organiser",
+    "description": "Padded organiser for cables, chargers and small electronics.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Amazon%20Basics%20Electronics%20Travel%20Organiser&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Havells Aqua Plus 1.2L Electric Kettle",
+    "description": "Stainless-steel electric kettle with auto shut-off.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Havells%20Aqua%20Plus%201.2L%20Electric%20Kettle&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Prestige PIC 20 Induction Cooktop",
+    "description": "Induction cooktop for compatible cookware and everyday cooking.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Prestige%20PIC%2020%20Induction%20Cooktop&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Pigeon by Stovekraft Favourite Glass Top Gas Stove",
+    "description": "Compact gas stove for everyday kitchen use.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Pigeon%20by%20Stovekraft%20Favourite%20Glass%20Top%20Gas%20Stove&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Philips HL7756 Mixer Grinder",
+    "description": "Mixer grinder for common kitchen preparation tasks.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Philips%20HL7756%20Mixer%20Grinder&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "ATOM ALISTON Digital Kitchen Weighing Scale",
+    "description": "Digital kitchen scale for weighing ingredients.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=ATOM%20ALISTON%20Digital%20Kitchen%20Weighing%20Scale&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Presto Garbage Bags",
+    "description": "Convenient disposable bags for household clean-up.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Presto%20Garbage%20Bags&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "JIALTO Transparent Wall Hooks",
+    "description": "Adhesive wall hooks for lightweight household organisation.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=JIALTO%20Transparent%20Wall%20Hooks&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Home",
+    "name": "Tapo TP-Link C210 Indoor Security Camera",
+    "description": "Pan-and-tilt indoor camera with two-way audio and motion detection.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Tapo%20TP-Link%20C210%20Indoor%20Security%20Camera&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Audio",
+    "name": "boAt Stone Bluetooth Speaker",
+    "description": "Portable Bluetooth speaker for music and everyday listening.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=boAt%20Stone%20Bluetooth%20Speaker&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earphones",
+    "name": "JBL C100SI Wired Earphones with Mic",
+    "description": "Wired in-ear headphones with microphone.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=JBL%20C100SI%20Wired%20Earphones%20with%20Mic&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earphones",
+    "name": "OnePlus Bullets Wireless Z2 Neckband",
+    "description": "Bluetooth neckband earphones with fast charging.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=OnePlus%20Bullets%20Wireless%20Z2%20Neckband&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earphones",
+    "name": "Portronics Conch Theta C Type-C Wired Earphones",
+    "description": "Wired Type-C earphones for compatible devices.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Portronics%20Conch%20Theta%20C%20Type-C%20Wired%20Earphones&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Power Banks",
+    "name": "Amazon Basics 100W USB-C Power Bank",
+    "description": "High-capacity power bank for compatible USB-C devices.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Amazon%20Basics%20100W%20USB-C%20Power%20Bank&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bags & Travel",
+    "name": "Boldfit Weekender Travel Backpack",
+    "description": "Roomy travel backpack with a separate packing compartment.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Boldfit%20Weekender%20Travel%20Backpack&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bags & Travel",
+    "name": "Wildcraft 45L Travel Backpack",
+    "description": "Travel backpack for trips and outdoor use.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Wildcraft%2045L%20Travel%20Backpack&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Books",
+    "name": "The Threshing Day (Wing and Claw Collection)",
+    "description": "Popular fiction title; check the current edition and reader reviews.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=The%20Threshing%20Day%20(Wing%20and%20Claw%20Collection)&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Books",
+    "name": "Deep Work by Cal Newport",
+    "description": "Practical book on focus and distraction-free work.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Deep%20Work%20by%20Cal%20Newport&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Books",
+    "name": "The Almanack of Naval Ravikant",
+    "description": "Collection of ideas on wealth, judgement and happiness.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=The%20Almanack%20of%20Naval%20Ravikant&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Books",
+    "name": "Think Like a Monk by Jay Shetty",
+    "description": "Self-development book about habits and mindset.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Think%20Like%20a%20Monk%20by%20Jay%20Shetty&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Books",
+    "name": "Atomic Habits by James Clear",
+    "description": "Practical guide to building habits and changing routines.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Atomic%20Habits%20by%20James%20Clear&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Books",
+    "name": "Rich Dad Poor Dad by Robert Kiyosaki",
+    "description": "Personal-finance book about money and financial habits.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Rich%20Dad%20Poor%20Dad%20by%20Robert%20Kiyosaki&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Books",
+    "name": "The Psychology of Money by Morgan Housel",
+    "description": "Essays about behaviour, risk and personal finance.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=The%20Psychology%20of%20Money%20by%20Morgan%20Housel&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Sports & Fitness",
+    "name": "Boldfit Resistance Bands",
+    "description": "Resistance bands for home workouts and mobility exercises.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Boldfit%20Resistance%20Bands&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Sports & Fitness",
+    "name": "Strauss Yoga Mat",
+    "description": "Exercise mat for stretching, yoga and floor workouts.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Strauss%20Yoga%20Mat&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Sports & Fitness",
+    "name": "Cockatoo Adjustable Dumbbells",
+    "description": "Adjustable weights for home strength training.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Cockatoo%20Adjustable%20Dumbbells&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Milton Thermosteel Flask",
+    "description": "Insulated flask for carrying hot or cold drinks.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Milton%20Thermosteel%20Flask&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Cello Swift Stainless Steel Water Bottle",
+    "description": "Reusable stainless-steel water bottle for daily use.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Cello%20Swift%20Stainless%20Steel%20Water%20Bottle&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Amazon Basics Non-Stick Fry Pan",
+    "description": "Everyday non-stick frying pan; confirm cooktop compatibility.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Amazon%20Basics%20Non-Stick%20Fry%20Pan&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home & Kitchen",
+    "name": "Prestige Deluxe Alpha Pressure Cooker",
+    "description": "Pressure cooker for everyday meal preparation.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Prestige%20Deluxe%20Alpha%20Pressure%20Cooker&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Home Improvement",
+    "name": "Wipro Garnet 9W LED Bulb",
+    "description": "Energy-efficient LED bulb for compatible fittings.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Wipro%20Garnet%209W%20LED%20Bulb&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Tools & Home Improvement",
+    "name": "Bosch Home and Power Tools Cordless Screwdriver",
+    "description": "Cordless screwdriver for common household tasks.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=Bosch%20Home%20and%20Power%20Tools%20Cordless%20Screwdriver&tag=worthsy01-21",
+    "images": []
   }
 ]
