@@ -3994,21 +3994,9 @@
   {
     "platform": "amazon",
     "merchant": "DailyObjects",
-    "category": "Bags & Backpacks",
-    "name": "DailyObjects Pivot Taiga Backpack — Lagoon",
-    "description": "DailyObjects Pivot Taiga Backpack in Lagoon. Product photo is from DailyObjects' own product image CDN; Amazon availability, colour variants and price may differ. Open the Amazon India search to check the matching listing before purchase.",
-    "price": "",
-    "link": "https://www.amazon.in/s?k=DailyObjects+Pivot+Taiga+Backpack+Lagoon&tag=worthsy01-21",
-    "images": [
-      "https://images.dailyobjects.com/marche/product-images/1201/pivot-taiga-backpack-lagoon-images/Pivot-Taiga-Backpack-Lagoon-7t.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-393%2Ch-521%2Cdpr-1"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "DailyObjects",
     "category": "Computer Accessories",
     "name": "DailyObjects Stria Pro Laptop Bag with Handle — Black",
-    "description": "DailyObjects Stria Pro padded laptop bag with handle. The image is the product-specific black variant photo; check Amazon for the current seller, dimensions and availability.",
+    "description": "DailyObjects Stria Pro laptop bag in black. Confirm the colour, dimensions and seller details on Amazon before purchase.",
     "price": "",
     "link": "https://www.amazon.in/dp/B0GL988DSN?tag=worthsy01-21",
     "images": [
@@ -4020,11 +4008,61 @@
     "merchant": "DailyObjects",
     "category": "Bags & Backpacks",
     "name": "DailyObjects 100% Recycled PET Amber Cobble Sling Crossbody Bag",
-    "description": "DailyObjects Amber Cobble Sling Crossbody Bag made from recycled PET. The image matches the amber colour variant; check Amazon for current stock and listing details.",
+    "description": "DailyObjects Amber Cobble Sling Crossbody Bag. Check Amazon for current stock and listing details.",
     "price": "",
     "link": "https://www.amazon.in/dp/B0BZVRFPV1?tag=worthsy01-21",
     "images": [
       "https://images-static.nykaa.com/media/catalog/product/a/7/a7c971dDAILY00013883_3.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Power Banks",
+    "name": "DailyObjects Loop Universal Aluminium Power Bank 10000mAh — Blue",
+    "description": "10000mAh aluminium power bank with 20W USB-C fast charging and LED battery display. Product image is the original Amazon listing image for the blue variant.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0F1YZFVY3?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/31sMRFjKAvL.jpg",
+      "https://m.media-amazon.com/images/I/41ssfKP1pzL.jpg",
+      "https://m.media-amazon.com/images/I/41SinfM2O%2BL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Power Banks",
+    "name": "DailyObjects Loop Qi2 MagSafe Power Bank 5000mAh — Titanium",
+    "description": "5000mAh Qi2-certified MagSafe-compatible aluminium wireless power bank in Titanium. Product image is from the Amazon listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0F1YXQVJQ?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/41URAns1RpL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Power Banks",
+    "name": "DailyObjects Loop Qi2 MagSafe Power Bank 20000mAh — Black",
+    "description": "20000mAh Qi2-certified MagSafe-compatible aluminium wireless power bank with retractable stand in Black. Product image is from the Amazon listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0F1YYBD24?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/31fkAbuPJJL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Chargers & Adapters",
+    "name": "DailyObjects POP 45W Dual USB-C Wall Charger — Black",
+    "description": "45W GaN5 wall charger with foldable pins and dual USB-C ports. Product image is from the Amazon listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0F6YLK4P7?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/31HE-VEQvwL.jpg"
     ]
   }
 ]
