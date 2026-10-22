@@ -684,7 +684,7 @@
             fetch('products.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (list) {
                 window.WORTHSY_PRODUCTS = list;
                 document.querySelectorAll('.product-grid').forEach(function (g) {
-                    const items = list.filter(function (p) { return p.platform === g.dataset.platform; });
+                    const items = list.filter(function (p) { return p.platform === g.dataset.platform && !/daily\s*objects/i.test([p.merchant, p.brand, p.name, p.description, p.category].filter(Boolean).join(' ')); });
                     if (!items.length) { g.appendChild(empty('Our ' + (LABELS[g.dataset.platform] || '') + ' picks will be listed here.')); return; }
                     fill(g, items);
                 });
