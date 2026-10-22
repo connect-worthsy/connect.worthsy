@@ -4064,5 +4064,29 @@
     "images": [
       "https://m.media-amazon.com/images/I/31HE-VEQvwL.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Bags & Backpacks",
+    "name": "DailyObjects Pivot Travel Sling Bag — Coral",
+    "description": "DailyObjects Pivot Travel Sling Bag in Coral, with adjustable shoulder strap and water-repellent fabric. Product image is from the Amazon listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FBK92M1D?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/31vIKgq7BSL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Bags & Backpacks",
+    "name": "DailyObjects Pivot Crossbody Sling Bag — Coral",
+    "description": "DailyObjects Pivot Crossbody Bag in Coral. Product image is from the Amazon listing; check the listing for current availability and colour options.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0G8JRHXLV?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/31vIKgq7BSL.jpg"
+    ]
   }
 ]
