@@ -3990,5 +3990,65 @@
     "images": [
       "https://m.media-amazon.com/images/I/41b7x5wV6KL._SL1000_.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Mobile Accessories",
+    "name": "DailyObjects Phone Cases — Amazon India",
+    "description": "Browse DailyObjects phone cases and covers available on Amazon India. Product options and prices are shown on Amazon.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=DailyObjects+phone+case&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Charging Accessories",
+    "name": "DailyObjects Power Banks & Wireless Chargers — Amazon India",
+    "description": "Browse Amazon India search results for DailyObjects power banks and wireless charging accessories. Check each listing for compatibility and current price.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=DailyObjects+power+bank+wireless+charger&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Bags",
+    "name": "DailyObjects Bags & Backpacks — Amazon India",
+    "description": "Browse DailyObjects bags, sling bags and backpacks listed in Amazon India search results. Availability and prices may vary by listing.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=DailyObjects+bag+backpack+sling&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Watch Accessories",
+    "name": "DailyObjects Watch Bands — Amazon India",
+    "description": "Browse Amazon India search results for DailyObjects watch straps and bands. Confirm watch model compatibility on the product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=DailyObjects+watch+band+strap&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Computer Accessories",
+    "name": "DailyObjects Laptop Sleeves & Organisers — Amazon India",
+    "description": "Browse DailyObjects laptop sleeves, tech organisers and work accessories on Amazon India. Check dimensions and compatibility on each listing.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=DailyObjects+laptop+sleeve+tech+organiser&tag=worthsy01-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "DailyObjects",
+    "category": "Mobile Accessories",
+    "name": "DailyObjects MagSafe Accessories — Amazon India",
+    "description": "Browse Amazon India search results for DailyObjects MagSafe-compatible accessories. Verify device compatibility and included accessories before buying.",
+    "price": "",
+    "link": "https://www.amazon.in/s?k=DailyObjects+MagSafe+accessories&tag=worthsy01-21",
+    "images": []
   }
 ]
