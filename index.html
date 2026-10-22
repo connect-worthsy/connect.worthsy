@@ -720,7 +720,8 @@
                     });
                     const words = q.split(/\s+/), LIM = 30; let hits = 0;
                     (window.WORTHSY_PRODUCTS || []).forEach(function (p) {
-                        const hay = ((p.name || '') + ' ' + (p.merchant || '') + ' ' + (p.category || '') + ' ' + (p.platform || '') + ' ' + (p.description || '')).toLowerCase();
+                        const hay = ((p.name || '') + ' ' + (p.merchant || '') + ' ' + (p.brand || '') + ' ' + (p.category || '') + ' ' + (p.platform || '') + ' ' + (p.description || '') + ' ' + (p.link || '') + ' ' + (p.url || '') + ' ' + (p.fallback_image || '') + ' ' + (Array.isArray(p.images) ? p.images.join(' ') : '')).toLowerCase();
+                        if (/daily[\\s._-]*objects/i.test(hay)) return;
                         if (!words.every(function (w) { return hay.indexOf(w) !== -1; })) return;
                         hits++;
                         if (hits <= LIM) { out.appendChild(row(p.merchant || p.platform, (p.name || 'Product') + (p.price ? ' \u2014 ' + p.price : ''), p.link, true)); found++; }
