@@ -580,7 +580,7 @@
             }
             function empty(text) { const d = el('div', 'col-span-full text-center py-16 bg-[#252380]/60 luxury-border'); d.appendChild(el('p', 'logo-wordmark text-2xl text-brandAccent mb-2', 'Products coming soon')); d.appendChild(el('p', 'text-slate-400 text-xs font-mono', text)); return d; }
             function fill(g, items) {
-                const PAGE = 24;
+                const PAGE = g.dataset.platform === 'amazon' ? 100 : 24;
                 let n = 0, current = items.slice(), selectedCategory = 'All', sortMode = 'featured';
                 const isAmazon = g.dataset.platform === 'amazon';
                 const isAwin = g.dataset.platform === 'awin';
