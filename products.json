@@ -4419,5 +4419,31 @@
       "https://www.boat-lifestyle.com/cdn/shop/files/Stone_193_Main.png"
     ],
     "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Stone_193_Main.png"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers",
+    "name": "boAt Stone 190 Portable Bluetooth Speaker",
+    "description": "Compact 5W portable Bluetooth speaker with AUX connectivity, built-in microphone and water resistance. Check the Amazon listing for current colour and availability.",
+    "price": "Check Amazon for current price",
+    "link": "https://www.amazon.in/dp/B08447LB79?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/products/stone-190-black.png"
+    ],
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/products/stone-190-black.png"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers",
+    "name": "boAt Stone 650 Bluetooth Speaker",
+    "description": "10W Bluetooth speaker with stereo sound, integrated controls and IPX5 water resistance. Check Amazon for current price and colour availability.",
+    "price": "Check Amazon for current price",
+    "link": "https://www.amazon.in/dp/B07NBWT3Z2?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/products/Stone650_Black_1.png"
+    ],
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/products/Stone650_Black_1.png"
   }
 ]
