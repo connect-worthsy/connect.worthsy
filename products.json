@@ -4769,5 +4769,53 @@
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B0DFYL4635.01._SCLZZZZZZZ_.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Noise",
+    "category": "Smartwatches",
+    "name": "Noise Twist Go Smart Watch 1.39\" Display (Jet Black)",
+    "description": "Smartwatch with a 1.39-inch display, Bluetooth calling, IP68 resistance, sleep tracking and 100+ sports modes.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CQ4KTCH1?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CQ4KTCH1.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Noise",
+    "category": "Smartwatches",
+    "name": "Noise Pulse 2 Max 1.85\" Bluetooth Calling Smart Watch (Jet Black)",
+    "description": "Smartwatch with a 1.85-inch display, Bluetooth calling, up to 10 days of battery life, 550-nit brightness and 100 sports modes.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B6BLTGTT?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B6BLTGTT.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Noise",
+    "category": "Earbuds",
+    "name": "Noise Buds N1 True Wireless Earbuds (Carbon Black)",
+    "description": "True wireless earbuds with chrome finish, up to 40 hours of playtime, quad microphones with ENC and low-latency mode.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CQJWMMG7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CQJWMMG7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Noise",
+    "category": "Headphones",
+    "name": "Noise Airwave Max 5 Wireless Over-Ear Headphones (Calm Beige)",
+    "description": "Wireless over-ear headphones with adaptive hybrid active noise cancellation up to 50 dB, up to 80 hours of playtime and dual pairing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DGV6TB8D?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0DGV6TB8D.01._SCLZZZZZZZ_.jpg"
+    ]
   }
 ]
