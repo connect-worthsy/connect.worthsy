@@ -4653,5 +4653,27 @@
       "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w%3A460/boat/494410586/0/_XKTo1T6TD-T6iUe9mA7h-boAt-Aavante-A1040-Bar-494410586-i-1-1200Wx1200H.jpeg"
     ],
     "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w%3A460/boat/494410586/0/_XKTo1T6TD-T6iUe9mA7h-boAt-Aavante-A1040-Bar-494410586-i-1-1200Wx1200H.jpeg"
+  },
+  {
+    "platform": "amazon",
+    "category": "Headphones",
+    "name": "boAt Rockerz 450 Wireless Headphones (Aqua Blue)",
+    "description": "Wireless headphones with 40mm drivers, padded ear cushions and up to 15 hours playback.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08667772G?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08667772G.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Earbuds",
+    "name": "boAt Airdopes Joy True Wireless Earbuds (Jet Black)",
+    "description": "Wireless earbuds with low-latency mode, ENx microphones and up to 35 hours playback.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C3ZYFZ77?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C3ZYFZ77.01._SCLZZZZZZZ_.jpg"
+    ]
   }
 ]
