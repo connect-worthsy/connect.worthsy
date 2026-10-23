@@ -608,11 +608,38 @@
             card.addEventListener('click', function (event) {
                 event.preventDefault();
                 location.hash = 'amazon';
-                const searchBox = document.getElementById('product-search') || document.querySelector('input[type="search"]');
-                if (searchBox) {
-                    searchBox.value = name;
-                    searchBox.dispatchEvent(new Event('input', { bubbles: true }));
+                const normalizedBrand = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+                function filterBrandProducts() {
+                    const amazonGrid = document.getElementById('products-amazon');
+                    const allCards = Array.from(document.querySelectorAll('.product-card'));
+                    let visibleCount = 0;
+                    allCards.forEach(function (productCard) {
+                        const inAmazon = !!(amazonGrid && amazonGrid.contains(productCard));
+                        const productText = (productCard.innerText || productCard.textContent || '').toLowerCase();
+                        const normalizedText = productText.replace(/[^a-z0-9]/g, '');
+                        const matches = inAmazon && normalizedText.includes(normalizedBrand);
+                        productCard.style.display = matches ? '' : 'none';
+                        if (matches) visibleCount++;
+                    });
+                    const searchBox = document.getElementById('product-search') || document.querySelector('input[type="search"]');
+                    if (searchBox) {
+                        searchBox.value = name;
+                        searchBox.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+                    let notice = document.getElementById('brand-filter-notice');
+                    if (!notice && amazonGrid) {
+                        notice = document.createElement('p');
+                        notice.id = 'brand-filter-notice';
+                        notice.className = 'col-span-full text-center text-sm font-mono text-slate-300 py-4';
+                        amazonGrid.parentNode.insertBefore(notice, amazonGrid);
+                    }
+                    if (notice) notice.textContent = visibleCount
+                        ? 'Showing ' + name + ' products only.'
+                        : 'No ' + name + ' products are currently listed in the Amazon section.';
                 }
+                filterBrandProducts();
+                window.setTimeout(filterBrandProducts, 250);
+                window.setTimeout(filterBrandProducts, 800);
             });
             grid.appendChild(card);
         });
