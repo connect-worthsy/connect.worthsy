@@ -178,6 +178,17 @@
         </div>
     </section>
 
+    <!-- BRANDS AVAILABLE ON WORTHSY -->
+    <section id="featured-brands" class="py-16 px-6 lg:px-12 max-w-7xl mx-auto border-t border-slate-700/50">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">BRANDS ON WORTHSY</span>
+            <h2 class="text-3xl sm:text-4xl font-black tracking-wide mb-4">Shop brands you love.</h2>
+            <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">Explore products from leading tech, audio, lifestyle and everyday brands.</p>
+        </div>
+        <div id="brand-logo-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"></div>
+        <p class="text-center text-[10px] font-mono text-slate-500 mt-6">Brand names and logos belong to their respective owners. Availability may change.</p>
+    </section>
+
     <!-- ABOUT / PHILOSOPHY -->
     <section id="about" class="py-28 px-6 lg:px-12 max-w-7xl mx-auto border-t border-slate-700/50">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -543,7 +554,72 @@
     </main>
     </div>
 
-    <script>
+        <script>
+    (function () {
+        const brands = [
+            ['boAt','boAt'],['Noise','Noise'],['Apple','Apple'],['Xiaomi','Xiaomi'],
+            ['OnePlus','OnePlus'],['Samsung','Samsung'],['DailyObjects','DailyObjects'],
+            ['Logitech','Logitech'],['Ambrane','Ambrane'],['URBN','URBN'],
+            ['TP-Link','TP-Link'],['Philips','PHILIPS'],['Havells','Havells'],
+            ['Milton','MILTON'],['Wakefit','Wakefit'],['Fujifilm','Fujifilm'],
+            ['Spigen','Spigen'],['TORRAS','TORRAS'],['SUPFINE','SUPFINE'],
+            ['FNTCASE','FNTCASE'],['Tygot','Tygot'],['NutriPro','NutriPro'],
+            ['TheGiftKart','TheGiftKart'],['Amazon','Amazon']
+        ];
+        const logoSources = {
+            'Apple':'https://cdn.simpleicons.org/apple/ffffff',
+            'Xiaomi':'https://cdn.simpleicons.org/xiaomi/ffffff',
+            'OnePlus':'https://cdn.simpleicons.org/oneplus/ffffff',
+            'Samsung':'https://cdn.simpleicons.org/samsung/ffffff',
+            'Logitech':'https://cdn.simpleicons.org/logitech/ffffff',
+            'TP-Link':'https://cdn.simpleicons.org/tplink/ffffff',
+            'Philips':'https://cdn.simpleicons.org/philips/ffffff'
+        };
+        const grid = document.getElementById('brand-logo-grid');
+        if (!grid) return;
+        brands.forEach(function (item) {
+            const name = item[0];
+            const card = document.createElement('a');
+            card.href = '#amazon';
+            card.className = 'brand-logo-card min-h-[92px] sm:min-h-[104px] bg-[#252380] luxury-border p-4 flex flex-col items-center justify-center gap-3 text-center hover:border-brandAccent hover:-translate-y-0.5 transition-all';
+            card.setAttribute('aria-label','Explore '+name+' products');
+            const mark = document.createElement('div');
+            mark.className = 'h-8 w-full flex items-center justify-center';
+            function addWordmark() {
+                const word = document.createElement('span');
+                word.className = 'logo-wordmark text-lg sm:text-xl font-black text-slate-100';
+                word.textContent = name;
+                mark.appendChild(word);
+            }
+            if (logoSources[name]) {
+                const img = document.createElement('img');
+                img.src = logoSources[name];
+                img.alt = name+' logo';
+                img.className = 'max-h-8 max-w-[100px] object-contain';
+                img.loading = 'lazy';
+                img.onerror = function () { img.remove(); addWordmark(); };
+                mark.appendChild(img);
+            } else addWordmark();
+            const label = document.createElement('span');
+            label.className = 'text-[9px] font-mono uppercase tracking-[0.18em] text-slate-400';
+            label.textContent = 'Explore brand';
+            card.appendChild(mark);
+            card.appendChild(label);
+            card.addEventListener('click', function (event) {
+                event.preventDefault();
+                location.hash = 'amazon';
+                const searchBox = document.getElementById('product-search') || document.querySelector('input[type="search"]');
+                if (searchBox) {
+                    searchBox.value = name;
+                    searchBox.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            });
+            grid.appendChild(card);
+        });
+    })();
+    </script>
+
+<script>
         (function () {
             const LABELS = { amazon: 'Amazon', flipkart: 'Flipkart', shopify: 'Shopify', clickbank: 'ClickBank', coursera: 'Coursera', awin: 'Awin' };
             function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
