@@ -4390,9 +4390,9 @@
     "price": "Check Amazon for current price",
     "link": "https://www.amazon.in/dp/B0FLYDHYY4?tag=worthsy01-21",
     "images": [
-      "https://www.boat-lifestyle.com/cdn/shop/files/Stone_1200_Pro_Main.png"
+      "https://www.myg.in/images/detailed/127/81y8cmMBngL._SL1500_-removebg-preview.png"
     ],
-    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Stone_1200_Pro_Main.png"
+    "fallback_image": "https://www.myg.in/images/detailed/127/81y8cmMBngL._SL1500_-removebg-preview.png"
   },
   {
     "platform": "amazon",
@@ -4401,11 +4401,11 @@
     "name": "boAt Stone 900 Bluetooth Speaker",
     "description": "Portable 80W Bluetooth speaker with RGB lighting, TWS mode and built-in microphone.",
     "price": "Check Amazon for current price",
-    "link": "https://www.amazon.in/dp/B0H26DYD8L?tag=worthsy01-21",
+    "link": "https://www.amazon.in/dp/B0H26HF7FW?tag=worthsy01-21",
     "images": [
-      "https://www.boat-lifestyle.com/cdn/shop/files/Stone_900_Main.png"
+      "https://i.gadgets360cdn.com/large/boat_stone_900_launch_main_1783154257245.png?downsize=950%3A%2A"
     ],
-    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Stone_900_Main.png"
+    "fallback_image": "https://i.gadgets360cdn.com/large/boat_stone_900_launch_main_1783154257245.png?downsize=950%3A%2A"
   },
   {
     "platform": "amazon",
@@ -4445,5 +4445,213 @@
       "https://www.boat-lifestyle.com/cdn/shop/products/Stone650_Black_1.png"
     ],
     "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/products/Stone650_Black_1.png"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Airdopes 163 True Wireless Earbuds (Active Black)",
+    "description": "True wireless earbuds with Bluetooth connectivity and boAt signature sound. Check Amazon listing for current specifications and variant availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CNRFYLV8?tag=worthsy01-21",
+    "images": [
+      "https://www.navinmart.com/cdn/shop/files/61yYn2PhMfL._SL1500.jpg?v=1751548054&width=1500"
+    ],
+    "fallback_image": "https://www.navinmart.com/cdn/shop/files/61yYn2PhMfL._SL1500.jpg?v=1751548054&width=1500"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Airdopes 300 True Wireless Earbuds (Gunmetal Black)",
+    "description": "True wireless earbuds with up to 50 hours playback, quad microphones with ENx technology and 10 mm drivers.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D3DH8TSC?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/71ndbdVgC7L._AC_UF1000%2C1000_QL80_.jpg"
+    ],
+    "fallback_image": "https://m.media-amazon.com/images/I/71ndbdVgC7L._AC_UF1000%2C1000_QL80_.jpg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Airdopes Joy True Wireless Earbuds (Dark Cyan)",
+    "description": "Compact true wireless earbuds for everyday listening and calls. Check Amazon listing for current specifications.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C411BWXD?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/51nEYJB7nyL.jpg"
+    ],
+    "fallback_image": "https://m.media-amazon.com/images/I/51nEYJB7nyL.jpg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Nirvana Ion ANC Pro True Wireless Earbuds",
+    "description": "Premium true wireless earbuds with active noise cancellation, LDAC support and long-playback case.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DN171184?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/Nirvana_ION_ANC_PRO_684c0fc9-5bdf-495e-b744-84a238634060.png?v=1726840039&width=1500"
+    ],
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Nirvana_ION_ANC_PRO_684c0fc9-5bdf-495e-b744-84a238634060.png?v=1726840039&width=1500"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Airdopes 800 True Wireless Earbuds (Interstellar White)",
+    "description": "True wireless earbuds with spatial audio features and long total playback. Check Amazon listing for current variant details.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D1V8CKFQ?tag=worthsy01-21",
+    "images": [
+      "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/boat/494410610/0/zwKebI9oaP-0gr9-g_470-boAt-TWS-Airdopes-800-Interstellar-White-494410610-i-1-1200Wx1200H.jpeg"
+    ],
+    "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/boat/494410610/0/zwKebI9oaP-0gr9-g_470-boAt-TWS-Airdopes-800-Interstellar-White-494410610-i-1-1200Wx1200H.jpeg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Rockerz 550 Bluetooth Over-Ear Headphones (Red)",
+    "description": "Over-ear wireless headphones for music and calls. Confirm colour and current specifications on Amazon.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0856HNLDK?tag=worthsy01-21",
+    "images": [
+      "https://media.tatacroma.com/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/246220_10_IFwFjWAFpX.png?updatedAt=1762777218948"
+    ],
+    "fallback_image": "https://media.tatacroma.com/Croma%20Assets/Entertainment/Home%20Theatres%20and%20Audio%20Systems/Images/246220_10_IFwFjWAFpX.png?updatedAt=1762777218948"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Rockerz 480 Bluetooth Headphones (Black Sabre)",
+    "description": "Wireless headphones with a gaming-oriented design and Bluetooth audio. Check Amazon for exact in-box variant and specifications.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DGTSRX3R?tag=worthsy01-21",
+    "images": [
+      "https://cdn.grofers.com/da/cms-assets/cms/product/4d5af794-b84d-461b-b114-aca26c5829bc.jpg"
+    ],
+    "fallback_image": "https://cdn.grofers.com/da/cms-assets/cms/product/4d5af794-b84d-461b-b114-aca26c5829bc.jpg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Rockerz 460 Bluetooth Headphones (Active Black)",
+    "description": "Wireless on-ear headphones with built-in controls and microphone. Check Amazon listing for current details.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CC2G8L22?tag=worthsy01-21",
+    "images": [
+      "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/boat/494443301/0/1eTSmjG_EL-65vC2XYajK-boAt-Rockerz-460-Headphones-494443301-i-1-1200Wx1200H.jpeg"
+    ],
+    "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/boat/494443301/0/1eTSmjG_EL-65vC2XYajK-boAt-Rockerz-460-Headphones-494443301-i-1-1200Wx1200H.jpeg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Neckbands",
+    "name": "boAt Rockerz 255 Pro+ Bluetooth Neckband",
+    "description": "Wireless neckband earphones with boAt signature sound, magnetic earbuds and long playback; check listing for variant details.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08TV2P1N8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/I/71nxqTTSdwL._SL1500_.jpg"
+    ],
+    "fallback_image": "https://images-na.ssl-images-amazon.com/images/I/71nxqTTSdwL._SL1500_.jpg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Neckbands",
+    "name": "boAt Rockerz 110 Bluetooth Neckband",
+    "description": "Wireless neckband earphones designed for music and hands-free calls. Check Amazon for current features and colour.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D4FH9RP9?tag=worthsy01-21",
+    "images": [
+      "https://prod4-sprcdn-assets.sprinklr.com/200052/7994b692-38af-46bb-9ba2-43460cffa666-1876950493/R111_B_%281%29.png"
+    ],
+    "fallback_image": "https://prod4-sprcdn-assets.sprinklr.com/200052/7994b692-38af-46bb-9ba2-43460cffa666-1876950493/R111_B_%281%29.png"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Wired Earphones",
+    "name": "boAt BassHeads 100 Wired Earphones (Black)",
+    "description": "Wired in-ear earphones with microphone and inline controls.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B071Z8M4KX?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/513ugd16C6L._AC_UF1000%2C1000_QL80_.jpg"
+    ],
+    "fallback_image": "https://m.media-amazon.com/images/I/513ugd16C6L._AC_UF1000%2C1000_QL80_.jpg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers",
+    "name": "boAt Stone 180 Bluetooth Speaker",
+    "description": "Compact portable Bluetooth speaker for everyday listening. Check Amazon listing for current specifications and variant.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0BK8JMBK2?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/products/d3e46a5d-cda9-49f8-a24f-b975fdd50689_600x.png?v=1625046393"
+    ],
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/products/d3e46a5d-cda9-49f8-a24f-b975fdd50689_600x.png?v=1625046393"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Power Banks",
+    "name": "boAt EnergyShroom PB300 10000mAh Power Bank (Steel Blue)",
+    "description": "10,000 mAh portable power bank with up to 22.5W charging; confirm supported charging standards on Amazon.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C7C7Z2VX?tag=worthsy01-21",
+    "images": [
+      "https://static-01.daraz.com.bd/p/254a5614a507b618ac557305250f4f32.jpg"
+    ],
+    "fallback_image": "https://static-01.daraz.com.bd/p/254a5614a507b618ac557305250f4f32.jpg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Power Banks",
+    "name": "boAt EnergyShroom PB400 Pro 20000mAh Power Bank (Steel Blue)",
+    "description": "20,000 mAh portable power bank. Check Amazon listing for supported outputs and device compatibility.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DFGZW6JG?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/61AErPaUAPL._SL1500_.jpg"
+    ],
+    "fallback_image": "https://m.media-amazon.com/images/I/61AErPaUAPL._SL1500_.jpg"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Soundbars",
+    "name": "boAt Aavante Bar A2060 2.1 Channel Soundbar",
+    "description": "160W 2.1-channel home audio system with Dolby audio. Confirm included subwoofer and connectivity on Amazon.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CZ3NZCS2?tag=worthsy01-21",
+    "images": [
+      "https://prod4-sprcdn-assets.sprinklr.com/200052/03a259c6-73d4-4da1-adcd-c426b0df43f8-1510816704/AB_A2060_Dolby_1.1284.png"
+    ],
+    "fallback_image": "https://prod4-sprcdn-assets.sprinklr.com/200052/03a259c6-73d4-4da1-adcd-c426b0df43f8-1510816704/AB_A2060_Dolby_1.1284.png"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Soundbars",
+    "name": "boAt Aavante Bar A1040 Soundbar",
+    "description": "boAt home audio soundbar. Check Amazon listing for wattage, included accessories and current variant.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DQYCCQ53?tag=worthsy01-21",
+    "images": [
+      "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w%3A460/boat/494410586/0/_XKTo1T6TD-T6iUe9mA7h-boAt-Aavante-A1040-Bar-494410586-i-1-1200Wx1200H.jpeg"
+    ],
+    "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w%3A460/boat/494410586/0/_XKTo1T6TD-T6iUe9mA7h-boAt-Aavante-A1040-Bar-494410586-i-1-1200Wx1200H.jpeg"
   }
 ]
