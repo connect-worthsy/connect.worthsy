@@ -4096,5 +4096,49 @@
     ],
     "rating": 4.4,
     "review_count": 46731
+  },
+  {
+    "platform": "amazon",
+    "category": "Earbuds",
+    "name": "OnePlus Nord Buds 3r TWS Earbuds (Aura Blue)",
+    "description": "True wireless earbuds with up to 54 hours of playback, clear calls and spatial audio.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FMDLD86P?tag=worthsy01-21",
+    "images": [
+      "https://electroconnect.in/image/cache/catalog/OnePlus-Nord-Buds-3r-TWS-Earbuds-up-to-54-Hours-Playback-2-mic-Clear-Cal/OnePlus-Nord-Buds-3r-TWS-Earbuds-up-to-54-Hours-Playback-2-mic-Clear-Calls-3D-Sp-800x800.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Earbuds",
+    "name": "boAt Airdopes 311 Pro True Wireless Earbuds (Active Black)",
+    "description": "True wireless earbuds with up to 50 hours playback, low-latency mode and fast charging.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CZ3ZPD8B?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/AD311PRO-FI_Black01.png?v=1711530452"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Bags & Backpacks",
+    "name": "FUR JADEN Anti Theft Number Lock Backpack",
+    "description": "Laptop backpack with combination lock, USB charging port and organiser pockets.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09VTDMRY7?tag=worthsy01-21",
+    "images": [
+      "https://pricehistoryapp.com/product/fur-jaden-anti-theft-number-lock-backpack-bag-with-15-6-inch-laptop-compartment-usb-charging-port-organizer-pocket-for-men-women-boys-girls"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Photography",
+    "name": "Fujifilm Instax Mini Film (20 Shots)",
+    "description": "Twenty sheets of instant film compatible with Instax Mini cameras and printers.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0000C73CQ?tag=worthsy01-21",
+    "images": [
+      "https://www.instax.in/products/mini-film-20-shots"
+    ]
   }
 ]
