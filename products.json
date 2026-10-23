@@ -4354,5 +4354,18 @@
     "images": [
       "https://images.dailyobjects.com/marche/product-images/1703/blue-ripstop-vault-tech-organiser-small-images/Blue-Ripstop-Aegis-Tech-Organiser-Small-5.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-400%2Ch-521%2Cdpr-1"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Computer Accessories",
+    "name": "DailyObjects Blue Ripstop Vault Tech Organiser",
+    "description": "DailyObjects Vault Tech Organiser pouch. Amazon listing found; confirm colour and size on the listing before purchase.",
+    "price": "₹1,299",
+    "link": "https://www.amazon.in/DailyObjects-Organiser-Accessories-Portable-Organizer/dp/B0GC6RTYTL?tag=worthsy01-21",
+    "images": [
+      "https://images.dailyobjects.com/marche/product-images/1703/blue-ripstop-vault-tech-organiser-small-images/Blue-Ripstop-Aegis-Tech-Organiser-Small-5.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-400%2Ch-521%2Cdpr-1"
+    ],
+    "fallback_image": "https://images.dailyobjects.com/marche/product-images/1703/blue-ripstop-vault-tech-organiser-small-images/Blue-Ripstop-Aegis-Tech-Organiser-Small-5.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-400%2Ch-521%2Cdpr-1"
   }
 ]
