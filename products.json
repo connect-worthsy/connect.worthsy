@@ -3812,7 +3812,7 @@
     "price": "",
     "link": "https://www.amazon.in/dp/B0C7QS9M38?tag=worthsy01-21",
     "images": [
-      "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=640&q=80"
+      "https://images-na.ssl-images-amazon.com/images/P/B0C7QS9M38.01._SCLZZZZZZZ_.jpg"
     ]
   },
   {
@@ -3900,7 +3900,7 @@
     "price": "",
     "link": "https://www.amazon.in/dp/B0F5BGTXGG?tag=worthsy01-21",
     "images": [
-      "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=640&q=80"
+      "https://images-na.ssl-images-amazon.com/images/P/B0F5BGTXGG.01._SCLZZZZZZZ_.jpg"
     ]
   },
   {
@@ -4696,6 +4696,66 @@
     "link": "https://www.amazon.in/dp/B07PR1CL3S?tag=worthsy01-21",
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B07PR1CL3S.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Nirvana 751 ANC Wireless Headphones",
+    "description": "Wireless over-ear headphones with active noise cancellation, 40 mm drivers and long playback time.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09MTQ23X4?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09MTQ23X4.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Rockerz 460 Bluetooth Headphones (Crimson White)",
+    "description": "Bluetooth headphones in Crimson White with wireless listening and cushioned ear cups.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D5HJNQD9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D5HJNQD9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Rockerz 450 Pro Bluetooth Headphones",
+    "description": "Wireless on-ear headphones with extended playback and comfortable everyday listening.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08XY16Y6J?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08XY16Y6J.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smartwatches",
+    "name": "boAt Lunar Vista Smartwatch",
+    "description": "boAt Lunar Vista smartwatch with a colour display and everyday fitness and smart features.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CF1NTL6M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CF1NTL6M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Rockerz 430 Bluetooth Headphones",
+    "description": "Wireless Bluetooth headphones designed for everyday music and calls.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DGTSTQWL?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0DGTSTQWL.01._SCLZZZZZZZ_.jpg"
     ]
   }
 ]
