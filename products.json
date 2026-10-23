@@ -4367,5 +4367,57 @@
       "https://images.dailyobjects.com/marche/product-images/1703/blue-ripstop-vault-tech-organiser-small-images/Blue-Ripstop-Aegis-Tech-Organiser-Small-5.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-400%2Ch-521%2Cdpr-1"
     ],
     "fallback_image": "https://images.dailyobjects.com/marche/product-images/1703/blue-ripstop-vault-tech-organiser-small-images/Blue-Ripstop-Aegis-Tech-Organiser-Small-5.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-400%2Ch-521%2Cdpr-1"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers",
+    "name": "boAt Stone 352 Pro Bluetooth Speaker",
+    "description": "14W portable Bluetooth speaker with RGB LEDs, TWS, built-in mic and IPX5 resistance.",
+    "price": "Check Amazon for current price",
+    "link": "https://www.amazon.in/dp/B0D6W7F7WH?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/Stone_352_Pro_Main.png"
+    ],
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Stone_352_Pro_Main.png"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers",
+    "name": "boAt Stone 1200 Pro Bluetooth Speaker",
+    "description": "Portable 60W Bluetooth speaker with IPX6 resistance and TWS mode.",
+    "price": "Check Amazon for current price",
+    "link": "https://www.amazon.in/dp/B0FLYDHYY4?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/Stone_1200_Pro_Main.png"
+    ],
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Stone_1200_Pro_Main.png"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers",
+    "name": "boAt Stone 900 Bluetooth Speaker",
+    "description": "Portable 80W Bluetooth speaker with RGB lighting, TWS mode and built-in microphone.",
+    "price": "Check Amazon for current price",
+    "link": "https://www.amazon.in/dp/B0H26DYD8L?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/Stone_900_Main.png"
+    ],
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Stone_900_Main.png"
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers",
+    "name": "boAt Stone 193 Type-C Bluetooth Speaker",
+    "description": "Compact 5W Bluetooth speaker with Type-C charging and IPX7 water resistance.",
+    "price": "Check Amazon for current price",
+    "link": "https://www.amazon.in/dp/B0DQQ3S4HH?tag=worthsy01-21",
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/Stone_193_Main.png"
+    ],
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Stone_193_Main.png"
   }
 ]
