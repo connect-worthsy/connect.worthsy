@@ -4705,8 +4705,11 @@
     "description": "Redmi smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Redmi+Watch+Move+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Redmi"
+    "images": [
+      "https://www.bigcmobiles.com/media/catalog/product/cache/e19e56cdd4cf1b4ec073d4305f5db95a/r/e/redmi_watch_move_blue_blaze_-4.png"
+    ],
+    "brand": "Redmi",
+    "fallback_image": "https://www.bigcmobiles.com/media/catalog/product/cache/e19e56cdd4cf1b4ec073d4305f5db95a/r/e/redmi_watch_move_blue_blaze_-4.png"
   },
   {
     "platform": "amazon",
@@ -4715,8 +4718,11 @@
     "description": "Redmi smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Redmi+Watch+5+Active+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Redmi"
+    "images": [
+      "https://brother-mart.com/cdn/shop/files/Redmi-Watch-5-Active-Smartwatch-Midnight-Black.jpg?v=1729152092&width=1445"
+    ],
+    "brand": "Redmi",
+    "fallback_image": "https://brother-mart.com/cdn/shop/files/Redmi-Watch-5-Active-Smartwatch-Midnight-Black.jpg?v=1729152092&width=1445"
   },
   {
     "platform": "amazon",
@@ -4745,8 +4751,11 @@
     "description": "Redmi smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Redmi+Watch+4+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Redmi"
+    "images": [
+      "https://xiaomistoreph.com/cdn/shop/files/XM_RedmiWatch4_WBG_2_1024x1024.jpg?v=1749552940"
+    ],
+    "brand": "Redmi",
+    "fallback_image": "https://xiaomistoreph.com/cdn/shop/files/XM_RedmiWatch4_WBG_2_1024x1024.jpg?v=1749552940"
   },
   {
     "platform": "amazon",
@@ -4755,8 +4764,11 @@
     "description": "Xiaomi smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Xiaomi+Watch+S4+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Xiaomi"
+    "images": [
+      "https://i4.momoshop.com.tw/1756270947/goodsimg/0013/756/843/spec/13756843_01_001_R_m.webp"
+    ],
+    "brand": "Xiaomi",
+    "fallback_image": "https://i4.momoshop.com.tw/1756270947/goodsimg/0013/756/843/spec/13756843_01_001_R_m.webp"
   },
   {
     "platform": "amazon",
@@ -4775,8 +4787,11 @@
     "description": "Xiaomi smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Xiaomi+Smart+Band+10+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Xiaomi"
+    "images": [
+      "https://image.rakuten.co.jp/biccamera/cabinet/product/13192/00000014185739_a01.jpg"
+    ],
+    "brand": "Xiaomi",
+    "fallback_image": "https://image.rakuten.co.jp/biccamera/cabinet/product/13192/00000014185739_a01.jpg"
   },
   {
     "platform": "amazon",
@@ -4785,8 +4800,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Watch8+40mm+Bluetooth+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://nirex.ba/17110-large_default/samsung-galaxy-watch8-40mm-bt-silver-sm-l320.jpg"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://nirex.ba/17110-large_default/samsung-galaxy-watch8-40mm-bt-silver-sm-l320.jpg"
   },
   {
     "platform": "amazon",
@@ -4795,8 +4813,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Watch8+44mm+Bluetooth+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://galaxy.hu/cdn/shop/files/SM-L335_003_LPerspective_Graphite.png?v=1752087423&width=2400"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://galaxy.hu/cdn/shop/files/SM-L335_003_LPerspective_Graphite.png?v=1752087423&width=2400"
   },
   {
     "platform": "amazon",
@@ -4805,8 +4826,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Watch8+LTE+40mm+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://cdn.ermitazas.lt/product/7/d/8/4/7d8409d50bfe3a9d8cdc6e9a6c457c2ef9df31d4/40f537e173f671a6660c0d283a1ec1edd3e9b7ee.png"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://cdn.ermitazas.lt/product/7/d/8/4/7d8409d50bfe3a9d8cdc6e9a6c457c2ef9df31d4/40f537e173f671a6660c0d283a1ec1edd3e9b7ee.png"
   },
   {
     "platform": "amazon",
@@ -4845,8 +4869,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Watch7+44mm+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/145062246/145062246_0_MC/93021715.png"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/145062246/145062246_0_MC/93021715.png"
   },
   {
     "platform": "amazon",
@@ -4915,8 +4942,11 @@
     "description": "Apple smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Apple+Watch+Series+10+GPS+46mm+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Apple"
+    "images": [
+      "https://www.ditur.com/media/catalog/product/cache/072e8016279ede615a367e5d730a8c07/m/w/mwwq3qn-a-6_1_1.jpg"
+    ],
+    "brand": "Apple",
+    "fallback_image": "https://www.ditur.com/media/catalog/product/cache/072e8016279ede615a367e5d730a8c07/m/w/mwwq3qn-a-6_1_1.jpg"
   },
   {
     "platform": "amazon",
@@ -4925,8 +4955,11 @@
     "description": "Apple smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Apple+Watch+Series+11+GPS+42mm+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Apple"
+    "images": [
+      "https://cdnimage.eureka.com.kw/productimages/largeimages/apple-meu04afa--apple-watch-series-n8fst.jpg?maxheight=400&maxwidth=400&quality=100&v=2898"
+    ],
+    "brand": "Apple",
+    "fallback_image": "https://cdnimage.eureka.com.kw/productimages/largeimages/apple-meu04afa--apple-watch-series-n8fst.jpg?maxheight=400&maxwidth=400&quality=100&v=2898"
   },
   {
     "platform": "amazon",
@@ -4935,8 +4968,11 @@
     "description": "Apple smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Apple+Watch+Series+11+GPS+46mm+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Apple"
+    "images": [
+      "https://eshop.hkcsl.com/on/demandware.static/-/Sites-master-hkt-hk/default/dw819f5414/images/4030521scol/4030521_1.jpg"
+    ],
+    "brand": "Apple",
+    "fallback_image": "https://eshop.hkcsl.com/on/demandware.static/-/Sites-master-hkt-hk/default/dw819f5414/images/4030521scol/4030521_1.jpg"
   },
   {
     "platform": "amazon",
@@ -4965,8 +5001,11 @@
     "description": "Noise smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Noise+ColorFit+Pulse+2+Max+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Noise"
+    "images": [
+      "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w%3A460/noise/493837997/0/rRjhJjKNdR-1tlq1FcZve-Noise-Color-Fit-Pulse-2-Max-493837997-i-1-1200Wx1200H.jpeg"
+    ],
+    "brand": "Noise",
+    "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w%3A460/noise/493837997/0/rRjhJjKNdR-1tlq1FcZve-Noise-Color-Fit-Pulse-2-Max-493837997-i-1-1200Wx1200H.jpeg"
   },
   {
     "platform": "amazon",
@@ -4985,8 +5024,11 @@
     "description": "Noise smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Noise+ColorFit+Pro+5+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Noise"
+    "images": [
+      "https://static.digit.in/Noise-ColorFit-Pro-5-launched-in-india-650.png"
+    ],
+    "brand": "Noise",
+    "fallback_image": "https://static.digit.in/Noise-ColorFit-Pro-5-launched-in-india-650.png"
   },
   {
     "platform": "amazon",
@@ -5015,8 +5057,11 @@
     "description": "Noise smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Noise+ColorFit+Ultra+3+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Noise"
+    "images": [
+      "https://cdn.giftstoindia24x7.com/ASP_Img/IMG2000/GTI444912.jpg"
+    ],
+    "brand": "Noise",
+    "fallback_image": "https://cdn.giftstoindia24x7.com/ASP_Img/IMG2000/GTI444912.jpg"
   },
   {
     "platform": "amazon",
@@ -5025,8 +5070,11 @@
     "description": "Noise smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Noise+Vortex+Plus+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Noise"
+    "images": [
+      "https://www.addmecart.com/uploads/71107701025407_1_123-3.png"
+    ],
+    "brand": "Noise",
+    "fallback_image": "https://www.addmecart.com/uploads/71107701025407_1_123-3.png"
   },
   {
     "platform": "amazon",
