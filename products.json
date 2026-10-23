@@ -5499,8 +5499,11 @@
     "description": "Fastrack smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fastrack+Ryz+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fastrack"
+    "images": [
+      "https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw462d4c4d/images/Fastrack/Catalog/68062PP01K_1.jpg?sh=800&sw=800"
+    ],
+    "brand": "Fastrack",
+    "fallback_image": "https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw462d4c4d/images/Fastrack/Catalog/68062PP01K_1.jpg?sh=800&sw=800"
   },
   {
     "platform": "amazon",
@@ -5519,8 +5522,11 @@
     "description": "Fastrack smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fastrack+Xtreme+Adventure+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fastrack"
+    "images": [
+      "https://www.fastrack.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dwa53711f1/images/Fastrack/Catalog/38202PP02K_1.jpg?sh=800&sw=800"
+    ],
+    "brand": "Fastrack",
+    "fallback_image": "https://www.fastrack.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dwa53711f1/images/Fastrack/Catalog/38202PP02K_1.jpg?sh=800&sw=800"
   },
   {
     "platform": "amazon",
@@ -5529,8 +5535,11 @@
     "description": "Fastrack smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fastrack+Limitless+X2+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fastrack"
+    "images": [
+      "https://static.toiimg.com/thumb/resizemode-4%2Cmsid-109593682%2Cwidth-1070/109593682.jpg"
+    ],
+    "brand": "Fastrack",
+    "fallback_image": "https://static.toiimg.com/thumb/resizemode-4%2Cmsid-109593682%2Cwidth-1070/109593682.jpg"
   },
   {
     "platform": "amazon",
@@ -5539,8 +5548,11 @@
     "description": "Fastrack smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fastrack+VOX+Neo+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fastrack"
+    "images": [
+      "https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw688a472e/images/Fastrack/Catalog/38180PP01K_1.jpg?sh=800&sw=800"
+    ],
+    "brand": "Fastrack",
+    "fallback_image": "https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw688a472e/images/Fastrack/Catalog/38180PP01K_1.jpg?sh=800&sw=800"
   },
   {
     "platform": "amazon",
@@ -5549,8 +5561,11 @@
     "description": "Fastrack smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fastrack+Jupiter+R3+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fastrack"
+    "images": [
+      "https://www.fastrack.in/on/demandware.static/-/Sites-titan-master-catalog/default/dw00024014/images/Fastrack/Catalog/38204PP03K_1.jpg"
+    ],
+    "brand": "Fastrack",
+    "fallback_image": "https://www.fastrack.in/on/demandware.static/-/Sites-titan-master-catalog/default/dw00024014/images/Fastrack/Catalog/38204PP03K_1.jpg"
   },
   {
     "platform": "amazon",
@@ -5559,8 +5574,11 @@
     "description": "Fastrack smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fastrack+Jupiter+S3+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fastrack"
+    "images": [
+      "https://www.fastrack.in/on/demandware.static/-/Sites-titan-master-catalog/default/dw2d992d49/images/Fastrack/Catalog/38203PP03K_1.jpg"
+    ],
+    "brand": "Fastrack",
+    "fallback_image": "https://www.fastrack.in/on/demandware.static/-/Sites-titan-master-catalog/default/dw2d992d49/images/Fastrack/Catalog/38203PP03K_1.jpg"
   },
   {
     "platform": "amazon",
@@ -5729,8 +5747,11 @@
     "description": "Amazfit smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Amazfit+Active+2+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Amazfit"
+    "images": [
+      "https://motionview.s3.amazonaws.com/images/products/profile/177545204380.amazfit-active-2..webp"
+    ],
+    "brand": "Amazfit",
+    "fallback_image": "https://motionview.s3.amazonaws.com/images/products/profile/177545204380.amazfit-active-2..webp"
   },
   {
     "platform": "amazon",
@@ -5739,8 +5760,11 @@
     "description": "Amazfit smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Amazfit+Balance+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Amazfit"
+    "images": [
+      "https://tshop.r10s.jp/kadecoco/cabinet/amazfit/6972596107422.jpg?fitin=720%3A720"
+    ],
+    "brand": "Amazfit",
+    "fallback_image": "https://tshop.r10s.jp/kadecoco/cabinet/amazfit/6972596107422.jpg?fitin=720%3A720"
   },
   {
     "platform": "amazon",
@@ -5749,8 +5773,11 @@
     "description": "Amazfit smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Amazfit+T-Rex+3+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Amazfit"
+    "images": [
+      "https://motionview.com.bd/_next/image?q=75&url=https%3A%2F%2Fmotionview.s3.amazonaws.com%2Fimages%2Fproducts%2Fgallery_image%2F174642865353.Amazfit+T-Rex+3.2.webp&w=3840"
+    ],
+    "brand": "Amazfit",
+    "fallback_image": "https://motionview.com.bd/_next/image?q=75&url=https%3A%2F%2Fmotionview.s3.amazonaws.com%2Fimages%2Fproducts%2Fgallery_image%2F174642865353.Amazfit+T-Rex+3.2.webp&w=3840"
   },
   {
     "platform": "amazon",
@@ -5759,8 +5786,11 @@
     "description": "Amazfit smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Amazfit+GTR+Mini+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Amazfit"
+    "images": [
+      "https://tweakers.net/ext/i/2006004410.jpeg"
+    ],
+    "brand": "Amazfit",
+    "fallback_image": "https://tweakers.net/ext/i/2006004410.jpeg"
   },
   {
     "platform": "amazon",
@@ -5769,8 +5799,11 @@
     "description": "Amazfit smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Amazfit+GTS+4+Mini+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Amazfit"
+    "images": [
+      "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/amazfit/493177601/0/jrLvcJBGlT-97f3AX8MnC-Amazfit-GTS-4-mini-SW-493177601-i-1-1200Wx1200H.jpeg"
+    ],
+    "brand": "Amazfit",
+    "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/amazfit/493177601/0/jrLvcJBGlT-97f3AX8MnC-Amazfit-GTS-4-mini-SW-493177601-i-1-1200Wx1200H.jpeg"
   },
   {
     "platform": "amazon",
@@ -5809,8 +5842,11 @@
     "description": "Huawei smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Huawei+Band+10+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Huawei"
+    "images": [
+      "https://gomagcdn.ro/domains/dualstore.ro/files/product/original/huawei-band-10-matte-black-curea-fluoroelastomer-black-098127.jpg"
+    ],
+    "brand": "Huawei",
+    "fallback_image": "https://gomagcdn.ro/domains/dualstore.ro/files/product/original/huawei-band-10-matte-black-curea-fluoroelastomer-black-098127.jpg"
   },
   {
     "platform": "amazon",
@@ -5819,8 +5855,11 @@
     "description": "Huawei smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Huawei+Band+11+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Huawei"
+    "images": [
+      "https://img01.huaweifile.com/sg/ms/ph/pms/uomcdn/PH_HW_B2B2C/pms/202602/gbom/6942103182396/800_800_BDB28833115BE2BC385FE39FA867DCF5mp.webp"
+    ],
+    "brand": "Huawei",
+    "fallback_image": "https://img01.huaweifile.com/sg/ms/ph/pms/uomcdn/PH_HW_B2B2C/pms/202602/gbom/6942103182396/800_800_BDB28833115BE2BC385FE39FA867DCF5mp.webp"
   },
   {
     "platform": "amazon",
@@ -5859,8 +5898,11 @@
     "description": "OnePlus smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=OnePlus+Watch+Nord+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "OnePlus"
+    "images": [
+      "https://img-prd-pim.poorvika.com/product/oneplus-nord-watch-midnight-black-front-view.png"
+    ],
+    "brand": "OnePlus",
+    "fallback_image": "https://img-prd-pim.poorvika.com/product/oneplus-nord-watch-midnight-black-front-view.png"
   },
   {
     "platform": "amazon",
