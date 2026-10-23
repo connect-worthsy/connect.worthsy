@@ -4140,5 +4140,49 @@
     "images": [
       "https://www.instax.in/cdn/shop/files/Group2087331285.webp?v=1784866995&width=800"
     ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Mobile Accessories",
+    "name": "TheGiftKart Crystal Clear Back Cover Case for iPhone 15",
+    "description": "Transparent PC and TPU bumper case for iPhone 15 with a slim profile and everyday scratch and impact protection.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CGRH4FWB?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/419Tk4qRF%2BL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Mobile Accessories",
+    "name": "TheGiftKart Crystal Clear Back Cover Case for iPhone 16",
+    "description": "Clear PC and TPU back cover for iPhone 16, designed for a lightweight fit and everyday protection.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DF5PZBTN?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/41HW4o%2BN%2BuL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Mobile Accessories",
+    "name": "TheGiftKart Crystal Clear Back Cover Case for iPhone 17",
+    "description": "Transparent shock-resistant PC and TPU back cover for iPhone 17 with raised protection around the camera and screen.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FN89T4ZB?tag=worthsy01-21",
+    "images": [
+      "https://www.pbtech.co.nz/imgprod/M/P/MPPSGP10376.jpg?h=429625216"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Mobile Accessories",
+    "name": "TheGiftKart Crystal Clear Back Cover Case for iPhone 17 Pro",
+    "description": "Clear PC and TPU bumper back cover for iPhone 17 Pro with a slim design and everyday scratch and impact protection.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FN8B78Y3?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/418SEB6jovL.jpg"
+    ]
   }
 ]
