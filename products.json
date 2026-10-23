@@ -5093,8 +5093,11 @@
     "description": "Noise smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Noise+Twist+Go+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Noise"
+    "images": [
+      "https://media.tatacroma.com/Croma%20Assets/Communication/Wearable%20Devices/Images/305114_3_9JFXL972Cd.png?updatedAt=1758550630722"
+    ],
+    "brand": "Noise",
+    "fallback_image": "https://media.tatacroma.com/Croma%20Assets/Communication/Wearable%20Devices/Images/305114_3_9JFXL972Cd.png?updatedAt=1758550630722"
   },
   {
     "platform": "amazon",
@@ -5173,8 +5176,11 @@
     "description": "boAt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=boAt+Wave+Sigma+3+Curv+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "boAt"
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/Feature1_2de511a9-e578-486f-ac5e-977d0529697a_1800x.png?v=1773729697"
+    ],
+    "brand": "boAt",
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Feature1_2de511a9-e578-486f-ac5e-977d0529697a_1800x.png?v=1773729697"
   },
   {
     "platform": "amazon",
@@ -5193,8 +5199,11 @@
     "description": "boAt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=boAt+Storm+Call+4+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "boAt"
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/SMWHMGMQG4CZT2UB_0.png?v=1779888319"
+    ],
+    "brand": "boAt",
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/SMWHMGMQG4CZT2UB_0.png?v=1779888319"
   },
   {
     "platform": "amazon",
@@ -5203,8 +5212,11 @@
     "description": "boAt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=boAt+Storm+Blaze+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "boAt"
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/Frame1597880585_1500x.png?v=1782364609"
+    ],
+    "brand": "boAt",
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/Frame1597880585_1500x.png?v=1782364609"
   },
   {
     "platform": "amazon",
@@ -5213,8 +5225,11 @@
     "description": "boAt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=boAt+Lunar+Discovery+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "boAt"
+    "images": [
+      "https://m.media-amazon.com/images/I/71YEWzK8eyL._SX569_.jpg"
+    ],
+    "brand": "boAt",
+    "fallback_image": "https://m.media-amazon.com/images/I/71YEWzK8eyL._SX569_.jpg"
   },
   {
     "platform": "amazon",
@@ -5223,8 +5238,11 @@
     "description": "boAt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=boAt+Lunar+Discovery+Neo+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "boAt"
+    "images": [
+      "https://cdn.grofers.com/da/cms-assets/cms/product/c750966e528541dab11bc3fe982e4e18.jpeg"
+    ],
+    "brand": "boAt",
+    "fallback_image": "https://cdn.grofers.com/da/cms-assets/cms/product/c750966e528541dab11bc3fe982e4e18.jpeg"
   },
   {
     "platform": "amazon",
@@ -5283,8 +5301,11 @@
     "description": "boAt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=boAt+Enigma+Gem+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "boAt"
+    "images": [
+      "https://www.boat-lifestyle.com/cdn/shop/files/EnigmaGem-FI_Gold01_1200x.png?v=1735548336"
+    ],
+    "brand": "boAt",
+    "fallback_image": "https://www.boat-lifestyle.com/cdn/shop/files/EnigmaGem-FI_Gold01_1200x.png?v=1735548336"
   },
   {
     "platform": "amazon",
@@ -5293,8 +5314,11 @@
     "description": "boAt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=boAt+Wave+Fury+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "boAt"
+    "images": [
+      "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/h210uEKvmi-boat-wave-fury-smartwatch-494422055-i-1-1200wx1200h.jpeg"
+    ],
+    "brand": "boAt",
+    "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/h210uEKvmi-boat-wave-fury-smartwatch-494422055-i-1-1200wx1200h.jpeg"
   },
   {
     "platform": "amazon",
@@ -5323,8 +5347,11 @@
     "description": "Fire-Boltt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fire-Boltt+Ninja+Call+Pro+Plus+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fire-Boltt"
+    "images": [
+      "https://www.fireboltt.com/cdn/shop/files/2_fe99465c-a1fc-4c0e-8a6d-72ed8bfebf70_1800x1800.jpg?v=1768049611"
+    ],
+    "brand": "Fire-Boltt",
+    "fallback_image": "https://www.fireboltt.com/cdn/shop/files/2_fe99465c-a1fc-4c0e-8a6d-72ed8bfebf70_1800x1800.jpg?v=1768049611"
   },
   {
     "platform": "amazon",
@@ -5343,8 +5370,11 @@
     "description": "Fire-Boltt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fire-Boltt+Phoenix+Ultra+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fire-Boltt"
+    "images": [
+      "https://www.fireboltt.com/cdn/shop/files/2_fae5a83e-8240-49b9-bef2-b0c1c7015955_1080x.jpg?v=1779431141"
+    ],
+    "brand": "Fire-Boltt",
+    "fallback_image": "https://www.fireboltt.com/cdn/shop/files/2_fae5a83e-8240-49b9-bef2-b0c1c7015955_1080x.jpg?v=1779431141"
   },
   {
     "platform": "amazon",
@@ -5373,8 +5403,11 @@
     "description": "Fire-Boltt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fire-Boltt+Elemento+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fire-Boltt"
+    "images": [
+      "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/fire-boltt/494351875/0/JT1E9R-lG2-F6yczrwr5O-Fire-Boltt-Elemento-494351875-i-1-1200Wx1200H.jpeg"
+    ],
+    "brand": "Fire-Boltt",
+    "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/original/fire-boltt/494351875/0/JT1E9R-lG2-F6yczrwr5O-Fire-Boltt-Elemento-494351875-i-1-1200Wx1200H.jpeg"
   },
   {
     "platform": "amazon",
@@ -5393,8 +5426,11 @@
     "description": "Fire-Boltt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Fire-Boltt+Assault+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Fire-Boltt"
+    "images": [
+      "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w%3A460/fire-boltt/494582866/1/_7bgBeN9P3-nk1npeUcva-Fire-Boltt-Assault-Smartwatch-494582866-i-2-1200Wx1200H.jpeg"
+    ],
+    "brand": "Fire-Boltt",
+    "fallback_image": "https://cdn.jiostore.online/v2/jmd-asp/jdprod/wrkr/products/pictures/item/free/resize-w%3A460/fire-boltt/494582866/1/_7bgBeN9P3-nk1npeUcva-Fire-Boltt-Assault-Smartwatch-494582866-i-2-1200Wx1200H.jpeg"
   },
   {
     "platform": "amazon",
