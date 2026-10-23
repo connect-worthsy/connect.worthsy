@@ -4318,5 +4318,53 @@
     "images": [
       "https://m.media-amazon.com/images/I/51tTCy1kFgL.jpg"
     ]
+  },
+  {
+    "platform": "dailyobjects",
+    "merchant": "DailyObjects",
+    "category": "Mobile Accessories",
+    "name": "DailyObjects Raven Stack Clear Phone Case Cover for iPhone 17 Pro Max",
+    "description": "Clear Stack phone case with MagSafe compatibility, scratch resistance, raised camera bezel and modular Stack-and-Lock accessories.",
+    "price": "₹1,799",
+    "link": "https://www.dailyobjects.com/raven-stack-clear-phone-case-cover-for-iphone-17-pro-max/dp?f=pid~RAVN-STCK-CLR-AP-IPH17PROMAX",
+    "images": [
+      "https://images.dailyobjects.com/marche/product-images/1101/raven-stack-clear-phone-case-cover-for-iphone-17-pro-max-images/Raven-Stack-Phone-Case-Cover-for-iPhone-17-Pro-Max-2.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-393%2Ch-521%2Cdpr-1"
+    ]
+  },
+  {
+    "platform": "dailyobjects",
+    "merchant": "DailyObjects",
+    "category": "Creator Gear",
+    "name": "DailyObjects Tangerine Park Tech Kit",
+    "description": "Hard-shell tech organiser with flat-lay opening, mesh zip pocket and slip pocket for everyday cables and accessories.",
+    "price": "₹2,999",
+    "link": "https://www.dailyobjects.com/tangerine-park-tech-kit/dp?f=pid~MANDARIN-PRK-TECH-KIT&s=referer~lp",
+    "images": [
+      "https://images.dailyobjects.com/marche/product-images/1703/tangerine-park-tech-kit-images/Mandarin-park-tech-kit-vw.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-800%2Cdpr-1"
+    ]
+  },
+  {
+    "platform": "dailyobjects",
+    "merchant": "DailyObjects",
+    "category": "Computer Accessories",
+    "name": "DailyObjects Blue Ripstop Vault Tech Organiser — Small",
+    "description": "Compact water-resistant ripstop organiser with multiple pockets for chargers, cables, earbuds and other tech essentials.",
+    "price": "₹1,199",
+    "link": "https://www.dailyobjects.com/blue-ripstop-vault-tech-organiser-small/dp?f=pid~BLUE-RPSTP-VULT-TECH-ORGNISER-SML&s=referer~lp",
+    "images": [
+      "https://images.dailyobjects.com/marche/product-images/1703/blue-ripstop-vault-tech-organiser-small-images/Blue-Ripstop-Aegis-Tech-Organiser-Small-5.png?tr=cm-pad_resize%2Cv-3%3Ftr%3Dcm-pad_resize%2Cv-3%2Cq-auto%2Cf-auto%2Cw-400%2Ch-521%2Cdpr-1"
+    ]
+  },
+  {
+    "platform": "dailyobjects",
+    "merchant": "DailyObjects",
+    "category": "Mobile Accessories",
+    "name": "DailyObjects Red Enamel Bumper MagSafe Case for iPhone 16 Pro",
+    "description": "Red enamel bumper MagSafe phone case for iPhone 16 Pro, listed in DailyObjects' product recommendations.",
+    "price": "₹799",
+    "link": "https://www.dailyobjects.com/",
+    "images": [
+      "https://images.dailyobjects.com/"
+    ]
   }
 ]
