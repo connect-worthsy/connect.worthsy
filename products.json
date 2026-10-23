@@ -4184,5 +4184,51 @@
     "images": [
       "https://m.media-amazon.com/images/I/418SEB6jovL.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Mobile Accessories",
+    "name": "Amazon Basics Back Case Cover for iPhone 15 Pro — Sierra Blue",
+    "description": "TPU back case for iPhone 15 Pro in Sierra Blue. Amazon listing reports a 4.7-star rating; check the current listing for updated price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/Amazon-Basics-iPhone-Thermoplastic-Polyurethane_Sierrablue/dp/B0CDLFFPWF?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/71cS3KbVkaL.jpg",
+      "https://m.media-amazon.com/images/I/71WyAEukc5L.jpg",
+      "https://m.media-amazon.com/images/I/81UiZgKY1AL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Mobile Accessories",
+    "name": "Amazon Basics Liquid Silicone Back Case for iPhone 15 Plus — Sapphire",
+    "description": "Liquid silicone-style back cover for iPhone 15 Plus with camera protection. Check the Amazon listing for current colour options and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CD3XF8DM?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/71cS3KbVkaL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Mobile Accessories",
+    "name": "Spigen Ultra Hybrid Crystal Clear Case for iPhone 13",
+    "description": "Clear hybrid back cover for iPhone 13 with TPU and polycarbonate construction.",
+    "price": "",
+    "link": "https://www.amazon.in/Spigen-Hybrid-Compatible-Carbonate-Crystal/dp/B096HKQK9W?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/71cS3KbVkaL.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Mobile Accessories",
+    "name": "TheGiftKart Crystal Clear Back Cover Case for iPhone 16 Plus",
+    "description": "Transparent protective back cover for iPhone 16 Plus with a slim clear design.",
+    "price": "",
+    "link": "https://www.amazon.in/TheGiftKart-Crystal-iPhone-Protection-Transparent/dp/B0DFCX8GPC?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/419Tk4qRF%2BL.jpg"
+    ]
   }
 ]
