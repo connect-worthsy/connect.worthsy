@@ -4675,5 +4675,27 @@
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B0C3ZYFZ77.01._SCLZZZZZZZ_.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Headphones",
+    "name": "boAt Rockerz 425 Wireless Headphones (Oceana Blue)",
+    "description": "Wireless headphones with Beast Mode low latency, ENx calling and up to 25 hours playback.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09QL2WWC4?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09QL2WWC4.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "category": "Headphones",
+    "name": "boAt Rockerz 450/450R Wireless Headphones (Luscious Black)",
+    "description": "On-ear wireless headphones with 40mm drivers, padded cushions and up to 15 hours playback.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07PR1CL3S?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07PR1CL3S.01._SCLZZZZZZZ_.jpg"
+    ]
   }
 ]
