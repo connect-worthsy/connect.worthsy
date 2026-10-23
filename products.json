@@ -4839,8 +4839,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Watch8+Classic+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://cdn2.fptshop.com.vn/unsafe/samsung_galaxy_watch8_classic_den_1_b9432d2763.png"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://cdn2.fptshop.com.vn/unsafe/samsung_galaxy_watch8_classic_den_1_b9432d2763.png"
   },
   {
     "platform": "amazon",
@@ -4849,8 +4852,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Watch+Ultra+2025+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://1shopmobile.com/wp-content/uploads/2025/08/Galaxy-Watch-Ultra-2025.jpg"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://1shopmobile.com/wp-content/uploads/2025/08/Galaxy-Watch-Ultra-2025.jpg"
   },
   {
     "platform": "amazon",
@@ -4859,8 +4865,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Watch7+40mm+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/145062248/145062248_0_MC/93021681.jpg"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://reimg-teknosa-cloud-prod.mncdn.com/mnresize/600/600/productimage/145062248/145062248_0_MC/93021681.jpg"
   },
   {
     "platform": "amazon",
@@ -4892,8 +4901,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Watch+FE+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://i5-mx.walmartimages.com/mg/gm/1p/images/product-images/img_large/00880609572441l.jpg"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://i5-mx.walmartimages.com/mg/gm/1p/images/product-images/img_large/00880609572441l.jpg"
   },
   {
     "platform": "amazon",
@@ -4902,8 +4914,11 @@
     "description": "Samsung smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Samsung+Galaxy+Fit3+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Samsung"
+    "images": [
+      "https://cdn.mediamart.vn/images/product/dong-ho-samsung-galaxy-fit3-sm-r390-mau-den_43ed4e35.webp"
+    ],
+    "brand": "Samsung",
+    "fallback_image": "https://cdn.mediamart.vn/images/product/dong-ho-samsung-galaxy-fit3-sm-r390-mau-den_43ed4e35.webp"
   },
   {
     "platform": "amazon",
@@ -5037,8 +5052,11 @@
     "description": "Noise smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Noise+ColorFit+Icon+4+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Noise"
+    "images": [
+      "https://www.gonoise.com/cdn/shop/files/original-imahbquzsdgnfxjy__1_-removebg-preview_1024x.png?v=1764134272"
+    ],
+    "brand": "Noise",
+    "fallback_image": "https://www.gonoise.com/cdn/shop/files/original-imahbquzsdgnfxjy__1_-removebg-preview_1024x.png?v=1764134272"
   },
   {
     "platform": "amazon",
@@ -5116,8 +5134,11 @@
     "description": "Noise smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Noise+Endeavour+Pro+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Noise"
+    "images": [
+      "https://static.toiimg.com/thumb/resizemode-4%2Cmsid-125222084%2Cwidth-1070%2Cimgv-0/125222084.jpg"
+    ],
+    "brand": "Noise",
+    "fallback_image": "https://static.toiimg.com/thumb/resizemode-4%2Cmsid-125222084%2Cwidth-1070%2Cimgv-0/125222084.jpg"
   },
   {
     "platform": "amazon",
@@ -5261,8 +5282,11 @@
     "description": "boAt smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=boAt+Ultima+Vogue+2+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "boAt"
+    "images": [
+      "https://img.tamindir.com/resize/1200x675/2026/05/476796/boat-ultima-vogue-2-ozellikleri-fiyati-1.jpg"
+    ],
+    "brand": "boAt",
+    "fallback_image": "https://img.tamindir.com/resize/1200x675/2026/05/476796/boat-ultima-vogue-2-ozellikleri-fiyati-1.jpg"
   },
   {
     "platform": "amazon",
