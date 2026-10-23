@@ -5657,8 +5657,11 @@
     "description": "Garmin smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Garmin+Forerunner+165+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Garmin"
+    "images": [
+      "https://cdn.technobezz.com/deals-images/35261f7a136b65ad.jpg"
+    ],
+    "brand": "Garmin",
+    "fallback_image": "https://cdn.technobezz.com/deals-images/35261f7a136b65ad.jpg"
   },
   {
     "platform": "amazon",
@@ -5667,8 +5670,11 @@
     "description": "Garmin smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Garmin+Forerunner+265+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Garmin"
+    "images": [
+      "https://gzhls.at/pix/69/2b/692b0b80ab9ae451-l.webp"
+    ],
+    "brand": "Garmin",
+    "fallback_image": "https://gzhls.at/pix/69/2b/692b0b80ab9ae451-l.webp"
   },
   {
     "platform": "amazon",
@@ -5677,8 +5683,11 @@
     "description": "Garmin smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Garmin+Forerunner+965+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Garmin"
+    "images": [
+      "https://03.cdn37.se/zY/images/2.3059809/garmin-forerunner-965-white.jpeg"
+    ],
+    "brand": "Garmin",
+    "fallback_image": "https://03.cdn37.se/zY/images/2.3059809/garmin-forerunner-965-white.jpeg"
   },
   {
     "platform": "amazon",
@@ -5911,8 +5920,11 @@
     "description": "CMF by Nothing smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=CMF+Watch+Pro+2+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "CMF"
+    "images": [
+      "https://cdn.shopify.com/s/files/1/0669/5767/2758/files/0000s_0039_CMF-Watch-Pro-2-Blue.png?crop=center&height=2000&v=1753770537&width=2000"
+    ],
+    "brand": "CMF",
+    "fallback_image": "https://cdn.shopify.com/s/files/1/0669/5767/2758/files/0000s_0039_CMF-Watch-Pro-2-Blue.png?crop=center&height=2000&v=1753770537&width=2000"
   },
   {
     "platform": "amazon",
@@ -5931,8 +5943,11 @@
     "description": "Google smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Google+Pixel+Watch+2+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Google"
+    "images": [
+      "https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/172/17257/17257424.jpg"
+    ],
+    "brand": "Google",
+    "fallback_image": "https://multimedia.bbycastatic.ca/multimedia/products/1500x1500/172/17257/17257424.jpg"
   },
   {
     "platform": "amazon",
@@ -5941,8 +5956,11 @@
     "description": "Google smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Google+Pixel+Watch+3+41mm+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Google"
+    "images": [
+      "https://www.bell.ca/Styles/wireless/Pixel_Watch_3_41mm/112173_Google_Pixel_watch_3_41mm_AL_Porcelain_Lrg2.png"
+    ],
+    "brand": "Google",
+    "fallback_image": "https://www.bell.ca/Styles/wireless/Pixel_Watch_3_41mm/112173_Google_Pixel_watch_3_41mm_AL_Porcelain_Lrg2.png"
   },
   {
     "platform": "amazon",
@@ -5951,8 +5969,11 @@
     "description": "Google smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Google+Pixel+Watch+3+45mm+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Google"
+    "images": [
+      "https://shop.r10s.jp/book/cabinet/7065/0840353907065.jpg?composite-to=%2A%2C%2A%7C560%3A400&fitin=560%3A400"
+    ],
+    "brand": "Google",
+    "fallback_image": "https://shop.r10s.jp/book/cabinet/7065/0840353907065.jpg?composite-to=%2A%2C%2A%7C560%3A400&fitin=560%3A400"
   },
   {
     "platform": "amazon",
@@ -5961,8 +5982,11 @@
     "description": "Google smartwatch. Open Amazon India to check current listing, price, availability and variants.",
     "price": "",
     "link": "https://www.amazon.in/s?k=Google+Pixel+Watch+4+smartwatch&tag=worthsy01-21",
-    "images": [],
-    "brand": "Google"
+    "images": [
+      "https://cdn.centralpoint.be/objects/multimedia/7/743/3718177_148478470_smartwatches-google-pixel-watch-4-ga10849-eu.jpg"
+    ],
+    "brand": "Google",
+    "fallback_image": "https://cdn.centralpoint.be/objects/multimedia/7/743/3718177_148478470_smartwatches-google-pixel-watch-4-ga10849-eu.jpg"
   },
   {
     "platform": "amazon",
