@@ -4757,5 +4757,17 @@
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B0DGTSTQWL.01._SCLZZZZZZZ_.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smartwatches",
+    "name": "boAt Lunar Discovery Smartwatch (Active Black)",
+    "description": "1.39-inch HD display, Bluetooth calling, turn-by-turn navigation, DIY watch-face studio and IP67 resistance.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DFYL4635?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0DFYL4635.01._SCLZZZZZZZ_.jpg"
+    ]
   }
 ]
