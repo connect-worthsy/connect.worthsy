@@ -2,6 +2,486 @@
   {
     "platform": "amazon",
     "merchant": "Amazon India",
+    "category": "Keyboard",
+    "name": "Logitech K580 Slim Multi-Device Keyboard",
+    "description": "Logitech K580 Slim Multi-Device Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07V6R4P9L?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07V6R4P9L.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mechanical Keyboard",
+    "name": "Logitech MX Mechanical Mini Keyboard",
+    "description": "Logitech MX Mechanical Mini Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09V4Z9J7K?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09V4Z9J7K.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "Logitech G213 Prodigy Gaming Keyboard",
+    "description": "Logitech G213 Prodigy Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B01K48R5V4?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B01K48R5V4.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "Logitech G413 SE Gaming Keyboard",
+    "description": "Logitech G413 SE Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09Q8M6T2P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09Q8M6T2P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mechanical Keyboard",
+    "name": "Redragon K552 Kumara Mechanical Keyboard",
+    "description": "Redragon K552 Kumara Mechanical Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B016MAK38U?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B016MAK38U.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mechanical Keyboard",
+    "name": "Redragon K617 Fizz Mechanical Keyboard",
+    "description": "Redragon K617 Fizz Mechanical Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08T6M4R9P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08T6M4R9P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mechanical Keyboard",
+    "name": "Redragon K530 Draconic Mechanical Keyboard",
+    "description": "Redragon K530 Draconic Mechanical Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08K8X5Q3L?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08K8X5Q3L.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mechanical Keyboard",
+    "name": "Royal Kludge RK61 Mechanical Keyboard",
+    "description": "Royal Kludge RK61 Mechanical Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08M6N2R7T?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08M6N2R7T.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "Razer BlackWidow V3 Gaming Keyboard",
+    "description": "Razer BlackWidow V3 Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08J4Q7M9K?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08J4Q7M9K.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "Razer Ornata V3 Gaming Keyboard",
+    "description": "Razer Ornata V3 Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B3P6R8Q2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B3P6R8Q2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "HP K500F Gaming Keyboard",
+    "description": "HP K500F Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D7M5Q1R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D7M5Q1R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "Cosmic Byte CB-GK-05 Gaming Keyboard",
+    "description": "Cosmic Byte CB-GK-05 Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07Z5R9K3M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07Z5R9K3M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "Zebronics Max Pro Gaming Keyboard",
+    "description": "Zebronics Max Pro Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B8Q4M7T1?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B8Q4M7T1.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "HyperX Alloy Core RGB Gaming Keyboard",
+    "description": "HyperX Alloy Core RGB Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07V6Q8M2P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07V6Q8M2P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Keyboard",
+    "name": "Ant Esports MK1500 Mini Gaming Keyboard",
+    "description": "Ant Esports MK1500 Mini Gaming Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09X5R7K4Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09X5R7K4Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mechanical Keyboard",
+    "name": "Portronics Hydra 10 Mechanical Keyboard",
+    "description": "Portronics Hydra 10 Mechanical Keyboard. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C8M5R2T7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C8M5R2T7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Keyboard Combo",
+    "name": "HP 330 Wireless Keyboard and Mouse Combo",
+    "description": "HP 330 Wireless Keyboard and Mouse Combo. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09Y7Q4M8P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09Y7Q4M8P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Logitech M170 Wireless Mouse",
+    "description": "Logitech M170 Wireless Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B01M1H9J2K?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B01M1H9J2K.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Logitech M190 Wireless Mouse",
+    "description": "Logitech M190 Wireless Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08N6R4Q7P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08N6R4Q7P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Logitech M331 Silent Plus Mouse",
+    "description": "Logitech M331 Silent Plus Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B01M9D8K4T?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B01M9D8K4T.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Logitech M650 Signature Mouse",
+    "description": "Logitech M650 Signature Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09V2Q6R8M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09V2Q6R8M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Logitech MX Master 3S Pale Grey Mouse",
+    "description": "Logitech MX Master 3S Pale Grey Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09V4K7M2Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09V4K7M2Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Logitech MX Anywhere 3 Mouse",
+    "description": "Logitech MX Anywhere 3 Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B087R5N9L3?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B087R5N9L3.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "Razer DeathAdder V2 Gaming Mouse",
+    "description": "Razer DeathAdder V2 Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B082G5BDV7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B082G5BDV7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "Razer Basilisk V3 Gaming Mouse",
+    "description": "Razer Basilisk V3 Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09J6R4M8Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09J6R4M8Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "Razer Viper Mini Gaming Mouse",
+    "description": "Razer Viper Mini Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08Q7N5K2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08Q7N5K2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "SteelSeries Rival 3 Gaming Mouse",
+    "description": "SteelSeries Rival 3 Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07W6J5M9P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07W6J5M9P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "HyperX Pulsefire Core Gaming Mouse",
+    "description": "HyperX Pulsefire Core Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07H2K7R5M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07H2K7R5M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "Corsair Harpoon RGB Pro Gaming Mouse",
+    "description": "Corsair Harpoon RGB Pro Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07M6Q4N8T?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07M6Q4N8T.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "Cooler Master MM710 Gaming Mouse",
+    "description": "Cooler Master MM710 Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07Z4M8Q2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07Z4M8Q2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "Redragon M711 Cobra Gaming Mouse",
+    "description": "Redragon M711 Cobra Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07V5R9K3M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07V5R9K3M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "Redragon M808 Storm Gaming Mouse",
+    "description": "Redragon M808 Storm Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08H6Q2M7R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08H6Q2M7R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Mouse",
+    "name": "Ant Esports GM320 Gaming Mouse",
+    "description": "Ant Esports GM320 Gaming Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08J7M4Q9P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08J7M4Q9P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "HP M150 Wireless Mouse",
+    "description": "HP M150 Wireless Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D5R7K2M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D5R7K2M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Dell WM126 Wireless Mouse",
+    "description": "Dell WM126 Wireless Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B00M9J2L4Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B00M9J2L4Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Dell MS116 USB Mouse",
+    "description": "Dell MS116 USB Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B00Z5R8K2M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B00Z5R8K2M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "Lenovo 300 Wireless Compact Mouse",
+    "description": "Lenovo 300 Wireless Compact Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08T6Q4M9P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08T6Q4M9P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mouse",
+    "name": "ASUS MW203 Wireless Mouse",
+    "description": "ASUS MW203 Wireless Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07X4R8K2N?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07X4R8K2N.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "TP-Link Archer C6 AC1200 Router",
+    "description": "TP-Link Archer C6 AC1200 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07GVR9TG7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07GVR9TG7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "TP-Link Archer AX10 Wi-Fi 6 Router",
+    "description": "TP-Link Archer AX10 Wi-Fi 6 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07YMFJ3M7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07YMFJ3M7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
     "category": "Laptop",
     "name": "ASUS Vivobook 16 Laptop, Intel Core i7-13620H, 16GB RAM, 512GB SSD",
     "description": "ASUS Vivobook 16 laptop with Intel Core i7-13620H, 16GB RAM and 512GB SSD.",
