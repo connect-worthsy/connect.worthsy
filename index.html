@@ -637,6 +637,8 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
 
 <script>
         (function () {
+            const BRAND_NAMES = ['Western Digital','Amazon Basics','DailyObjects','TheGiftKart','G.Skill','TP-Link','SanDisk','Kingston','Crucial','Corsair','Logitech','Ambrane','Portronics','Zebronics','Netgear','Samsung','OnePlus','Xiaomi','Realme','Fastrack','Philips','Havells','Wakefit','Fujifilm','Spigen','TORRAS','SUPFINE','FNTCASE','NutriPro','URBN','boAt','Noise','Apple','ASUS','Dell','Lenovo','Acer','HP','D-Link','Tenda','Seagate','JBL','Sony','Anker','UGREEN','Qubo','Wipro','Syska','Milton','Tygot'];
+            function productBrand(p) { if (p && p.brand && String(p.brand).trim()) return String(p.brand).trim(); const name = String((p && p.name) || '').trim(); const found = BRAND_NAMES.find(function (b) { return name.toLowerCase().startsWith(b.toLowerCase() + ' ') || name.toLowerCase() === b.toLowerCase(); }); return found || (name.split(/\\s+/)[0] || 'Other'); }
             const LABELS = { amazon: 'Amazon', flipkart: 'Flipkart', shopify: 'Shopify', clickbank: 'ClickBank', coursera: 'Coursera', awin: 'Awin' };
             function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
             function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : '#'; }
@@ -645,7 +647,7 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
                 const label = LABELS[p.platform] || p.platform;
                 const c = el('div', 'product-card bg-[#ffffff] luxury-border p-4 flex flex-col');
                 c.dataset.href = safeUrl(p.link);
-                c.dataset.brand = String(p.brand || p.merchant || '').trim();
+                c.dataset.brand = productBrand(p);
                 const imgs = (p.images || []).filter(Boolean);
                 if (imgs.length) {
                     const box = el('div', 'w-full aspect-square bg-white mb-3 flex items-center justify-center overflow-hidden');
@@ -674,14 +676,14 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
             function empty(text) { const d = el('div', 'col-span-full text-center py-16 bg-[#ffffff]/60 luxury-border'); d.appendChild(el('p', 'logo-wordmark text-2xl text-brandAccent mb-2', 'Products coming soon')); d.appendChild(el('p', 'text-slate-400 text-xs font-mono', text)); return d; }
             function fill(g, items) {
                 const PAGE = g.dataset.platform === 'amazon' ? 100 : 24;
-                let n = 0, current = items.slice(), selectedCategory = 'All', sortMode = 'featured';
+                let n = 0, current = items.slice(), selectedCategory = 'All', selectedBrand = 'All', searchTerm = '', sortMode = 'featured';
                 const isAmazon = g.dataset.platform === 'amazon';
                 const isAwin = g.dataset.platform === 'awin';
                 const more = el('button', 'mt-8 mx-auto block px-8 py-3 bg-brandAccent text-brandBg font-bold uppercase tracking-widest text-sm');
                 more.type = 'button';
                 function filteredItems() {
                     return items.filter(function (p) {
-                        return selectedCategory === 'All' || String(p.category || 'Other') === selectedCategory;
+                        const categoryMatch = selectedCategory === 'All' || String(p.category || 'Other') === selectedCategory; const brandMatch = selectedBrand === 'All' || productBrand(p).toLowerCase() === selectedBrand.toLowerCase(); const searchable = [p.name, p.brand, productBrand(p), p.description, p.category, p.merchant].filter(Boolean).join(' ').toLowerCase(); return categoryMatch && brandMatch && searchable.includes(searchTerm.toLowerCase());
                     });
                 }
                 function sorted(list) {
@@ -712,6 +714,16 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
 
                 if (isAmazon || isAwin) {
                     const tools = el('div', 'flex flex-col gap-4 mb-6');
+                    const searchRow = el('div', 'grid grid-cols-1 md:grid-cols-2 gap-3');
+                    const search = el('input', 'w-full bg-[#ffffff] border border-brandAccent text-slate-100 px-4 py-3 text-sm font-mono');
+                    search.type = 'search'; search.placeholder = 'Search products, brands or categories'; search.setAttribute('aria-label', 'Search products');
+                    search.addEventListener('input', function () { searchTerm = search.value.trim(); show(filteredItems()); });
+                    const brandSelect = el('select', 'w-full bg-[#ffffff] border border-brandAccent text-slate-100 px-4 py-3 text-sm font-mono');
+                    brandSelect.setAttribute('aria-label', 'Filter by brand');
+                    const brandAll = el('option', '', 'All brands'); brandAll.value = 'All'; brandSelect.appendChild(brandAll);
+                    Array.from(new Set(items.map(productBrand))).sort(function(a,b){return a.localeCompare(b);}).forEach(function (brand) { const o = el('option', '', brand); o.value = brand; brandSelect.appendChild(o); });
+                    brandSelect.addEventListener('change', function () { selectedBrand = brandSelect.value; show(filteredItems()); });
+                    searchRow.append(search, brandSelect); tools.appendChild(searchRow);
                     const top = el('div', 'flex flex-wrap items-center justify-between gap-3');
                     const count = el('span', 'text-xs font-mono uppercase tracking-widest text-slate-400', items.length + ' products');
                     count.dataset.productCount = 'true';
