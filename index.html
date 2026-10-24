@@ -610,41 +610,19 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
             card.addEventListener('click', function (event) {
                 event.preventDefault();
                 location.hash = 'amazon';
-                const normalizedBrand = name.toLowerCase().replace(/[^a-z0-9]/g, '');
-                function filterBrandProducts() {
-                    const amazonGrid = document.getElementById('products-amazon');
-                    if (!amazonGrid) return;
-                    const amazonCards = Array.from(amazonGrid.querySelectorAll('.product-card'));
-                    let visibleCount = 0;
-                    amazonCards.forEach(function (productCard) {
-                        const cardBrand = (productCard.dataset.brand || productCard.querySelector('[data-brand]')?.dataset.brand || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-                        const productText = (productCard.innerText || productCard.textContent || '').toLowerCase();
-                        const normalizedText = productText.replace(/[^a-z0-9]/g, '');
-                        const matches = cardBrand ? cardBrand === normalizedBrand : normalizedText.includes(normalizedBrand);
-                        productCard.style.display = matches ? '' : 'none';
-                        if (matches) visibleCount++;
+                const amazonGrid = document.getElementById('products-amazon');
+                const brandSelect = amazonGrid && amazonGrid.parentElement.querySelector('select[aria-label="Filter by brand"]');
+                if (brandSelect) {
+                    const wanted = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    const option = Array.from(brandSelect.options).find(function (o) {
+                        return o.value.toLowerCase().replace(/[^a-z0-9]/g, '') === wanted;
                     });
-                    const countLabel = amazonGrid.parentElement.querySelector('[data-product-count]');
-                    if (countLabel) countLabel.textContent = visibleCount + ' products';
-                    const searchBox = document.getElementById('product-search') || document.querySelector('input[type="search"]');
-                    if (searchBox) {
-                        searchBox.value = '';
+                    if (option) {
+                        brandSelect.value = option.value;
+                        brandSelect.dispatchEvent(new Event('change', { bubbles: true }));
                     }
-                    let notice = document.getElementById('brand-filter-notice');
-                    if (!notice) {
-                        notice = document.createElement('p');
-                        notice.id = 'brand-filter-notice';
-                        notice.className = 'text-center text-sm font-mono text-slate-300 py-4';
-                        amazonGrid.parentNode.insertBefore(notice, amazonGrid);
-                    }
-                    notice.textContent = visibleCount
-                        ? 'Showing ' + name + ' products only (' + visibleCount + ').'
-                        : 'No ' + name + ' products are currently listed in the Amazon section.';
-                    amazonGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-                filterBrandProducts();
-                window.setTimeout(filterBrandProducts, 250);
-                window.setTimeout(filterBrandProducts, 800);
+                if (amazonGrid) amazonGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
             grid.appendChild(card);
         });
