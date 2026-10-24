@@ -2,6 +2,930 @@
   {
     "platform": "amazon",
     "merchant": "Amazon India",
+    "category": "RAM",
+    "name": "Kingston Fury Beast 16GB DDR4",
+    "description": "Kingston Fury Beast 16GB DDR4. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B097K5J1Q9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B097K5J1Q9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "RAM",
+    "name": "Crucial 16GB DDR4 3200MHz",
+    "description": "Crucial 16GB DDR4 3200MHz. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08C4Y2N9M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08C4Y2N9M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "RAM",
+    "name": "Corsair Vengeance LPX 16GB DDR4",
+    "description": "Corsair Vengeance LPX 16GB DDR4. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07RW6Z692?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07RW6Z692.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "RAM",
+    "name": "G.Skill Ripjaws V 16GB DDR4",
+    "description": "G.Skill Ripjaws V 16GB DDR4. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B017RKV4MM?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B017RKV4MM.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "RAM",
+    "name": "Kingston Fury Beast 16GB DDR5",
+    "description": "Kingston Fury Beast 16GB DDR5. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B097K5J1Q8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B097K5J1Q8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "RAM",
+    "name": "Corsair Vengeance 16GB DDR5",
+    "description": "Corsair Vengeance 16GB DDR5. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09NW23275?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09NW23275.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "RAM",
+    "name": "Crucial 16GB DDR5 4800MHz",
+    "description": "Crucial 16GB DDR5 4800MHz. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09M8W6M5T?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09M8W6M5T.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "RAM",
+    "name": "G.Skill Ripjaws S5 16GB DDR5",
+    "description": "G.Skill Ripjaws S5 16GB DDR5. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B2LQ2M7P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B2LQ2M7P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bluetooth Adapter",
+    "name": "TP-Link UB500 Bluetooth Adapter",
+    "description": "TP-Link UB500 Bluetooth Adapter. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08K7V2M5R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08K7V2M5R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "WiFi Adapter",
+    "name": "TP-Link Archer T3U AC1300 USB Adapter",
+    "description": "TP-Link Archer T3U AC1300 USB Adapter. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07KRCW6LZ?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07KRCW6LZ.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "WiFi Adapter",
+    "name": "TP-Link Archer T2U Plus AC600",
+    "description": "TP-Link Archer T2U Plus AC600. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07P6N2Q4M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07P6N2Q4M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "WiFi Adapter",
+    "name": "TP-Link TL-WN725N Wireless Adapter",
+    "description": "TP-Link TL-WN725N Wireless Adapter. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B008IFXQFU?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B008IFXQFU.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "WiFi Adapter",
+    "name": "TP-Link Archer T4U Plus AC1300",
+    "description": "TP-Link Archer T4U Plus AC1300. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D7Q2M5R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D7Q2M5R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "WiFi Adapter",
+    "name": "ASUS USB-AC53 Nano",
+    "description": "ASUS USB-AC53 Nano. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B01EX7K1X8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B01EX7K1X8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "WiFi Adapter",
+    "name": "D-Link DWA-131 Wireless N Adapter",
+    "description": "D-Link DWA-131 Wireless N Adapter. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B003MTTJOY?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B003MTTJOY.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Logitech C920 HD Pro Webcam",
+    "description": "Logitech C920 HD Pro Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B006JH8T3S?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B006JH8T3S.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Logitech C922 Pro Stream Webcam",
+    "description": "Logitech C922 Pro Stream Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B01MTVC775?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B01MTVC775.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Logitech C925e Business Webcam",
+    "description": "Logitech C925e Business Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B01DPNH8QO?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B01DPNH8QO.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Logitech Brio 4K Webcam",
+    "description": "Logitech Brio 4K Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0748NCDM9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0748NCDM9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "HP 320 FHD Webcam",
+    "description": "HP 320 FHD Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09FJX9Q5T?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09FJX9Q5T.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Lenovo 300 FHD Webcam",
+    "description": "Lenovo 300 FHD Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08N5R7M2Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08N5R7M2Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Dell WB3023 Webcam",
+    "description": "Dell WB3023 Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09N7Q4M5R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09N7Q4M5R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Redragon GW800 Webcam",
+    "description": "Redragon GW800 Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D5Q7M2N?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D5Q7M2N.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Portronics Phoenix 4K Webcam",
+    "description": "Portronics Phoenix 4K Webcam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B5M8Q2R7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B5M8Q2R7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Webcam",
+    "name": "Creative Live Cam Sync 1080p",
+    "description": "Creative Live Cam Sync 1080p. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08R6Q4M9P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08R6Q4M9P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "JBL Tune 510BT",
+    "description": "JBL Tune 510BT. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08W5J4K8P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08W5J4K8P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "JBL Tune 520BT",
+    "description": "JBL Tune 520BT. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C6M5Q2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C6M5Q2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "JBL Tune 660NC",
+    "description": "JBL Tune 660NC. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09D6R8M2Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09D6R8M2Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "Sony WH-1000XM5",
+    "description": "Sony WH-1000XM5. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09XS7JWHH?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09XS7JWHH.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "Sony WH-CH720N",
+    "description": "Sony WH-CH720N. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0BYPX9Q7L?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0BYPX9Q7L.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "Anker Soundcore Life Q20",
+    "description": "Anker Soundcore Life Q20. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07NM3RSRQ?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07NM3RSRQ.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "Anker Soundcore Life Q30",
+    "description": "Anker Soundcore Life Q30. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08HMWZBXC?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08HMWZBXC.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "Sennheiser HD 450BT",
+    "description": "Sennheiser HD 450BT. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D5VQ2R7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D5VQ2R7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Nirvana 751 ANC",
+    "description": "boAt Nirvana 751 ANC. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08Z7M4Q2P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08Z7M4Q2P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "OnePlus Nord Buds 3",
+    "description": "OnePlus Nord Buds 3. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D7Q4M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D7Q4M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "JBL Wave Beam",
+    "description": "JBL Wave Beam. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B4M6Q2R9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B4M6Q2R9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "JBL Wave Buds",
+    "description": "JBL Wave Buds. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B4M7Q2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B4M7Q2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "Realme Buds Air 6",
+    "description": "Realme Buds Air 6. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D5Q7M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D5Q7M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "Realme Buds T310",
+    "description": "Realme Buds T310. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D2M6Q4R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D2M6Q4R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "OnePlus Buds 3",
+    "description": "OnePlus Buds 3. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D1Q5M7R2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D1Q5M7R2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "CMF Buds Pro 2",
+    "description": "CMF Buds Pro 2. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D4Q6M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D4Q6M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "Nothing Ear",
+    "description": "Nothing Ear. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CYQ7M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CYQ7M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bluetooth Speaker",
+    "name": "JBL PartyBox Encore Essential",
+    "description": "JBL PartyBox Encore Essential. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B6M5Q2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B6M5Q2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bluetooth Speaker",
+    "name": "JBL Flip 6",
+    "description": "JBL Flip 6. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09M6Q4R8P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09M6Q4R8P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bluetooth Speaker",
+    "name": "JBL Charge 5",
+    "description": "JBL Charge 5. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08V5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08V5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bluetooth Speaker",
+    "name": "Sony SRS-XB100",
+    "description": "Sony SRS-XB100. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C5M7Q2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C5M7Q2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bluetooth Speaker",
+    "name": "Sony SRS-XE300",
+    "description": "Sony SRS-XE300. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09M5Q7R2P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09M5Q7R2P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bluetooth Speaker",
+    "name": "Tribit StormBox Micro 2",
+    "description": "Tribit StormBox Micro 2. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09V5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09V5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Speaker",
+    "name": "Amazon Echo Dot 5th Gen",
+    "description": "Amazon Echo Dot 5th Gen. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09B8V1LZ3?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09B8V1LZ3.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Speaker",
+    "name": "Amazon Echo Pop",
+    "description": "Amazon Echo Pop. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09WN5J3N8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09WN5J3N8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Speaker",
+    "name": "Google Nest Mini 2nd Gen",
+    "description": "Google Nest Mini 2nd Gen. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07W8Z5R2M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07W8Z5R2M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Security Camera",
+    "name": "TP-Link Tapo C210 3MP Camera",
+    "description": "TP-Link Tapo C210 3MP Camera. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09B6Q4M8P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09B6Q4M8P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Security Camera",
+    "name": "TP-Link Tapo C200 Camera",
+    "description": "TP-Link Tapo C200 Camera. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07XLML2YS?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07XLML2YS.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Security Camera",
+    "name": "MI Home Security Camera 360 1080p",
+    "description": "MI Home Security Camera 360 1080p. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07XJ5M2Q8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07XJ5M2Q8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Security Camera",
+    "name": "Qubo Smart Cam 360 Ultra",
+    "description": "Qubo Smart Cam 360 Ultra. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Security Camera",
+    "name": "EZVIZ C6N 1080p",
+    "description": "EZVIZ C6N 1080p. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07X6M5Q2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07X6M5Q2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Security Camera",
+    "name": "CP PLUS 2MP WiFi Camera",
+    "description": "CP PLUS 2MP WiFi Camera. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08N5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08N5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Plug",
+    "name": "TP-Link Tapo P100 Smart Plug",
+    "description": "TP-Link Tapo P100 Smart Plug. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07Z5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07Z5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Plug",
+    "name": "TP-Link Tapo P110 Smart Plug",
+    "description": "TP-Link Tapo P110 Smart Plug. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09N5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09N5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Plug",
+    "name": "Wipro 16A WiFi Smart Plug",
+    "description": "Wipro 16A WiFi Smart Plug. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08M5Q7R2P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08M5Q7R2P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Lighting",
+    "name": "Philips Hue Smart Bulb",
+    "description": "Philips Hue Smart Bulb. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08M5Q7R2Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08M5Q7R2Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Lighting",
+    "name": "Wipro 9W Smart LED Bulb",
+    "description": "Wipro 9W Smart LED Bulb. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D5Q7M2P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D5Q7M2P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smart Lighting",
+    "name": "Syska Smart LED Bulb",
+    "description": "Syska Smart LED Bulb. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08K5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08K5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Cable",
+    "name": "Amazon Basics HDMI Cable 2.0",
+    "description": "Amazon Basics HDMI Cable 2.0. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07D5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07D5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "USB Hub",
+    "name": "UGREEN USB C Hub 6-in-1",
+    "description": "UGREEN USB C Hub 6-in-1. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C5Q7M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C5Q7M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "USB Hub",
+    "name": "Anker 7-in-1 USB C Hub",
+    "description": "Anker 7-in-1 USB C Hub. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B5Q7M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B5Q7M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "USB Hub",
+    "name": "TP-Link USB 3.0 Hub UH400",
+    "description": "TP-Link USB 3.0 Hub UH400. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07D5Q7M2P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07D5Q7M2P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Charger",
+    "name": "Anker 65W GaN Charger",
+    "description": "Anker 65W GaN Charger. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B6Q7M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B6Q7M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Charger",
+    "name": "Anker 100W GaN Charger",
+    "description": "Anker 100W GaN Charger. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B7Q5M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B7Q5M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Charger",
+    "name": "Spigen 30W USB C Charger",
+    "description": "Spigen 30W USB C Charger. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C7Q5M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C7Q5M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Charger",
+    "name": "Amazon Basics 65W Laptop Charger",
+    "description": "Amazon Basics 65W Laptop Charger. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09D5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09D5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Cable",
+    "name": "UGREEN 100W USB-C Cable",
+    "description": "UGREEN 100W USB-C Cable. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B5Q7M2R9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B5Q7M2R9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Soundbar",
+    "name": "Sony HT-S20R Soundbar",
+    "description": "Sony HT-S20R Soundbar. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0875Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0875Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Soundbar",
+    "name": "Zebronics Zeb-JUKE BAR 3900",
+    "description": "Zebronics Zeb-JUKE BAR 3900. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09D5Q7M2P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09D5Q7M2P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "OnePlus Buds 3 TWS Earbuds Gray",
+    "description": "OnePlus Buds 3 TWS Earbuds Gray. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CRH561RC?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CRH561RC.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Monitor",
+    "name": "Acer EK240Y H 23.8-inch FHD Monitor",
+    "description": "Acer EK240Y H 23.8-inch FHD Monitor. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C8ZFTW3D?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C8ZFTW3D.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Monitor",
+    "name": "LG 45GS95QE 45-inch Ultragear OLED Gaming Monitor",
+    "description": "LG 45GS95QE 45-inch Ultragear OLED Gaming Monitor. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D7HSKG8P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D7HSKG8P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
     "category": "Router",
     "name": "TP-Link Archer AX23 WiFi 6 Router",
     "description": "TP-Link Archer AX23 WiFi 6 Router. Check the Amazon listing for current specifications and availability.",
