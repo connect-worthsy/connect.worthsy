@@ -5194,5 +5194,148 @@
     "images": [
       "https://m.media-amazon.com/images/P/B0BXM2W99C.01._SCLZZZZZZZ_.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Acer",
+    "brand": "Acer",
+    "category": "Laptop",
+    "name": "Acer Aspire 3 AMD Ryzen 7 7730U 16GB/1TB",
+    "description": "Acer Aspire 3 AMD Ryzen 7 7730U 16GB/1TB product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DMF9ZVBV?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0DMF9ZVBV.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Acer",
+    "brand": "Acer",
+    "category": "Laptop",
+    "name": "Acer Aspire 3 Intel Celeron N4500 8GB/512GB",
+    "description": "Acer Aspire 3 Intel Celeron N4500 8GB/512GB product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D9JLD5BD?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0D9JLD5BD.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Acer",
+    "brand": "Acer",
+    "category": "Laptop",
+    "name": "Acer Aspire Lite Ryzen 5 5625U 16GB/512GB",
+    "description": "Acer Aspire Lite Ryzen 5 5625U 16GB/512GB product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DG2GCTD7?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0DG2GCTD7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Logitech",
+    "brand": "Logitech",
+    "category": "Mouse",
+    "name": "Logitech MX Master 3S",
+    "description": "Logitech MX Master 3S product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09HM94VDS?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B09HM94VDS.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Logitech",
+    "brand": "Logitech",
+    "category": "Mouse",
+    "name": "Logitech MX Anywhere 3S",
+    "description": "Logitech MX Anywhere 3S product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C9VJ3ZQY?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0C9VJ3ZQY.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Logitech",
+    "brand": "Logitech",
+    "category": "Gaming Mouse",
+    "name": "Logitech G PRO X Superlight 2",
+    "description": "Logitech G PRO X Superlight 2 product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CGDZC2FK?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0CGDZC2FK.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Logitech",
+    "brand": "Logitech",
+    "category": "Gaming Mouse",
+    "name": "Logitech G304 LIGHTSPEED",
+    "description": "Logitech G304 LIGHTSPEED product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07L4BM851?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B07L4BM851.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Logitech",
+    "brand": "Logitech",
+    "category": "Keyboard",
+    "name": "Logitech K380 Multi-Device",
+    "description": "Logitech K380 Multi-Device product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0148NPH9I?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0148NPH9I.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Logitech",
+    "brand": "Logitech",
+    "category": "Keyboard & Mouse",
+    "name": "Logitech MK270r",
+    "description": "Logitech MK270r product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B00QX0H3B6?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B00QX0H3B6.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Logitech",
+    "brand": "Logitech",
+    "category": "Webcam",
+    "name": "Logitech C920 HD Pro",
+    "description": "Logitech C920 HD Pro product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B006A2Q81M?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B006A2Q81M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Logitech",
+    "brand": "Logitech",
+    "category": "Webcam",
+    "name": "Logitech Brio 300",
+    "description": "Logitech Brio 300 product listing.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B9B6JQF8?tag=worthsy01-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0B9B6JQF8.01._SCLZZZZZZZ_.jpg"
+    ]
   }
 ]
