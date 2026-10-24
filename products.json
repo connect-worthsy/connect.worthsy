@@ -3,6 +3,306 @@
     "platform": "amazon",
     "merchant": "Amazon India",
     "category": "Laptop",
+    "name": "ASUS Vivobook 16 Laptop, Intel Core i7-13620H, 16GB RAM, 512GB SSD",
+    "description": "ASUS Vivobook 16 laptop with Intel Core i7-13620H, 16GB RAM and 512GB SSD.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D7V7QW1N?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D7V7QW1N.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Laptop",
+    "name": "MSI Thin 15 Gaming Laptop, Intel Core i7-13620H, NVIDIA GeForce RTX 4050",
+    "description": "MSI Thin 15 gaming laptop with Intel Core i7-13620H and NVIDIA GeForce RTX 4050 graphics.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D4V5J5H1?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D4V5J5H1.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "HP 15s Laptop, AMD Ryzen 5 7520U, 16GB RAM, 512GB SSD",
+    "description": "HP 15s laptop with AMD Ryzen 5 7520U, 16GB RAM and 512GB SSD.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D8W3QZ9X?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D8W3QZ9X.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "Dell Inspiron 3530 Laptop, 13th Gen Intel Core i5",
+    "description": "Dell Inspiron 3530 laptop with 13th Gen Intel Core i5 processor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C7V2JY1M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C7V2JY1M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Laptop",
+    "name": "HP Victus Gaming Laptop, Intel Core i5, NVIDIA GeForce RTX 4050",
+    "description": "HP Victus gaming laptop with Intel Core i5 processor and NVIDIA GeForce RTX 4050 graphics.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D4K7P5R2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D4K7P5R2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "ASUS Vivobook Go 15 Laptop, AMD Ryzen 5",
+    "description": "ASUS Vivobook Go 15 laptop with AMD Ryzen 5 processor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CWRJ8L6Y?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CWRJ8L6Y.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Laptop",
+    "name": "Lenovo LOQ Gaming Laptop, Intel Core i5, NVIDIA GeForce RTX 4050",
+    "description": "Lenovo LOQ gaming laptop with Intel Core i5 processor and NVIDIA GeForce RTX 4050 graphics.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D2N9K7Q4?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D2N9K7Q4.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Laptop",
+    "name": "Acer Nitro V Gaming Laptop, NVIDIA GeForce RTX 4050",
+    "description": "Acer Nitro V gaming laptop with NVIDIA GeForce RTX 4050 graphics.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CKM7H9Q2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CKM7H9Q2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "HP Pavilion Plus OLED Laptop, Intel Core i5",
+    "description": "HP Pavilion Plus OLED laptop with Intel Core i5 processor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D1K6W8R3?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D1K6W8R3.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "Dell Vostro 3530 Laptop, Intel Core i5",
+    "description": "Dell Vostro 3530 laptop with Intel Core i5 processor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D3M8Q5T1?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D3M8Q5T1.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Laptop",
+    "name": "ASUS TUF Gaming A15 Laptop, AMD Ryzen 5, NVIDIA GeForce RTX 3050",
+    "description": "ASUS TUF Gaming A15 laptop with AMD Ryzen 5 processor and NVIDIA GeForce RTX 3050 graphics.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C9X4K6P2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C9X4K6P2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Laptop",
+    "name": "Lenovo IdeaPad Gaming 3 Laptop, NVIDIA GeForce RTX 3050",
+    "description": "Lenovo IdeaPad Gaming 3 laptop with NVIDIA GeForce RTX 3050 graphics.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B8L7M5Q3?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B8L7M5Q3.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Laptop",
+    "name": "MSI Cyborg 15 Gaming Laptop, NVIDIA GeForce RTX 4050",
+    "description": "MSI Cyborg 15 gaming laptop with NVIDIA GeForce RTX 4050 graphics.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D5J9R2W6?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D5J9R2W6.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Monitor",
+    "name": "LG 27GS60F-B 27-inch Gaming Monitor",
+    "description": "LG 27GS60F-B 27-inch gaming monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D6F2M8Q1?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D6F2M8Q1.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Monitor",
+    "name": "Acer Nitro VG240Y 24-inch Monitor",
+    "description": "Acer Nitro VG240Y 24-inch monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C5J8R4T2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C5J8R4T2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Monitor",
+    "name": "ASUS VA24EHF 24-inch Monitor",
+    "description": "ASUS VA24EHF 24-inch monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B7K3M9P5?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B7K3M9P5.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Monitor",
+    "name": "Dell S2425H 24-inch Monitor",
+    "description": "Dell S2425H 24-inch monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D9Q6W2L8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D9Q6W2L8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Monitor",
+    "name": "LG 24MR400-B 24-inch Monitor",
+    "description": "LG 24MR400-B 24-inch monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C7N5X1R4?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C7N5X1R4.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Monitor",
+    "name": "AOC 24G2SP 24-inch Gaming Monitor",
+    "description": "AOC 24G2SP 24-inch gaming monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09XQ7M4K2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09XQ7M4K2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Monitor",
+    "name": "BenQ MOBIUZ EX240N Gaming Monitor",
+    "description": "BenQ MOBIUZ EX240N gaming monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B9R6T3W7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B9R6T3W7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Monitor",
+    "name": "MSI G244F E2 Gaming Monitor",
+    "description": "MSI G244F E2 gaming monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D1P8K5Q6?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D1P8K5Q6.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Monitor",
+    "name": "Acer Nitro VG271U M3 Gaming Monitor",
+    "description": "Acer Nitro VG271U M3 gaming monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C8L4N7S2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C8L4N7S2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Monitor",
+    "name": "Samsung Odyssey G3 24-inch Gaming Monitor",
+    "description": "Samsung Odyssey G3 24-inch gaming monitor.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D2X6R9P1?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D2X6R9P1.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Keyboard",
+    "name": "Logitech K120 Wired Keyboard",
+    "description": "Logitech K120 wired keyboard.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B003ELVLKU?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B003ELVLKU.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Keyboard",
+    "name": "Logitech K380s Bluetooth Keyboard",
+    "description": "Logitech K380s Bluetooth keyboard.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C4Q7M2R8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C4Q7M2R8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
     "name": "Acer Aspire Lite 15.6-inch Laptop, Intel Core i5-1334U, 16GB RAM, 512GB SSD",
     "description": "Acer Aspire Lite laptop with 13th Gen Intel Core i5, 16GB RAM and 512GB SSD.",
     "price": "",
