@@ -2,6 +2,66 @@
   {
     "platform": "amazon",
     "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "OnePlus Nord Buds 3",
+    "description": "OnePlus Nord Buds 3. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DFPKVGVC?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0DFPKVGVC.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "OnePlus Buds 3",
+    "description": "OnePlus Buds 3. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DGTTQG4L?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0DGTTQG4L.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "CMF Buds Pro 2",
+    "description": "CMF Buds Pro 2. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D5432RSR?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D5432RSR.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "TWS Earbuds",
+    "name": "Nothing Ear",
+    "description": "Nothing Ear. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CXPSBKVR?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CXPSBKVR.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Bluetooth Speaker",
+    "name": "JBL Flip 6",
+    "description": "JBL Flip 6. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09HGSCL9Q?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09HGSCL9Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
     "category": "RAM",
     "name": "Kingston Fury Beast 16GB DDR4",
     "description": "Kingston Fury Beast 16GB DDR4. Check the Amazon listing for current specifications and availability.",
