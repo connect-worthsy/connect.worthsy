@@ -1138,7 +1138,7 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
             ['Milton','MILTON'],['Wakefit','Wakefit'],['Fujifilm','Fujifilm'],
             ['Spigen','Spigen'],['TORRAS','TORRAS'],['SUPFINE','SUPFINE'],
             ['FNTCASE','FNTCASE'],['Tygot','Tygot'],['NutriPro','NutriPro'],
-            ['TheGiftKart','TheGiftKart'],['Amazon','Amazon']
+            ['TheGiftKart','TheGiftKart'],['HP','HP'],['Amazon','Amazon']
         ];
         const logoSources = {
             'Apple':'https://cdn.simpleicons.org/apple/000000',
@@ -1147,7 +1147,8 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
             'Samsung':'https://cdn.simpleicons.org/samsung/000000',
             'Logitech':'https://cdn.simpleicons.org/logitech/000000',
             'TP-Link':'https://cdn.simpleicons.org/tplink/000000',
-            'Philips':'https://cdn.simpleicons.org/philips/000000'
+            'Philips':'https://cdn.simpleicons.org/philips/000000',
+            'HP':'https://cdn.simpleicons.org/hp/000000'
         };
         const grid = document.getElementById('brand-logo-grid');
         if (!grid) return;
@@ -1189,16 +1190,18 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
                     const amazonCards = Array.from(amazonGrid.querySelectorAll('.product-card'));
                     let visibleCount = 0;
                     amazonCards.forEach(function (productCard) {
+                        const cardBrand = (productCard.dataset.brand || productCard.querySelector('[data-brand]')?.dataset.brand || '').toLowerCase().replace(/[^a-z0-9]/g, '');
                         const productText = (productCard.innerText || productCard.textContent || '').toLowerCase();
                         const normalizedText = productText.replace(/[^a-z0-9]/g, '');
-                        const matches = normalizedText.includes(normalizedBrand);
+                        const matches = cardBrand ? cardBrand === normalizedBrand : normalizedText.includes(normalizedBrand);
                         productCard.style.display = matches ? '' : 'none';
                         if (matches) visibleCount++;
                     });
+                    const countLabel = amazonGrid.parentElement.querySelector('[data-product-count]');
+                    if (countLabel) countLabel.textContent = visibleCount + ' products';
                     const searchBox = document.getElementById('product-search') || document.querySelector('input[type="search"]');
                     if (searchBox) {
-                        searchBox.value = name;
-                        searchBox.dispatchEvent(new Event('input', { bubbles: true }));
+                        searchBox.value = '';
                     }
                     let notice = document.getElementById('brand-filter-notice');
                     if (!notice) {
@@ -1231,6 +1234,7 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
                 const label = LABELS[p.platform] || p.platform;
                 const c = el('div', 'product-card bg-[#ffffff] luxury-border p-4 flex flex-col');
                 c.dataset.href = safeUrl(p.link);
+                c.dataset.brand = String(p.brand || p.merchant || '').trim();
                 const imgs = (p.images || []).filter(Boolean);
                 if (imgs.length) {
                     const box = el('div', 'w-full aspect-square bg-white mb-3 flex items-center justify-center overflow-hidden');
@@ -1299,6 +1303,7 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
                     const tools = el('div', 'flex flex-col gap-4 mb-6');
                     const top = el('div', 'flex flex-wrap items-center justify-between gap-3');
                     const count = el('span', 'text-xs font-mono uppercase tracking-widest text-slate-400', items.length + ' products');
+                    count.dataset.productCount = 'true';
                     const sortWrap = el('label', 'flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-slate-300', 'Sort by');
                     const sort = el('select', 'bg-[#ffffff] border border-brandAccent text-slate-100 px-4 py-3 text-xs font-mono min-w-[190px]');
                     sort.setAttribute('aria-label', 'Sort ' + (isAwin ? 'AWIN' : 'Amazon') + ' products');
