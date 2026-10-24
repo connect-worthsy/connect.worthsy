@@ -2,6 +2,726 @@
   {
     "platform": "amazon",
     "merchant": "Amazon India",
+    "category": "Router",
+    "name": "TP-Link Archer AX23 WiFi 6 Router",
+    "description": "TP-Link Archer AX23 WiFi 6 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08GY3R8Q2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08GY3R8Q2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "TP-Link Archer AX55 AX3000 Router",
+    "description": "TP-Link Archer AX55 AX3000 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09G5R7K2M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09G5R7K2M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "TP-Link Archer C80 AC1900 Router",
+    "description": "TP-Link Archer C80 AC1900 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B085PFRFKX?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B085PFRFKX.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "TP-Link TL-WR841N Router",
+    "description": "TP-Link TL-WR841N Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B001FWYGJS?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B001FWYGJS.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "TP-Link Archer A7 AC1750",
+    "description": "TP-Link Archer A7 AC1750. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B01IUDU7ZC?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B01IUDU7ZC.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mesh Router",
+    "name": "TP-Link Deco M4 Mesh WiFi",
+    "description": "TP-Link Deco M4 Mesh WiFi. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07Q2WQ5W9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07Q2WQ5W9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mesh Router",
+    "name": "TP-Link Deco X20 Mesh WiFi 6",
+    "description": "TP-Link Deco X20 Mesh WiFi 6. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D7X4Q2M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D7X4Q2M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mesh Router",
+    "name": "TP-Link Deco X50 Mesh WiFi 6",
+    "description": "TP-Link Deco X50 Mesh WiFi 6. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09PRD4R9Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09PRD4R9Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "Tenda AC10 AC1200 Router",
+    "description": "Tenda AC10 AC1200 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0789S4Q5M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0789S4Q5M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "Tenda AC23 AC2100 Router",
+    "description": "Tenda AC23 AC2100 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07N1K5Q8M?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07N1K5Q8M.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "Tenda RX2 Pro WiFi 6 Router",
+    "description": "Tenda RX2 Pro WiFi 6 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09V6Q2M7R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09V6Q2M7R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "D-Link DIR-825 AC1200 Router",
+    "description": "D-Link DIR-825 AC1200 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B00Q3M8R5T?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B00Q3M8R5T.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "D-Link DIR-X1560 WiFi 6 Router",
+    "description": "D-Link DIR-X1560 WiFi 6 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08L5Q7M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08L5Q7M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "Jio AX3000 WiFi 6 Router",
+    "description": "Jio AX3000 WiFi 6 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D5R8Q2M7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D5R8Q2M7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "Netgear R6120 AC1200 Router",
+    "description": "Netgear R6120 AC1200 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B01MS84M1A?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B01MS84M1A.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "Netgear R6700 AX1800 Router",
+    "description": "Netgear R6700 AX1800 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08J6Q4M9P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08J6Q4M9P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Router",
+    "name": "ASUS RT-AX1800S WiFi 6 Router",
+    "description": "ASUS RT-AX1800S WiFi 6 Router. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09N7R2M5Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09N7R2M5Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mesh Router",
+    "name": "Amazon eero 6+ Mesh WiFi",
+    "description": "Amazon eero 6+ Mesh WiFi. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09H6Q4M2R?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09H6Q4M2R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "SanDisk Ultra 128GB microSD",
+    "description": "SanDisk Ultra 128GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B073JYVKNX?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B073JYVKNX.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "SanDisk Ultra 256GB microSD",
+    "description": "SanDisk Ultra 256GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07G3L3DRK?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07G3L3DRK.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "SanDisk Extreme 128GB microSD",
+    "description": "SanDisk Extreme 128GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07FCMKK5X?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07FCMKK5X.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "SanDisk Extreme 256GB microSD",
+    "description": "SanDisk Extreme 256GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07FCR3XD3?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07FCR3XD3.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Samsung EVO Plus 128GB microSD",
+    "description": "Samsung EVO Plus 128GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09B1JF8B3?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09B1JF8B3.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Samsung EVO Plus 256GB microSD",
+    "description": "Samsung EVO Plus 256GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09B1J8QZ6?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09B1J8QZ6.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Samsung PRO Plus 128GB microSD",
+    "description": "Samsung PRO Plus 128GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09B1GXM16?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09B1GXM16.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Samsung PRO Plus 256GB microSD",
+    "description": "Samsung PRO Plus 256GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09B1H1Z2Y?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09B1H1Z2Y.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Lexar 633x 128GB microSD",
+    "description": "Lexar 633x 128GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B012PL5G5E?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B012PL5G5E.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Lexar 633x 256GB microSD",
+    "description": "Lexar 633x 256GB microSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07N4M3T8B?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07N4M3T8B.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Kingston Canvas Go Plus 128GB",
+    "description": "Kingston Canvas Go Plus 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B085B2X2H2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B085B2X2H2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Kingston Canvas Go Plus 256GB",
+    "description": "Kingston Canvas Go Plus 256GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B085B2X2H2X?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B085B2X2H2X.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Memory Card",
+    "name": "Kingston Canvas Select Plus 128GB",
+    "description": "Kingston Canvas Select Plus 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08F2Q4M7P?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08F2Q4M7P.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "HP 128GB USB 3.2 Flash Drive",
+    "description": "HP 128GB USB 3.2 Flash Drive. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08W5R7M2Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08W5R7M2Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "SanDisk Ultra Flair 64GB",
+    "description": "SanDisk Ultra Flair 64GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B015CH1NAQ?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B015CH1NAQ.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "SanDisk Ultra Flair 128GB",
+    "description": "SanDisk Ultra Flair 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B015CH1NAQX?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B015CH1NAQX.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "SanDisk Ultra Dual Drive Go 128GB",
+    "description": "SanDisk Ultra Dual Drive Go 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07YYLDW2X?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07YYLDW2X.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "SanDisk Ultra Dual Drive Luxe 128GB",
+    "description": "SanDisk Ultra Dual Drive Luxe 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0842NMT7F?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0842NMT7F.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "Kingston DataTraveler Exodia 128GB",
+    "description": "Kingston DataTraveler Exodia 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08KQBYFQZ?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08KQBYFQZ.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "Kingston DataTraveler Kyson 128GB",
+    "description": "Kingston DataTraveler Kyson 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B087DFFJRD?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B087DFFJRD.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "Samsung BAR Plus 128GB USB",
+    "description": "Samsung BAR Plus 128GB USB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07BPF5J9D?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07BPF5J9D.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "Samsung FIT Plus 128GB USB",
+    "description": "Samsung FIT Plus 128GB USB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07D7Q6Z4B?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07D7Q6Z4B.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "Transcend JetFlash 790 128GB",
+    "description": "Transcend JetFlash 790 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B07V7V7N9Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B07V7V7N9Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Pen Drive",
+    "name": "Transcend JetFlash 920 128GB",
+    "description": "Transcend JetFlash 920 128GB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08D7M2R4Q?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08D7M2R4Q.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "Crucial X9 1TB Portable SSD",
+    "description": "Crucial X9 1TB Portable SSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C9W1M2P7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C9W1M2P7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "Crucial X10 Pro 1TB Portable SSD",
+    "description": "Crucial X10 Pro 1TB Portable SSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C3K2R5M8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C3K2R5M8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "Samsung T7 1TB Portable SSD",
+    "description": "Samsung T7 1TB Portable SSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0874YS2N7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0874YS2N7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "Samsung T7 Shield 1TB",
+    "description": "Samsung T7 Shield 1TB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09VLHR7Q9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09VLHR7Q9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "Samsung T5 EVO 2TB",
+    "description": "Samsung T5 EVO 2TB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C4M7Q2R9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C4M7Q2R9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "WD My Passport SSD 1TB",
+    "description": "WD My Passport SSD 1TB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08F2GQ2X2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08F2GQ2X2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "SanDisk Extreme Portable SSD 1TB",
+    "description": "SanDisk Extreme Portable SSD 1TB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08GTYFC37?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08GTYFC37.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "SanDisk Extreme PRO Portable SSD 1TB",
+    "description": "SanDisk Extreme PRO Portable SSD 1TB. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08RX7BVM8?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08RX7BVM8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "Kingston XS1000 1TB Portable SSD",
+    "description": "Kingston XS1000 1TB Portable SSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CCDB9KQZ?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CCDB9KQZ.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "External SSD",
+    "name": "Kingston XS2000 1TB Portable SSD",
+    "description": "Kingston XS2000 1TB Portable SSD. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09F5YHQ5N?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09F5YHQ5N.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Internal SSD",
+    "name": "WD Black SN850X 1TB NVMe",
+    "description": "WD Black SN850X 1TB NVMe. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B7CKZ7X1?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B7CKZ7X1.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Internal SSD",
+    "name": "Samsung 990 PRO 1TB NVMe",
+    "description": "Samsung 990 PRO 1TB NVMe. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0BHJJ9Y77?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0BHJJ9Y77.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Internal SSD",
+    "name": "Samsung 980 PRO 1TB NVMe",
+    "description": "Samsung 980 PRO 1TB NVMe. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B08GLX7TNT?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B08GLX7TNT.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Internal SSD",
+    "name": "Crucial P3 Plus 1TB NVMe",
+    "description": "Crucial P3 Plus 1TB NVMe. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0B25ML2F5?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0B25ML2F5.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Internal SSD",
+    "name": "WD Blue SN580 1TB NVMe",
+    "description": "WD Blue SN580 1TB NVMe. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C8WPRM8H?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C8WPRM8H.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Internal SSD",
+    "name": "Kingston NV2 1TB NVMe",
+    "description": "Kingston NV2 1TB NVMe. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0BDTCB9R7?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0BDTCB9R7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Internal SSD",
+    "name": "Lexar NM790 1TB NVMe",
+    "description": "Lexar NM790 1TB NVMe. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C3B9T5Y2?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C3B9T5Y2.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Internal SSD",
+    "name": "TeamGroup MP44L 1TB NVMe",
+    "description": "TeamGroup MP44L 1TB NVMe. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C7V1M5Q9?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C7V1M5Q9.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
     "category": "Keyboard",
     "name": "Logitech K580 Slim Multi-Device Keyboard",
     "description": "Logitech K580 Slim Multi-Device Keyboard. Check the Amazon listing for current specifications and availability.",
