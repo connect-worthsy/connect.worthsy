@@ -1,5 +1,65 @@
 [
   {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "Acer Aspire Lite 15.6-inch Laptop, Intel Core i5-1334U, 16GB RAM, 512GB SSD",
+    "description": "Acer Aspire Lite laptop with 13th Gen Intel Core i5, 16GB RAM and 512GB SSD.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DPXBHF8H?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0DPXBHF8H.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "Lenovo V15 G4 15.6-inch Laptop, AMD Ryzen 3 7320U, 8GB RAM, 512GB SSD",
+    "description": "Lenovo V15 business laptop with AMD Ryzen 3 7320U, 8GB RAM and 512GB SSD.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0C69Z4TKW?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C69Z4TKW.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Gaming Laptop",
+    "name": "ASUS TUF Gaming A15 Laptop, AMD Ryzen 7 7435HS, 16GB RAM, RTX 4060",
+    "description": "ASUS TUF Gaming A15 laptop with AMD Ryzen 7 7435HS processor and NVIDIA GeForce RTX 4060 graphics.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DDTNZ2LR?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0DDTNZ2LR.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "Lenovo IdeaPad Slim 5 14-inch Laptop, Intel Core i5-12450H, 16GB RAM, 1TB SSD",
+    "description": "Lenovo IdeaPad Slim 5 laptop with Intel Core i5-12450H, 16GB RAM and 1TB SSD.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CNK1VTZW?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CNK1VTZW.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Laptop",
+    "name": "Lenovo IdeaPad Slim 3 15.6-inch Laptop, AMD Ryzen 5 7520U, 16GB RAM, 512GB SSD",
+    "description": "Lenovo IdeaPad Slim 3 laptop with AMD Ryzen 5 7520U, 16GB RAM and 512GB SSD.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CD4BQ4SF?tag=worthsy01-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CD4BQ4SF.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
     "platform": "awin",
     "merchant": "Boxed2me",
     "category": "Headphones",
