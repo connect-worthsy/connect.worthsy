@@ -744,23 +744,19 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
                     const cats = [];
                     items.forEach(function (p) { const c = String(p.category || 'Other'); if (cats.indexOf(c) === -1) cats.push(c); });
                     if (cats.length > 1) {
-                        const bar = el('div', 'flex flex-wrap gap-2');
-                        const chips = [];
-                        function chip(label, category, total) {
-                            const b = el('button', 'px-4 py-2 text-xs font-bold uppercase tracking-widest border border-brandAccent text-brandAccent', label + ' (' + total + ')');
-                            b.type = 'button';
-                            b.addEventListener('click', function () {
-                                selectedCategory = category;
-                                chips.forEach(function (x) { x.classList.remove('bg-brandAccent', 'text-brandBg'); x.classList.add('text-brandAccent'); });
-                                b.classList.remove('text-brandAccent'); b.classList.add('bg-brandAccent', 'text-brandBg');
-                                show(filteredItems());
-                            });
-                            chips.push(b); bar.appendChild(b); return b;
-                        }
-                        const all = chip('All', 'All', items.length);
-                        cats.forEach(function (c) { chip(c, c, items.filter(function (p) { return String(p.category || 'Other') === c; }).length); });
-                        all.classList.remove('text-brandAccent'); all.classList.add('bg-brandAccent', 'text-brandBg');
-                        tools.appendChild(bar);
+                        const categoryWrap = el('label', 'flex flex-col gap-2 text-xs font-mono uppercase tracking-widest text-slate-300');
+                        categoryWrap.appendChild(el('span', '', 'Filter by category'));
+                        const categorySelect = el('select', 'w-full bg-[#ffffff] border border-brandAccent text-slate-100 px-4 py-3 text-xs font-mono');
+                        categorySelect.setAttribute('aria-label', 'Filter by category');
+                        const all = el('option', '', 'All categories (' + items.length + ')');
+                        all.value = 'All'; categorySelect.appendChild(all);
+                        cats.sort(function(a,b){return a.localeCompare(b);}).forEach(function (c) {
+                            const total = items.filter(function (p) { return String(p.category || 'Other') === c; }).length;
+                            const option = el('option', '', c + ' (' + total + ')'); option.value = c; categorySelect.appendChild(option);
+                        });
+                        categorySelect.addEventListener('change', function () { selectedCategory = categorySelect.value; show(filteredItems()); });
+                        categoryWrap.appendChild(categorySelect);
+                        tools.appendChild(categoryWrap);
                     }
                     g.insertAdjacentElement('beforebegin', tools);
                 } else {
