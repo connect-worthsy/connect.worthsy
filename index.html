@@ -638,7 +638,7 @@ input,select,textarea{background:#fff!important;color:#111!important;border-colo
 <script>
         (function () {
             const BRAND_NAMES = ['Western Digital','Amazon Basics','DailyObjects','TheGiftKart','G.Skill','TP-Link','SanDisk','Kingston','Crucial','Corsair','Logitech','Ambrane','Portronics','Zebronics','Netgear','Samsung','OnePlus','Xiaomi','Realme','Fastrack','Philips','Havells','Wakefit','Fujifilm','Spigen','TORRAS','SUPFINE','FNTCASE','NutriPro','URBN','boAt','Noise','Apple','ASUS','Dell','Lenovo','Acer','HP','D-Link','Tenda','Seagate','JBL','Sony','Anker','UGREEN','Qubo','Wipro','Syska','Milton','Tygot'];
-            function productBrand(p) { if (p && p.brand && String(p.brand).trim()) return String(p.brand).trim(); const name = String((p && p.name) || '').trim(); const found = BRAND_NAMES.find(function (b) { return name.toLowerCase().startsWith(b.toLowerCase() + ' ') || name.toLowerCase() === b.toLowerCase(); }); return found || (name.split(/\\s+/)[0] || 'Other'); }
+            function productBrand(p) { if (p && p.brand && String(p.brand).trim()) return String(p.brand).trim(); const name = String((p && p.name) || '').trim(); const found = BRAND_NAMES.find(function (b) { return name.toLowerCase().startsWith(b.toLowerCase() + ' ') || name.toLowerCase() === b.toLowerCase(); }); return found || (name.split(/\s+/)[0] || 'Other'); }
             const LABELS = { amazon: 'Amazon', flipkart: 'Flipkart', shopify: 'Shopify', clickbank: 'ClickBank', coursera: 'Coursera', awin: 'Awin' };
             function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
             function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : '#'; }
