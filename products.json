@@ -326,18 +326,6 @@
   {
     "platform": "amazon",
     "merchant": "Amazon India",
-    "category": "Webcam",
-    "name": "Portronics Phoenix 4K Webcam",
-    "description": "Portronics Phoenix 4K Webcam. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B0B5M8Q2R7?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B0B5M8Q2R7.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
     "category": "Headphones",
     "name": "JBL Tune 510BT",
     "description": "JBL Tune 510BT. Check the Amazon listing for current specifications and availability.",
@@ -345,18 +333,6 @@
     "link": "https://www.amazon.in/dp/B08W5J4K8P?tag=worthsy0d-21",
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B08W5J4K8P.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "Headphones",
-    "name": "JBL Tune 520BT",
-    "description": "JBL Tune 520BT. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B0C6M5Q2R8?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B0C6M5Q2R8.01._SCLZZZZZZZ_.jpg"
     ]
   },
   {
@@ -441,54 +417,6 @@
     "link": "https://www.amazon.in/dp/B08Z7M4Q2P?tag=worthsy0d-21",
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B08Z7M4Q2P.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "TWS Earbuds",
-    "name": "JBL Wave Beam",
-    "description": "JBL Wave Beam. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B0B4M6Q2R9?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B0B4M6Q2R9.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "TWS Earbuds",
-    "name": "JBL Wave Buds",
-    "description": "JBL Wave Buds. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B0B4M7Q2R8?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B0B4M7Q2R8.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "TWS Earbuds",
-    "name": "Realme Buds T310",
-    "description": "Realme Buds T310. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B0D2M6Q4R8?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B0D2M6Q4R8.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "Bluetooth Speaker",
-    "name": "JBL PartyBox Encore Essential",
-    "description": "JBL PartyBox Encore Essential. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B0B6M5Q2R8?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B0B6M5Q2R8.01._SCLZZZZZZZ_.jpg"
     ]
   },
   {
@@ -645,18 +573,6 @@
     "link": "https://www.amazon.in/dp/B09N5Q7M2R?tag=worthsy0d-21",
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B09N5Q7M2R.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "Smart Lighting",
-    "name": "Philips Hue Smart Bulb",
-    "description": "Philips Hue Smart Bulb. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B08M5Q7R2Q?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B08M5Q7R2Q.01._SCLZZZZZZZ_.jpg"
     ]
   },
   {
@@ -1233,18 +1149,6 @@
     "link": "https://www.amazon.in/dp/B09VLHR7Q9?tag=worthsy0d-21",
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B09VLHR7Q9.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "External SSD",
-    "name": "Samsung T5 EVO 2TB",
-    "description": "Samsung T5 EVO 2TB. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B0C4M7Q2R9?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B0C4M7Q2R9.01._SCLZZZZZZZ_.jpg"
     ]
   },
   {
