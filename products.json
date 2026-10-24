@@ -1275,18 +1275,6 @@
     "platform": "amazon",
     "merchant": "Amazon India",
     "category": "Memory Card",
-    "name": "Kingston Canvas Go Plus 256GB",
-    "description": "Kingston Canvas Go Plus 256GB. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B085B2X2H2X?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B085B2X2H2X.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "Memory Card",
     "name": "Kingston Canvas Select Plus 128GB",
     "description": "Kingston Canvas Select Plus 128GB. Check the Amazon listing for current specifications and availability.",
     "price": "",
@@ -1317,18 +1305,6 @@
     "link": "https://www.amazon.in/dp/B015CH1NAQ?tag=worthsy0d-21",
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B015CH1NAQ.01._SCLZZZZZZZ_.jpg"
-    ]
-  },
-  {
-    "platform": "amazon",
-    "merchant": "Amazon India",
-    "category": "Pen Drive",
-    "name": "SanDisk Ultra Flair 128GB",
-    "description": "SanDisk Ultra Flair 128GB. Check the Amazon listing for current specifications and availability.",
-    "price": "",
-    "link": "https://www.amazon.in/dp/B015CH1NAQX?tag=worthsy0d-21",
-    "images": [
-      "https://images-na.ssl-images-amazon.com/images/P/B015CH1NAQX.01._SCLZZZZZZZ_.jpg"
     ]
   },
   {
