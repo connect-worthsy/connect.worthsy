@@ -632,7 +632,41 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             <div class="space-y-6">
                 <div class="bg-[#ffffff] luxury-border p-6 text-center"><h2 class="font-black tracking-wide text-lg mb-2">No open positions right now</h2>
                 <p class="text-slate-300 text-sm leading-relaxed">WORTHSY is a small, growing project and we are not hiring at the moment. When roles open up, they will be posted here.</p></div>
-                <div class="text-center pt-4"><a href="#contact" class="inline-block px-8 py-3 bg-brandAccent text-brandBg font-bold uppercase tracking-widest text-sm">Introduce yourself</a></div>
+                <div class="bg-[#ffffff] luxury-border p-6 sm:p-10">
+                    <div class="text-center mb-8">
+                        <h2 class="font-black tracking-wide text-2xl mb-2">Apply to WORTHSY</h2>
+                        <p class="text-slate-400 text-xs font-mono">No open role fits? Send a general application and we will keep it on file.</p>
+                    </div>
+                    <form id="careerForm" onsubmit="handleCareerApply(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div><label for="careerName" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Full Name *</label>
+                            <input type="text" id="careerName" name="name" required maxlength="100" autocomplete="name" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="Your name"></div>
+                            <div><label for="careerEmail" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Email *</label>
+                            <input type="email" id="careerEmail" name="email" required maxlength="120" autocomplete="email" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="you@example.com"></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div><label for="careerPhone" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Phone</label>
+                            <input type="tel" id="careerPhone" name="phone" maxlength="30" autocomplete="tel" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="+91 ..."></div>
+                            <div><label for="careerCity" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">City / Location</label>
+                            <input type="text" id="careerCity" name="location" maxlength="80" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="Delhi, India"></div>
+                        </div>
+                        <div><label for="careerRole" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Role of Interest *</label>
+                        <select id="careerRole" name="role" required class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors">
+                            <option value="General application">General application</option>
+                            <option value="Content &amp; product curation">Content &amp; product curation</option>
+                            <option value="Marketing &amp; social media">Marketing &amp; social media</option>
+                            <option value="Web development &amp; design">Web development &amp; design</option>
+                            <option value="Other">Other</option>
+                        </select></div>
+                        <div><label for="careerLink" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Resume / Portfolio / LinkedIn Link *</label>
+                        <input type="url" id="careerLink" name="resume_link" required maxlength="300" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="https://..."></div>
+                        <div><label for="careerMessage" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Why do you want to join? *</label>
+                        <textarea id="careerMessage" name="message" rows="5" required maxlength="2000" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors resize-none" placeholder="Tell us about yourself and what you would bring to WORTHSY"></textarea></div>
+                        <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
+                        <button type="submit" class="w-full py-4 text-sm font-black uppercase tracking-[0.2em] bg-brandAccent text-brandBg hover:bg-brandAccentHover transition-all logo-wordmark">Submit Application <i class="fa-solid fa-paper-plane ml-2"></i></button>
+                    </form>
+                    <div id="careerNotice" role="status" class="hidden mt-6 p-4 bg-[#ffffff] border border-brandAccent/30 text-brandAccent text-xs font-mono uppercase tracking-widest text-center"></div>
+                </div>
             </div>
         </main>
     </div>
@@ -961,6 +995,26 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             const mb = document.getElementById('mobileMenuBtn'), mm = document.getElementById('mobileMenu');
             if (mb && mm) mb.addEventListener('click', function () { setTimeout(function () { uniBtn.classList.toggle('hidden', !mm.classList.contains('hidden')); }, 0); });
         })();
+    </script>
+    <script>
+        /* Career form: paste your form endpoint here (e.g. https://formspree.io/f/xxxxxxx or https://api.web3forms.com/submit). */
+        const CAREER_FORM_ENDPOINT = '';
+        function handleCareerApply(event) {
+            event.preventDefault();
+            const form = document.getElementById('careerForm');
+            const notice = document.getElementById('careerNotice');
+            const btn = form.querySelector('button[type="submit"]');
+            function show(msg) { notice.textContent = msg; notice.classList.remove('hidden'); }
+            if (form.elements['botcheck'].value) return;
+            if (!CAREER_FORM_ENDPOINT) { show('Applications are not connected yet. Please try again soon.'); return; }
+            btn.disabled = true; form.style.opacity = '0.4';
+            const data = new FormData(form);
+            data.delete('botcheck');
+            fetch(CAREER_FORM_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+                .then(function (r) { if (!r.ok) throw new Error('bad status'); form.reset(); show('Application received. Thank you, we will be in touch if there is a fit.'); })
+                .catch(function () { show('Something went wrong. Please try again in a moment.'); })
+                .finally(function () { btn.disabled = false; form.style.opacity = '1'; });
+        }
     </script>
     <script>
         function showPlatformPage() {
