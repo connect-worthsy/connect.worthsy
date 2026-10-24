@@ -777,7 +777,14 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             function productBrand(p) { if (p && p.brand && String(p.brand).trim()) return String(p.brand).trim(); const name = String((p && p.name) || '').trim(); const found = BRAND_NAMES.find(function (b) { return name.toLowerCase().startsWith(b.toLowerCase() + ' ') || name.toLowerCase() === b.toLowerCase(); }); return found || (name.split(/\s+/)[0] || 'Other'); }
             const LABELS = { amazon: 'Amazon', flipkart: 'Flipkart', shopify: 'Shopify', clickbank: 'ClickBank', coursera: 'Coursera', awin: 'Awin' };
             function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
-            function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : '#'; }
+            function safeUrl(u) {
+                if (!/^https?:\/\//i.test(u || '')) return '#';
+                try {
+                    const parsed = new URL(u);
+                    if (/(^|\.)amazon\.in$/i.test(parsed.hostname)) parsed.searchParams.set('tag', 'worthsy0d-21');
+                    return parsed.href;
+                } catch (_) { return '#'; }
+            }
             function btn(href, text, cls) { const a = el('a', cls, text); a.href = safeUrl(href); a.target = '_blank'; a.rel = 'sponsored noopener'; return a; }
             function card(p) {
                 const label = LABELS[p.platform] || p.platform;
