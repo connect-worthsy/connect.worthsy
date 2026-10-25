@@ -636,7 +636,11 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
                         <h2 class="font-black tracking-wide text-2xl mb-2">Apply to WORTHSY</h2>
                         <p class="text-slate-400 text-xs font-mono">No open role fits? Send a general application and we will keep it on file.</p>
                     </div>
-                    <form id="careerForm" onsubmit="handleCareerApply(event)" class="space-y-6">
+                    <form id="careerForm" action="https://formsubmit.co/connect.worthsy@gmail.com" method="POST" class="space-y-6">
+                        <input type="hidden" name="_subject" value="New WORTHSY Careers Application">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_url" value="https://www.worthsy.in/index.html#careers">
+                        <input type="hidden" name="_next" value="https://www.worthsy.in/index.html#careers">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div><label for="careerName" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Full Name *</label>
                             <input type="text" id="careerName" name="name" required maxlength="100" autocomplete="name" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="Your name"></div>
@@ -661,7 +665,7 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
                         <input type="url" id="careerLink" name="resume_link" required maxlength="300" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="https://..."></div>
                         <div><label for="careerMessage" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Why do you want to join? *</label>
                         <textarea id="careerMessage" name="message" rows="5" required maxlength="2000" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors resize-none" placeholder="Tell us about yourself and what you would bring to WORTHSY"></textarea></div>
-                        <input type="text" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
+                        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
                         <button type="submit" class="w-full py-4 text-sm font-black uppercase tracking-[0.2em] bg-brandAccent text-brandBg hover:bg-brandAccentHover transition-all logo-wordmark">Submit Application <i class="fa-solid fa-paper-plane ml-2"></i></button>
                     </form>
                     <div id="careerNotice" role="status" class="hidden mt-6 p-4 bg-[#ffffff] border border-brandAccent/30 text-brandAccent text-xs font-mono uppercase tracking-widest text-center"></div>
@@ -1008,48 +1012,7 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             if (mb && mm) mb.addEventListener('click', function () { setTimeout(function () { uniBtn.classList.toggle('hidden', !mm.classList.contains('hidden')); }, 0); });
         })();
     </script>
-    <script>
-        /* Applications are routed to the WORTHSY careers inbox through FormSubmit.
-           The inbox owner must activate the service from its first confirmation email. */
-        const CAREER_FORM_ENDPOINT = 'https://formsubmit.co/ajax/connect.worthsy@gmail.com';
-        function handleCareerApply(event) {
-            event.preventDefault();
-            const form = document.getElementById('careerForm');
-            const notice = document.getElementById('careerNotice');
-            const btn = form.querySelector('button[type="submit"]');
-            function show(msg) { notice.textContent = msg; notice.classList.remove('hidden'); }
-            if (form.elements['botcheck'].value) return;
-            btn.disabled = true;
-            btn.style.opacity = '0.6';
-            const data = Object.fromEntries(new FormData(form).entries());
-            delete data.botcheck;
-            data._subject = 'New WORTHSY Careers Application';
-            data._template = 'table';
-            data._url = window.location.href;
-            fetch(CAREER_FORM_ENDPOINT, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify(data)
-            })
-                .then(function (r) {
-                    return r.json().then(function (result) {
-                        if (!r.ok || result.success !== 'true' && result.success !== true) {
-                            const reason = result && result.message ? String(result.message) : 'The email service did not confirm receipt.';
-                            throw new Error(reason);
-                        }
-                        form.reset();
-                        show('Application received. Thank you for applying to WORTHSY.');
-                    });
-                })
-                .catch(function (error) {
-                    show('Application not confirmed: ' + (error && error.message ? error.message : 'Please try again or contact connect.worthsy@gmail.com.'));
-                })
-                .finally(function () {
-                    btn.disabled = false;
-                    btn.style.opacity = '1';
-                });
-        }
-    </script>
+    <!-- Careers applications use a standard HTML POST to avoid browser cross-origin fetch failures. -->
     <script>
         function showPlatformPage() {
             const id = location.hash.slice(1);
