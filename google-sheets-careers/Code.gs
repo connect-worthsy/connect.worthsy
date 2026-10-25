@@ -122,7 +122,7 @@ function doPost(e) {
 function sendApplicantConfirmation_(recipient, subject, body) {
   const email = String(recipient || '').trim();
   if (!email) throw new Error('Applicant email address is missing.');
-  const plainBody = String(body || '');
+  const plainBody = String(body || '') + '\n\nView my contact details here: https://blinq.me/VfpFNBGhsUxg';
   const escapedBody = escapeHtml_(plainBody).replace(/\r?\n/g, '<br>');
   const htmlBody =
     '<!doctype html><html><body style="margin:0;padding:24px;background:#0b0b0d;font-family:Arial,Helvetica,sans-serif;color:#f5f5f5">' +
@@ -137,6 +137,10 @@ function sendApplicantConfirmation_(recipient, subject, body) {
     '<div style="margin-top:28px;padding:18px;background:#202024;border-left:3px solid #e1262f;font-size:13px;line-height:1.7;color:#d4d4d8">If you have any questions, simply reply to this email and our team will be happy to help.</div>' +
     '<p style="margin:28px 0 5px;font-weight:bold;color:#fff">WORTHSY Team</p>' +
     '<a href="https://www.worthsy.in/" style="color:#ff555e;text-decoration:none;font-size:13px">www.worthsy.in</a>' +
+    '<div style="margin-top:28px;padding-top:22px;border-top:1px solid #303036">' +
+    '<img src="https://px.blinq.me/t/HxUu29MBrTeKlRTCZeyDs" alt="Email signature" style="display:block;max-width:100%;width:360px;height:auto;border:0;outline:none;text-decoration:none" />' +
+    '<p style="margin:14px 0 0;font-size:13px;line-height:1.7"><a href="https://blinq.me/VfpFNBGhsUxg" style="color:#ff646c;text-decoration:underline">View my contact details here</a></p>' +
+    '</div>' +
     '</td></tr><tr><td style="padding:18px 32px;border-top:1px solid #303036;color:#888891;font-size:11px;line-height:1.6">This is an automatic confirmation that your submission was received.</td></tr></table></body></html>';
   MailApp.sendEmail({
     to: email,
