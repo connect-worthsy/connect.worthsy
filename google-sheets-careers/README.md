@@ -1,20 +1,22 @@
-# WORTHSY Careers → Google Sheets
+# WORTHSY Careers → Your Google Sheet
 
-The Apps Script in `Code.gs` records each careers application as a new row in a Google Sheet. It avoids the FormSubmit service that your security software blocked.
+The Apps Script in `Code.gs` is already configured for your spreadsheet:
+`1JAlshYqCvoiAabWLlRcbkUhFjzccoE0ORW70BAguBI8`
 
-## One-time setup in your Google account
+## Finish the one-time setup
 
-1. Create a Google Sheet named **WORTHSY Careers Applications**.
-2. In the sheet URL, copy the spreadsheet ID: the text between `/d/` and `/edit`.
-3. In the sheet, choose **Extensions → Apps Script**.
-4. Replace the editor contents with the code in `Code.gs`, and replace `REPLACE_WITH_YOUR_GOOGLE_SHEET_ID` with your spreadsheet ID.
-5. Click **Deploy → New deployment → Web app**.
-6. Set **Execute as** to **Me** and **Who has access** to **Anyone**, then deploy and authorize the script.
-7. Copy the web app URL ending in `/exec` and send it to the person updating the WORTHSY site so the Careers form can be pointed to it.
-8. Submit a test application and confirm a new row appears in the sheet.
+1. Open your spreadsheet: https://docs.google.com/spreadsheets/d/1JAlshYqCvoiAabWLlRcbkUhFjzccoE0ORW70BAguBI8/edit
+2. Choose **Extensions → Apps Script**.
+3. In the Apps Script editor, replace the contents of `Code.gs` with the code in this repository file: https://github.com/connect-worthsy/connect.worthsy/blob/main/google-sheets-careers/Code.gs
+4. Click **Deploy → New deployment**.
+5. Select the gear/type menu and choose **Web app**.
+6. Set **Execute as** to **Me**. Set **Who has access** to **Anyone**, if available and allowed by your Google account/organization.
+7. Click **Deploy** and approve Google's authorization prompt.
+8. Copy the Web app URL ending in `/exec` and send that URL to the site maintainer so the live Careers form can be connected to it.
+9. Test by submitting an application through WORTHSY Careers and check that a new row appears in the spreadsheet.
 
-## Data stored
+## What gets saved
 
 Timestamp, full name, email, phone, location, role of interest, resume/portfolio/LinkedIn URL, and application message.
 
-**Important:** The website is not connected to this script until the web app is deployed and its `/exec` URL is configured in the Careers form. Keep the spreadsheet private; do not publish it publicly.
+**Important:** The spreadsheet URL alone cannot receive form submissions. The Apps Script web app must be deployed first, and its `/exec` URL must be configured as the Careers form's destination. Keep the spreadsheet private; do not publish it to the public web.
