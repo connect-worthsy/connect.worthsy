@@ -48,6 +48,24 @@ function doPost(e) {
         safeCell_(p.asset),
         safeCell_(p.message)
       ]);
+
+      // Confirmation email is best-effort: an email failure must not undo
+      // a successfully saved inquiry or falsely report that the row failed.
+      try {
+        sendApplicantConfirmation_(
+          p.email,
+          'Thank you for your private inquiry | WORTHSY',
+          'Hello ' + String(p.name || '').trim() + ',\\n\\n' +
+          'Thank you for contacting WORTHSY about your private acquisition or partnership inquiry. ' +
+          'We have received your submission and our team will review the details. If we need more information, we will contact you.\\n\\n' +
+          'Your inquiry: ' + String(p.asset || '').trim() + '\\n\\n' +
+          'Thank you for considering WORTHSY.\\n' +
+          'Warm regards,\\nWORTHSY Team\\nhttps://www.worthsy.in/'
+        );
+      } catch (mailError) {
+        console.error('Private inquiry saved, but confirmation email failed: ' + mailError);
+      }
+
       return page_(
         'Inquiry received',
         'Thank you. Your private inquiry has been saved successfully.'
@@ -68,6 +86,23 @@ function doPost(e) {
       safeCell_(p.resume_link),
       safeCell_(p.message)
     ]);
+
+    // Send a separate confirmation tailored to job applicants.
+    try {
+      sendApplicantConfirmation_(
+        p.email,
+        'Thank you for applying to WORTHSY',
+        'Hello ' + String(p.name || '').trim() + ',\\n\\n' +
+        'Thank you for your interest in joining WORTHSY and for submitting your application for ' +
+        String(p.role || '').trim() + '. We have received your application and our team will review it. ' +
+        'If your profile matches our requirements, we will contact you about the next steps.\\n\\n' +
+        'Thank you for considering a future with WORTHSY.\\n' +
+        'Warm regards,\\nWORTHSY Careers Team\\nhttps://www.worthsy.in/'
+      );
+    } catch (mailError) {
+      console.error('Career application saved, but confirmation email failed: ' + mailError);
+    }
+
     return page_(
       'Application received',
       'Thank you for applying to WORTHSY. Your application has been saved successfully.'
@@ -79,6 +114,19 @@ function doPost(e) {
       'Your submission could not be saved. Please return to the form and try again.'
     );
   }
+}
+
+
+function sendApplicantConfirmation_(recipient, subject, body) {
+  const email = String(recipient || '').trim();
+  if (!email) throw new Error('Applicant email address is missing.');
+  MailApp.sendEmail({
+    to: email,
+    subject: subject,
+    body: body,
+    name: 'WORTHSY Team',
+    replyTo: 'connect.worthsy@gmail.com'
+  });
 }
 
 function getOrCreateSheet_(spreadsheet, name, headers) {
