@@ -1025,6 +1025,7 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             delete data.botcheck;
             data._subject = 'New WORTHSY Careers Application';
             data._template = 'table';
+            data._url = window.location.href;
             fetch(CAREER_FORM_ENDPOINT, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -1033,14 +1034,15 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
                 .then(function (r) {
                     return r.json().then(function (result) {
                         if (!r.ok || result.success !== 'true' && result.success !== true) {
-                            throw new Error('Application service did not confirm receipt');
+                            const reason = result && result.message ? String(result.message) : 'The email service did not confirm receipt.';
+                            throw new Error(reason);
                         }
                         form.reset();
                         show('Application received. Thank you for applying to WORTHSY.');
                     });
                 })
-                .catch(function () {
-                    show('We could not confirm your application. Please try again or contact connect.worthsy@gmail.com.');
+                .catch(function (error) {
+                    show('Application not confirmed: ' + (error && error.message ? error.message : 'Please try again or contact connect.worthsy@gmail.com.'));
                 })
                 .finally(function () {
                     btn.disabled = false;
