@@ -125,18 +125,18 @@ function sendApplicantConfirmation_(recipient, subject, body) {
   const plainBody = String(body || '');
   const escapedBody = escapeHtml_(String(body || '')).replace(/\r?\n/g, '<br>');
   const htmlBody =
-    '<!doctype html><html><body style="margin:0;padding:24px;background:#f4f4f5;font-family:Arial,Helvetica,sans-serif;color:#18181b">' +
-    '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;margin:0 auto 24px;background:#151518;border:1px solid #303036;border-radius:12px;color:#f5f5f5">' +
-    '<tr><td style="padding:28px 32px;background:#101012;border-bottom:3px solid #e1262f">' +
+    '<!doctype html><html><body style="margin:0;padding:24px;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#18181b">' +
+    '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;margin:0 auto 24px;background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;color:#18181b">' +
+    '<tr><td style="padding:28px 32px;background:#ffffff;border-bottom:3px solid #e1262f">'
     '<img src="cid:worthsyLogo" alt="WORTHSY" width="220" style="display:block;width:220px;max-width:100%;height:auto;border:0;outline:none;text-decoration:none" />' +
     '<div style="margin-top:8px;font-size:10px;letter-spacing:3px;color:#a1a1aa;text-transform:uppercase">A smarter way forward</div>' +
     '</td></tr><tr><td style="padding:32px">' +
-    '<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#ff646c">Submission confirmation</div>' +
-    '<h1 style="font-size:24px;line-height:1.35;color:#fff;margin:18px 0">' + escapeHtml_(subject) + '</h1>' +
-    '<div style="font-size:15px;line-height:1.85;color:#e5e7eb">' + escapedBody + '</div>' +
-    '<div style="margin-top:28px;padding:18px;background:#202024;border-left:3px solid #e1262f;font-size:13px;line-height:1.7;color:#d4d4d8">If you have any questions, simply reply to this email and our team will be happy to help.</div>' +
-    '<p style="margin:28px 0 5px;font-weight:bold;color:#fff">WORTHSY Team</p>' +
-    '<a href="https://www.worthsy.in/" style="color:#ff555e;text-decoration:none;font-size:13px">www.worthsy.in</a>' +
+    '<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d71920">Submission confirmation</div>' +
+    '<h1 style="font-size:24px;line-height:1.35;color:#18181b;margin:18px 0">' + escapeHtml_(subject) + '</h1>' +
+    '<div style="font-size:15px;line-height:1.85;color:#27272a">' + escapedBody + '</div>' +
+    '<div style="margin-top:28px;padding:18px;background:#f9fafb;border:1px solid #e5e7eb;border-left:3px solid #e1262f;font-size:13px;line-height:1.7;color:#3f3f46">If you have any questions, simply reply to this email and our team will be happy to help.</div>' +
+    '<p style="margin:28px 0 5px;font-weight:bold;color:#18181b">WORTHSY Team</p>' +
+    '<a href="https://www.worthsy.in/" style="color:#d71920;text-decoration:none;font-size:13px">www.worthsy.in</a>' +
     '</td></tr><tr><td style="padding:18px 32px;border-top:1px solid #303036;color:#888891;font-size:11px;line-height:1.6">This is an automatic confirmation that your submission was received.</td></tr></table>' +
     '</body></html>';
   MailApp.sendEmail({
