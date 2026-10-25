@@ -120,10 +120,27 @@ function doPost(e) {
 function sendApplicantConfirmation_(recipient, subject, body) {
   const email = String(recipient || '').trim();
   if (!email) throw new Error('Applicant email address is missing.');
+  const plainBody = String(body || '');
+  const escapedBody = escapeHtml_(plainBody).replace(/\r?\n/g, '<br>');
+  const htmlBody =
+    '<!doctype html><html><body style="margin:0;padding:24px;background:#0b0b0d;font-family:Arial,Helvetica,sans-serif;color:#f5f5f5">' +
+    '<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;margin:auto;background:#151518;border:1px solid #303036;border-radius:12px">' +
+    '<tr><td style="padding:28px 32px;background:#101012;border-bottom:3px solid #e1262f">' +
+    '<div style="font-size:27px;font-weight:800;letter-spacing:5px;color:#fff">WORTHSY<span style="color:#ff424c">.</span></div>' +
+    '<div style="margin-top:8px;font-size:10px;letter-spacing:3px;color:#a1a1aa;text-transform:uppercase">A smarter way forward</div>' +
+    '</td></tr><tr><td style="padding:32px">' +
+    '<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#ff646c">Submission confirmation</div>' +
+    '<h1 style="font-size:24px;line-height:1.35;color:#fff;margin:18px 0">' + escapeHtml_(subject) + '</h1>' +
+    '<div style="font-size:15px;line-height:1.85;color:#e5e7eb">' + escapedBody + '</div>' +
+    '<div style="margin-top:28px;padding:18px;background:#202024;border-left:3px solid #e1262f;font-size:13px;line-height:1.7;color:#d4d4d8">If you have any questions, simply reply to this email and our team will be happy to help.</div>' +
+    '<p style="margin:28px 0 5px;font-weight:bold;color:#fff">WORTHSY Team</p>' +
+    '<a href="https://www.worthsy.in/" style="color:#ff555e;text-decoration:none;font-size:13px">www.worthsy.in</a>' +
+    '</td></tr><tr><td style="padding:18px 32px;border-top:1px solid #303036;color:#888891;font-size:11px;line-height:1.6">This is an automatic confirmation that your submission was received.</td></tr></table></body></html>';
   MailApp.sendEmail({
     to: email,
     subject: subject,
-    body: body,
+    body: plainBody,
+    htmlBody: htmlBody,
     name: 'WORTHSY Team',
     replyTo: 'connect.worthsy@gmail.com'
   });
