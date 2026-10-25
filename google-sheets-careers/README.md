@@ -1,22 +1,25 @@
-# WORTHSY Careers → Your Google Sheet
+# WORTHSY Website Forms → Google Sheets
 
-The Apps Script in `Code.gs` is already configured for your spreadsheet:
-`1JAlshYqCvoiAabWLlRcbkUhFjzccoE0ORW70BAguBI8`
+Both website forms use the same spreadsheet:
+https://docs.google.com/spreadsheets/d/1JAlshYqCvoiAabWLlRcbkUhFjzccoE0ORW70BAguBI8/edit
 
-## Finish the one-time setup
+The Apps Script in `Code.gs` routes submissions to separate tabs:
+- Careers form → `Career Applications`
+- Private Acquisition / Inquiry form → `Private Inquiries`
 
-1. Open your spreadsheet: https://docs.google.com/spreadsheets/d/1JAlshYqCvoiAabWLlRcbkUhFjzccoE0ORW70BAguBI8/edit
-2. Choose **Extensions → Apps Script**.
-3. In the Apps Script editor, replace the contents of `Code.gs` with the code in this repository file: https://github.com/connect-worthsy/connect.worthsy/blob/main/google-sheets-careers/Code.gs
-4. Click **Deploy → New deployment**.
-5. Select the gear/type menu and choose **Web app**.
-6. Set **Execute as** to **Me**. Set **Who has access** to **Anyone**, if available and allowed by your Google account/organization.
-7. Click **Deploy** and approve Google's authorization prompt.
-8. Copy the Web app URL ending in `/exec` and send that URL to the site maintainer so the live Careers form can be connected to it.
-9. Test by submitting an application through WORTHSY Careers and check that a new row appears in the spreadsheet.
+## Apply the updated Apps Script
 
-## What gets saved
+1. Open the Apps Script project attached to the WORTHSY spreadsheet.
+2. Replace the editor contents with the latest code in this repository's `google-sheets-careers/Code.gs` file.
+3. Save.
+4. Choose **Deploy → Manage deployments**.
+5. Edit the existing web app deployment, select **New version**, and click **Deploy**. Keep the existing deployment URL ending in `/exec`; the website already posts to that URL.
+6. Test both forms and check the matching spreadsheet tabs.
 
-Timestamp, full name, email, phone, location, role of interest, resume/portfolio/LinkedIn URL, and application message.
+## Fields saved
 
-**Important:** The spreadsheet URL alone cannot receive form submissions. The Apps Script web app must be deployed first, and its `/exec` URL must be configured as the Careers form's destination. Keep the spreadsheet private; do not publish it to the public web.
+**Career Applications:** Timestamp, name, email, phone, location, role, optional resume/portfolio/LinkedIn link, optional motivation message.
+
+**Private Inquiries:** Timestamp, full name/entity, email, selected asset/interest, private requirements.
+
+Keep the spreadsheet private. The web app must be deployed with access settings that allow website visitors to submit; use **Execute as: Me** and **Anyone** if your account allows it.
