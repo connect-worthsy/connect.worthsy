@@ -122,7 +122,7 @@ function doPost(e) {
 function sendApplicantConfirmation_(recipient, subject, body) {
   const email = String(recipient || '').trim();
   if (!email) throw new Error('Applicant email address is missing.');
-  const plainBody = String(body || '') + '\n\n------------------------------\nView my contact details here: https://blinq.me/VfpFNBGhsUxg';
+  const plainBody = String(body || '');
   const escapedBody = escapeHtml_(String(body || '')).replace(/\r?\n/g, '<br>');
   const htmlBody =
     '<!doctype html><html><body style="margin:0;padding:24px;background:#f4f4f5;font-family:Arial,Helvetica,sans-serif;color:#18181b">' +
@@ -138,20 +138,14 @@ function sendApplicantConfirmation_(recipient, subject, body) {
     '<p style="margin:28px 0 5px;font-weight:bold;color:#fff">WORTHSY Team</p>' +
     '<a href="https://www.worthsy.in/" style="color:#ff555e;text-decoration:none;font-size:13px">www.worthsy.in</a>' +
     '</td></tr><tr><td style="padding:18px 32px;border-top:1px solid #303036;color:#888891;font-size:11px;line-height:1.6">This is an automatic confirmation that your submission was received.</td></tr></table>' +
-    '<table role="presentation" cellspacing="0" cellpadding="0" style="width:100%;max-width:620px;margin:0 auto;background:#ffffff;color:#222222">' +
-    '<tr><td style="padding:20px 0 8px;border-top:1px solid #d4d4d8;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#222222">' +
-    '<img src="cid:worthsySignature" alt="Email signature" style="display:block;max-width:100%;width:360px;height:auto;border:0;outline:none;text-decoration:none" />' +
-    '<p style="margin:12px 0 0;font-size:13px;line-height:1.6"><a href="https://blinq.me/VfpFNBGhsUxg" style="color:#1155cc;text-decoration:underline">View my contact details here</a></p>' +
-    '</td></tr></table></body></html>';
-  const signatureBlob = UrlFetchApp.fetch('https://px.blinq.me/t/HxUu29MBrTeKlRTCZeyDs', {followRedirects:true, muteHttpExceptions:true}).getBlob().setName('worthsy-email-signature');
+    '</body></html>';
   MailApp.sendEmail({
     to: email,
     subject: subject,
     body: plainBody,
     htmlBody: htmlBody,
     inlineImages: {
-      worthsyLogo: Utilities.newBlob(Utilities.base64Decode(WORTHSY_LOGO_BASE64), 'image/png', 'worthsy-logo.png'),
-      worthsySignature: signatureBlob
+      worthsyLogo: Utilities.newBlob(Utilities.base64Decode(WORTHSY_LOGO_BASE64), 'image/png', 'worthsy-logo.png')
     },
     name: 'WORTHSY Team',
     replyTo: 'connect.worthsy@gmail.com'
