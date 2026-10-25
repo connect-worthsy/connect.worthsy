@@ -1,48 +1,63 @@
 /**
- * WORTHSY Careers form -> Google Sheets
+ * WORTHSY website forms -> Google Sheets
  *
- * Setup:
- * 1. Create a Google Spreadsheet and copy its ID from the URL.
- * 2. Open Extensions > Apps Script from that spreadsheet.
- * 3. Paste this file's contents into Code.gs and replace SPREADSHEET_ID.
- * 4. Deploy > New deployment > Web app.
- *    Execute as: Me
- *    Who has access: Anyone
- * 5. Copy the Web app URL ending in /exec and configure the Careers form action
- *    to that URL.
+ * Spreadsheet: 1JAlshYqCvoiAabWLlRcbkUhFjzccoE0ORW70BAguBI8
+ * Career form tab: Career Applications
+ * Private inquiry form tab: Private Inquiries
  *
- * Do not put private keys or credentials in the public website.
+ * Deploy as Web app (execute as Me; access Anyone if available), then
+ * update the existing deployment to a new version after changing this script.
  */
 const SPREADSHEET_ID = '1JAlshYqCvoiAabWLlRcbkUhFjzccoE0ORW70BAguBI8';
-const SHEET_NAME = 'Career Applications';
+const CAREERS_SHEET_NAME = 'Career Applications';
+const INQUIRIES_SHEET_NAME = 'Private Inquiries';
 
 function doPost(e) {
   try {
     const p = (e && e.parameter) ? e.parameter : {};
-    // Honeypot spam check. Real users should leave this field blank.
+
+    // Hidden honeypot for spam bots.
     if (p._honey) {
       return page_('Thank you', 'Your response has been received.');
     }
 
-    const required = ['name', 'email', 'role']; // Resume/portfolio/LinkedIn link and motivation message are optional.
+    const isInquiry = String(p.form_type || '').toLowerCase() === 'inquiry';
+    const required = isInquiry
+      ? ['name', 'email', 'asset', 'message']
+      : ['name', 'email', 'role']; // Resume link and motivation are optional.
     const missing = required.filter(function (key) {
       return !String(p[key] || '').trim();
     });
     if (missing.length) {
-      return page_('Application not submitted', 'Please return to the Careers page and complete all required fields.');
+      return page_(
+        'Submission incomplete',
+        'Please return to the form and complete all required fields.'
+      );
     }
 
     const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
-    let sheet = spreadsheet.getSheetByName(SHEET_NAME);
-    if (!sheet) {
-      sheet = spreadsheet.insertSheet(SHEET_NAME);
-      sheet.appendRow([
-        'Timestamp', 'Full Name', 'Email', 'Phone', 'Location',
-        'Role of Interest', 'Resume / Portfolio / LinkedIn', 'Why Join WORTHSY'
+    if (isInquiry) {
+      const sheet = getOrCreateSheet_(spreadsheet, INQUIRIES_SHEET_NAME, [
+        'Timestamp', 'Full Name / Entity', 'Email',
+        'Asset / Interest of Inquiry', 'Private Requirements'
       ]);
-      sheet.setFrozenRows(1);
+      sheet.appendRow([
+        new Date(),
+        safeCell_(p.name),
+        safeCell_(p.email),
+        safeCell_(p.asset),
+        safeCell_(p.message)
+      ]);
+      return page_(
+        'Inquiry received',
+        'Thank you. Your private inquiry has been saved successfully.'
+      );
     }
 
+    const sheet = getOrCreateSheet_(spreadsheet, CAREERS_SHEET_NAME, [
+      'Timestamp', 'Full Name', 'Email', 'Phone', 'Location',
+      'Role of Interest', 'Resume / Portfolio / LinkedIn', 'Why Join WORTHSY'
+    ]);
     sheet.appendRow([
       new Date(),
       safeCell_(p.name),
@@ -53,18 +68,36 @@ function doPost(e) {
       safeCell_(p.resume_link),
       safeCell_(p.message)
     ]);
-
-    return page_('Application received', 'Thank you for applying to WORTHSY. Your application has been saved successfully.');
+    return page_(
+      'Application received',
+      'Thank you for applying to WORTHSY. Your application has been saved successfully.'
+    );
   } catch (err) {
     console.error(err);
-    return page_('Submission error', 'Your application could not be saved. Please return to the Careers page and try again.');
+    return page_(
+      'Submission error',
+      'Your submission could not be saved. Please return to the form and try again.'
+    );
   }
+}
+
+function getOrCreateSheet_(spreadsheet, name, headers) {
+  let sheet = spreadsheet.getSheetByName(name);
+  if (!sheet) {
+    sheet = spreadsheet.insertSheet(name);
+    sheet.appendRow(headers);
+    sheet.setFrozenRows(1);
+  } else if (sheet.getLastRow() === 0) {
+    sheet.appendRow(headers);
+    sheet.setFrozenRows(1);
+  }
+  return sheet;
 }
 
 function safeCell_(value) {
   const text = String(value || '').trim();
   // Prevent spreadsheet formula injection from user-supplied fields.
-  return /^[=+@\-]/.test(text) ? "'" + text : text;
+  return /^[=+@\\-]/.test(text) ? "'" + text : text;
 }
 
 function page_(title, message) {
@@ -77,12 +110,12 @@ function page_(title, message) {
     'main{max-width:620px;text-align:center;border:1px solid #ddd;padding:40px 28px}h1{font-size:24px}p{line-height:1.6;color:#444}' +
     'a{display:inline-block;margin-top:18px;color:#d71920;font-weight:bold}' +
     '</style></head><body><main><h1>' + safeTitle + '</h1><p>' + safeMessage + '</p>' +
-    '<a href="https://www.worthsy.in/index.html#careers">Return to WORTHSY Careers</a></main></body></html>'
+    '<a href="https://www.worthsy.in/">Return to WORTHSY</a></main></body></html>'
   );
 }
 
 function escapeHtml_(value) {
   return String(value).replace(/[&<>"']/g, function (ch) {
-    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[ch];
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]);
   });
 }
