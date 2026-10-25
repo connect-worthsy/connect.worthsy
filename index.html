@@ -468,9 +468,9 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
         <main class="pt-10 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-14">
             <div class="mx-auto mb-5 w-24 h-24 bg-[#ffffff] luxury-border flex items-center justify-center"><svg class="text-brandAccent" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></div>
-            <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Affiliate Partner</span>
-            <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Amazon</h1>
-            <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">Shop the best of Amazon</p>
+            <span id="amazon-page-eyebrow" class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Brand Store</span>
+            <h1 id="amazon-page-title" class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Amazon</h1>
+            <p id="amazon-page-description" class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">Shop the best of Amazon</p>
         </div>
 
         <!-- Amazon product cards are rendered from products.json so counts, sorting and filters share one source of truth. -->
@@ -754,6 +754,12 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
                 location.hash = 'amazon';
                 const amazonGrid = document.getElementById('products-amazon');
                 const brandSelect = amazonGrid && amazonGrid.parentElement.querySelector('select[aria-label="Filter by brand"]');
+                const pageTitle = document.getElementById('amazon-page-title');
+                const pageDescription = document.getElementById('amazon-page-description');
+                const pageEyebrow = document.getElementById('amazon-page-eyebrow');
+                if (pageTitle) pageTitle.textContent = name + ' Products';
+                if (pageDescription) pageDescription.textContent = 'Explore ' + name + ' products available on Amazon';
+                if (pageEyebrow) pageEyebrow.textContent = name + ' Brand Store';
                 if (brandSelect) {
                     const wanted = name.toLowerCase().replace(/[^a-z0-9]/g, '');
                     const option = Array.from(brandSelect.options).find(function (o) {
