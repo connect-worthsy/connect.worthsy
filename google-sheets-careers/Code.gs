@@ -55,12 +55,12 @@ function doPost(e) {
         sendApplicantConfirmation_(
           p.email,
           'Thank you for your private inquiry | WORTHSY',
-          'Hello ' + String(p.name || '').trim() + ',\\n\\n' +
+          'Hello ' + String(p.name || '').trim() + ',\n\n' +
           'Thank you for contacting WORTHSY about your private acquisition or partnership inquiry. ' +
-          'We have received your submission and our team will review the details. If we need more information, we will contact you.\\n\\n' +
-          'Your inquiry: ' + String(p.asset || '').trim() + '\\n\\n' +
-          'Thank you for considering WORTHSY.\\n' +
-          'Warm regards,\\nWORTHSY Team\\nhttps://www.worthsy.in/'
+          'We have received your submission and our team will review the details. If we need more information, we will contact you.\n\n' +
+          'Your inquiry: ' + String(p.asset || '').trim() + '\n\n' +
+          'Thank you for considering WORTHSY.\n' +
+          'Warm regards,\nWORTHSY Team\nhttps://www.worthsy.in/'
         );
       } catch (mailError) {
         console.error('Private inquiry saved, but confirmation email failed: ' + mailError);
@@ -92,12 +92,12 @@ function doPost(e) {
       sendApplicantConfirmation_(
         p.email,
         'Thank you for applying to WORTHSY',
-        'Hello ' + String(p.name || '').trim() + ',\\n\\n' +
+        'Hello ' + String(p.name || '').trim() + ',\n\n' +
         'Thank you for your interest in joining WORTHSY and for submitting your application for ' +
         String(p.role || '').trim() + '. We have received your application and our team will review it. ' +
-        'If your profile matches our requirements, we will contact you about the next steps.\\n\\n' +
-        'Thank you for considering a future with WORTHSY.\\n' +
-        'Warm regards,\\nWORTHSY Careers Team\\nhttps://www.worthsy.in/'
+        'If your profile matches our requirements, we will contact you about the next steps.\n\n' +
+        'Thank you for considering a future with WORTHSY.\n' +
+        'Warm regards,\nWORTHSY Careers Team\nhttps://www.worthsy.in/'
       );
     } catch (mailError) {
       console.error('Career application saved, but confirmation email failed: ' + mailError);
