@@ -1009,8 +1009,9 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
         })();
     </script>
     <script>
-        /* Career form: paste your form endpoint here (e.g. https://formspree.io/f/xxxxxxx or https://api.web3forms.com/submit). */
-        const CAREER_FORM_ENDPOINT = '';
+        /* Applications are routed to the WORTHSY careers inbox through FormSubmit.
+           The inbox owner must activate the service from its first confirmation email. */
+        const CAREER_FORM_ENDPOINT = 'https://formsubmit.co/ajax/connect.worthsy@gmail.com';
         function handleCareerApply(event) {
             event.preventDefault();
             const form = document.getElementById('careerForm');
@@ -1018,14 +1019,33 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             const btn = form.querySelector('button[type="submit"]');
             function show(msg) { notice.textContent = msg; notice.classList.remove('hidden'); }
             if (form.elements['botcheck'].value) return;
-            if (!CAREER_FORM_ENDPOINT) { show('Applications are not connected yet. Please try again soon.'); return; }
-            btn.disabled = true; form.style.opacity = '0.4';
-            const data = new FormData(form);
-            data.delete('botcheck');
-            fetch(CAREER_FORM_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
-                .then(function (r) { if (!r.ok) throw new Error('bad status'); form.reset(); show('Application received. Thank you, we will be in touch if there is a fit.'); })
-                .catch(function () { show('Something went wrong. Please try again in a moment.'); })
-                .finally(function () { btn.disabled = false; form.style.opacity = '1'; });
+            btn.disabled = true;
+            btn.style.opacity = '0.6';
+            const data = Object.fromEntries(new FormData(form).entries());
+            delete data.botcheck;
+            data._subject = 'New WORTHSY Careers Application';
+            data._template = 'table';
+            fetch(CAREER_FORM_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(function (r) {
+                    return r.json().then(function (result) {
+                        if (!r.ok || result.success !== 'true' && result.success !== true) {
+                            throw new Error('Application service did not confirm receipt');
+                        }
+                        form.reset();
+                        show('Application received. Thank you for applying to WORTHSY.');
+                    });
+                })
+                .catch(function () {
+                    show('We could not confirm your application. Please try again or contact connect.worthsy@gmail.com.');
+                })
+                .finally(function () {
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                });
         }
     </script>
     <script>
