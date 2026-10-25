@@ -391,29 +391,31 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
                 <p class="text-slate-400 text-sm font-light" style="font-family:'Space Mono',monospace;font-size:0.8rem">Submit your inquiry for custom asset allocations or direct affiliate partnership liaison.</p>
             </div>
 
-            <form id="inquiryForm" onsubmit="handleInquiry(event)" class="space-y-6">
+            <form id="inquiryForm" action="https://script.google.com/macros/s/AKfycbxyVkMNeZ3939DrZ-_YgvKG-no8MNvKwsUrr0HLF_GBW8sy7VHFAfhWSJ0_mTiHW9qZow/exec" method="POST" class="space-y-6">
+                <input type="hidden" name="form_type" value="inquiry">
+                <input type="hidden" name="_url" value="https://www.worthsy.in/index.html">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label for="clientName" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Full Name / Entity</label>
-                        <input type="text" id="clientName" required class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="Lord / Lady / Enterprise">
+                        <input type="text" id="clientName" name="name" required maxlength="150" autocomplete="name" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="Lord / Lady / Enterprise">
                     </div>
                     <div>
                         <label for="clientEmail" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Secure Email</label>
-                        <input type="email" id="clientEmail" required class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="client@domain.com">
+                        <input type="email" id="clientEmail" name="email" required maxlength="200" autocomplete="email" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors" placeholder="client@domain.com">
                     </div>
                 </div>
                 <div>
                     <label for="assetInterest" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Asset / Interest of Inquiry</label>
-                    <select id="assetInterest" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors">
-                        <option value="tourbillon">Platinum Grand Tourbillon ($485,000)</option>
-                        <option value="hypercar">V12 Carbon Track Hypercar ($2,850,000)</option>
-                        <option value="aviation">Global Express Jet Membership ($150,000 / yr)</option>
-                        <option value="custom">General Private Acquisition & Affiliate Partnership</option>
+                    <select id="assetInterest" name="asset" required class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors">
+                        <option value="Platinum Grand Tourbillon ($485,000)">Platinum Grand Tourbillon ($485,000)</option>
+                        <option value="V12 Carbon Track Hypercar ($2,850,000)">V12 Carbon Track Hypercar ($2,850,000)</option>
+                        <option value="Global Express Jet Membership ($150,000 / yr)">Global Express Jet Membership ($150,000 / yr)</option>
+                        <option value="General Private Acquisition & Affiliate Partnership">General Private Acquisition & Affiliate Partnership</option>
                     </select>
                 </div>
                 <div>
                     <label for="clientMessage" class="block text-xs font-mono uppercase tracking-widest text-slate-400 mb-2">Private Requirements</label>
-                    <textarea id="clientMessage" rows="4" required class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors resize-none" placeholder="Specify your requirements..."></textarea>
+                    <textarea id="clientMessage" name="message" rows="4" required maxlength="3000" class="w-full bg-[#ffffff] border border-slate-600 px-4 py-3.5 text-sm text-slate-100 focus:outline-none focus:border-brandAccent transition-colors resize-none" placeholder="Specify your requirements..."></textarea>
                 </div>
                 <button type="submit" class="w-full py-4 text-sm font-black uppercase tracking-[0.2em] bg-brandAccent text-brandBg hover:bg-brandAccentHover transition-all logo-wordmark">
                     Transmit Private Inquiry <i class="fa-solid fa-paper-plane ml-2"></i>
