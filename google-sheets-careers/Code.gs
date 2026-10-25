@@ -24,7 +24,7 @@ function doPost(e) {
       return page_('Thank you', 'Your response has been received.');
     }
 
-    const required = ['name', 'email', 'role', 'message']; // Resume/portfolio/LinkedIn link is optional.
+    const required = ['name', 'email', 'role']; // Resume/portfolio/LinkedIn link and motivation message are optional.
     const missing = required.filter(function (key) {
       return !String(p[key] || '').trim();
     });
