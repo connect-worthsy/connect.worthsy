@@ -1758,6 +1758,8 @@ function renderStore() {
   $('#wst-cats').innerHTML = cats.map(function (c) { return '<button type="button" class="wst-chip" data-cat="' + esc(c) + '" aria-pressed="' + (ui.cat === c) + '">' + esc(c) + '</button>'; }).join('');
   var q = ui.q.toLowerCase().split(/\s+/).filter(Boolean);
   var list = P.filter(function (p) {
+    /* Keep the requested ₹1 checkout test visible even when a category/search filter is active. */
+    if (p.id === 'razorpay-trial-1rs') return true;
     if (ui.cat !== 'All' && p.category !== ui.cat) return false;
     var hay = (p.name + ' ' + p.category + ' ' + (p.highlights || []).join(' ')).toLowerCase();
     return q.every(function (w) { return hay.indexOf(w) >= 0; });
@@ -1765,6 +1767,7 @@ function renderStore() {
   if (ui.sort === 'price-asc') list.sort(function (a, b) { return a.price - b.price; });
   if (ui.sort === 'price-desc') list.sort(function (a, b) { return b.price - a.price; });
   if (ui.sort === 'name') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+  list.sort(function (a, b) { return (a.id === 'razorpay-trial-1rs' ? -1 : 0) - (b.id === 'razorpay-trial-1rs' ? -1 : 0); });
   $('#wst-count').textContent = list.length + (list.length === 1 ? ' product' : ' products');
   $('#wst-grid').innerHTML = list.length ? list.map(cardHtml).join('') :
     '<div class="wst-box" style="grid-column:1/-1;text-align:center;padding:3rem 1rem"><p class="logo-wordmark text-2xl mb-2">Nothing matches</p><p class="wst-muted text-sm">Try a different word or choose All.</p></div>';
@@ -1845,8 +1848,11 @@ function applyCoupon() {
 function pageOpen() { var id = location.hash.slice(1), el = id && document.getElementById('page-' + id); return !!(el && !el.classList.contains('hidden')); }
 function lock(on) { document.body.style.overflow = (on || pageOpen()) ? 'hidden' : ''; }
 function openCart() {
-  $('#wst-toast').classList.remove('show'); lastFocus = document.activeElement; closeAll(true); renderCart();
-  $('#wst-overlay').classList.add('open'); var d = $('#wst-drawer'); d.classList.add('open'); d.setAttribute('aria-hidden', 'false'); lock(true);
+  var toastEl = $('#wst-toast'), overlay = $('#wst-overlay'), d = $('#wst-drawer');
+  if (!overlay || !d) { console.error('WORTHSY cart drawer markup is missing.'); return; }
+  if (toastEl) toastEl.classList.remove('show');
+  lastFocus = document.activeElement; closeAll(true); renderCart();
+  overlay.classList.add('open'); d.classList.add('open'); d.setAttribute('aria-hidden', 'false'); lock(true);
   var x = $('.wst-x', d); if (x) x.focus();
 }
 function closeAll(keep) {
@@ -2135,7 +2141,10 @@ function supportSubmit(e) {
 
 /* ============ events ============ */
 document.addEventListener('click', function (e) {
-  var t = e.target;
+  var t = e.target && e.target.nodeType === 1 ? e.target : e.target.parentElement;
+  if (!t) return;
+  var cartTrigger = t.closest('[data-wst="open-cart"]');
+  if (cartTrigger) { e.preventDefault(); e.stopPropagation(); openCart(); return; }
   var w = t.closest('[data-wst]'); if (w) { var a = w.getAttribute('data-wst'); if (a === 'open-cart') { openCart(); return; } if (a === 'close-all') { closeAll(); return; } }
   var add = t.closest('[data-add]'); if (add) { e.stopPropagation(); var p = byId(add.getAttribute('data-add')); if (p && (p.options || []).length) openProduct(p.id); else if (p) addToCart(p.id, {}, 1); return; }
   var cat = t.closest('[data-cat]'); if (cat) { ui.cat = cat.getAttribute('data-cat'); renderStore(); return; }
@@ -2174,9 +2183,15 @@ window.addEventListener('hashchange', function () { closeAll(true); if (location
 function init() { if (STORE.whatsapp) { var w = document.createElement('a'); w.className = 'wst-wa on'; w.href = 'https://wa.me/' + STORE.whatsapp; w.target = '_blank'; w.rel = 'noopener'; w.setAttribute('aria-label', 'Chat on WhatsApp'); w.innerHTML = '<i class="fa-brands fa-whatsapp"></i>'; document.body.appendChild(w); }
   fillStatic(); renderStore(); renderHome(); refresh(); if (location.hash === '#checkout') renderCheckout(); }
 window.WORTHSY_STORE = { STORE: STORE, products: function () { return P; }, open: function (id) { openProduct(id); }, money: money, estimate: estimate };
-fetch('store-products.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; })
-  .then(function (list) { if (Array.isArray(list) && list.length) P = list.filter(function (p) { return p && p.id && p.name && p.price > 0; }); })
-  .catch(function () {}).then(init);
+fetch('store-products.json?v=20261026-cartfix', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
+  .then(function (list) {
+    if (Array.isArray(list) && list.length) P = list.filter(function (p) { return p && p.id && p.name && Number(p.price) >= 0; });
+    var test = P.find(function (p) { return p.id === 'razorpay-trial-1rs'; });
+    if (!test) { test = DEFAULTS.find(function (p) { return p.id === 'razorpay-trial-1rs'; }); P.unshift(test); }
+    else { test.price = 1; test.mrp = 1; test.category = 'Test Product'; test.badge = '₹1 TEST'; test.featured = true; }
+  })
+  .catch(function (e) { console.warn('WORTHSY product catalogue could not be loaded; using built-in catalogue.', e); P = DEFAULTS.slice(); })
+  .then(init);
 })();
     </script>
     <script id="worthsy-chat-script">
