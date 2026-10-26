@@ -189,6 +189,20 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 .wst-cart-count{position:absolute;top:-.6rem;right:-.6rem;min-width:1.2rem;height:1.2rem;padding:0 .3rem;background:var(--w-grad);color:#fff!important;font:700 .65rem/1.2rem var(--wst-mono);text-align:center}
 .wst-cart-count[data-n="0"]{display:none}
 
+/* Customer account entry and sign-in panel */
+.wst-accountbtn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:2.75rem;padding:0 .8rem;border:2px solid #1c1c1c;background:#fff;color:#111;font-size:.78rem;font-weight:800;cursor:pointer}
+.wst-accountbtn:hover{border-color:#cc1010;color:#cc1010}
+.wst-account-layer{position:fixed;inset:0;z-index:95;display:none;align-items:center;justify-content:center;padding:1rem;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+.wst-account-layer.open{display:flex}
+.wst-account-card{width:min(440px,100%);max-height:min(90vh,760px);overflow:auto;background:#fff;color:#111;border:2px solid #1c1c1c;box-shadow:8px 8px 0 rgba(204,16,16,.18)}
+.wst-account-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;border-bottom:1px solid #ddd}
+.wst-account-body{padding:1.2rem}
+.wst-account-provider{width:100%;display:flex;align-items:center;justify-content:center;gap:.65rem;padding:.8rem 1rem;margin:.55rem 0;border:1px solid #1c1c1c;background:#fff;font-weight:800;cursor:pointer}
+.wst-account-provider:hover{border-color:#cc1010;color:#cc1010}
+.wst-account-note{font-size:.78rem;line-height:1.6;color:#555;background:#fafafa;border-left:3px solid #cc1010;padding:.75rem;margin-top:1rem}
+.wst-account-field{display:block;width:100%;min-height:2.8rem;padding:.7rem .8rem;margin:.45rem 0 .8rem;border:1px solid #aaa;background:#fff;color:#111;box-sizing:border-box}
+@media(max-width:480px){.wst-accountbtn{width:2.75rem;padding:0}.wst-account-label{display:none}}
+
 /* split boxes echo the WORTH | SY logo */
 .wst-split{display:grid;grid-template-columns:2fr 1fr;border:2px solid #1c1c1c}
 .wst-split>.wst-ink{padding:2rem 2rem 2.2rem}
@@ -353,6 +367,7 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             </nav>
 
             <div class="flex items-center space-x-4">
+                <button type="button" id="wst-account-open" class="wst-accountbtn" aria-label="Open your account"><i class="fa-regular fa-user"></i><span class="wst-account-label">Account</span></button>
                 <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
                 <a href="#contact" class="hidden sm:inline-flex items-center px-6 py-2.5 text-sm font-bold uppercase tracking-widest bg-brandAccent text-brandBg hover:bg-brandAccentHover transition-all">
                     Inquire
@@ -999,6 +1014,24 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
         <div id="wst-drawer-foot" class="wst-drawer-foot"></div>
     </aside>
     <div id="wst-modal" class="wst-modal" role="dialog" aria-modal="true" aria-label="Product details" aria-hidden="true"></div>
+    <section id="wst-account-layer" class="wst-account-layer" role="dialog" aria-modal="true" aria-labelledby="wst-account-title" aria-hidden="true">
+      <div class="wst-account-card">
+        <div class="wst-bar"></div>
+        <div class="wst-account-head"><div><b id="wst-account-title" class="logo-wordmark text-xl">YOUR WORTHSY ACCOUNT</b><div class="text-xs mt-1" style="color:#666">Sign in to save your cart across devices</div></div><button type="button" id="wst-account-close" class="wst-x" aria-label="Close account panel"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="wst-account-body">
+          <button type="button" class="wst-account-provider" data-account-provider="google"><i class="fa-brands fa-google"></i> Continue with Google</button>
+          <button type="button" class="wst-account-provider" data-account-provider="apple"><i class="fa-brands fa-apple"></i> Continue with Apple</button>
+          <div style="text-align:center;font-size:.72rem;color:#777;margin:1rem 0">OR CONTINUE WITH PHONE OR EMAIL</div>
+          <label for="wst-account-contact" style="font-size:.8rem;font-weight:800">Phone number or email</label>
+          <input id="wst-account-contact" class="wst-account-field" type="text" autocomplete="username" placeholder="Enter phone number or email">
+          <label for="wst-account-password" style="font-size:.8rem;font-weight:800">Password (email accounts)</label>
+          <input id="wst-account-password" class="wst-account-field" type="password" autocomplete="current-password" placeholder="Enter password">
+          <button type="button" id="wst-account-continue" class="wst-btn wst-btn-block">Continue</button>
+          <p id="wst-account-status" role="status" class="wst-account-note">Account sign-in is not active yet. Secure authentication, phone OTP, Google/Apple provider setup and cloud cart storage must be connected before customers can use these options.</p>
+          <p style="font-size:.72rem;line-height:1.5;color:#666;margin-top:.8rem">Never enter payment details or reuse an important password in this preview.</p>
+        </div>
+      </div>
+    </section>
         <!-- AI ASSISTANT (floating chat) -->
     <button type="button" id="wst-chat-btn" class="wst-chat-btn" aria-label="Chat with the WORTHSY assistant" aria-expanded="false" aria-controls="wst-chat"><i class="fa-solid fa-comment-dots"></i></button>
     <section id="wst-chat" class="wst-chat" role="dialog" aria-label="WORTHSY assistant" hidden>
@@ -1981,6 +2014,28 @@ function supportSubmit(e) {
   fetch(STORE.orderEndpoint, { method: 'POST', mode: 'no-cors', body: d }).then(function () { f.reset(); out.className = 'wst-red'; out.textContent = 'Message sent. We’ll reply to your email within 2 working days.'; })
     .catch(function () { out.textContent = 'Couldn’t send. Check your connection or email ' + STORE.email + '.'; }).then(function () { b.disabled = false; b.textContent = 'Send message'; });
 }
+
+/* ============ customer account panel ============ */
+(function () {
+  var layer = document.getElementById('wst-account-layer');
+  var open = document.getElementById('wst-account-open');
+  var close = document.getElementById('wst-account-close');
+  var status = document.getElementById('wst-account-status');
+  function showAccount() { layer.classList.add('open'); layer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; close.focus(); }
+  function hideAccount() { layer.classList.remove('open'); layer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; open.focus(); }
+  open.addEventListener('click', showAccount);
+  close.addEventListener('click', hideAccount);
+  layer.addEventListener('click', function(e){ if(e.target===layer) hideAccount(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && layer.classList.contains('open')) hideAccount(); });
+  layer.querySelectorAll('[data-account-provider]').forEach(function(btn){ btn.addEventListener('click', function(){ status.textContent='Sign-in provider is not connected yet. Configure Firebase Authentication and enable the '+(btn.getAttribute('data-account-provider')==='google'?'Google':'Apple')+' provider before enabling this button for customers.'; }); });
+  document.getElementById('wst-account-continue').addEventListener('click', function(){
+    var contact=document.getElementById('wst-account-contact').value.trim();
+    var password=document.getElementById('wst-account-password').value;
+    if(!contact){status.textContent='Enter a phone number or email address to continue.';return;}
+    if(contact.indexOf('@')!==-1 && !password){status.textContent='Enter your password for email sign-in. Authentication is not connected yet, so no credentials have been submitted or stored.';return;}
+    status.textContent='Phone OTP and account sign-in are not active yet. Connect a secure authentication provider before accepting verification codes or credentials.';
+  });
+})();
 
 /* ============ events ============ */
 document.addEventListener('click', function (e) {
