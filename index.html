@@ -1069,6 +1069,30 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
       if(closeButton)closeButton.addEventListener('click',closeAccount);
       panel.addEventListener('click',function(event){if(event.target===panel)closeAccount();});
       document.addEventListener('keydown',function(event){if(event.key==='Escape'&&panel.classList.contains('open'))closeAccount();});
+      /* Delegated account actions keep the controls responsive even if store initialization fails. */
+      document.addEventListener('click',function(event){
+        var target=event.target&&event.target.closest?event.target.closest('#wst-account-signin,#wst-account-signup,#wst-account-reset,[data-account-provider="google"]'):null;
+        if(!target)return;
+        event.preventDefault();event.stopImmediatePropagation();
+        var status=document.getElementById('wst-account-status'),email=document.getElementById('wst-account-contact'),password=document.getElementById('wst-account-password');
+        function say(message){if(status)status.textContent=message;}
+        function errText(error){var code=error&&error.code||'',messages={'auth/invalid-email':'Enter a valid email address.','auth/missing-password':'Enter your password.','auth/weak-password':'Choose a password with at least 6 characters.','auth/email-already-in-use':'An account already exists for this email. Try signing in.','auth/invalid-credential':'Email or password is incorrect.','auth/user-not-found':'No account was found. Create an account first.','auth/wrong-password':'Email or password is incorrect.','auth/popup-closed-by-user':'Google sign-in was cancelled.','auth/unauthorized-domain':'This website domain is not authorized in Firebase Authentication settings.','auth/network-request-failed':'Network request failed. Check your connection or content blockers.','auth/operation-not-allowed':'This sign-in method is not enabled in Firebase Authentication settings.'};return messages[code]||(error&&error.message)||'Sign-in failed. Please try again.';}
+        try{
+          if(!window.firebase)throw new Error('Firebase SDK did not load. Refresh the page and try again.');
+          if(!firebase.apps.length)firebase.initializeApp({apiKey:'AIzaSyDxBGEZnGnCdUQftwS-QgOVMH5h9WNzecE',authDomain:'connect1worthsy.firebaseapp.com',projectId:'connect1worthsy',storageBucket:'connect1worthsy.firebasestorage.app',messagingSenderId:'655885819600',appId:'1:655885819600:web:333ab84dac36a82f7408d5',measurementId:'G-9Z80CL354X'});
+          var auth=firebase.auth(),mail=email&&email.value.trim(),pass=password&&password.value;
+          if(target.matches('[data-account-provider="google"]')){
+            say('Opening Google sign-in…');var provider=new firebase.auth.GoogleAuthProvider();
+            auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return auth.signInWithPopup(provider);}).then(function(result){say('Google sign-in successful'+(result&&result.user&&result.user.email?' — '+result.user.email:'')+'.');if(panel){panel.classList.remove('open');panel.style.display='none';panel.setAttribute('aria-hidden','true');document.body.style.overflow='';}var label=trigger.querySelector('.wst-account-label');if(label)label.textContent='Logged in';}).catch(function(error){if(error&&['auth/popup-blocked','auth/operation-not-supported-in-this-environment'].indexOf(error.code)!==-1)auth.signInWithRedirect(provider).catch(function(e){say('Google sign-in failed: '+errText(e));});else say('Google sign-in failed: '+errText(error));});return;
+          }
+          if(!mail){say('Enter your email address first.');return;}
+          if(target.id!=='wst-account-reset'&&!pass){say(target.id==='wst-account-signup'?'Enter your email address and choose a password.':'Enter your email address and password.');return;}
+          if(target.id==='wst-account-signup'&&pass.length<6){say('Choose a password with at least 6 characters.');return;}
+          if(target.id==='wst-account-reset'){say('Sending password reset instructions…');auth.sendPasswordResetEmail(mail).then(function(){say('If an account exists for this email, a password reset email will be sent.');}).catch(function(e){say(errText(e));});return;}
+          say(target.id==='wst-account-signup'?'Creating your account…':'Signing in…');
+          auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return target.id==='wst-account-signup'?auth.createUserWithEmailAndPassword(mail,pass):auth.signInWithEmailAndPassword(mail,pass);}).then(function(result){var user=result&&result.user;if(user&&target.id==='wst-account-signup')return user.sendEmailVerification().then(function(){say('Account created. Please verify your email using the link we sent.');});say('Signed in successfully'+(user&&user.email?' as '+user.email:'')+'.');if(panel){panel.classList.remove('open');panel.style.display='none';panel.setAttribute('aria-hidden','true');document.body.style.overflow='';}var label=trigger.querySelector('.wst-account-label');if(label&&user)label.textContent='Logged in';}).catch(function(e){say(errText(e));});
+        }catch(error){say('Account services could not start: '+errText(error));}
+      },true);
       window.WORTHSY_OPEN_ACCOUNT=openAccount;
     })();
     </script>
