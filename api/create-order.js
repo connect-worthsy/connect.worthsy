@@ -20,7 +20,7 @@ module.exports = async function handler(req, res) {
   try {
     const razorpay = new Razorpay({ key_id: keyId, key_secret: keySecret });
     const order = await razorpay.orders.create({ amount, currency, receipt: receipt || ('ws_' + Date.now()) });
-    return res.status(200).json({ order_id: order.id, amount: order.amount, currency: order.currency });
+    return res.status(200).json({ key_id: keyId, order_id: order.id, amount: order.amount, currency: order.currency });
   } catch (err) {
     const status = err && err.statusCode === 401 ? 401 : 500;
     console.error('Razorpay create order failed:', err && err.error && err.error.description || err.message || 'unknown error');
