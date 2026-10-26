@@ -346,6 +346,9 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 .wst-chat-form .wst-btn{padding:.65rem .9rem}
 @media(max-width:480px){.wst-chat{right:.75rem;width:calc(100vw - 1.5rem)}.wst-chat-btn{right:.9rem}}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -2019,6 +2022,8 @@ function supportSubmit(e) {
     .catch(function () { out.textContent = 'Couldn’t send. Check your connection or email ' + STORE.email + '.'; }).then(function () { b.disabled = false; b.textContent = 'Send message'; });
 }
 
+
+
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
@@ -2048,7 +2053,7 @@ function supportSubmit(e) {
   try{
     if(!window.firebase)throw new Error('Firebase SDK failed to load. Refresh and try again.');
     if(!firebase.apps.length)firebase.initializeApp({
-      apiKey:'REPLACE_WITH_FIREBASE_WEB_API_KEY',
+      apiKey:'AIzaSyDxBGEZnGnCdUQftwS-Qg0VMH5h9WNzecE',
       authDomain:'connect1worthsy.firebaseapp.com',projectId:'connect1worthsy',
       storageBucket:'connect1worthsy.firebasestorage.app',messagingSenderId:'655885819600',
       appId:'1:655885819600:web:333ab84dac36a82f7408d5'
@@ -2063,7 +2068,6 @@ function supportSubmit(e) {
   if(cloudReady)auth.onAuthStateChanged(function(u){signout.hidden=!u;signin.hidden=!!u;signup.hidden=!!u;reset.hidden=!!u;if(accountLabel)accountLabel.textContent=u?'My account':'Account';if(u)loadCart(u);else say('Sign in or create an account to save your cart across devices.');});
 })();
 </script>
-
 /* ============ events ============ */
 document.addEventListener('click', function (e) {
   var t = e.target;
