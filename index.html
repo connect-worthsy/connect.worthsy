@@ -2085,7 +2085,14 @@ function supportSubmit(e) {
   function queueSave(){if(!auth||!auth.currentUser||!db||applyingCloud)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(function(){var u=auth.currentUser;if(!u)return;ref(u).set({cart:cart,couponCode:couponCode||'',updatedAt:firebase.firestore.FieldValue.serverTimestamp()}).catch(function(e){say('Cart is saved on this device, but cloud sync failed: '+errorText(e));});},500);}
   window.WORTHSY_CLOUD_CART_SAVE=queueSave;
   function loadCart(user){if(!user)return;if(accountLabel)accountLabel.textContent='Logged in';open.setAttribute('aria-label','Logged in to your WORTHSY account');say('Signed in as '+(user.displayName||user.email||'your WORTHSY account')+'.');if(!db){say('Signed in as '+(user.displayName||user.email||'your WORTHSY account')+'. Your account is active, but cloud cart sync is unavailable right now.');return;}say('Signed in as '+(user.displayName||user.email||'your WORTHSY account')+'. Loading your saved cart…');applyingCloud=true;ref(user).get().then(function(snap){var d=snap.exists?snap.data():null;if(d&&Array.isArray(d.cart)){cart=mergeLines(d.cart,cart);if(typeof d.couponCode==='string'&&!couponCode)couponCode=d.couponCode;}save();refresh();applyingCloud=false;queueSave();say('You are logged in as '+(user.displayName||user.email||'your WORTHSY account')+'. Your cart will sync across devices.');}).catch(function(e){applyingCloud=false;say('You are logged in as '+(user.displayName||user.email||'your WORTHSY account')+'. Cloud cart sync failed: '+errorText(e));});}
-  open.addEventListener('click',show);close.addEventListener('click',hide);layer.addEventListener('click',function(e){if(e.target===layer)hide();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&layer.classList.contains('open'))hide();});
+  // Bind account controls defensively and expose a single open action for every header variant.
+  function openAccountPanel(e){if(e)e.preventDefault();show();}
+  window.WORTHSY_OPEN_ACCOUNT=openAccountPanel;
+  if(open){open.addEventListener('click',openAccountPanel);open.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openAccountPanel(e);}});}
+  if(close)close.addEventListener('click',hide);
+  if(layer){layer.addEventListener('click',function(e){if(e.target===layer)hide();});}
+  document.addEventListener('click',function(e){var trigger=e.target&&e.target.closest?e.target.closest('#wst-account-open,[data-open-account]'):null;if(trigger){e.preventDefault();openAccountPanel(e);}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&layer&&layer.classList.contains('open'))hide();});
   try{
     if(!window.firebase)throw new Error('Firebase SDK failed to load. Refresh and try again.');
     if(!firebase.apps.length)firebase.initializeApp({
