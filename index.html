@@ -2054,10 +2054,10 @@ function supportSubmit(e) {
   try{
     if(!window.firebase)throw new Error('Firebase SDK failed to load. Refresh and try again.');
     if(!firebase.apps.length)firebase.initializeApp({
-      apiKey:'AIzaSyDxBGEZnGnCdUQftwS-Qg0VMH5h9WNzecE',
+      apiKey:'AIzaSyDxBGEZnGnCdUQftwS-QgOVMH5h9WNzecE',
       authDomain:'connect1worthsy.firebaseapp.com',projectId:'connect1worthsy',
       storageBucket:'connect1worthsy.firebasestorage.app',messagingSenderId:'655885819600',
-      appId:'1:655885819600:web:333ab84dac36a82f7408d5'
+      appId:'1:655885819600:web:333ab84dac36a82f7408d5',measurementId:'G-9Z80CL354X'
     });
     auth=firebase.auth();cloudReady=true;
     try{db=firebase.firestore();}catch(dbError){console.error('WORTHSY Firestore initialization failed:',dbError);db=null;}
