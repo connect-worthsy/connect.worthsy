@@ -1689,6 +1689,7 @@ var STORE = {
    SAMPLE catalogue so the store works on day one. Replace it by putting a store-products.json file next to
    index.html (same fields as below) and this list is ignored. images: list of image URLs.            */
 var DEFAULTS = [
+  { id:'razorpay-trial-1rs', name:'Razorpay Payment Test (₹1)', category:'Test Product', price:1, mrp:1, icon:'fa-credit-card', badge:'Payment test', featured:true, highlights:['₹1 test purchase to verify Razorpay checkout','Use only for payment testing'], images:[] },
   { id:'magnetic-power-bank', name:'Magnetic Wireless Power Bank 10000mAh', category:'Gadgets', price:1499, mrp:2499, icon:'fa-battery-full', featured:true, options:[{name:'Colour',values:['Black','White']}], highlights:['10000mAh capacity','Magnetic wireless charging pad','USB-C fast charge in and out'], images:[] },
   { id:'rgb-led-strip', name:'RGB LED Strip Lights 5m with Remote', category:'Home & Decor', price:599, mrp:999, icon:'fa-lightbulb', badge:'New', highlights:['5 metre strip, cuttable','Remote with colour modes','Adhesive back'], images:[] },
   { id:'steel-bottle', name:'Insulated Steel Bottle 750ml', category:'Home & Kitchen', price:699, mrp:1199, icon:'fa-bottle-water', featured:true, options:[{name:'Colour',values:['Black','Steel','Blue']}], highlights:['Double-wall vacuum insulation','Leak-proof lid','Stainless steel body'], images:[] },
@@ -1786,7 +1787,8 @@ function calc(pay) {
   var c = couponCode && STORE.coupons[couponCode], disc = 0, ok = false;
   if (c && sub >= c.min && sub > 0) { ok = true; if (c.type === 'pct') disc = Math.round(sub * c.value / 100); if (c.type === 'flat') disc = Math.min(c.value, sub); }
   var after = sub - disc;
-  var free = after >= STORE.freeShip || (ok && c.type === 'ship');
+  var trialOnly = L.length > 0 && L.every(function (x) { return x.p.id === 'razorpay-trial-1rs'; });
+  var free = trialOnly || after >= STORE.freeShip || (ok && c.type === 'ship');
   var ship = sub === 0 ? 0 : (free ? 0 : STORE.shipFee);
   var cod = (pay === 'cod' && sub > 0) ? STORE.codFee : 0;
   return { sub: sub, disc: disc, ship: ship, cod: cod, total: after + ship + cod, ok: ok, coupon: c, after: after, count: L.reduce(function (n, x) { return n + x.l.qty; }, 0) };
@@ -1891,7 +1893,7 @@ function chosenOpts() { var o = {}; $$('#wst-modal [data-opt]').forEach(function
 
 /* ============ checkout ============ */
 function isCheckoutOpen() { var el = $('#page-checkout'); return !!(el && !el.classList.contains('hidden')); }
-function payMethod() { var r = $('input[name="wst-pay"]:checked'); return r ? r.value : (STORE.razorpayKey ? 'online' : 'cod'); }
+function payMethod() { var r = $('input[name="wst-pay"]:checked'); return r ? r.value : (STORE.paymentApiBase ? 'online' : 'cod'); }
 function fld(id, label, attrs, extra) { return '<div class="wst-field"><label class="wst-label" for="wst-c-' + id + '">' + label + '</label><input class="wst-input" id="wst-c-' + id + '" name="' + id + '" ' + (attrs || '') + '><div class="wst-err" id="wst-e-' + id + '"></div></div>'; }
 
 function renderCheckout() {
@@ -1983,11 +1985,11 @@ function submitOrder(e) {
     send(o).then(function () { done(o); }).catch(function () { fail('We couldn’t send your order. Check your connection and try again.'); });
     return;
   }
-  if (!STORE.razorpayKey || !STORE.paymentApiBase) { fail('Online payments are not configured yet. Please choose cash on delivery or contact support.'); return; }
+  if (!STORE.paymentApiBase) { fail('Online payments are not configured yet. Please choose cash on delivery or contact support.'); return; }
   loadRzp().then(function () {
     return fetch(STORE.paymentApiBase.replace(/\\/$/, '') + '/create-order', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: Math.round(o.totals.total * 100), currency: 'INR', receipt: o.id })
+      body: JSON.stringify({ amount: Math.round(o.totals.total * 100), currency: 'INR', receipt: (o.items.length === 1 && o.items[0].id === 'razorpay-trial-1rs' && o.items[0].qty === 1 && o.totals.total === 1) ? 'TRIAL_' + o.id : o.id })
     }).then(function (r) { return r.json().then(function (d) { if (!r.ok) throw new Error(d.error || 'Could not create payment order.'); return d; }); });
   }).then(function (created) {
     if (!created.order_id || !created.amount || created.currency !== 'INR') throw new Error('Invalid payment order response.');
