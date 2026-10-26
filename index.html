@@ -199,6 +199,8 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 .wst-account-body{padding:1.2rem}
 .wst-account-provider{width:100%;display:flex;align-items:center;justify-content:center;gap:.65rem;padding:.8rem 1rem;margin:.55rem 0;border:1px solid #1c1c1c;background:#fff;font-weight:800;cursor:pointer}
 .wst-account-provider:hover{border-color:#cc1010;color:#cc1010}
+/* Keep signed-in account controls hidden even when component styles set display:flex. */
+.wst-account-layer [hidden]{display:none!important}
 .wst-account-note{font-size:.78rem;line-height:1.6;color:#555;background:#fafafa;border-left:3px solid #cc1010;padding:.75rem;margin-top:1rem}
 .wst-account-field{display:block;width:100%;min-height:2.8rem;padding:.7rem .8rem;margin:.45rem 0 .8rem;border:1px solid #aaa;background:#fff;color:#111;box-sizing:border-box}
 @media(max-width:480px){.wst-accountbtn{width:2.75rem;padding:0}.wst-account-label{display:none}}
