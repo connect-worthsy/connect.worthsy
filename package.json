@@ -1,0 +1,13 @@
+{
+  "name": "worthsy-payment-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Secure Razorpay Standard Checkout API for WORTHSY",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "razorpay": "^2.9.6"
+  },
+  "scripts": {
+    "test:syntax": "node --check api/create-order.js && node --check api/verify-payment.js"
+  }
+}
