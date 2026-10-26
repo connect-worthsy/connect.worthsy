@@ -16,6 +16,9 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Amount must be an integer of at least 100 paise.' });
   }
   if (currency !== 'INR') return res.status(400).json({ error: 'Only INR payments are supported.' });
+  if (receipt.startsWith('TRIAL_') && amount !== 100) {
+    return res.status(400).json({ error: 'The Razorpay trial product must be exactly ₹1.' });
+  }
 
   try {
     const razorpay = new Razorpay({ key_id: keyId, key_secret: keySecret });
