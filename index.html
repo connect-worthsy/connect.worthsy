@@ -2027,7 +2027,7 @@ function supportSubmit(e) {
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script>
+
 /* Firebase customer accounts and cloud cart sync. */
 (function () {
   var layer=document.getElementById('wst-account-layer'), open=document.getElementById('wst-account-open'), close=document.getElementById('wst-account-close');
@@ -2067,7 +2067,7 @@ function supportSubmit(e) {
   signout.addEventListener('click',function(){if(auth)auth.signOut().then(function(){say('Signed out. This device cart remains available.');}).catch(function(e){say(errorText(e));});});
   if(cloudReady)auth.onAuthStateChanged(function(u){signout.hidden=!u;signin.hidden=!!u;signup.hidden=!!u;reset.hidden=!!u;if(accountLabel)accountLabel.textContent=u?'My account':'Account';if(u)loadCart(u);else say('Sign in or create an account to save your cart across devices.');});
 })();
-</script>
+
 /* ============ events ============ */
 document.addEventListener('click', function (e) {
   var t = e.target;
