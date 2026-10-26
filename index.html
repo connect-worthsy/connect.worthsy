@@ -1093,6 +1093,34 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
           auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return target.id==='wst-account-signup'?auth.createUserWithEmailAndPassword(mail,pass):auth.signInWithEmailAndPassword(mail,pass);}).then(function(result){var user=result&&result.user;if(user&&target.id==='wst-account-signup')return user.sendEmailVerification().then(function(){say('Account created. Please verify your email using the link we sent.');});say('Signed in successfully'+(user&&user.email?' as '+user.email:'')+'.');if(panel){panel.classList.remove('open');panel.style.display='none';panel.setAttribute('aria-hidden','true');document.body.style.overflow='';}var label=trigger.querySelector('.wst-account-label');if(label&&user)label.textContent='Logged in';}).catch(function(e){say(errText(e));});
         }catch(error){say('Account services could not start: '+errText(error));}
       },true);
+      /* Keep the account panel in sync with Firebase's persisted session after reloads. */
+      try{
+        if(window.firebase){
+          if(!firebase.apps.length)firebase.initializeApp({apiKey:'AIzaSyDxBGEZnGnCdUQftwS-QgOVMH5h9WNzecE',authDomain:'connect1worthsy.firebaseapp.com',projectId:'connect1worthsy',storageBucket:'connect1worthsy.firebasestorage.app',messagingSenderId:'655885819600',appId:'1:655885819600:web:333ab84dac36a82f7408d5',measurementId:'G-9Z80CL354X'});
+          var persistentAuth=firebase.auth();
+          persistentAuth.onAuthStateChanged(function(user){
+            var credentials=document.getElementById('wst-account-credentials');
+            var signout=document.getElementById('wst-account-signout');
+            var security=document.getElementById('wst-account-security-note');
+            var googleButtons=document.querySelectorAll('[data-account-provider="google"]');
+            var label=trigger.querySelector('.wst-account-label');
+            if(credentials)credentials.hidden=!!user;
+            if(signout)signout.hidden=!user;
+            if(security)security.hidden=!!user;
+            googleButtons.forEach(function(button){button.hidden=!!user;});
+            if(label)label.textContent=user?'Logged in':'Account';
+            trigger.setAttribute('aria-label',user?'Logged in to your WORTHSY account':'Open your account');
+            if(user){
+              var status=document.getElementById('wst-account-status');
+              if(status)status.textContent='You are logged in as '+(user.displayName||user.email||'your WORTHSY account')+'.';
+            }
+          });
+          persistentAuth.getRedirectResult().catch(function(error){
+            var status=document.getElementById('wst-account-status');
+            if(status)status.textContent='Google sign-in failed: '+(error&&error.message||'Please try again.');
+          });
+        }
+      }catch(accountStateError){console.error('WORTHSY persisted account state could not be restored:',accountStateError);}
       window.WORTHSY_OPEN_ACCOUNT=openAccount;
     })();
     </script>
