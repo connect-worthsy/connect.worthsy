@@ -1,5 +1,20 @@
 [
   {
+    "id": "razorpay-trial-1rs",
+    "name": "Razorpay Payment Test (₹1)",
+    "category": "Test Product",
+    "price": 1,
+    "mrp": 1,
+    "icon": "fa-credit-card",
+    "badge": "TEMPORARY TEST",
+    "featured": true,
+    "highlights": [
+      "Temporary ₹1 checkout test",
+      "Please buy only once to verify Razorpay test-mode checkout"
+    ],
+    "images": []
+  },
+  {
     "id": "magnetic-power-bank",
     "name": "Magnetic Wireless Power Bank 10000mAh",
     "category": "Gadgets",
