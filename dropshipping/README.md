@@ -3,6 +3,11 @@
 ## Safety boundary
 This feature is being developed separately from the existing affiliate site. The existing `index.html`, affiliate product data, affiliate tracking links, filters, sorting, Careers/About/Blog pages, and Apps Script workflows must remain unchanged.
 
+## Target market
+- The business target is worldwide, not a promise that every destination can be served at launch.
+- Build destination-aware eligibility: only show shipping/checkout for countries where the selected supplier, carrier, payment provider, taxes/duties handling, and returns process have been verified.
+- Plan for localized currencies and clear shipping, delivery, import-duty/tax, and returns information. Do not claim global delivery until each destination is confirmed.
+
 ## Current state
 - `shop.html` is a standalone, responsive storefront preview using a restrained white/black/red visual style to fit WORTHSY.
 - It links back to the existing WORTHSY site and affiliate section.
@@ -11,7 +16,7 @@ This feature is being developed separately from the existing affiliate site. The
 - The cart is a non-commerce preview only. No checkout is simulated.
 
 ## Required before launch
-1. Confirm target market and business details.
+1. Confirm business details and choose the first product categories; worldwide is the long-term target market.
 2. Select suitable hosting for a server-side API (GitHub Pages alone cannot securely run a backend).
 3. Implement database tables for products, stock, orders, order items, customers, payment events, and fulfilment status.
 4. Add authenticated admin access and server-side input validation.
