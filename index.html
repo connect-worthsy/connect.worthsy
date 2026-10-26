@@ -2146,26 +2146,18 @@ function supportSubmit(e) {
     if(signedIn&&email)email.value=user.email||'';
   }
   if(layer)layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.addEventListener('click',function(){
-    if(!cloudReady||!auth){say('Google sign-in could not start because account services are unavailable. Refresh the page and try again.');return;}
-    var button=this;
-    button.disabled=true;
-    say('Connecting to Google securely…');
+    if(!cloudReady){say('Account services are unavailable. Refresh and try again.');return;}
+    say('Opening Google sign-in…');
     var provider=new firebase.auth.GoogleAuthProvider();
-    provider.setCustomParameters({prompt:'select_account'});
     auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){
       return auth.signInWithPopup(provider);
     }).then(function(result){
-      if(result&&result.user){updateAccountUI(result.user);loadCart(result.user);say('Google sign-in successful.');}
-      else{say('Google sign-in did not return an account. Please try again.');}
+      if(result&&result.user){updateAccountUI(result.user);loadCart(result.user);}
     }).catch(function(e){
-      var redirectCodes=['auth/popup-blocked','auth/operation-not-supported-in-this-environment','auth/cancelled-popup-request'];
-      if(e&&redirectCodes.indexOf(e.code)!==-1){
-        say('Popup unavailable. Redirecting to Google sign-in…');
-        return auth.signInWithRedirect(provider).catch(function(err){say('Google sign-in failed: '+errorText(err));});
-      }
-      say('Google sign-in failed: '+errorText(e));
-      console.error('WORTHSY Google sign-in error:',e);
-    }).finally(function(){button.disabled=false;});
+      if(e&&['auth/popup-blocked','auth/operation-not-supported-in-this-environment'].indexOf(e.code)!==-1){
+        auth.signInWithRedirect(provider).catch(function(err){say('Google sign-in failed: '+errorText(err));});
+      }else{say('Google sign-in failed: '+errorText(e));}
+    });
   });});
   if(signin)signin.addEventListener('click',function(){var e=email&&email.value.trim(),p=password&&password.value;if(!e||!p){say('Enter your email address and password.');return;}if(!cloudReady||!auth){say('Account services could not start. Refresh the page; if this continues, check Firebase Authentication configuration.');return;}auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return auth.signInWithEmailAndPassword(e,p);}).then(function(r){loadCart(r.user);}).catch(function(err){say(errorText(err));});});
   if(signup)signup.addEventListener('click',function(){var e=email&&email.value.trim(),p=password&&password.value;if(!e||!p){say('Enter your email address and choose a password.');return;}if(p.length<6){say('Choose a password with at least 6 characters.');return;}if(!cloudReady||!auth){say('Account services could not start. Refresh the page; if this continues, check Firebase Authentication configuration.');return;}auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return auth.createUserWithEmailAndPassword(e,p);}).then(function(r){return r.user.sendEmailVerification().then(function(){loadCart(r.user);say('Account created. Please verify your email using the link we sent.');});}).catch(function(err){say(errorText(err));});});
