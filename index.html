@@ -2063,7 +2063,16 @@ function supportSubmit(e) {
   signup.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and choose a password.');return;}if(p.length<6){say('Choose a password with at least 6 characters.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.createUserWithEmailAndPassword(e,p).then(function(r){return r.user.sendEmailVerification().then(function(){loadCart(r.user);say('Account created. Please verify your email using the link we sent.');});}).catch(function(e){say(errorText(e));});});
   reset.addEventListener('click',function(){var e=email.value.trim();if(!e){say('Enter your email address first.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.sendPasswordResetEmail(e).then(function(){say('If an account exists for this email, a password reset email will be sent.');}).catch(function(e){say(errorText(e));});});
   signout.addEventListener('click',function(){if(auth)auth.signOut().then(function(){say('Signed out. This device cart remains available.');}).catch(function(e){say(errorText(e));});});
-  if(cloudReady)auth.onAuthStateChanged(function(u){signout.hidden=!u;signin.hidden=!!u;signup.hidden=!!u;reset.hidden=!!u;if(accountLabel)accountLabel.textContent=u?'My account':'Account';if(u)loadCart(u);else say('Sign in or create an account to save your cart across devices.');});
+  if(cloudReady){
+    auth.getRedirectResult().then(function(result){
+      if(result&&result.user){say('Google sign-in successful. Loading your account…');}
+    }).catch(function(e){say('Google sign-in failed: '+errorText(e));});
+    auth.onAuthStateChanged(function(u){
+      signout.hidden=!u;signin.hidden=!!u;signup.hidden=!!u;reset.hidden=!!u;
+      if(accountLabel)accountLabel.textContent=u?'My account':'Account';
+      if(u)loadCart(u);else if(!status.textContent||status.textContent.indexOf('failed:')===-1)say('Sign in or create an account to save your cart across devices.');
+    });
+  }
 })();
 
 /* ============ events ============ */
