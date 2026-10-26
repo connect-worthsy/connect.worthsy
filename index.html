@@ -2074,7 +2074,7 @@ function supportSubmit(e) {
     auth.onAuthStateChanged(function(u){
       signout.hidden=!u;signin.hidden=!!u;signup.hidden=!!u;reset.hidden=!!u;
       layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.hidden=!!u;});
-      if(accountLabel)accountLabel.textContent=u?'My account':'Account';
+      if(accountLabel)accountLabel.textContent=u?'Logged in':'Account';
       if(u){email.value=u.email||'';loadCart(u);}
       else if(!status.textContent||status.textContent.indexOf('failed:')===-1)say('Sign in or create an account to save your cart across devices.');
     });
