@@ -169,7 +169,7 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 
     <!-- HEADER -->
     <header class="worthsy-header fixed top-0 left-0 right-0 z-50 bg-[#ffffff]/92 backdrop-blur-md border-b border-[#000000]/25">
-        <div class="relative max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-12 h-24 min-h-24 flex items-center justify-between">
 
             <!-- Logo: actual image + wordmark -->
             <a href="#" aria-label="WORTHSY home" class="flex items-center space-x-3 group">
@@ -183,6 +183,10 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
                 <a href="#about" class="hover:text-brandAccent transition-colors">Philosophy</a>
                 <a href="#contact" class="hover:text-brandAccent transition-colors">Concierge</a>
             </nav>
+            <div class="flex items-center gap-3 ml-4">
+                <button type="button" id="worthsy-account-open" class="inline-flex items-center gap-2 border border-black/20 px-3 py-2 text-xs font-bold uppercase tracking-wider hover:border-black" aria-label="Account login"><i class="fa-regular fa-user"></i><span class="hidden sm:inline">Account</span></button>
+                <button type="button" id="worthsy-cart-open" class="relative inline-flex items-center gap-2 border border-black/20 px-3 py-2 text-xs font-bold uppercase tracking-wider hover:border-black" aria-label="Shopping cart"><i class="fa-solid fa-bag-shopping"></i><span class="hidden sm:inline">Cart</span><span id="worthsy-cart-count" class="inline-flex min-w-5 h-5 items-center justify-center bg-black text-white px-1 text-[10px]">0</span></button>
+            </div>
 
             <div class="flex items-center space-x-4">
                 <a href="#contact" class="hidden sm:inline-flex items-center px-6 py-2.5 text-sm font-bold uppercase tracking-widest bg-brandAccent text-brandBg hover:bg-brandAccentHover transition-all">
@@ -1094,5 +1098,85 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             }, 800);
         }
     </script>
+
+    <!-- ACCOUNT / CART / CHECKOUT PREVIEW. Demo UI only; no real authentication or payment processing. -->
+    <div id="worthsy-commerce-overlay" class="hidden fixed inset-0 z-[100] bg-black/40 p-3 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="worthsy-commerce-title">
+      <div class="max-w-3xl mx-auto mt-4 sm:mt-10 bg-white text-black border border-black/20">
+        <div class="flex items-center justify-between border-b border-black/10 px-5 sm:px-7 py-5">
+          <div><span class="text-[10px] font-mono uppercase tracking-[.25em] text-red-600">WORTHSY · DIRECT STORE</span><h2 id="worthsy-commerce-title" class="text-xl sm:text-2xl font-black mt-1">Your shopping space</h2></div>
+          <button type="button" id="worthsy-commerce-close" class="border border-black/20 w-10 h-10" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex flex-wrap gap-2 px-5 sm:px-7 pt-5">
+          <button class="commerce-tab bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-wider" data-panel="cart">Cart</button>
+          <button class="commerce-tab border border-black/20 px-4 py-2 text-xs font-bold uppercase tracking-wider" data-panel="account">Account / Login</button>
+          <button class="commerce-tab border border-black/20 px-4 py-2 text-xs font-bold uppercase tracking-wider" data-panel="checkout">Checkout & Payment</button>
+        </div>
+        <div class="p-5 sm:p-7">
+          <section id="commerce-panel-cart">
+            <h3 class="text-lg font-black mb-2">Your cart</h3>
+            <div id="worthsy-cart-lines" class="border border-black/10 p-5 text-sm text-gray-500">Your cart is empty. Direct-store products will appear after supplier and shipping checks are complete.</div>
+            <div class="mt-5 flex flex-wrap items-center justify-between gap-3"><p class="text-xs text-gray-500">Currency and delivery costs depend on destination.</p><button type="button" class="commerce-go-checkout bg-black text-white px-5 py-3 text-xs font-bold uppercase tracking-wider">Continue to checkout</button></div>
+          </section>
+          <section id="commerce-panel-account" class="hidden">
+            <h3 class="text-lg font-black mb-2">Sign in or create an account</h3>
+            <p class="text-sm text-gray-500 mb-5">Account interface preview. Secure account storage and password handling must be connected before launch.</p>
+            <form id="worthsy-account-demo" class="grid sm:grid-cols-2 gap-4">
+              <label class="text-xs font-bold uppercase tracking-wider">Email address<input required type="email" autocomplete="email" class="mt-2 w-full border border-gray-300 px-3 py-3 normal-case tracking-normal" placeholder="you@example.com"></label>
+              <label class="text-xs font-bold uppercase tracking-wider">Password<input required type="password" minlength="8" autocomplete="current-password" class="mt-2 w-full border border-gray-300 px-3 py-3 normal-case tracking-normal" placeholder="At least 8 characters"></label>
+              <div class="sm:col-span-2 flex flex-wrap gap-3"><button class="bg-black text-white px-5 py-3 text-xs font-bold uppercase tracking-wider" type="submit">Preview sign in</button><button class="border border-black/20 px-5 py-3 text-xs font-bold uppercase tracking-wider" type="button" id="worthsy-create-account">Create account</button></div>
+            </form><p id="worthsy-account-message" class="hidden mt-4 border border-black/10 p-3 text-sm"></p>
+          </section>
+          <section id="commerce-panel-checkout" class="hidden">
+            <h3 class="text-lg font-black mb-2">Checkout</h3>
+            <p class="text-sm text-gray-500 mb-5">Checkout is shown for preview only. No payment will be taken and no order will be placed.</p>
+            <form id="worthsy-checkout-demo" class="grid sm:grid-cols-2 gap-4">
+              <label class="text-xs font-bold uppercase tracking-wider">Full name<input required class="mt-2 w-full border border-gray-300 px-3 py-3 normal-case tracking-normal" autocomplete="name" placeholder="Full name"></label>
+              <label class="text-xs font-bold uppercase tracking-wider">Email<input required type="email" class="mt-2 w-full border border-gray-300 px-3 py-3 normal-case tracking-normal" autocomplete="email" placeholder="you@example.com"></label>
+              <label class="text-xs font-bold uppercase tracking-wider sm:col-span-2">Shipping country<select required id="worthsy-country" class="mt-2 w-full border border-gray-300 px-3 py-3 normal-case tracking-normal"><option value="">Select destination</option><option>India</option><option>United States</option><option>United Kingdom</option><option>Canada</option><option>Australia</option><option>European Union</option><option>Other / confirm availability</option></select></label>
+              <label class="text-xs font-bold uppercase tracking-wider sm:col-span-2">Shipping address<textarea required rows="2" class="mt-2 w-full border border-gray-300 px-3 py-3 normal-case tracking-normal" autocomplete="street-address" placeholder="Street address"></textarea></label>
+              <label class="text-xs font-bold uppercase tracking-wider sm:col-span-2">Payment method preview<select class="mt-2 w-full border border-gray-300 px-3 py-3 normal-case tracking-normal"><option>Payment gateway not connected</option><option disabled>Cards — enable after provider setup</option><option disabled>Wallets — enable after provider setup</option><option disabled>PayPal / regional methods — verify availability first</option></select></label>
+              <div class="sm:col-span-2 border border-dashed border-gray-300 p-4"><div class="flex items-center gap-3 text-sm font-bold"><i class="fa-solid fa-lock"></i> Secure payment gateway</div><p class="text-xs text-gray-500 mt-2">A live gateway requires a merchant account, server-side integration, webhook verification and secure secret storage. Never enter card details in this preview.</p></div>
+              <div class="sm:col-span-2"><button type="submit" class="bg-gray-200 text-gray-500 px-5 py-3 text-xs font-bold uppercase tracking-wider cursor-not-allowed" disabled>Payments not active — preview only</button></div>
+            </form>
+          </section>
+        </div>
+        <div class="border-t border-black/10 px-5 sm:px-7 py-4 text-[10px] font-mono uppercase tracking-wider text-gray-500">Preview interface only · No account is created · No payment is processed</div>
+      </div>
+    </div>
+
+
+    <style id="worthsy-commerce-preview-style">
+      /* Match the live WORTHSY header geometry and wordmark size. */
+      header.worthsy-header > div:first-child{height:6rem!important;min-height:6rem!important}
+      header.worthsy-header .worthsy-logo{height:56px!important;width:auto!important}
+      @media(max-width:767px){header.worthsy-header > div:first-child{height:6rem!important;min-height:6rem!important}}
+      #worthsy-commerce-overlay input,#worthsy-commerce-overlay select,#worthsy-commerce-overlay textarea{background:#fff!important;color:#111!important}
+      #worthsy-commerce-overlay .commerce-tab{transition:all .15s ease}
+    </style>
+    <script id="worthsy-commerce-preview-script">
+    (function(){
+      const overlay=document.getElementById('worthsy-commerce-overlay');
+      const title=document.getElementById('worthsy-commerce-title');
+      const tabs=[...document.querySelectorAll('.commerce-tab')];
+      function panel(name){
+        ['cart','account','checkout'].forEach(n=>document.getElementById('commerce-panel-'+n).classList.toggle('hidden',n!==name));
+        tabs.forEach(t=>{const active=t.dataset.panel===name;t.classList.toggle('bg-black',active);t.classList.toggle('text-white',active);t.classList.toggle('border',!active);t.classList.toggle('border-black/20',!active)});
+        title.textContent=name==='cart'?'Your shopping cart':name==='account'?'Account / Login':'Checkout & Payment';
+      }
+      function open(name){overlay.classList.remove('hidden');document.body.style.overflow='hidden';panel(name)}
+      function close(){overlay.classList.add('hidden');document.body.style.overflow=''}
+      document.getElementById('worthsy-cart-open').addEventListener('click',()=>open('cart'));
+      document.getElementById('worthsy-account-open').addEventListener('click',()=>open('account'));
+      document.getElementById('worthsy-commerce-close').addEventListener('click',close);
+      overlay.addEventListener('click',e=>{if(e.target===overlay)close()});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.classList.contains('hidden'))close()});
+      tabs.forEach(t=>t.addEventListener('click',()=>panel(t.dataset.panel)));
+      document.querySelectorAll('.commerce-go-checkout').forEach(b=>b.addEventListener('click',()=>panel('checkout')));
+      document.getElementById('worthsy-account-demo').addEventListener('submit',e=>{e.preventDefault();const m=document.getElementById('worthsy-account-message');m.textContent='Demo only: authentication is not connected, and no account has been created.';m.classList.remove('hidden')});
+      document.getElementById('worthsy-create-account').addEventListener('click',()=>{const m=document.getElementById('worthsy-account-message');m.textContent='Account creation will be enabled after secure authentication and database services are connected.';m.classList.remove('hidden')});
+      document.getElementById('worthsy-checkout-demo').addEventListener('submit',e=>e.preventDefault());
+    })();
+    </script>
+
 </body>
 </html>
