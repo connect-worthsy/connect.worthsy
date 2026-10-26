@@ -306,7 +306,11 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 .wst-chat-btn:focus-visible,.wst-chat input:focus-visible,.wst-chat-prod:focus-visible{outline:2px solid #e11b22;outline-offset:3px}
 .wst-chat-btn[aria-expanded="true"]{animation:none}
 @keyframes wst-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.wst-chat{position:fixed;right:1.25rem;bottom:calc(9.5rem + env(safe-area-inset-bottom,0px));z-index:76;width:min(360px,calc(100vw - 2.5rem));height:min(32rem,calc(100vh - 12rem));display:flex;flex-direction:column;background:#fff;border:2px solid #1c1c1c;box-sizing:border-box}
+.wst-chat{position:fixed;right:1.25rem;bottom:calc(9.5rem + env(safe-area-inset-bottom,0px));z-index:76;width:min(430px,calc(100vw - 2.5rem));height:min(36rem,calc(100vh - 10rem));display:flex;flex-direction:column;background:#fff;border:2px solid #1c1c1c;box-sizing:border-box}
+.wst-chat-chips{gap:.45rem}
+.wst-chat-chip{font-size:.76rem;letter-spacing:.025em;padding:.45rem .75rem;line-height:1.35}
+.wst-chat-form .wst-input{min-width:0;flex:1}
+@media(max-height:620px){.wst-chat{height:calc(100vh - 8rem);bottom:calc(7.5rem + env(safe-area-inset-bottom,0px))}}
 .wst-chat[hidden]{display:none}
 .wst-chat-head{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.8rem 1rem;border-bottom:1px solid #ddd}
 .wst-chat-head small{display:block;font:400 .65rem var(--wst-mono);letter-spacing:.08em;color:#555}
