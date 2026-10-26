@@ -1043,6 +1043,35 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
         </div>
       </div>
     </section>
+    <script>
+    /* Early, self-contained account-panel controls: keep the panel usable even if another page script fails. */
+    (function(){
+      var trigger=document.getElementById('wst-account-open');
+      var panel=document.getElementById('wst-account-layer');
+      var closeButton=document.getElementById('wst-account-close');
+      if(!trigger||!panel)return;
+      function openAccount(event){
+        if(event)event.preventDefault();
+        panel.classList.add('open');
+        panel.style.display='flex';
+        panel.setAttribute('aria-hidden','false');
+        document.body.style.overflow='hidden';
+        if(closeButton)closeButton.focus();
+      }
+      function closeAccount(){
+        panel.classList.remove('open');
+        panel.style.display='none';
+        panel.setAttribute('aria-hidden','true');
+        document.body.style.overflow='';
+        trigger.focus();
+      }
+      trigger.addEventListener('click',openAccount);
+      if(closeButton)closeButton.addEventListener('click',closeAccount);
+      panel.addEventListener('click',function(event){if(event.target===panel)closeAccount();});
+      document.addEventListener('keydown',function(event){if(event.key==='Escape'&&panel.classList.contains('open'))closeAccount();});
+      window.WORTHSY_OPEN_ACCOUNT=openAccount;
+    })();
+    </script>
         <!-- AI ASSISTANT (floating chat) -->
     <button type="button" id="wst-chat-btn" class="wst-chat-btn" aria-label="Chat with the WORTHSY assistant" aria-expanded="false" aria-controls="wst-chat"><i class="fa-solid fa-comment-dots"></i></button>
     <section id="wst-chat" class="wst-chat" role="dialog" aria-label="WORTHSY assistant" hidden>
