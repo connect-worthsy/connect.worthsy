@@ -2066,10 +2066,10 @@ function supportSubmit(e) {
   var layer=document.getElementById('wst-account-layer'), open=document.getElementById('wst-account-open'), close=document.getElementById('wst-account-close');
   var status=document.getElementById('wst-account-status'), email=document.getElementById('wst-account-contact'), password=document.getElementById('wst-account-password');
   var signout=document.getElementById('wst-account-signout'), signin=document.getElementById('wst-account-signin'), signup=document.getElementById('wst-account-signup'), reset=document.getElementById('wst-account-reset');
-  var accountLabel=open.querySelector('.wst-account-label'), auth=null, db=null, cloudReady=false, cloudTimer=null, applyingCloud=false;
-  function say(m){status.textContent=m;}
-  function show(){layer.classList.add('open');layer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus();}
-  function hide(){layer.classList.remove('open');layer.setAttribute('aria-hidden','true');document.body.style.overflow='';open.focus();}
+  var accountLabel=open&&open.querySelector('.wst-account-label'), auth=null, db=null, cloudReady=false, cloudTimer=null, applyingCloud=false;
+  function say(m){if(status)status.textContent=m;}
+  function show(){if(!layer){console.error('WORTHSY account panel is missing from this page.');return;}layer.classList.add('open');layer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';if(close)close.focus();}
+  function hide(){if(!layer)return;layer.classList.remove('open');layer.setAttribute('aria-hidden','true');document.body.style.overflow='';if(open)open.focus();}
   function errorText(e){var c=e&&e.code||'',m={
     'auth/invalid-email':'Enter a valid email address.','auth/missing-password':'Enter your password.','auth/weak-password':'Choose a password with at least 6 characters.',
     'auth/email-already-in-use':'An account already exists for this email. Try signing in.','auth/invalid-credential':'Email or password is incorrect.',
@@ -2085,13 +2085,13 @@ function supportSubmit(e) {
   function queueSave(){if(!auth||!auth.currentUser||!db||applyingCloud)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(function(){var u=auth.currentUser;if(!u)return;ref(u).set({cart:cart,couponCode:couponCode||'',updatedAt:firebase.firestore.FieldValue.serverTimestamp()}).catch(function(e){say('Cart is saved on this device, but cloud sync failed: '+errorText(e));});},500);}
   window.WORTHSY_CLOUD_CART_SAVE=queueSave;
   function loadCart(user){if(!user)return;if(accountLabel)accountLabel.textContent='Logged in';open.setAttribute('aria-label','Logged in to your WORTHSY account');say('Signed in as '+(user.displayName||user.email||'your WORTHSY account')+'.');if(!db){say('Signed in as '+(user.displayName||user.email||'your WORTHSY account')+'. Your account is active, but cloud cart sync is unavailable right now.');return;}say('Signed in as '+(user.displayName||user.email||'your WORTHSY account')+'. Loading your saved cart…');applyingCloud=true;ref(user).get().then(function(snap){var d=snap.exists?snap.data():null;if(d&&Array.isArray(d.cart)){cart=mergeLines(d.cart,cart);if(typeof d.couponCode==='string'&&!couponCode)couponCode=d.couponCode;}save();refresh();applyingCloud=false;queueSave();say('You are logged in as '+(user.displayName||user.email||'your WORTHSY account')+'. Your cart will sync across devices.');}).catch(function(e){applyingCloud=false;say('You are logged in as '+(user.displayName||user.email||'your WORTHSY account')+'. Cloud cart sync failed: '+errorText(e));});}
-  // Bind account controls defensively and expose a single open action for every header variant.
+  // Bind one click handler to the real button. Native buttons already support Enter/Space.
   function openAccountPanel(e){if(e)e.preventDefault();show();}
   window.WORTHSY_OPEN_ACCOUNT=openAccountPanel;
-  if(open){open.addEventListener('click',openAccountPanel);open.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openAccountPanel(e);}});}
+  if(open)open.addEventListener('click',openAccountPanel);
   if(close)close.addEventListener('click',hide);
   if(layer){layer.addEventListener('click',function(e){if(e.target===layer)hide();});}
-  document.addEventListener('click',function(e){var trigger=e.target&&e.target.closest?e.target.closest('#wst-account-open,[data-open-account]'):null;if(trigger){e.preventDefault();openAccountPanel(e);}});
+  document.addEventListener('click',function(e){var trigger=e.target&&e.target.closest?e.target.closest('[data-open-account]'):null;if(trigger){e.preventDefault();openAccountPanel(e);}});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&layer&&layer.classList.contains('open'))hide();});
   try{
     if(!window.firebase)throw new Error('Firebase SDK failed to load. Refresh and try again.');
@@ -2108,15 +2108,15 @@ function supportSubmit(e) {
   var securityNote=document.getElementById('wst-account-security-note');
   function updateAccountUI(user){
     var signedIn=!!user;
-    signout.hidden=!signedIn;
+    if(signout)signout.hidden=!signedIn;
     if(credentials)credentials.hidden=signedIn;
     if(securityNote)securityNote.hidden=signedIn;
-    layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.hidden=signedIn;});
+    if(layer)layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.hidden=signedIn;});
     if(accountLabel)accountLabel.textContent=signedIn?'Logged in':'Account';
-    open.setAttribute('aria-label',signedIn?'Logged in to your WORTHSY account':'Open your account');
+    if(open)open.setAttribute('aria-label',signedIn?'Logged in to your WORTHSY account':'Open your account');
     if(signedIn&&email)email.value=user.email||'';
   }
-  layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.addEventListener('click',function(){
+  if(layer)layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.addEventListener('click',function(){
     if(!cloudReady){say('Account services are unavailable. Refresh and try again.');return;}
     say('Opening Google sign-in…');
     var provider=new firebase.auth.GoogleAuthProvider();
@@ -2130,10 +2130,10 @@ function supportSubmit(e) {
       }else{say('Google sign-in failed: '+errorText(e));}
     });
   });});
-  signin.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and password.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.signInWithEmailAndPassword(e,p).then(function(r){loadCart(r.user);}).catch(function(e){say(errorText(e));});});
-  signup.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and choose a password.');return;}if(p.length<6){say('Choose a password with at least 6 characters.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.createUserWithEmailAndPassword(e,p).then(function(r){return r.user.sendEmailVerification().then(function(){loadCart(r.user);say('Account created. Please verify your email using the link we sent.');});}).catch(function(e){say(errorText(e));});});
-  reset.addEventListener('click',function(){var e=email.value.trim();if(!e){say('Enter your email address first.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.sendPasswordResetEmail(e).then(function(){say('If an account exists for this email, a password reset email will be sent.');}).catch(function(e){say(errorText(e));});});
-  signout.addEventListener('click',function(){if(auth)auth.signOut().then(function(){say('Signed out. This device cart remains available.');}).catch(function(e){say(errorText(e));});});
+  if(signin)signin.addEventListener('click',function(){var e=email&&email.value.trim(),p=password&&password.value;if(!e||!p){say('Enter your email address and password.');return;}if(!cloudReady||!auth){say('Account services could not start. Refresh the page; if this continues, check Firebase Authentication configuration.');return;}auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return auth.signInWithEmailAndPassword(e,p);}).then(function(r){loadCart(r.user);}).catch(function(err){say(errorText(err));});});
+  if(signup)signup.addEventListener('click',function(){var e=email&&email.value.trim(),p=password&&password.value;if(!e||!p){say('Enter your email address and choose a password.');return;}if(p.length<6){say('Choose a password with at least 6 characters.');return;}if(!cloudReady||!auth){say('Account services could not start. Refresh the page; if this continues, check Firebase Authentication configuration.');return;}auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return auth.createUserWithEmailAndPassword(e,p);}).then(function(r){return r.user.sendEmailVerification().then(function(){loadCart(r.user);say('Account created. Please verify your email using the link we sent.');});}).catch(function(err){say(errorText(err));});});
+  if(reset)reset.addEventListener('click',function(){var e=email&&email.value.trim();if(!e){say('Enter your email address first.');return;}if(!cloudReady||!auth){say('Account services could not start. Refresh the page; if this continues, check Firebase Authentication configuration.');return;}auth.sendPasswordResetEmail(e).then(function(){say('If an account exists for this email, a password reset email will be sent.');}).catch(function(err){say(errorText(err));});});
+  if(signout)signout.addEventListener('click',function(){if(auth)auth.signOut().then(function(){say('Signed out. This device cart remains available.');}).catch(function(err){say(errorText(err));});});
   if(cloudReady){
     auth.getRedirectResult().then(function(result){
       if(result&&result.user){say('Google sign-in successful. Loading your account…');}
