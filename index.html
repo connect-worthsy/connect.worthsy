@@ -164,6 +164,170 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 </style>
 
 <style id="worthsy-universal-home-style">.worthsy-universal-home{display:inline-flex;align-items:center;text-decoration:none;cursor:pointer}.worthsy-universal-home:focus-visible{outline:2px solid #e11b22;outline-offset:5px}</style>
+<style id="worthsy-store-style">
+/* WORTHSY Store — scoped with .wst- so nothing above is affected. Tokens come from the logo theme. */
+:root{--wst-line:#ddd;--wst-paper:#f5f5f5;--wst-mono:'Space Mono','Courier New',monospace}
+.wst-mono{font-family:var(--wst-mono)}
+.wst-bar{height:3px;background:linear-gradient(90deg,#1c1c1c 0,#1c1c1c 66%,#cc1010 66%,#ff4040 100%)}
+.wst-label{display:block;font-family:var(--wst-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#555;margin-bottom:.4rem}
+.wst-muted{color:#555}
+.wst-red{color:#cc1010}
+
+/* buttons: boxed like the logo */
+.wst-btn,.wst-input,.wst-box,.wst-card,.wst-panel,.wst-pay{box-sizing:border-box}
+.wst-btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.4rem;font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;background:#000;color:#fff;border:2px solid #1c1c1c;cursor:pointer;text-align:center;line-height:1.1}
+.wst-btn:hover:not(:disabled){background:var(--w-grad);border-color:#cc1010;color:#fff}
+.wst-btn:disabled{opacity:.45;cursor:not-allowed}
+.wst-btn-ghost{background:#fff;color:#111}
+.wst-btn-ghost:hover:not(:disabled){background:#fff;color:#cc1010;border-color:#cc1010}
+.wst-btn-block{display:flex;width:100%}
+.wst-btn:focus-visible,.wst-card:focus-visible,.wst-chip:focus-visible,.wst-x:focus-visible,.wst-cartbtn:focus-visible{outline:2px solid #e11b22;outline-offset:3px}
+
+/* header cart button */
+.wst-cartbtn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border:2px solid #1c1c1c;background:#fff;font-size:1rem;cursor:pointer}
+.wst-cartbtn:hover{border-color:#cc1010}
+.wst-cart-count{position:absolute;top:-.6rem;right:-.6rem;min-width:1.2rem;height:1.2rem;padding:0 .3rem;background:var(--w-grad);color:#fff!important;font:700 .65rem/1.2rem var(--wst-mono);text-align:center}
+.wst-cart-count[data-n="0"]{display:none}
+
+/* split boxes echo the WORTH | SY logo */
+.wst-split{display:grid;grid-template-columns:2fr 1fr;border:2px solid #1c1c1c}
+.wst-split>.wst-ink{padding:2rem 2rem 2.2rem}
+.wst-split>.wst-redbox{padding:2rem;border:2px solid transparent;border-image:var(--w-grad) 1;margin:-2px -2px -2px 0;display:flex;flex-direction:column;justify-content:center;gap:.9rem}
+.wst-perk{display:flex;align-items:center;gap:.7rem;font-size:.85rem;font-weight:700}
+.wst-perk i{width:1.25rem;text-align:center;color:#cc1010}
+@media(max-width:820px){.wst-split{grid-template-columns:1fr}.wst-split>.wst-redbox{margin:0 -2px -2px -2px;border-top:2px solid #1c1c1c}}
+
+/* product grid + cards */
+.wst-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem}
+@media(min-width:768px){.wst-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}}
+@media(min-width:1100px){.wst-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.wst-card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--wst-line);cursor:pointer;transition:border-color .15s}
+.wst-card:hover{border-color:#cc1010}
+.wst-img{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid #eee;overflow:hidden}
+.wst-img img{width:100%;height:100%;object-fit:contain}
+.wst-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--wst-paper);color:#1c1c1c;font-size:2.8rem}
+.wst-badge{position:absolute;top:0;left:0;z-index:1;padding:.3rem .6rem;background:var(--w-grad);color:#fff;font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.wst-body{display:flex;flex-direction:column;gap:.35rem;padding:.9rem;flex:1}
+.wst-cat{font:400 .65rem var(--wst-mono);letter-spacing:.14em;text-transform:uppercase;color:#cc1010}
+.wst-name{font-weight:800;font-size:.95rem;line-height:1.25;letter-spacing:-.01em}
+.wst-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:.15rem .55rem;margin-top:auto;padding-top:.4rem}
+.wst-price b{font-size:1.1rem;font-weight:900}
+.wst-price s{font-size:.8rem;color:#777}
+.wst-price em{font-style:normal;font-size:.75rem;font-weight:800;color:#cc1010}
+.wst-card .wst-btn{margin:0 .9rem .9rem;padding:.7rem 1rem;font-size:.72rem}
+.wst-sold{position:absolute;inset:0 0 auto 0;aspect-ratio:1/1;background:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
+
+/* toolbar */
+.wst-tools{display:grid;gap:.8rem;margin-bottom:1.5rem}
+.wst-input{width:100%;border:1px solid #ccc;padding:.8rem 1rem;font-size:.9rem;background:#fff;border-radius:0}
+.wst-input.is-bad{border-color:#cc1010!important}
+.wst-chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.wst-chip{padding:.5rem .95rem;border:1px solid #1c1c1c;background:#fff;color:#111;font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.wst-chip:hover{border-color:#cc1010;color:#cc1010}
+.wst-chip[aria-pressed="true"]{background:#000;color:#fff}
+.wst-err{color:#cc1010;font-size:.75rem;margin-top:.3rem}
+
+/* overlays: drawer + product modal + toast */
+.wst-overlay{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:none}
+.wst-overlay.open{display:block}
+.wst-drawer{position:fixed;top:0;right:0;bottom:0;z-index:91;width:min(440px,100vw);background:#fff;border-left:2px solid #1c1c1c;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .25s,visibility .25s}
+.wst-drawer.open{transform:none;visibility:visible}
+.wst-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.25rem;border-bottom:1px solid var(--wst-line)}
+.wst-drawer-body{flex:1;overflow-y:auto;padding:1rem 1.25rem}
+.wst-drawer-foot{padding:1rem 1.25rem calc(1rem + env(safe-area-inset-bottom,0px));border-top:1px solid var(--wst-line);background:#fff}
+.wst-x{width:2.4rem;height:2.4rem;display:inline-flex;align-items:center;justify-content:center;border:1px solid #1c1c1c;background:#fff;font-size:1rem;cursor:pointer}
+.wst-x:hover{border-color:#cc1010;color:#cc1010}
+.wst-line{display:grid;grid-template-columns:4.5rem 1fr;gap:.9rem;padding:.9rem 0;border-bottom:1px solid #eee}
+.wst-line .wst-img{border:1px solid #eee;aspect-ratio:1/1}
+.wst-line .wst-ph{font-size:1.4rem}
+.wst-qty{display:inline-flex;align-items:center;border:1px solid #1c1c1c}
+.wst-qty button{width:2rem;height:2rem;background:#fff;cursor:pointer;font-weight:800}
+.wst-qty button:hover{color:#cc1010}
+.wst-qty span{min-width:2rem;text-align:center;font:700 .85rem var(--wst-mono)}
+.wst-link{background:none;border:0;padding:0;color:#555;font-size:.75rem;text-decoration:underline;cursor:pointer}
+.wst-link:hover{color:#cc1010}
+.wst-row{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem;padding:.25rem 0}
+.wst-row.total{font-weight:900;font-size:1.1rem;border-top:1px solid #1c1c1c;margin-top:.5rem;padding-top:.7rem}
+.wst-ship{height:8px;background:#eee;border:1px solid var(--wst-line);margin:.5rem 0 1rem}
+.wst-ship>i{display:block;height:100%;background:linear-gradient(90deg,#1c1c1c 0,#1c1c1c 66%,#cc1010 66%,#ff4040 100%);transition:width .3s}
+
+.wst-modal{position:fixed;inset:0;z-index:95;background:rgba(0,0,0,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:none;overflow-y:auto;padding:1.25rem}
+.wst-modal.open{display:block}
+.wst-panel{position:relative;max-width:62rem;margin:2rem auto;background:#fff;border:2px solid #1c1c1c;display:grid;grid-template-columns:1fr 1fr}
+.wst-panel>.wst-x{position:absolute;top:.75rem;right:.75rem;z-index:2}
+.wst-gal{padding:1.25rem;border-right:1px solid var(--wst-line)}
+.wst-gal .wst-img{border:1px solid #eee}
+.wst-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-top:.6rem}
+.wst-thumbs button{aspect-ratio:1/1;border:1px solid #ddd;background:#fff;padding:0;cursor:pointer}
+.wst-thumbs button[aria-current="true"]{border-color:#cc1010}
+.wst-thumbs img{width:100%;height:100%;object-fit:cover}
+.wst-info{padding:1.5rem 1.5rem 1.75rem;display:flex;flex-direction:column;gap:.9rem}
+.wst-list{display:grid;gap:.4rem;font-size:.85rem;list-style:none;padding:0;margin:0}
+.wst-list li{display:flex;gap:.6rem}
+.wst-list i{color:#cc1010;margin-top:.2rem;font-size:.7rem}
+.wst-note{border:1px solid var(--wst-line);padding:.8rem 1rem;font-size:.8rem;display:grid;gap:.4rem;background:var(--wst-paper)}
+@media(max-width:760px){.wst-panel{grid-template-columns:1fr;margin:3rem auto 1rem}.wst-gal{border-right:0;border-bottom:1px solid var(--wst-line)}}
+.wst-toast{position:fixed;left:50%;bottom:calc(1.25rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:120;background:#000;color:#fff;border-left:4px solid #cc1010;padding:.8rem 1.2rem;font-size:.85rem;font-weight:700;display:none;max-width:90vw}
+.wst-toast.show{display:block}
+
+/* checkout, tracking, policy pages */
+.wst-cols{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:start}
+@media(max-width:900px){.wst-cols{grid-template-columns:1fr}}
+.wst-box{background:#fff;border:1px solid var(--wst-line);padding:1.25rem 1.4rem}
+.wst-box h2,.wst-box h3{font-size:1rem;margin-bottom:.9rem}
+.wst-field{margin-bottom:1rem}
+.wst-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:560px){.wst-2{grid-template-columns:1fr}}
+.wst-pay{display:flex;gap:.8rem;align-items:flex-start;border:1px solid #ccc;padding:.9rem 1rem;margin-bottom:.6rem;cursor:pointer}
+.wst-pay:has(input:checked){border-color:#cc1010}
+.wst-pay input{margin-top:.25rem;accent-color:#cc1010}
+.wst-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:1.2rem 0}
+.wst-steps div{border-top:4px solid #ddd;padding-top:.5rem;font-size:.75rem;font-weight:700;color:#777}
+.wst-steps div.on{border-color:#cc1010;color:#111}
+.wst-prose{font-size:.9rem;line-height:1.7;color:#333}
+.wst-prose h2{font-size:1.05rem;margin:1.8rem 0 .5rem}
+.wst-prose ul{list-style:disc;padding-left:1.25rem;display:grid;gap:.35rem}
+.wst-prose a{color:#cc1010;text-decoration:underline}
+.wst-faq details{border:1px solid var(--wst-line);padding:.9rem 1.1rem;margin-bottom:.6rem;background:#fff}
+.wst-faq summary{font-weight:800;cursor:pointer}
+.wst-faq details[open]{border-color:#cc1010}
+.wst-faq p{margin-top:.6rem;font-size:.88rem;line-height:1.65;color:#333}
+.wst-foot{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.4rem;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--wst-line);font:400 .7rem var(--wst-mono);letter-spacing:.12em;text-transform:uppercase}
+.wst-foot a:hover{color:#cc1010}
+.wst-wa{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:70;width:3.2rem;height:3.2rem;display:none;align-items:center;justify-content:center;background:#fff;border:2px solid #1c1c1c;font-size:1.5rem}
+.wst-wa.on{display:flex}.wst-wa:hover{border-color:#cc1010;color:#cc1010}
+.wst-trust{display:grid;gap:.5rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--wst-line);font-size:.8rem}
+.wst-trust i{width:1.2rem;color:#cc1010}
+</style>
+<style id="worthsy-chat-style">
+/* Floating assistant: sits above the bottom edge (and above the optional WhatsApp button) */
+.wst-chat-btn{position:fixed;right:1.25rem;bottom:calc(5.5rem + env(safe-area-inset-bottom,0px));z-index:75;width:3.5rem;height:3.5rem;display:flex;align-items:center;justify-content:center;background:#000;color:#fff;border:2px solid #1c1c1c;font-size:1.4rem;cursor:pointer;animation:wst-float 3.2s ease-in-out infinite;box-sizing:border-box}
+.wst-chat-btn:hover{background:var(--w-grad);border-color:#cc1010;animation-play-state:paused}
+.wst-chat-btn:focus-visible,.wst-chat input:focus-visible,.wst-chat-prod:focus-visible{outline:2px solid #e11b22;outline-offset:3px}
+.wst-chat-btn[aria-expanded="true"]{animation:none}
+@keyframes wst-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.wst-chat{position:fixed;right:1.25rem;bottom:calc(9.5rem + env(safe-area-inset-bottom,0px));z-index:76;width:min(360px,calc(100vw - 2.5rem));height:min(32rem,calc(100vh - 12rem));display:flex;flex-direction:column;background:#fff;border:2px solid #1c1c1c;box-sizing:border-box}
+.wst-chat[hidden]{display:none}
+.wst-chat-head{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.8rem 1rem;border-bottom:1px solid #ddd}
+.wst-chat-head small{display:block;font:400 .65rem var(--wst-mono);letter-spacing:.08em;color:#555}
+.wst-chat-log{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;background:#fafafa}
+.wst-msg{display:flex;flex-direction:column;gap:.4rem;max-width:88%}
+.wst-msg.user{align-self:flex-end;align-items:flex-end}
+.wst-bub{padding:.6rem .8rem;font-size:.85rem;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;border:1px solid #ddd;background:#fff}
+.wst-msg.user .wst-bub{background:#000;color:#fff;border-color:#000}
+.wst-msg.bot .wst-bub{border-left:3px solid #cc1010}
+.wst-chat-link,.wst-chat-chip{display:inline-block;padding:.35rem .7rem;border:1px solid #1c1c1c;background:#fff;color:#111;font-size:.72rem;font-weight:800;letter-spacing:.06em;cursor:pointer;text-decoration:none}
+.wst-chat-link:hover,.wst-chat-chip:hover{border-color:#cc1010;color:#cc1010}
+.wst-chat-chips,.wst-chat-links{display:flex;flex-wrap:wrap;gap:.4rem}
+.wst-chat-chips{padding:.6rem 1rem;border-top:1px solid #eee;background:#fafafa}
+.wst-chat-chips:empty{display:none}
+.wst-chat-prod{display:flex;justify-content:space-between;gap:.8rem;width:100%;text-align:left;padding:.55rem .7rem;border:1px solid #ddd;background:#fff;font-size:.8rem;cursor:pointer}
+.wst-chat-prod:hover{border-color:#cc1010}
+.wst-chat-form{display:flex;gap:.5rem;padding:.7rem;border-top:1px solid #ddd}
+.wst-chat-form .wst-input{padding:.65rem .8rem;font-size:.85rem}
+.wst-chat-form .wst-btn{padding:.65rem .9rem}
+@media(max-width:480px){.wst-chat{right:.75rem;width:calc(100vw - 1.5rem)}.wst-chat-btn{right:.9rem}}
+</style>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -178,12 +342,14 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 
             <!-- Desktop Nav -->
             <nav class="hidden md:flex items-center space-x-7 text-sm uppercase tracking-widest">
+                <a href="#store" class="hover:text-brandAccent transition-colors">Store</a>
                 <a href="#about" class="hover:text-brandAccent transition-colors">Philosophy</a>
                 <a href="#socials" class="hover:text-brandAccent transition-colors">Ecosystem</a>
                 <a href="#contact" class="hover:text-brandAccent transition-colors">Concierge</a>
             </nav>
 
             <div class="flex items-center space-x-4">
+                <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
                 <a href="#contact" class="hidden sm:inline-flex items-center px-6 py-2.5 text-sm font-bold uppercase tracking-widest bg-brandAccent text-brandBg hover:bg-brandAccentHover transition-all">
                     Inquire
                 </a>
@@ -200,6 +366,7 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden bg-[#ffffff] border-b border-[#000000]/20 px-6 py-6 space-y-4">
+            <a href="#store" class="block text-sm font-bold uppercase tracking-widest hover:text-brandAccent">Store</a>
             <a href="#about" class="block text-sm font-bold uppercase tracking-widest hover:text-brandAccent">Philosophy</a>
             <a href="#socials" class="block text-sm font-bold uppercase tracking-widest hover:text-brandAccent">Ecosystem</a>
             <a href="#contact" class="block text-sm font-bold uppercase tracking-widest hover:text-brandAccent">Concierge</a>
@@ -221,7 +388,8 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 
 
 
-    <!-- ABOUT / PHILOSOPHY -->
+    
+<!-- ABOUT / PHILOSOPHY -->
     <section id="about" class="py-28 px-6 lg:px-12 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -440,9 +608,403 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             <a href="#about-us" class="hover:text-brandAccent transition-colors">About</a>
             <a href="#careers" class="hover:text-brandAccent transition-colors">Careers</a>
             <a href="#blog" class="hover:text-brandAccent transition-colors">Blog</a>
+            <a href="#store" class="hover:text-brandAccent transition-colors">Store</a>
+            <a href="#track" class="hover:text-brandAccent transition-colors">Track Order</a>
+            <a href="#shipping" class="hover:text-brandAccent transition-colors">Shipping</a>
+            <a href="#returns" class="hover:text-brandAccent transition-colors">Returns</a>
+            <a href="#privacy" class="hover:text-brandAccent transition-colors">Privacy</a>
+            <a href="#terms" class="hover:text-brandAccent transition-colors">Terms</a>
+            <a href="#faq" class="hover:text-brandAccent transition-colors">FAQ</a>
+            <a href="#support" class="hover:text-brandAccent transition-colors">Support</a>
         </div>
     </footer>
 
+
+    
+    <!-- STORE: STORE PAGE -->
+    <div id="page-store" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Back</a>
+                    <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">WORTHSY Store</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Shop</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">Sold and shipped by WORTHSY</p>
+            </div>
+            
+            <div class="wst-split mb-10">
+                <div class="wst-ink">
+                    <h2 class="text-2xl sm:text-3xl font-black mb-3">Everyday finds, delivered across India.</h2>
+                    <p class="text-sm wst-muted" style="font-family:'Space Mono',monospace;max-width:36rem">Your order is packed and shipped by our fulfilment partners. Delivery usually takes <span data-st="days"></span> business days, and you get tracking once it ships.</p>
+                </div>
+                <div class="wst-redbox">
+                    <div class="wst-perk"><i class="fa-solid fa-truck-fast"></i><span>Free shipping over <span data-st="freeShip"></span></span></div>
+                    <div class="wst-perk"><i class="fa-solid fa-hand-holding-dollar"></i><span>Cash on delivery</span></div>
+                    <div class="wst-perk"><i class="fa-solid fa-tag"></i><span>Code WELCOME10 for 10% off</span></div>
+                </div>
+            </div>
+
+            <div class="wst-tools">
+                <div class="grid grid-cols-1 md:grid-cols-[1fr_14rem] gap-3">
+                    <input id="wst-q" type="search" class="wst-input" placeholder="Search the store" aria-label="Search the store" autocomplete="off">
+                    <select id="wst-sort" class="wst-input" aria-label="Sort products">
+                        <option value="featured">Featured</option>
+                        <option value="price-asc">Price: low to high</option>
+                        <option value="price-desc">Price: high to low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+                <div id="wst-cats" class="wst-chips" role="group" aria-label="Categories"></div>
+                <span id="wst-count" class="text-xs font-mono uppercase tracking-widest text-slate-400" aria-live="polite"></span>
+            </div>
+            <div id="wst-grid" class="wst-grid"></div>
+
+            <div class="mt-16 grid sm:grid-cols-3 gap-4">
+                <div class="wst-box"><h3 class="font-black">1. You order</h3><p class="wst-prose">Choose your items, pay online or on delivery, and get an order ID.</p></div>
+                <div class="wst-box"><h3 class="font-black">2. We confirm</h3><p class="wst-prose">We check stock and place your order with our fulfilment partner, usually within 24 hours.</p></div>
+                <div class="wst-box"><h3 class="font-black">3. It ships</h3><p class="wst-prose">Courier and tracking details reach you by email. Follow it on the <a href="#track">Track order</a> page.</p></div>
+            </div>
+
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+    <!-- STORE: CHECKOUT PAGE -->
+    <div id="page-checkout" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#store" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Store</a>
+                    
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Secure checkout</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Checkout</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">Almost there</p>
+            </div>
+            <div id="wst-checkout-body"></div>
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+    <!-- STORE: TRACK PAGE -->
+    <div id="page-track" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#store" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Store</a>
+                    <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-4xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Order status</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Track Order</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">Enter your order ID and email</p>
+            </div>
+            
+            <div class="max-w-xl mx-auto">
+                <form id="wst-track-form" class="wst-box" novalidate>
+                    <div class="wst-field"><label class="wst-label" for="wst-t-id">Order ID</label><input id="wst-t-id" class="wst-input" placeholder="WS-261026-ABCD" autocomplete="off" required></div>
+                    <div class="wst-field"><label class="wst-label" for="wst-t-email">Email used at checkout</label><input id="wst-t-email" type="email" class="wst-input" autocomplete="email" required></div>
+                    <button class="wst-btn wst-btn-block" type="submit">Track order</button>
+                </form>
+                <div id="wst-track-out" class="mt-6" aria-live="polite"></div>
+            </div>
+
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+    <!-- STORE: SHIPPING PAGE -->
+    <div id="page-shipping" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#store" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Store</a>
+                    <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-4xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Policy</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Shipping</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">How and when your order reaches you</p>
+            </div>
+            
+            <div class="wst-prose">
+                <h2>Where we ship</h2><p>We deliver to addresses across India. Please give a complete address and a working phone number, because couriers call before delivery.</p>
+                <h2>Processing and delivery time</h2>
+                <ul>
+                    <li>Orders are confirmed within 24 hours on working days, then placed with our fulfilment partner.</li>
+                    <li>Delivery usually takes <span data-st="days"></span> business days from confirmation. Remote pin codes can take longer.</li>
+                    <li>Delivery dates are estimates, not guarantees. Courier delays and public holidays can add time.</li>
+                </ul>
+                <h2>Shipping charges</h2>
+                <ul>
+                    <li>Free shipping on orders of <span data-st="freeShip"></span> or more (after discounts).</li>
+                    <li>Below that, shipping is <span data-st="shipFee"></span>.</li>
+                    <li>Cash on delivery adds a handling fee of <span data-st="codFee"></span>. Paying online avoids it.</li>
+                </ul>
+                <h2>Tracking</h2><p>Once your parcel ships, we email you the courier name and tracking number. You can also check status any time on the <a href="#track">Track order</a> page with your order ID and email.</p>
+                <h2>Multiple items</h2><p>Items in one order can come from different warehouses and arrive in separate parcels. You pay shipping once.</p>
+                <h2>Failed delivery</h2><p>If a courier cannot reach you after repeated attempts, the parcel returns to us. We will contact you to re-ship; the cost of re-shipping may be charged.</p>
+            </div>
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+    <!-- STORE: RETURNS PAGE -->
+    <div id="page-returns" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#store" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Store</a>
+                    <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-4xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Policy</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Returns &amp; Refunds</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">If something isn’t right</p>
+            </div>
+            
+            <div class="wst-prose">
+                <h2>What you can return</h2>
+                <ul>
+                    <li>Items that arrive damaged, defective or not as described.</li>
+                    <li>Items that are not the one you ordered.</li>
+                </ul>
+                <p>Report the problem within <span data-st="returnDays"></span> days of delivery. Change-of-mind returns are not accepted.</p>
+                <h2>How to start a return</h2>
+                <ul>
+                    <li>Email <a data-st-mail="email"></a> with your order ID.</li>
+                    <li>Attach clear photos of the item and the packaging. An unboxing video helps for damage claims.</li>
+                    <li>We reply within 2 working days with a replacement, refund or pickup instructions.</li>
+                </ul>
+                <h2>Refunds</h2>
+                <ul>
+                    <li>Approved refunds go to your original payment method within 5 to 7 business days.</li>
+                    <li>For cash on delivery orders, we refund by UPI or bank transfer. We will ask for the details.</li>
+                </ul>
+                <h2>Cancellations</h2><p>You can cancel before your order ships by emailing us your order ID. After it ships it cannot be cancelled, but you can still return an eligible item once it arrives.</p>
+                <h2>Not returnable</h2><p>Opened personal-care or hygiene items, and items damaged by misuse.</p>
+            </div>
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+    <!-- STORE: PRIVACY PAGE -->
+    <div id="page-privacy" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#store" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Store</a>
+                    <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-4xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Policy</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Privacy</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">What we collect and why</p>
+            </div>
+            
+            <div class="wst-prose">
+                <h2>What we collect</h2><p>When you order we collect your name, email, phone number, delivery address and order details. We also keep your cart in your own browser so it is still there when you return.</p>
+                <h2>How we use it</h2>
+                <ul>
+                    <li>To process, ship and support your order.</li>
+                    <li>To share with fulfilment partners and couriers, only what they need to deliver.</li>
+                    <li>To email you order updates.</li>
+                </ul>
+                <h2>Payments</h2><p>Online payments are handled by our payment gateway. We never see or store your card or UPI details.</p>
+                <h2>Where orders are stored</h2><p>Order records are kept in our private Google Sheet and are visible only to the WORTHSY team.</p>
+                <h2>Affiliate links</h2><p>The Amazon, Flipkart, Shopify, ClickBank, Coursera and Awin pages link to partner sites that may set their own cookies. Their privacy policies apply there.</p>
+                <h2>We do not sell your data</h2><p>We do not sell or rent your personal information.</p>
+                <h2>Your choices</h2><p>To see, correct or delete your data, email <a data-st-mail="email"></a>.</p>
+            </div>
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+    <!-- STORE: TERMS PAGE -->
+    <div id="page-terms" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#store" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Store</a>
+                    <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-4xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Policy</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Terms</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">Terms of sale and use</p>
+            </div>
+            
+            <div class="wst-prose">
+                <h2>Who we are</h2><p>The WORTHSY Store is operated by WORTHSY, India. <span data-st-if="address">Registered address: <span data-st="address"></span>. </span><span data-st-if="gstin">GSTIN: <span data-st="gstin"></span>. </span>Contact: <a data-st-mail="email"></a>.</p>
+                <h2>Orders</h2><p>An order is accepted when we confirm it by email. We may cancel and refund an order if an item is out of stock or a price or description was listed wrongly.</p>
+                <h2>Prices and payment</h2><p>Prices are in Indian rupees and include applicable taxes. Shipping and cash-on-delivery fees are shown before you pay.</p>
+                <h2>Shipping and returns</h2><p>See the <a href="#shipping">Shipping</a> and <a href="#returns">Returns</a> policies, which are part of these terms.</p>
+                <h2>Affiliate pages</h2><p>Products on the Amazon, Flipkart and other platform pages are sold by those sites, not by WORTHSY. WORTHSY may earn a commission on qualifying purchases at no extra cost to you. Purchases there follow the seller’s terms.</p>
+                <h2>Use of the site</h2><p>Do not misuse the site, attempt to disrupt it, or copy its content or branding without permission. WORTHSY and its logo belong to WORTHSY.</p>
+                <h2>Liability</h2><p>To the extent the law allows, our liability for any order is limited to the amount you paid for it.</p>
+                <h2>Governing law</h2><p>These terms are governed by the laws of India.</p>
+                <p data-st-if="grievance"><b>Grievance Officer:</b> <span data-st="grievance"></span>, <a data-st-mail="email"></a></p>
+            </div>
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+    <!-- STORE: FAQ PAGE -->
+    <div id="page-faq" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#store" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Store</a>
+                    <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-4xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Help</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">FAQ</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">Quick answers</p>
+            </div>
+            
+            <div class="wst-faq">
+                <details><summary>How long does delivery take?</summary><p>Usually <span data-st="days"></span> business days after we confirm your order. You can see an estimate for your pin code on any product.</p></details>
+                <details><summary>Is cash on delivery available?</summary><p>Yes. A handling fee of <span data-st="codFee"></span> applies. Online payment has no extra fee.</p></details>
+                <details><summary>Why does it take longer than other sites?</summary><p>We do not hold stock ourselves. Your order is placed with a fulfilment partner and shipped from their warehouse, which keeps prices low but adds a few days.</p></details>
+                <details><summary>How do I track my order?</summary><p>Open <a href="#track" style="text-decoration:underline">Track order</a> and enter your order ID and email. Courier details appear once it ships.</p></details>
+                <details><summary>What if my item is damaged or wrong?</summary><p>Email us within <span data-st="returnDays"></span> days of delivery with photos. We will replace or refund it. See <a href="#returns" style="text-decoration:underline">Returns</a>.</p></details>
+                <details><summary>Can I cancel an order?</summary><p>Yes, before it ships. Email <a data-st-mail="email" style="text-decoration:underline"></a> with your order ID.</p></details>
+                <details><summary>Is buying here different from the Amazon or Flipkart pages?</summary><p>Yes. Store items are sold and shipped by WORTHSY. The platform pages are affiliate links that take you to the partner’s site, where you buy from them.</p></details>
+            </div>
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+
+    <!-- STORE: SUPPORT PAGE -->
+    <div id="page-support" class="site-page hidden fixed inset-0 z-[60] overflow-y-auto bg-brandBg">
+        <div class="sticky top-0 z-10 bg-[#ffffff]/95 backdrop-blur-md border-b border-[#000000]/25">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 h-24 flex items-center justify-between">
+                <a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a>
+                <div class="flex items-center gap-5">
+                    <a href="#store" class="text-sm uppercase tracking-widest hover:text-brandAccent transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i>Store</a>
+                    <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
+                </div>
+            </div>
+            <div class="wst-bar"></div>
+        </div>
+        <main class="pt-10 pb-20 px-6 lg:px-12 max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono uppercase tracking-[0.3em] text-brandAccent block mb-3">Help</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-wide mb-4">Support</h1>
+                <p class="text-slate-400 text-sm" style="font-family:'Space Mono',monospace">We’re here for order questions, returns and anything else</p>
+            </div>
+            
+            <div class="wst-cols" style="grid-template-columns:2fr 3fr">
+                <div class="wst-box wst-prose">
+                    <h2 style="margin-top:0">Contact</h2>
+                    <p>Email <a data-st-mail="email"></a></p>
+                    <p data-st-if="whatsapp">WhatsApp <a data-st-wa="whatsapp" target="_blank" rel="noopener"></a></p>
+                    <p>We reply within 2 working days. Include your order ID for anything about an order.</p>
+                    <h2>Quick links</h2>
+                    <ul><li><a href="#track">Track an order</a></li><li><a href="#returns">Returns &amp; refunds</a></li><li><a href="#shipping">Shipping</a></li><li><a href="#faq">FAQ</a></li></ul>
+                </div>
+                <form id="wst-support-form" class="wst-box" novalidate>
+                    <h2 class="font-black">Send a message</h2>
+                    <div class="wst-2"><div class="wst-field"><label class="wst-label" for="wst-s-name">Name</label><input class="wst-input" id="wst-s-name" name="name" autocomplete="name" required></div>
+                    <div class="wst-field"><label class="wst-label" for="wst-s-email">Email</label><input class="wst-input" id="wst-s-email" name="email" type="email" autocomplete="email" required></div></div>
+                    <div class="wst-2"><div class="wst-field"><label class="wst-label" for="wst-s-topic">Topic</label><select class="wst-input" id="wst-s-topic" name="topic"><option>Order question</option><option>Return or refund</option><option>Cancel an order</option><option>Product question</option><option>Other</option></select></div>
+                    <div class="wst-field"><label class="wst-label" for="wst-s-order">Order ID (optional)</label><input class="wst-input" id="wst-s-order" name="order_id" placeholder="WS-261026-ABCD" autocomplete="off"></div></div>
+                    <div class="wst-field"><label class="wst-label" for="wst-s-msg">Message</label><textarea class="wst-input" id="wst-s-msg" name="message" rows="5" maxlength="2000" required></textarea></div>
+                    <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+                    <div id="wst-support-out" class="wst-err" role="status" style="margin-bottom:.8rem"></div>
+                    <button type="submit" class="wst-btn wst-btn-block">Send message</button>
+                </form>
+            </div>
+            <nav class="wst-foot" aria-label="Store information">
+                <a href="#store">Store</a><a href="#track">Track order</a><a href="#support">Support</a><a href="#shipping">Shipping</a><a href="#returns">Returns</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a>
+            </nav>
+        </main>
+    </div>
+
+    <!-- STORE: CART DRAWER, PRODUCT MODAL, TOAST -->
+    <div id="wst-overlay" class="wst-overlay" data-wst="close-all"></div>
+    <aside id="wst-drawer" class="wst-drawer" role="dialog" aria-modal="true" aria-labelledby="wst-drawer-title" aria-hidden="true">
+        <div class="wst-bar"></div>
+        <div class="wst-drawer-head">
+            <span id="wst-drawer-title" class="logo-wordmark text-xl">Your cart</span>
+            <button type="button" class="wst-x" data-wst="close-all" aria-label="Close cart"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="wst-drawer-body" class="wst-drawer-body"></div>
+        <div id="wst-drawer-foot" class="wst-drawer-foot"></div>
+    </aside>
+    <div id="wst-modal" class="wst-modal" role="dialog" aria-modal="true" aria-label="Product details" aria-hidden="true"></div>
+        <!-- AI ASSISTANT (floating chat) -->
+    <button type="button" id="wst-chat-btn" class="wst-chat-btn" aria-label="Chat with the WORTHSY assistant" aria-expanded="false" aria-controls="wst-chat"><i class="fa-solid fa-comment-dots"></i></button>
+    <section id="wst-chat" class="wst-chat" role="dialog" aria-label="WORTHSY assistant" hidden>
+        <div class="wst-bar"></div>
+        <div class="wst-chat-head"><div><b>WORTHSY assistant</b><small>Automated replies · instant</small></div><button type="button" class="wst-x" id="wst-chat-close" aria-label="Close chat"><i class="fa-solid fa-xmark"></i></button></div>
+        <div id="wst-chat-log" class="wst-chat-log" role="log" aria-live="polite"></div>
+        <div id="wst-chat-chips" class="wst-chat-chips"></div>
+        <form id="wst-chat-form" class="wst-chat-form" autocomplete="off"><input id="wst-chat-in" class="wst-input" placeholder="Ask about products, delivery, returns…" maxlength="300" aria-label="Your message"><button type="submit" class="wst-btn" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button></form>
+    </section>
+    <div id="wst-toast" class="wst-toast" role="status"></div>
 
     <!-- UNIVERSAL SEARCH MODAL -->
     <div id="searchModal" class="hidden fixed inset-0 z-[80] overflow-y-auto" style="background:rgba(0,0,0,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)">
@@ -1046,6 +1608,523 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
                 notice.classList.remove('hidden');
             }, 800);
         }
+    </script>
+    <script id="worthsy-store-script">
+(function () {
+'use strict';
+
+/* ============ STORE SETTINGS — edit these ============ */
+var STORE = {
+  email: 'support@worthsy.in',   // support email shown on policy pages
+  address: '',                   // registered business address (shown in Terms when filled)
+  gstin: '',                     // GSTIN (shown in Terms when filled)
+  grievance: '',                 // Grievance Officer name (shown in Terms when filled)
+  currency: '₹',
+  freeShip: 999,                 // free shipping at or above this amount
+  shipFee: 59,                   // shipping below that
+  codFee: 40,                    // cash-on-delivery handling fee
+  daysMin: 7, daysMax: 12,       // business days to deliver
+  returnDays: 7,
+  chatEndpoint: '',              // optional: URL of the AI Worker (see worthsy-chat-worker.js). Leave empty to use built-in answers.
+  whatsapp: '',                  // WhatsApp number with country code, digits only, e.g. 919876543210 (shows a chat button when filled)
+  orderEndpoint: 'https://script.google.com/macros/s/AKfycbxyVkMNeZ3939DrZ-_YgvKG-no8MNvKwsUrr0HLF_GBW8sy7VHFAfhWSJ0_mTiHW9qZow/exec', // Google Apps Script that records orders (see worthsy-orders-apps-script.gs)
+  razorpayKey: '',               // paste your Razorpay Key ID (rzp_live_...) to switch on online payments
+  coupons: {
+    WELCOME10: { type: 'pct',  value: 10,  min: 499,  label: '10% off' },
+    SAVE100:   { type: 'flat', value: 100, min: 1499, label: '₹100 off' },
+    FREESHIP:  { type: 'ship', value: 0,   min: 0,    label: 'Free shipping' }
+  }
+};
+
+/* ============ PRODUCTS ============
+   SAMPLE catalogue so the store works on day one. Replace it by putting a store-products.json file next to
+   index.html (same fields as below) and this list is ignored. images: list of image URLs.            */
+var DEFAULTS = [
+  { id:'magnetic-power-bank', name:'Magnetic Wireless Power Bank 10000mAh', category:'Gadgets', price:1499, mrp:2499, icon:'fa-battery-full', featured:true, options:[{name:'Colour',values:['Black','White']}], highlights:['10000mAh capacity','Magnetic wireless charging pad','USB-C fast charge in and out'], images:[] },
+  { id:'rgb-led-strip', name:'RGB LED Strip Lights 5m with Remote', category:'Home & Decor', price:599, mrp:999, icon:'fa-lightbulb', badge:'New', highlights:['5 metre strip, cuttable','Remote with colour modes','Adhesive back'], images:[] },
+  { id:'steel-bottle', name:'Insulated Steel Bottle 750ml', category:'Home & Kitchen', price:699, mrp:1199, icon:'fa-bottle-water', featured:true, options:[{name:'Colour',values:['Black','Steel','Blue']}], highlights:['Double-wall vacuum insulation','Leak-proof lid','Stainless steel body'], images:[] },
+  { id:'mini-blender', name:'Portable USB Mini Blender', category:'Home & Kitchen', price:899, mrp:1599, icon:'fa-blender', highlights:['Rechargeable via USB','Single-serve jar','Easy to rinse'], images:[] },
+  { id:'laptop-stand', name:'Foldable Aluminium Laptop Stand', category:'Work & Desk', price:799, mrp:1399, icon:'fa-laptop', featured:true, highlights:['Folds flat for travel','Adjustable height','Non-slip silicone pads'], images:[] },
+  { id:'desk-organizer', name:'Wooden Desk Organizer', category:'Work & Desk', price:649, mrp:999, icon:'fa-box-archive', highlights:['Pen, phone and card slots','Solid wood finish'], images:[] },
+  { id:'car-phone-holder', name:'Magnetic Car Phone Holder', category:'Car & Travel', price:399, mrp:699, icon:'fa-car', highlights:['Strong magnet grip','360° rotation','Vent or dash mount'], images:[] },
+  { id:'cable-organizer', name:'Travel Cable & Gadget Organizer', category:'Car & Travel', price:449, mrp:799, icon:'fa-suitcase-rolling', badge:'New', options:[{name:'Colour',values:['Grey','Black']}], highlights:['Fits cables, chargers and earbuds','Water-resistant fabric'], images:[] },
+  { id:'resistance-bands', name:'Resistance Bands Set of 5', category:'Fitness', price:549, mrp:999, icon:'fa-dumbbell', highlights:['Five resistance levels','Carry pouch included'], images:[] },
+  { id:'skipping-rope', name:'Adjustable Speed Skipping Rope', category:'Fitness', price:299, mrp:499, icon:'fa-person-running', highlights:['Adjustable length','Ball-bearing handles'], images:[] },
+  { id:'wireless-earbuds', name:'Wireless Earbuds with Charging Case', category:'Gadgets', price:1299, mrp:2499, icon:'fa-headphones', featured:true, highlights:['Bluetooth 5 pairing','Charging case included','Built-in microphone'], images:[] },
+  { id:'rfid-wallet', name:'Slim RFID-Blocking Wallet', category:'Accessories', price:549, mrp:999, icon:'fa-wallet', options:[{name:'Colour',values:['Black','Brown']}], highlights:['Slim, fits 6 cards','RFID-blocking lining'], images:[] }
+];
+
+var STATES = ['Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chandigarh','Chhattisgarh','Dadra and Nagar Haveli and Daman and Diu','Delhi','Goa','Gujarat','Haryana','Himachal Pradesh','Jammu and Kashmir','Jharkhand','Karnataka','Kerala','Ladakh','Lakshadweep','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Puducherry','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal'];
+
+/* ============ helpers ============ */
+var $ = function (s, r) { return (r || document).querySelector(s); };
+var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
+function money(n) { return STORE.currency + Number(n).toLocaleString('en-IN'); }
+function safeImg(u) { return /^(https?:\/\/|[\w\-.\/]+\.(png|jpe?g|webp|gif|svg|avif)(\?.*)?$)/i.test(u || '') ? u : ''; }
+function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : ''; }
+function read(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
+function write(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+function pct(p) { return p.mrp > p.price ? Math.round((p.mrp - p.price) / p.mrp * 100) : 0; }
+function addBiz(n) { var d = new Date(); while (n > 0) { d.setDate(d.getDate() + 1); var w = d.getDay(); if (w !== 0 && w !== 6) n--; } return d; }
+function estimate() { var f = function (d) { return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }); }; return f(addBiz(STORE.daysMin)) + ' – ' + f(addBiz(STORE.daysMax)); }
+
+var P = DEFAULTS.slice();
+var ui = { q: '', cat: 'All', sort: 'featured' };
+var cart = read('worthsy_cart', []);
+var couponCode = read('worthsy_coupon', '');
+var cMsg = '', cTry = '';
+var lastFocus = null;
+function byId(id) { for (var i = 0; i < P.length; i++) if (P[i].id === id) return P[i]; return null; }
+
+/* ============ static text from settings ============ */
+function fillStatic() {
+  var v = { email: STORE.email, address: STORE.address, gstin: STORE.gstin, grievance: STORE.grievance, whatsapp: STORE.whatsapp, freeShip: money(STORE.freeShip), shipFee: money(STORE.shipFee), codFee: money(STORE.codFee), days: STORE.daysMin + '–' + STORE.daysMax, returnDays: String(STORE.returnDays) };
+  $$('[data-st]').forEach(function (e) { e.textContent = v[e.getAttribute('data-st')] || ''; });
+  $$('[data-st-mail]').forEach(function (a) { var m = v[a.getAttribute('data-st-mail')]; a.textContent = m; a.href = 'mailto:' + m; });
+  $$('[data-st-wa]').forEach(function (a) { a.textContent = '+' + STORE.whatsapp; a.href = 'https://wa.me/' + STORE.whatsapp; });
+  $$('[data-st-if]').forEach(function (e) { if (!v[e.getAttribute('data-st-if')]) e.style.display = 'none'; });
+}
+
+/* ============ product cards ============ */
+function imgBox(p, i) {
+  var u = safeImg((p.images || [])[i || 0]);
+  var icon = /^fa-[a-z0-9-]+$/.test(p.icon || '') ? p.icon : 'fa-box';
+  return '<div class="wst-img">' + (u ? '<img src="' + esc(u) + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">' : '<div class="wst-ph" aria-hidden="true"><i class="fa-solid ' + icon + '"></i></div>') + '</div>';
+}
+function cardHtml(p) {
+  var d = pct(p), out = p.stock === 'out';
+  var badge = out ? '' : (p.badge || d ? '<span class="wst-badge">' + esc(p.badge || d + '% off') + '</span>' : '');
+  var opts = (p.options || []).length > 0;
+  return '<article class="wst-card" tabindex="0" data-pid="' + esc(p.id) + '" aria-label="' + esc(p.name) + '">' + badge + imgBox(p) + (out ? '<div class="wst-sold">Sold out</div>' : '') +
+    '<div class="wst-body"><span class="wst-cat">' + esc(p.category) + '</span><span class="wst-name">' + esc(p.name) + '</span>' +
+    '<div class="wst-price"><b>' + money(p.price) + '</b>' + (d ? '<s>' + money(p.mrp) + '</s><em>' + d + '% off</em>' : '') + '</div></div>' +
+    '<button type="button" class="wst-btn" data-add="' + esc(p.id) + '"' + (out ? ' disabled' : '') + '>' + (out ? 'Sold out' : opts ? 'Choose options' : 'Add to cart') + '</button></article>';
+}
+
+function renderStore() {
+  var cats = ['All'];
+  P.forEach(function (p) { if (cats.indexOf(p.category) < 0) cats.push(p.category); });
+  $('#wst-cats').innerHTML = cats.map(function (c) { return '<button type="button" class="wst-chip" data-cat="' + esc(c) + '" aria-pressed="' + (ui.cat === c) + '">' + esc(c) + '</button>'; }).join('');
+  var q = ui.q.toLowerCase().split(/\s+/).filter(Boolean);
+  var list = P.filter(function (p) {
+    if (ui.cat !== 'All' && p.category !== ui.cat) return false;
+    var hay = (p.name + ' ' + p.category + ' ' + (p.highlights || []).join(' ')).toLowerCase();
+    return q.every(function (w) { return hay.indexOf(w) >= 0; });
+  });
+  if (ui.sort === 'price-asc') list.sort(function (a, b) { return a.price - b.price; });
+  if (ui.sort === 'price-desc') list.sort(function (a, b) { return b.price - a.price; });
+  if (ui.sort === 'name') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
+  $('#wst-count').textContent = list.length + (list.length === 1 ? ' product' : ' products');
+  $('#wst-grid').innerHTML = list.length ? list.map(cardHtml).join('') :
+    '<div class="wst-box" style="grid-column:1/-1;text-align:center;padding:3rem 1rem"><p class="logo-wordmark text-2xl mb-2">Nothing matches</p><p class="wst-muted text-sm">Try a different word or choose All.</p></div>';
+}
+function renderHome() {
+  var g = $('#wst-home-grid'); if (!g) return;
+  var f = P.filter(function (p) { return p.featured; }); if (f.length < 4) f = P;
+  g.innerHTML = f.slice(0, 4).map(cardHtml).join('');
+}
+
+/* ============ cart ============ */
+function lineKey(id, o) { return id + '|' + JSON.stringify(o || {}); }
+function lines() {
+  return cart.map(function (l) { return { l: l, p: byId(l.id) }; }).filter(function (x) { return x.p && x.p.stock !== 'out'; });
+}
+function save() { write('worthsy_cart', cart); write('worthsy_coupon', couponCode); }
+function calc(pay) {
+  var L = lines(), sub = 0;
+  L.forEach(function (x) { sub += x.p.price * x.l.qty; });
+  var c = couponCode && STORE.coupons[couponCode], disc = 0, ok = false;
+  if (c && sub >= c.min && sub > 0) { ok = true; if (c.type === 'pct') disc = Math.round(sub * c.value / 100); if (c.type === 'flat') disc = Math.min(c.value, sub); }
+  var after = sub - disc;
+  var free = after >= STORE.freeShip || (ok && c.type === 'ship');
+  var ship = sub === 0 ? 0 : (free ? 0 : STORE.shipFee);
+  var cod = (pay === 'cod' && sub > 0) ? STORE.codFee : 0;
+  return { sub: sub, disc: disc, ship: ship, cod: cod, total: after + ship + cod, ok: ok, coupon: c, after: after, count: L.reduce(function (n, x) { return n + x.l.qty; }, 0) };
+}
+function addToCart(id, opts, qty) {
+  var p = byId(id); if (!p || p.stock === 'out') return;
+  var key = lineKey(id, opts), f = cart.filter(function (l) { return l.key === key; })[0];
+  if (f) f.qty = Math.min(10, f.qty + qty); else cart.push({ key: key, id: id, opts: opts || {}, qty: Math.min(10, qty) });
+  save(); refresh(); toast('Added to cart');
+}
+function refresh() {
+  var n = calc().count;
+  $$('[data-wst-count]').forEach(function (e) { e.textContent = n; e.setAttribute('data-n', n); });
+  renderCart(); if (isCheckoutOpen()) renderSummary();
+}
+function optText(o) { var k = Object.keys(o || {}); return k.length ? k.map(function (x) { return x + ': ' + o[x]; }).join(', ') : ''; }
+
+function renderCart() {
+  var L = lines(), t = calc(), body = $('#wst-drawer-body'), foot = $('#wst-drawer-foot');
+  if (!L.length) {
+    body.innerHTML = '<div style="text-align:center;padding:4rem 1rem"><i class="fa-solid fa-bag-shopping" style="font-size:2.2rem"></i><p class="logo-wordmark text-2xl mt-4 mb-2">Your cart is empty</p><p class="wst-muted text-sm">Add something from the store and it will wait here.</p></div>';
+    foot.innerHTML = '<a href="#store" class="wst-btn wst-btn-block">Browse the store</a>'; return;
+  }
+  body.innerHTML = L.map(function (x) {
+    var p = x.p, o = optText(x.l.opts), k = esc(x.l.key);
+    return '<div class="wst-line">' + imgBox(p) + '<div><div class="wst-name">' + esc(p.name) + '</div>' + (o ? '<div class="wst-muted" style="font-size:.78rem">' + esc(o) + '</div>' : '') +
+      '<div class="flex items-center justify-between mt-2"><div class="wst-qty"><button type="button" data-act="dec" data-key="' + k + '" aria-label="Decrease quantity">−</button><span aria-live="polite">' + x.l.qty + '</span><button type="button" data-act="inc" data-key="' + k + '" aria-label="Increase quantity">+</button></div><b>' + money(p.price * x.l.qty) + '</b></div>' +
+      '<button type="button" class="wst-link mt-1" data-act="rm" data-key="' + k + '">Remove</button></div></div>';
+  }).join('');
+  var left = STORE.freeShip - t.after, w = Math.max(4, Math.min(100, Math.round(t.after / STORE.freeShip * 100)));
+  var shipMsg = t.ship === 0 ? 'You’ve unlocked free shipping.' : 'Add ' + money(left) + ' more for free shipping.';
+  var cpn = couponCode && STORE.coupons[couponCode]
+    ? '<div class="flex items-center justify-between text-sm mb-3" style="border:1px solid #cc1010;padding:.5rem .8rem"><span><b>' + esc(couponCode) + '</b> · ' + esc(STORE.coupons[couponCode].label) + (t.ok ? '' : ' (spend ' + money(STORE.coupons[couponCode].min) + ' to use)') + '</span><button type="button" class="wst-link" data-act="rmcoupon">Remove</button></div>'
+    : '<div class="flex gap-2 mb-1"><input id="wst-coupon" class="wst-input" placeholder="Discount code" aria-label="Discount code" value="' + esc(cTry) + '"><button type="button" class="wst-btn wst-btn-ghost" data-act="coupon">Apply</button></div>' + (cMsg ? '<div class="wst-err mb-2">' + esc(cMsg) + '</div>' : '<div class="mb-3"></div>');
+  foot.innerHTML = '<div class="text-xs wst-mono wst-muted">' + shipMsg + '</div><div class="wst-ship"><i style="width:' + w + '%"></i></div>' + cpn +
+    '<div class="wst-row"><span>Subtotal</span><span>' + money(t.sub) + '</span></div>' +
+    (t.disc ? '<div class="wst-row wst-red"><span>Discount</span><span>−' + money(t.disc) + '</span></div>' : '') +
+    '<div class="wst-row"><span>Shipping</span><span>' + (t.ship ? money(t.ship) : 'Free') + '</span></div>' +
+    '<div class="wst-row total"><span>Total</span><span>' + money(t.total) + '</span></div><p class="wst-muted" style="font-size:.72rem;margin:.3rem 0 .8rem">Taxes included. Cash on delivery adds ' + money(STORE.codFee) + ' at checkout.</p>' +
+    '<a href="#checkout" class="wst-btn wst-btn-block">Checkout</a>';
+}
+
+function applyCoupon() {
+  var inp = $('#wst-coupon'); var code = (inp ? inp.value : '').trim().toUpperCase(); cTry = code;
+  var c = STORE.coupons[code], t = calc();
+  if (!code) cMsg = 'Enter a code.';
+  else if (!c) cMsg = 'That code isn’t valid.';
+  else if (t.sub < c.min) cMsg = 'Spend ' + money(c.min - t.sub) + ' more to use ' + code + '.';
+  else { couponCode = code; cMsg = ''; cTry = ''; toast(code + ' applied'); }
+  save(); refresh();
+}
+
+/* ============ overlays ============ */
+function pageOpen() { var id = location.hash.slice(1), el = id && document.getElementById('page-' + id); return !!(el && !el.classList.contains('hidden')); }
+function lock(on) { document.body.style.overflow = (on || pageOpen()) ? 'hidden' : ''; }
+function openCart() {
+  $('#wst-toast').classList.remove('show'); lastFocus = document.activeElement; closeAll(true); renderCart();
+  $('#wst-overlay').classList.add('open'); var d = $('#wst-drawer'); d.classList.add('open'); d.setAttribute('aria-hidden', 'false'); lock(true);
+  var x = $('.wst-x', d); if (x) x.focus();
+}
+function closeAll(keep) {
+  $('#wst-overlay').classList.remove('open');
+  var d = $('#wst-drawer'); d.classList.remove('open'); d.setAttribute('aria-hidden', 'true');
+  var m = $('#wst-modal'); m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); m.innerHTML = '';
+  if (!keep) { lock(false); if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} } lastFocus = null; }
+}
+var tt;
+function toast(msg) { var t = $('#wst-toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(function () { t.classList.remove('show'); }, 1800); }
+
+/* ============ product modal ============ */
+var mq = 1;
+function openProduct(id) {
+  var p = byId(id); if (!p) return; mq = 1; lastFocus = document.activeElement; closeAll(true);
+  var d = pct(p), out = p.stock === 'out', imgs = (p.images || []).filter(safeImg);
+  var thumbs = imgs.length > 1 ? '<div class="wst-thumbs">' + imgs.map(function (u, i) { return '<button type="button" data-thumb="' + i + '" aria-label="Photo ' + (i + 1) + '"' + (i === 0 ? ' aria-current="true"' : '') + '><img src="' + esc(u) + '" alt=""></button>'; }).join('') + '</div>' : '';
+  var opts = (p.options || []).map(function (o) {
+    return '<div><label class="wst-label" for="wst-o-' + esc(o.name) + '">' + esc(o.name) + '</label><select class="wst-input" id="wst-o-' + esc(o.name) + '" data-opt="' + esc(o.name) + '">' + o.values.map(function (v) { return '<option>' + esc(v) + '</option>'; }).join('') + '</select></div>';
+  }).join('');
+  var m = $('#wst-modal');
+  m.innerHTML = '<div class="wst-panel" data-pid-modal="' + esc(p.id) + '"><button type="button" class="wst-x" data-wst="close-all" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>' +
+    '<div class="wst-gal"><div id="wst-main" data-pid-img="' + esc(p.id) + '">' + imgBox(p, 0) + '</div>' + thumbs + '</div>' +
+    '<div class="wst-info"><span class="wst-cat">' + esc(p.category) + '</span><h2 class="text-2xl font-black" style="letter-spacing:-.02em;text-transform:none">' + esc(p.name) + '</h2>' +
+    '<div class="wst-price" style="margin:0;padding:0"><b style="font-size:1.5rem">' + money(p.price) + '</b>' + (d ? '<s>' + money(p.mrp) + '</s><em>' + d + '% off</em>' : '') + '</div>' +
+    '<p class="wst-muted" style="font-size:.75rem;margin-top:-.4rem">Inclusive of taxes. ' + (STORE.freeShip ? 'Free shipping over ' + money(STORE.freeShip) + '.' : '') + '</p>' +
+    (p.short ? '<p style="font-size:.9rem">' + esc(p.short) + '</p>' : '') +
+    (p.highlights && p.highlights.length ? '<ul class="wst-list">' + p.highlights.map(function (h) { return '<li><i class="fa-solid fa-check"></i><span>' + esc(h) + '</span></li>'; }).join('') + '</ul>' : '') +
+    opts +
+    (out ? '<p class="wst-red" style="font-weight:800">Sold out</p>' :
+      '<div><span class="wst-label">Quantity</span><div class="wst-qty"><button type="button" data-act="mq-" aria-label="Decrease quantity">−</button><span id="wst-mq" aria-live="polite">1</span><button type="button" data-act="mq+" aria-label="Increase quantity">+</button></div></div>' +
+      '<div class="grid grid-cols-2 gap-3"><button type="button" class="wst-btn wst-btn-ghost" data-act="madd">Add to cart</button><button type="button" class="wst-btn" data-act="mbuy">Buy now</button></div>') +
+    '<div class="wst-note"><div><span class="wst-label">Delivery to pin code</span><div class="flex gap-2"><input id="wst-pin" class="wst-input" inputmode="numeric" maxlength="6" placeholder="6-digit pin code" aria-label="Pin code"><button type="button" class="wst-btn wst-btn-ghost" data-act="pin">Check</button></div><div id="wst-pinout" class="mt-2" aria-live="polite"></div></div>' +
+    '<div><i class="fa-solid fa-truck-fast wst-red"></i> Ships in ' + STORE.daysMin + '–' + STORE.daysMax + ' business days. Free tracking.</div>' +
+    '<div><i class="fa-solid fa-rotate-left wst-red"></i> ' + STORE.returnDays + '-day returns for damaged or wrong items.</div>' +
+    (p.origin ? '<div><i class="fa-solid fa-globe wst-red"></i> Country of origin: ' + esc(p.origin) + '</div>' : '') + '</div></div></div>';
+  var rel = P.filter(function (x) { return x.id !== p.id && x.category === p.category; });
+  P.forEach(function (x) { if (rel.length < 4 && x.id !== p.id && rel.indexOf(x) < 0) rel.push(x); });
+  if (rel.length) $('.wst-panel', m).insertAdjacentHTML('beforeend', '<div style="grid-column:1/-1;border-top:1px solid #ddd;padding:1.25rem"><span class="wst-label">You may also like</span><div class="wst-grid">' + rel.slice(0, 4).map(cardHtml).join('') + '</div></div>');
+  m.classList.add('open'); m.setAttribute('aria-hidden', 'false'); $('#wst-overlay').classList.add('open'); lock(true);
+  m.scrollTop = 0; var x = $('.wst-x', m); if (x) x.focus();
+}
+function chosenOpts() { var o = {}; $$('#wst-modal [data-opt]').forEach(function (s) { o[s.getAttribute('data-opt')] = s.value; }); return o; }
+
+/* ============ checkout ============ */
+function isCheckoutOpen() { var el = $('#page-checkout'); return !!(el && !el.classList.contains('hidden')); }
+function payMethod() { var r = $('input[name="wst-pay"]:checked'); return r ? r.value : (STORE.razorpayKey ? 'online' : 'cod'); }
+function fld(id, label, attrs, extra) { return '<div class="wst-field"><label class="wst-label" for="wst-c-' + id + '">' + label + '</label><input class="wst-input" id="wst-c-' + id + '" name="' + id + '" ' + (attrs || '') + '><div class="wst-err" id="wst-e-' + id + '"></div></div>'; }
+
+function renderCheckout() {
+  var box = $('#wst-checkout-body'); if (!box) return;
+  if (!lines().length) {
+    box.innerHTML = '<div class="wst-box text-center" style="padding:3rem 1rem;max-width:32rem;margin:0 auto"><p class="logo-wordmark text-2xl mb-2">Your cart is empty</p><p class="wst-muted text-sm mb-5">Add something from the store to check out.</p><a href="#store" class="wst-btn">Browse the store</a></div>'; return;
+  }
+  var online = !!STORE.razorpayKey;
+  box.innerHTML = '<div class="wst-cols"><form id="wst-form" class="wst-box" novalidate>' +
+    '<h2 class="font-black">Contact</h2><div class="wst-2">' + fld('name', 'Full name', 'autocomplete="name" required') + fld('phone', 'Mobile number', 'type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit number" required') + '</div>' + fld('email', 'Email', 'type="email" autocomplete="email" required') +
+    '<h2 class="font-black mt-4">Delivery address</h2>' + fld('a1', 'Address line 1', 'autocomplete="address-line1" placeholder="House no., building, street" required') + fld('a2', 'Address line 2 (optional)', 'autocomplete="address-line2" placeholder="Area, landmark"') +
+    '<div class="wst-2">' + fld('city', 'City', 'autocomplete="address-level2" required') + fld('pin', 'Pin code', 'inputmode="numeric" maxlength="6" autocomplete="postal-code" required') + '</div>' +
+    '<div class="wst-field"><label class="wst-label" for="wst-c-state">State</label><select class="wst-input" id="wst-c-state" name="state" autocomplete="address-level1" required><option value="">Select state</option>' + STATES.map(function (s) { return '<option>' + s + '</option>'; }).join('') + '</select><div class="wst-err" id="wst-e-state"></div></div>' +
+    '<div class="wst-field"><label class="wst-label" for="wst-c-note">Delivery note (optional)</label><textarea class="wst-input" id="wst-c-note" name="note" rows="2" maxlength="300"></textarea></div>' +
+    '<h2 class="font-black mt-4">Payment</h2>' +
+    (online ? '<label class="wst-pay"><input type="radio" name="wst-pay" value="online" checked><span><b>Pay online</b><br><span class="wst-muted" style="font-size:.8rem">UPI, cards, netbanking and wallets. No extra fee.</span></span></label>' : '') +
+    '<label class="wst-pay"><input type="radio" name="wst-pay" value="cod"' + (online ? '' : ' checked') + '><span><b>Cash on delivery</b><br><span class="wst-muted" style="font-size:.8rem">Pay the courier when it arrives. Adds ' + money(STORE.codFee) + '.</span></span></label>' +
+    '<label class="flex gap-3 items-start text-sm mt-4"><input type="checkbox" id="wst-c-terms" style="margin-top:.25rem;accent-color:#cc1010"><span>I agree to the <a href="#terms" target="_blank" class="wst-red" style="text-decoration:underline">Terms</a>, <a href="#shipping" target="_blank" class="wst-red" style="text-decoration:underline">Shipping</a> and <a href="#returns" target="_blank" class="wst-red" style="text-decoration:underline">Returns</a> policies.</span></label><div class="wst-err" id="wst-e-terms"></div>' +
+    '<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">' +
+    '<div id="wst-form-err" class="wst-err mt-3" role="alert"></div><button type="submit" id="wst-place" class="wst-btn wst-btn-block mt-4">Place order</button></form>' +
+    '<aside class="wst-box" style="position:sticky;top:7rem"><h2 class="font-black">Order summary</h2><div id="wst-sum"></div><div class="wst-trust"><div><i class="fa-solid fa-lock"></i>Payments are handled by Razorpay. We never see your card details.</div><div><i class="fa-solid fa-rotate-left"></i>' + STORE.returnDays + '-day returns for damaged or wrong items.</div><div><i class="fa-solid fa-headset"></i>Questions? <a href="#support" target="_blank" class="wst-red" style="text-decoration:underline">Contact support</a></div></div></aside></div>';
+  renderSummary();
+}
+function renderSummary() {
+  var el = $('#wst-sum'); if (!el) return;
+  var t = calc(payMethod()), L = lines();
+  el.innerHTML = L.map(function (x) {
+    return '<div class="wst-line" style="grid-template-columns:3.5rem 1fr auto">' + imgBox(x.p) + '<div><div class="wst-name" style="font-size:.85rem">' + esc(x.p.name) + '</div><div class="wst-muted" style="font-size:.75rem">' + (optText(x.l.opts) ? esc(optText(x.l.opts)) + ' · ' : '') + 'Qty ' + x.l.qty + '</div></div><b style="font-size:.9rem">' + money(x.p.price * x.l.qty) + '</b></div>';
+  }).join('') +
+    '<div class="mt-3"><div class="wst-row"><span>Subtotal</span><span>' + money(t.sub) + '</span></div>' + (t.disc ? '<div class="wst-row wst-red"><span>Discount (' + esc(couponCode) + ')</span><span>−' + money(t.disc) + '</span></div>' : '') +
+    '<div class="wst-row"><span>Shipping</span><span>' + (t.ship ? money(t.ship) : 'Free') + '</span></div>' + (t.cod ? '<div class="wst-row"><span>Cash on delivery fee</span><span>' + money(t.cod) + '</span></div>' : '') +
+    '<div class="wst-row total"><span>Total</span><span>' + money(t.total) + '</span></div></div>' +
+    '<p class="wst-muted" style="font-size:.75rem;margin-top:.6rem">Estimated delivery ' + estimate() + '. Have a code? <button type="button" class="wst-link" data-wst="open-cart">Open your cart</button> to apply it.</p>';
+}
+function setErr(id, msg) { var e = $('#wst-e-' + id), i = $('#wst-c-' + id); if (e) e.textContent = msg || ''; if (i && i.classList) i.classList.toggle('is-bad', !!msg); return !msg; }
+function validate() {
+  var v = function (id) { return ($('#wst-c-' + id).value || '').trim(); }, bad = null;
+  var rules = [
+    ['name', v('name').length >= 2, 'Enter your full name.'],
+    ['phone', /^[6-9]\d{9}$/.test(v('phone').replace(/^(\+91|0)/, '').replace(/[\s-]/g, '')), 'Enter a valid 10-digit mobile number.'],
+    ['email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email')), 'Enter a valid email address.'],
+    ['a1', v('a1').length >= 5, 'Enter your house number and street.'],
+    ['city', v('city').length >= 2, 'Enter your city.'],
+    ['pin', /^[1-9]\d{5}$/.test(v('pin')), 'Enter a 6-digit pin code.'],
+    ['state', !!v('state'), 'Choose your state.']
+  ];
+  rules.forEach(function (r) { var ok = setErr(r[0], r[1] ? '' : r[2]); if (!ok && !bad) bad = r[0]; });
+  var tOk = $('#wst-c-terms').checked; $('#wst-e-terms').textContent = tOk ? '' : 'Please accept the policies to continue.'; if (!tOk && !bad) bad = 'terms';
+  if (bad) { var f = $('#wst-c-' + bad); if (f) f.focus(); }
+  return !bad;
+}
+function newId() { var d = new Date(), s = '' + String(d.getFullYear()).slice(2) + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2), c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', r = ''; for (var i = 0; i < 4; i++) r += c[Math.floor(Math.random() * c.length)]; return 'WS-' + s + '-' + r; }
+function buildOrder(pay) {
+  var v = function (id) { return ($('#wst-c-' + id).value || '').trim(); }, t = calc(pay);
+  return { id: newId(), date: new Date().toISOString(), status: 'Placed',
+    items: lines().map(function (x) { return { id: x.p.id, name: x.p.name, opts: x.l.opts, qty: x.l.qty, price: x.p.price }; }),
+    totals: { subtotal: t.sub, discount: t.disc, shipping: t.ship, cod_fee: t.cod, total: t.total, coupon: t.ok ? couponCode : '' },
+    customer: { name: v('name'), email: v('email'), phone: v('phone').replace(/^(\+91|0)/, '').replace(/[\s-]/g, ''), address1: v('a1'), address2: v('a2'), city: v('city'), state: v('state'), pin: v('pin'), note: ($('#wst-c-note').value || '').trim() },
+    payment: { method: pay, status: pay === 'cod' ? 'Pay on delivery' : 'Pending', ref: '' } };
+}
+function send(o) {
+  var f = new URLSearchParams(); f.set('form_type', 'store_order'); f.set('order_id', o.id); f.set('name', o.customer.name); f.set('email', o.customer.email); f.set('phone', o.customer.phone);
+  f.set('address', [o.customer.address1, o.customer.address2, o.customer.city, o.customer.state, o.customer.pin].filter(Boolean).join(', '));
+  f.set('items', o.items.map(function (i) { return i.name + (optText(i.opts) ? ' (' + optText(i.opts) + ')' : '') + ' x' + i.qty; }).join(' | '));
+  f.set('total', o.totals.total); f.set('payment_method', o.payment.method); f.set('payment_status', o.payment.status); f.set('payment_ref', o.payment.ref); f.set('note', o.customer.note); f.set('order_json', JSON.stringify(o));
+  return fetch(STORE.orderEndpoint, { method: 'POST', mode: 'no-cors', body: f });
+}
+function done(o) {
+  var orders = read('worthsy_orders', []); orders.unshift(o); write('worthsy_orders', orders.slice(0, 20));
+  cart = []; couponCode = ''; save(); refresh();
+  var cod = o.payment.method === 'cod';
+  $('#wst-checkout-body').innerHTML = '<div class="wst-box text-center" style="max-width:40rem;margin:0 auto;padding:2.5rem 1.5rem">' +
+    '<i class="fa-solid fa-circle-check wst-red" style="font-size:2.4rem"></i><h2 class="logo-wordmark text-3xl mt-3 mb-2" style="text-transform:uppercase">Order placed</h2>' +
+    '<p class="wst-mono" style="font-size:1.1rem;font-weight:700">' + esc(o.id) + '</p>' +
+    '<p class="wst-muted text-sm mt-3">We’ve sent the details to ' + esc(o.customer.email) + '. Estimated delivery ' + estimate() + '.</p>' +
+    '<p class="text-sm mt-2">' + (cod ? 'Please keep <b>' + money(o.totals.total) + '</b> ready for the courier. We may call to confirm your address.' : 'Payment received. Thank you.') + '</p>' +
+    '<div class="flex flex-wrap gap-3 justify-center mt-6"><a href="#track" class="wst-btn">Track order</a><a href="#store" class="wst-btn wst-btn-ghost">Keep shopping</a></div></div>';
+  window.scrollTo(0, 0); var pg = $('#page-checkout'); if (pg) pg.scrollTop = 0;
+}
+function loadRzp() { return new Promise(function (res, rej) { if (window.Razorpay) return res(); var s = document.createElement('script'); s.src = 'https://checkout.razorpay.com/v1/checkout.js'; s.onload = res; s.onerror = function () { rej(new Error('rzp')); }; document.head.appendChild(s); }); }
+function submitOrder(e) {
+  e.preventDefault(); var btn = $('#wst-place'), err = $('#wst-form-err'); err.textContent = '';
+  if (btn.disabled || !validate()) return;
+  if ($('#wst-form [name="_honey"]').value) return;
+  var pay = payMethod(), o = buildOrder(pay);
+  btn.disabled = true; btn.textContent = 'Placing order…';
+  var fail = function (m) { err.textContent = m; btn.disabled = false; btn.textContent = 'Place order'; };
+  if (pay === 'cod') {
+    send(o).then(function () { done(o); }).catch(function () { fail('We couldn’t send your order. Check your connection and try again.'); });
+    return;
+  }
+  loadRzp().then(function () {
+    var rz = new Razorpay({ key: STORE.razorpayKey, amount: o.totals.total * 100, currency: 'INR', name: 'WORTHSY', description: 'Order ' + o.id,
+      prefill: { name: o.customer.name, email: o.customer.email, contact: o.customer.phone }, notes: { order_id: o.id }, theme: { color: '#cc1010' },
+      handler: function (r) { o.payment.status = 'Paid'; o.payment.ref = r.razorpay_payment_id || ''; send(o).catch(function () {}).then(function () { done(o); }); },
+      modal: { ondismiss: function () { fail('Payment was not completed. You have not been charged.'); } } });
+    rz.on('payment.failed', function () { fail('Payment failed. Please try again or choose cash on delivery.'); });
+    rz.open();
+  }).catch(function () { fail('Online payment could not load. Try again or choose cash on delivery.'); });
+}
+
+/* ============ order tracking ============ */
+function stepIndex(s) { s = String(s || '').toLowerCase(); if (s.indexOf('cancel') >= 0) return -1; if (s.indexOf('deliver') >= 0) return 3; if (/ship|transit|dispatch/.test(s)) return 2; if (s.indexOf('confirm') >= 0) return 1; return 0; }
+function showTrack(d) {
+  var i = stepIndex(d.status), names = ['Order placed', 'Confirmed', 'Shipped', 'Delivered'], url = safeUrl(d.tracking_url);
+  $('#wst-track-out').innerHTML = '<div class="wst-box"><p class="wst-mono" style="font-weight:700">' + esc(d.id) + '</p>' + (i < 0 ? '<p class="wst-red mt-3" style="font-weight:800">This order was cancelled.</p>' :
+    '<div class="wst-steps">' + names.map(function (n, k) { return '<div class="' + (k <= i ? 'on' : '') + '">' + n + '</div>'; }).join('') + '</div>') +
+    (d.courier ? '<p class="text-sm">Courier: <b>' + esc(d.courier) + '</b>' + (d.awb ? ' · Tracking no. <b>' + esc(d.awb) + '</b>' : '') + '</p>' : '') +
+    (url ? '<p class="mt-3"><a class="wst-btn" href="' + esc(url) + '" target="_blank" rel="noopener">Track with courier</a></p>' : '') +
+    (i === 0 ? '<p class="wst-muted text-sm mt-2">We’ve received your order and will confirm it by email within 24 hours.</p>' : '') + '</div>';
+}
+function trackSubmit(e) {
+  e.preventDefault();
+  var id = $('#wst-t-id').value.trim().toUpperCase(), em = $('#wst-t-email').value.trim().toLowerCase(), out = $('#wst-track-out');
+  if (!id || !em) { out.innerHTML = '<p class="wst-err">Enter your order ID and email.</p>'; return; }
+  var local = read('worthsy_orders', []).filter(function (o) { return o.id === id && o.customer.email.toLowerCase() === em; })[0];
+  out.innerHTML = '<p class="wst-muted text-sm">Looking up your order…</p>';
+  var miss = function () { out.innerHTML = '<div class="wst-box"><p class="font-black mb-1">We couldn’t find that order.</p><p class="wst-muted text-sm">Check the ID and email, or write to <a class="wst-red" style="text-decoration:underline" href="mailto:' + esc(STORE.email) + '">' + esc(STORE.email) + '</a> with your order ID.</p></div>'; };
+  fetch(STORE.orderEndpoint + '?action=track&id=' + encodeURIComponent(id) + '&email=' + encodeURIComponent(em))
+    .then(function (r) { return r.json(); })
+    .then(function (d) { if (d && d.found) showTrack({ id: id, status: d.status, courier: d.courier, awb: d.awb, tracking_url: d.tracking_url }); else if (local) showTrack({ id: id, status: local.status }); else miss(); })
+    .catch(function () { if (local) showTrack({ id: id, status: local.status }); else miss(); });
+}
+
+/* ============ support form ============ */
+function supportSubmit(e) {
+  e.preventDefault(); var f = e.target, out = $('#wst-support-out'), b = $('button[type=submit]', f), v = function (n) { return (f.elements[n].value || '').trim(); };
+  if (v('_honey')) return; out.className = 'wst-err';
+  if (v('name').length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email')) || v('message').length < 10) { out.textContent = 'Enter your name, a valid email and a message of at least 10 characters.'; return; }
+  var d = new URLSearchParams(); d.set('form_type', 'store_support'); ['name', 'email', 'topic', 'order_id', 'message'].forEach(function (k) { d.set(k, v(k)); });
+  b.disabled = true; b.textContent = 'Sending…'; out.textContent = '';
+  fetch(STORE.orderEndpoint, { method: 'POST', mode: 'no-cors', body: d }).then(function () { f.reset(); out.className = 'wst-red'; out.textContent = 'Message sent. We’ll reply to your email within 2 working days.'; })
+    .catch(function () { out.textContent = 'Couldn’t send. Check your connection or email ' + STORE.email + '.'; }).then(function () { b.disabled = false; b.textContent = 'Send message'; });
+}
+
+/* ============ events ============ */
+document.addEventListener('click', function (e) {
+  var t = e.target;
+  var w = t.closest('[data-wst]'); if (w) { var a = w.getAttribute('data-wst'); if (a === 'open-cart') { openCart(); return; } if (a === 'close-all') { closeAll(); return; } }
+  var add = t.closest('[data-add]'); if (add) { e.stopPropagation(); var p = byId(add.getAttribute('data-add')); if (p && (p.options || []).length) openProduct(p.id); else if (p) addToCart(p.id, {}, 1); return; }
+  var cat = t.closest('[data-cat]'); if (cat) { ui.cat = cat.getAttribute('data-cat'); renderStore(); return; }
+  var th = t.closest('[data-thumb]'); if (th) { var pm = $('#wst-modal [data-pid-modal]'), pr = byId(pm.getAttribute('data-pid-modal')); $('#wst-main').innerHTML = imgBox(pr, +th.getAttribute('data-thumb')); $$('#wst-modal [data-thumb]').forEach(function (b) { b.removeAttribute('aria-current'); }); th.setAttribute('aria-current', 'true'); return; }
+  var act = t.closest('[data-act]');
+  if (act) {
+    var k = act.getAttribute('data-act'), key = act.getAttribute('data-key'), ln = key && cart.filter(function (l) { return l.key === key; })[0];
+    if (k === 'inc' && ln) { ln.qty = Math.min(10, ln.qty + 1); save(); refresh(); }
+    else if (k === 'dec' && ln) { ln.qty = ln.qty - 1; if (ln.qty < 1) cart = cart.filter(function (l) { return l !== ln; }); save(); refresh(); }
+    else if (k === 'rm' && ln) { cart = cart.filter(function (l) { return l !== ln; }); save(); refresh(); }
+    else if (k === 'coupon') applyCoupon();
+    else if (k === 'rmcoupon') { couponCode = ''; cMsg = ''; save(); refresh(); }
+    else if (k === 'mq-') { mq = Math.max(1, mq - 1); $('#wst-mq').textContent = mq; }
+    else if (k === 'mq+') { mq = Math.min(10, mq + 1); $('#wst-mq').textContent = mq; }
+    else if (k === 'madd' || k === 'mbuy') { var id = $('#wst-modal [data-pid-modal]').getAttribute('data-pid-modal'); addToCart(id, chosenOpts(), mq); if (k === 'mbuy') { closeAll(); location.hash = 'checkout'; } else closeAll(); }
+    else if (k === 'pin') { var pv = $('#wst-pin').value.trim(), po = $('#wst-pinout'); po.innerHTML = /^[1-9]\d{5}$/.test(pv) ? '<span><i class="fa-solid fa-circle-check wst-red"></i> Estimated delivery <b>' + estimate() + '</b></span>' : '<span class="wst-err">Enter a valid 6-digit pin code.</span>'; }
+    return;
+  }
+  if (t.closest('#wst-drawer a')) { closeAll(); return; }
+  var card = t.closest('.wst-card[data-pid]'); if (card) openProduct(card.getAttribute('data-pid'));
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && ($('#wst-drawer').classList.contains('open') || $('#wst-modal').classList.contains('open'))) { e.stopPropagation(); closeAll(); return; }
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('wst-card')) { e.preventDefault(); openProduct(e.target.getAttribute('data-pid')); }
+  if (e.key === 'Enter' && e.target.id === 'wst-coupon') { e.preventDefault(); applyCoupon(); }
+}, true);
+document.addEventListener('input', function (e) { if (e.target.id === 'wst-q') { ui.q = e.target.value.trim(); renderStore(); } });
+document.addEventListener('change', function (e) {
+  if (e.target.id === 'wst-sort') { ui.sort = e.target.value; renderStore(); }
+  if (e.target.name === 'wst-pay') renderSummary();
+});
+document.addEventListener('submit', function (e) { if (e.target.id === 'wst-form') submitOrder(e); if (e.target.id === 'wst-track-form') trackSubmit(e); if (e.target.id === 'wst-support-form') supportSubmit(e); });
+window.addEventListener('hashchange', function () { closeAll(true); if (location.hash === '#checkout') renderCheckout(); });
+
+/* ============ start ============ */
+function init() { if (STORE.whatsapp) { var w = document.createElement('a'); w.className = 'wst-wa on'; w.href = 'https://wa.me/' + STORE.whatsapp; w.target = '_blank'; w.rel = 'noopener'; w.setAttribute('aria-label', 'Chat on WhatsApp'); w.innerHTML = '<i class="fa-brands fa-whatsapp"></i>'; document.body.appendChild(w); }
+  fillStatic(); renderStore(); renderHome(); refresh(); if (location.hash === '#checkout') renderCheckout(); }
+window.WORTHSY_STORE = { STORE: STORE, products: function () { return P; }, open: function (id) { openProduct(id); }, money: money, estimate: estimate };
+fetch('store-products.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; })
+  .then(function (list) { if (Array.isArray(list) && list.length) P = list.filter(function (p) { return p && p.id && p.name && p.price > 0; }); })
+  .catch(function () {}).then(init);
+})();
+    </script>
+    <script id="worthsy-chat-script">
+(function () {
+'use strict';
+var btn = document.getElementById('wst-chat-btn'), box = document.getElementById('wst-chat'), log = document.getElementById('wst-chat-log'),
+    chips = document.getElementById('wst-chat-chips'), form = document.getElementById('wst-chat-form'), inp = document.getElementById('wst-chat-in');
+if (!btn || !box) return;
+var hist = [], started = false, busy = false;
+var S = function () { return window.WORTHSY_STORE; };
+var LINK = { track: ['Track order', '#track'], ship: ['Shipping policy', '#shipping'], ret: ['Returns policy', '#returns'], sup: ['Contact support', '#support'], faq: ['FAQ', '#faq'], store: ['Open the store', '#store'] };
+function L() { return Array.prototype.slice.call(arguments).map(function (k) { return LINK[k]; }); }
+
+function add(role, text, extra) {
+  var d = document.createElement('div'); d.className = 'wst-msg ' + role;
+  var b = document.createElement('div'); b.className = 'wst-bub'; b.textContent = text; d.appendChild(b);
+  if (extra && extra.products && extra.products.length) extra.products.forEach(function (p) {
+    var r = document.createElement('button'); r.type = 'button'; r.className = 'wst-chat-prod'; r.setAttribute('data-chatpid', p.id);
+    var n = document.createElement('span'); n.textContent = p.name; var pr = document.createElement('b'); pr.textContent = S().money(p.price); r.appendChild(n); r.appendChild(pr); d.appendChild(r);
+  });
+  if (extra && extra.links && extra.links.length) { var w = document.createElement('div'); w.className = 'wst-chat-links'; extra.links.forEach(function (l) { var a = document.createElement('a'); a.className = 'wst-chat-link'; a.textContent = l[0]; a.href = l[1]; w.appendChild(a); }); d.appendChild(w); }
+  log.appendChild(d); log.scrollTop = log.scrollHeight; return d;
+}
+
+/* ---------- answers built from the live store settings and catalogue ---------- */
+var STOP = /^(the|and|for|you|have|any|with|show|find|want|need|looking|please|can|get|buy|price|cost|how|much|what|which|your|are|there|some|best|good|a|an|of|to|me|do|i|is|it|in|on|under|below|about)$/;
+function matchProducts(q) {
+  var P = S().products(), words = q.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(function (w) { return w.length > 2 && !STOP.test(w); });
+  var max = null, mm = q.toLowerCase().match(/(?:under|below|less than|within|upto|up to)\s*(?:rs\.?|₹|inr)?\s*(\d[\d,]*)/); if (mm) max = Number(mm[1].replace(/,/g, ''));
+  var list = P.map(function (p) { var hay = (p.name + ' ' + p.category + ' ' + (p.highlights || []).join(' ')).toLowerCase(), sc = 0; words.forEach(function (w) { var s = w.replace(/s$/, ''); if (hay.indexOf(s) >= 0) sc += p.name.toLowerCase().indexOf(s) >= 0 ? 2 : 1; }); return { p: p, sc: sc }; });
+  if (max !== null) list = list.filter(function (x) { return x.p.price <= max && (words.length === 0 || x.sc > 0 || /\b(products?|items?|things?|anything|stuff)\b/.test(q.toLowerCase())); });
+  else list = list.filter(function (x) { return x.sc > 0; });
+  if (/cheap|budget|lowest|affordable/.test(q.toLowerCase()) && !list.length) list = P.map(function (p) { return { p: p, sc: 1 }; }).sort(function (a, b) { return a.p.price - b.p.price; });
+  if (/gift|recommend|popular|suggest|best/.test(q.toLowerCase()) && !list.length) list = P.filter(function (p) { return p.featured; }).map(function (p) { return { p: p, sc: 1 }; });
+  list.sort(function (a, b) { return b.sc - a.sc || a.p.price - b.p.price; });
+  return list.slice(0, 4).map(function (x) { return x.p; });
+}
+function local(q) {
+  var s = S(), st = s.STORE, m = s.money, t = q.toLowerCase().trim();
+  var oid = q.toUpperCase().match(/WS-\d{6}-[A-Z0-9]{4}/);
+  if (oid) {
+    var o = []; try { o = JSON.parse(localStorage.getItem('worthsy_orders')) || []; } catch (e) {}
+    o = o.filter(function (x) { return x.id === oid[0]; })[0];
+    return o ? { text: 'Order ' + oid[0] + ' was placed on this device and is currently "' + o.status + '". For the latest courier details, open Track order and enter your email.', links: L('track') }
+             : { text: 'To check order ' + oid[0] + ', open Track order and enter the order ID with the email you used at checkout. I can’t look up orders myself.', links: L('track', 'sup') };
+  }
+  if (t.length < 25 && /\b(hi|hello|hey|hii|namaste|good (morning|afternoon|evening))\b/.test(t)) return { text: 'Hi! I can help with products, delivery, payments, returns and discount codes. What would you like to know?' };
+  if (/cancel/.test(t)) return { text: 'You can cancel before your order ships by writing to ' + st.email + ' with your order ID. Once it has shipped it can’t be cancelled, but eligible items can still be returned when they arrive.', links: L('sup', 'ret') };
+  if (/return|refund|replace|exchange|damag|defect|broken|wrong (item|product)|not as described/.test(t)) return { text: 'If an item arrives damaged, defective or wrong, report it within ' + st.returnDays + ' days of delivery with photos and we’ll replace or refund it. Refunds take 5 to 7 business days after approval. Change-of-mind returns aren’t accepted.', links: L('ret', 'sup') };
+  if (/\bcod\b|cash on|pay on delivery|pay after|pay when/.test(t)) return { text: 'Yes, cash on delivery is available. It adds a ' + m(st.codFee) + ' handling fee.' + (st.razorpayKey ? ' Paying online has no extra fee.' : '') };
+  if (/track|where is my|order status|my order|awb|courier|not (yet )?(received|arrived)/.test(t)) return { text: 'You can follow your order on the Track order page with your order ID and email. Courier details appear there once it ships, usually 2 to 5 days after confirmation.', links: L('track', 'sup') };
+  if (/deliver|shipping|ship\b|dispatch|how long|arrive|when will|pin ?code|serviceab|free ship/.test(t)) return { text: 'Orders are confirmed within 24 hours and usually arrive in ' + st.daysMin + '–' + st.daysMax + ' business days (about ' + s.estimate() + ' if you order today). Shipping is free over ' + m(st.freeShip) + ', otherwise ' + m(st.shipFee) + '. You can check an estimate for your pin code on any product.', links: L('ship') };
+  if (/\bpay(ment|ing)?\b|upi|card|razorpay|netbanking|emi/.test(t)) return { text: st.razorpayKey ? 'You can pay online by UPI, card or netbanking, or choose cash on delivery (extra ' + m(st.codFee) + ').' : 'Right now we accept cash on delivery (extra ' + m(st.codFee) + '). Online payment is coming soon.' };
+  if (/coupon|discount|promo|voucher|sale\b|deal/.test(t)) return { text: 'Current codes: ' + Object.keys(st.coupons).map(function (k) { var c = st.coupons[k]; return k + ' (' + c.label + (c.min ? ', min ' + m(c.min) : '') + ')'; }).join('; ') + '. Apply them in your cart.', links: L('store') };
+  if (/contact|support|human|agent|talk to|call|phone|whatsapp|email|complain|help me/.test(t)) return { text: 'You can reach the team at ' + st.email + (st.whatsapp ? ' or on WhatsApp +' + st.whatsapp : '') + '. We reply within 2 working days.', links: L('sup') };
+  if (/amazon|flipkart|affiliate|awin|clickbank|coursera|shopify/.test(t)) return { text: 'Items in the WORTHSY Store are sold and shipped by us. The Amazon, Flipkart, Shopify, ClickBank, Coursera and Awin pages are affiliate links that take you to the partner’s site, where you buy from them.' };
+  if (/\bgst\b|invoice|\bbill\b|\btax/.test(t)) return { text: 'Prices in the store include applicable taxes. If you need a GST invoice, write to ' + st.email + ' with your order ID.', links: L('sup') };
+  if (/genuine|original|warranty|quality|authentic|guarantee/.test(t)) return { text: 'Warranty and specifications differ by product, so check the product details. If something arrives faulty or not as described, our returns policy covers it within ' + st.returnDays + ' days.', links: L('ret') };
+  if (/who are|about (you|worthsy)|what is worthsy|what do you (sell|do)/.test(t)) return { text: 'WORTHSY is a curated shopping site. We sell selected products directly through the Store and share affiliate picks from other platforms.', links: L('store') };
+  if (/categor|catalog|browse|all products|what (products|items)/.test(t)) { var c = {}; s.products().forEach(function (p) { c[p.category] = (c[p.category] || 0) + 1; }); return { text: 'We have: ' + Object.keys(c).map(function (k) { return k + ' (' + c[k] + ')'; }).join(', ') + '.', links: L('store') }; }
+  var pr = matchProducts(q);
+  if (pr.length) return { text: pr.length === 1 ? 'Here’s a match. Tap it for details.' : 'Here are some matches. Tap one for details.', products: pr, links: L('store') };
+  return { text: 'I’m not sure about that. I can help with delivery, payments, returns, discount codes and finding products. For anything else, our team replies within 2 working days.', links: L('sup', 'faq') };
+}
+function ask(q) {
+  var s = S(), st = s.STORE;
+  if (!st.chatEndpoint) return Promise.resolve(local(q));
+  var site = { shipping: { minDays: st.daysMin, maxDays: st.daysMax, freeOver: st.freeShip, fee: st.shipFee, codFee: st.codFee }, returnDays: st.returnDays, email: st.email, onlinePayment: !!st.razorpayKey,
+    coupons: Object.keys(st.coupons).map(function (k) { return { code: k, label: st.coupons[k].label, min: st.coupons[k].min }; }),
+    products: s.products().map(function (p) { return { name: p.name, category: p.category, price: p.price, mrp: p.mrp, highlights: p.highlights, options: p.options, soldOut: p.stock === 'out' }; }) };
+  return fetch(st.chatEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: hist.slice(-8), site: site }) })
+    .then(function (r) { return r.json(); }).then(function (d) { return d && d.reply ? { text: String(d.reply).slice(0, 1200), links: L('sup') } : local(q); }).catch(function () { return local(q); });
+}
+
+/* ---------- UI ---------- */
+function send(text) {
+  text = (text || '').trim().slice(0, 300); if (!text || busy) return;
+  busy = true; chips.textContent = ''; add('user', text); hist.push({ role: 'user', content: text }); inp.value = '';
+  var typing = add('bot', '…'); typing.setAttribute('aria-hidden', 'true');
+  var t0 = Date.now();
+  ask(text).then(function (r) { var wait = Math.max(0, 450 - (Date.now() - t0)); return new Promise(function (res) { setTimeout(function () { res(r); }, wait); }); })
+    .then(function (r) { typing.remove(); add('bot', r.text, r); hist.push({ role: 'assistant', content: r.text }); })
+    .catch(function () { typing.remove(); add('bot', 'Something went wrong. Please try again or contact support.', { links: L('sup') }); })
+    .then(function () { busy = false; inp.focus(); });
+}
+function openChat() {
+  box.hidden = false; btn.setAttribute('aria-expanded', 'true');
+  if (!started) {
+    started = true; add('bot', 'Hi, I’m the WORTHSY assistant. Ask me about products, delivery, payments or returns.');
+    ['How long does delivery take?', 'Is cash on delivery available?', 'What is the return policy?', 'Show gadgets under ₹1000', 'Track my order'].forEach(function (q) { var c = document.createElement('button'); c.type = 'button'; c.className = 'wst-chat-chip'; c.textContent = q; c.setAttribute('data-q', q); chips.appendChild(c); });
+  }
+  inp.focus();
+}
+function closeChat() { box.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
+btn.addEventListener('click', function () { box.hidden ? openChat() : closeChat(); });
+document.getElementById('wst-chat-close').addEventListener('click', closeChat);
+form.addEventListener('submit', function (e) { e.preventDefault(); send(inp.value); });
+box.addEventListener('click', function (e) {
+  var c = e.target.closest('[data-q]'); if (c) { send(c.getAttribute('data-q')); return; }
+  var p = e.target.closest('[data-chatpid]'); if (p && S()) S().open(p.getAttribute('data-chatpid'));
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden && !document.querySelector('.wst-overlay.open')) closeChat(); });
+})();
     </script>
 </body>
 </html>
