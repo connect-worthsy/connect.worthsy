@@ -1020,15 +1020,19 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
         <div class="wst-account-head"><div><b id="wst-account-title" class="logo-wordmark text-xl">YOUR WORTHSY ACCOUNT</b><div class="text-xs mt-1" style="color:#666">Sign in to save your cart across devices</div></div><button type="button" id="wst-account-close" class="wst-x" aria-label="Close account panel"><i class="fa-solid fa-xmark"></i></button></div>
         <div class="wst-account-body">
           <button type="button" class="wst-account-provider" data-account-provider="google"><i class="fa-brands fa-google"></i> Continue with Google</button>
-          <button type="button" class="wst-account-provider" data-account-provider="apple"><i class="fa-brands fa-apple"></i> Continue with Apple</button>
-          <div style="text-align:center;font-size:.72rem;color:#777;margin:1rem 0">OR CONTINUE WITH PHONE OR EMAIL</div>
-          <label for="wst-account-contact" style="font-size:.8rem;font-weight:800">Phone number or email</label>
-          <input id="wst-account-contact" class="wst-account-field" type="text" autocomplete="username" placeholder="Enter phone number or email">
-          <label for="wst-account-password" style="font-size:.8rem;font-weight:800">Password (email accounts)</label>
-          <input id="wst-account-password" class="wst-account-field" type="password" autocomplete="current-password" placeholder="Enter password">
-          <button type="button" id="wst-account-continue" class="wst-btn wst-btn-block">Continue</button>
-          <p id="wst-account-status" role="status" class="wst-account-note">Account sign-in is not active yet. Secure authentication, phone OTP, Google/Apple provider setup and cloud cart storage must be connected before customers can use these options.</p>
-          <p style="font-size:.72rem;line-height:1.5;color:#666;margin-top:.8rem">Never enter payment details or reuse an important password in this preview.</p>
+          <div style="text-align:center;font-size:.72rem;color:#777;margin:1rem 0">OR USE EMAIL AND PASSWORD</div>
+          <label for="wst-account-contact" style="font-size:.8rem;font-weight:800">Email address</label>
+          <input id="wst-account-contact" class="wst-account-field" type="email" autocomplete="username" placeholder="you@example.com">
+          <label for="wst-account-password" style="font-size:.8rem;font-weight:800">Password</label>
+          <input id="wst-account-password" class="wst-account-field" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
+            <button type="button" id="wst-account-signin" class="wst-btn">Sign in</button>
+            <button type="button" id="wst-account-signup" class="wst-btn wst-btn-ghost">Create account</button>
+          </div>
+          <button type="button" id="wst-account-reset" class="wst-account-provider" style="font-size:.8rem">Reset password</button>
+          <button type="button" id="wst-account-signout" class="wst-account-provider" hidden>Sign out</button>
+          <p id="wst-account-status" role="status" aria-live="polite" class="wst-account-note">Sign in or create an account to save your cart across devices.</p>
+          <p style="font-size:.72rem;line-height:1.5;color:#666;margin-top:.8rem">Use a unique password. WORTHSY will never ask you to share your password with support.</p>
         </div>
       </div>
     </section>
@@ -1767,7 +1771,7 @@ function lineKey(id, o) { return id + '|' + JSON.stringify(o || {}); }
 function lines() {
   return cart.map(function (l) { return { l: l, p: byId(l.id) }; }).filter(function (x) { return x.p && x.p.stock !== 'out'; });
 }
-function save() { write('worthsy_cart', cart); write('worthsy_coupon', couponCode); }
+function save() { write('worthsy_cart', cart); write('worthsy_coupon', couponCode); if (window.WORTHSY_CLOUD_CART_SAVE) window.WORTHSY_CLOUD_CART_SAVE(); }
 function calc(pay) {
   var L = lines(), sub = 0;
   L.forEach(function (x) { sub += x.p.price * x.l.qty; });
@@ -2015,27 +2019,50 @@ function supportSubmit(e) {
     .catch(function () { out.textContent = 'Couldn’t send. Check your connection or email ' + STORE.email + '.'; }).then(function () { b.disabled = false; b.textContent = 'Send message'; });
 }
 
-/* ============ customer account panel ============ */
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script>
+/* Firebase customer accounts and cloud cart sync. */
 (function () {
-  var layer = document.getElementById('wst-account-layer');
-  var open = document.getElementById('wst-account-open');
-  var close = document.getElementById('wst-account-close');
-  var status = document.getElementById('wst-account-status');
-  function showAccount() { layer.classList.add('open'); layer.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; close.focus(); }
-  function hideAccount() { layer.classList.remove('open'); layer.setAttribute('aria-hidden','true'); document.body.style.overflow=''; open.focus(); }
-  open.addEventListener('click', showAccount);
-  close.addEventListener('click', hideAccount);
-  layer.addEventListener('click', function(e){ if(e.target===layer) hideAccount(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && layer.classList.contains('open')) hideAccount(); });
-  layer.querySelectorAll('[data-account-provider]').forEach(function(btn){ btn.addEventListener('click', function(){ status.textContent='Sign-in provider is not connected yet. Configure Firebase Authentication and enable the '+(btn.getAttribute('data-account-provider')==='google'?'Google':'Apple')+' provider before enabling this button for customers.'; }); });
-  document.getElementById('wst-account-continue').addEventListener('click', function(){
-    var contact=document.getElementById('wst-account-contact').value.trim();
-    var password=document.getElementById('wst-account-password').value;
-    if(!contact){status.textContent='Enter a phone number or email address to continue.';return;}
-    if(contact.indexOf('@')!==-1 && !password){status.textContent='Enter your password for email sign-in. Authentication is not connected yet, so no credentials have been submitted or stored.';return;}
-    status.textContent='Phone OTP and account sign-in are not active yet. Connect a secure authentication provider before accepting verification codes or credentials.';
-  });
+  var layer=document.getElementById('wst-account-layer'), open=document.getElementById('wst-account-open'), close=document.getElementById('wst-account-close');
+  var status=document.getElementById('wst-account-status'), email=document.getElementById('wst-account-contact'), password=document.getElementById('wst-account-password');
+  var signout=document.getElementById('wst-account-signout'), signin=document.getElementById('wst-account-signin'), signup=document.getElementById('wst-account-signup'), reset=document.getElementById('wst-account-reset');
+  var accountLabel=open.querySelector('.wst-account-label'), auth=null, db=null, cloudReady=false, cloudTimer=null, applyingCloud=false;
+  function say(m){status.textContent=m;}
+  function show(){layer.classList.add('open');layer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus();}
+  function hide(){layer.classList.remove('open');layer.setAttribute('aria-hidden','true');document.body.style.overflow='';open.focus();}
+  function errorText(e){var c=e&&e.code||'',m={
+    'auth/invalid-email':'Enter a valid email address.','auth/missing-password':'Enter your password.','auth/weak-password':'Choose a password with at least 6 characters.',
+    'auth/email-already-in-use':'An account already exists for this email. Try signing in.','auth/invalid-credential':'Email or password is incorrect.',
+    'auth/user-not-found':'No account was found. Create an account first.','auth/wrong-password':'Email or password is incorrect.',
+    'auth/popup-closed-by-user':'Google sign-in was cancelled.','auth/unauthorized-domain':'This website domain is not authorized in Firebase Authentication settings.',
+    'auth/operation-not-allowed':'This sign-in method is not enabled in Firebase Authentication settings.'
+  };return m[c]||(e&&e.message)||'Something went wrong. Please try again.';}
+  function ref(user){return db.collection('users').doc(user.uid).collection('cart').doc('current');}
+  function mergeLines(cloud,local){var out=Array.isArray(cloud)?cloud.slice():[];(Array.isArray(local)?local:[]).forEach(function(l){if(!l||typeof l.id!=='string')return;var k=l.key||(l.id+'|'+JSON.stringify(l.opts||{})),x=out.find(function(q){return q&&(q.key||(q.id+'|'+JSON.stringify(q.opts||{})))===k;});if(x)x.qty=Math.min(10,Math.max(1,+x.qty||1)+Math.max(1,+l.qty||1));else out.push({key:k,id:l.id,opts:l.opts&&typeof l.opts==='object'?l.opts:{},qty:Math.min(10,Math.max(1,+l.qty||1))});});return out;}
+  function queueSave(){if(!auth||!auth.currentUser||!db||applyingCloud)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(function(){var u=auth.currentUser;if(!u)return;ref(u).set({cart:cart,couponCode:couponCode||'',updatedAt:firebase.firestore.FieldValue.serverTimestamp()}).catch(function(e){say('Cart is saved on this device, but cloud sync failed: '+errorText(e));});},500);}
+  window.WORTHSY_CLOUD_CART_SAVE=queueSave;
+  function loadCart(user){if(!user||!db)return;say('Signed in. Loading your saved cart…');applyingCloud=true;ref(user).get().then(function(snap){var d=snap.exists?snap.data():null;if(d&&Array.isArray(d.cart)){cart=mergeLines(d.cart,cart);if(typeof d.couponCode==='string'&&!couponCode)couponCode=d.couponCode;}save();refresh();applyingCloud=false;queueSave();say('Signed in as '+(user.email||'your WORTHSY account')+'. Your cart will sync across devices.');}).catch(function(e){applyingCloud=false;say('Signed in, but cloud cart could not load: '+errorText(e));});}
+  open.addEventListener('click',show);close.addEventListener('click',hide);layer.addEventListener('click',function(e){if(e.target===layer)hide();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&layer.classList.contains('open'))hide();});
+  try{
+    if(!window.firebase)throw new Error('Firebase SDK failed to load. Refresh and try again.');
+    if(!firebase.apps.length)firebase.initializeApp({
+      apiKey:'REPLACE_WITH_FIREBASE_WEB_API_KEY',
+      authDomain:'connect1worthsy.firebaseapp.com',projectId:'connect1worthsy',
+      storageBucket:'connect1worthsy.firebasestorage.app',messagingSenderId:'655885819600',
+      appId:'1:655885819600:web:333ab84dac36a82f7408d5'
+    });
+    auth=firebase.auth();db=firebase.firestore();cloudReady=true;
+  }catch(e){say('Account setup is incomplete: '+errorText(e));}
+  layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.addEventListener('click',function(){if(!cloudReady){say('Account services are unavailable. Refresh and try again.');return;}auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(r){loadCart(r.user);}).catch(function(e){say(errorText(e));});});});
+  signin.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and password.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.signInWithEmailAndPassword(e,p).then(function(r){loadCart(r.user);}).catch(function(e){say(errorText(e));});});
+  signup.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and choose a password.');return;}if(p.length<6){say('Choose a password with at least 6 characters.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.createUserWithEmailAndPassword(e,p).then(function(r){return r.user.sendEmailVerification().then(function(){loadCart(r.user);say('Account created. Please verify your email using the link we sent.');});}).catch(function(e){say(errorText(e));});});
+  reset.addEventListener('click',function(){var e=email.value.trim();if(!e){say('Enter your email address first.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.sendPasswordResetEmail(e).then(function(){say('If an account exists for this email, a password reset email will be sent.');}).catch(function(e){say(errorText(e));});});
+  signout.addEventListener('click',function(){if(auth)auth.signOut().then(function(){say('Signed out. This device cart remains available.');}).catch(function(e){say(errorText(e));});});
+  if(cloudReady)auth.onAuthStateChanged(function(u){signout.hidden=!u;signin.hidden=!!u;signup.hidden=!!u;reset.hidden=!!u;if(accountLabel)accountLabel.textContent=u?'My account':'Account';if(u)loadCart(u);else say('Sign in or create an account to save your cart across devices.');});
 })();
+</script>
 
 /* ============ events ============ */
 document.addEventListener('click', function (e) {
