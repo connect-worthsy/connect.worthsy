@@ -1025,19 +1025,21 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
         <div class="wst-account-head"><div><b id="wst-account-title" class="logo-wordmark text-xl">YOUR WORTHSY ACCOUNT</b><div class="text-xs mt-1" style="color:#666">Sign in to save your cart across devices</div></div><button type="button" id="wst-account-close" class="wst-x" aria-label="Close account panel"><i class="fa-solid fa-xmark"></i></button></div>
         <div class="wst-account-body">
           <button type="button" class="wst-account-provider" data-account-provider="google"><i class="fa-brands fa-google"></i> Continue with Google</button>
-          <div style="text-align:center;font-size:.72rem;color:#777;margin:1rem 0">OR USE EMAIL AND PASSWORD</div>
-          <label for="wst-account-contact" style="font-size:.8rem;font-weight:800">Email address</label>
-          <input id="wst-account-contact" class="wst-account-field" type="email" autocomplete="username" placeholder="you@example.com">
-          <label for="wst-account-password" style="font-size:.8rem;font-weight:800">Password</label>
-          <input id="wst-account-password" class="wst-account-field" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
-            <button type="button" id="wst-account-signin" class="wst-btn">Sign in</button>
-            <button type="button" id="wst-account-signup" class="wst-btn wst-btn-ghost">Create account</button>
+          <div id="wst-account-credentials">
+            <div style="text-align:center;font-size:.72rem;color:#777;margin:1rem 0">OR USE EMAIL AND PASSWORD</div>
+            <label for="wst-account-contact" style="font-size:.8rem;font-weight:800">Email address</label>
+            <input id="wst-account-contact" class="wst-account-field" type="email" autocomplete="username" placeholder="you@example.com">
+            <label for="wst-account-password" style="font-size:.8rem;font-weight:800">Password</label>
+            <input id="wst-account-password" class="wst-account-field" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
+              <button type="button" id="wst-account-signin" class="wst-btn">Sign in</button>
+              <button type="button" id="wst-account-signup" class="wst-btn wst-btn-ghost">Create account</button>
+            </div>
+            <button type="button" id="wst-account-reset" class="wst-account-provider" style="font-size:.8rem">Reset password</button>
           </div>
-          <button type="button" id="wst-account-reset" class="wst-account-provider" style="font-size:.8rem">Reset password</button>
           <button type="button" id="wst-account-signout" class="wst-account-provider" hidden>Sign out</button>
           <p id="wst-account-status" role="status" aria-live="polite" class="wst-account-note">Sign in or create an account to save your cart across devices.</p>
-          <p style="font-size:.72rem;line-height:1.5;color:#666;margin-top:.8rem">Use a unique password. WORTHSY will never ask you to share your password with support.</p>
+          <p id="wst-account-security-note" style="font-size:.72rem;line-height:1.5;color:#666;margin-top:.8rem">Use a unique password. WORTHSY will never ask you to share your password with support.</p>
         </div>
       </div>
     </section>
@@ -2064,9 +2066,13 @@ function supportSubmit(e) {
     auth=firebase.auth();cloudReady=true;
     try{db=firebase.firestore();}catch(dbError){console.error('WORTHSY Firestore initialization failed:',dbError);db=null;}
   }catch(e){console.error('WORTHSY Firebase Authentication initialization failed:',e);say('Account services could not start: '+errorText(e));}
+  var credentials=document.getElementById('wst-account-credentials');
+  var securityNote=document.getElementById('wst-account-security-note');
   function updateAccountUI(user){
     var signedIn=!!user;
-    signout.hidden=!signedIn;signin.hidden=signedIn;signup.hidden=signedIn;reset.hidden=signedIn;
+    signout.hidden=!signedIn;
+    if(credentials)credentials.hidden=signedIn;
+    if(securityNote)securityNote.hidden=signedIn;
     layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.hidden=signedIn;});
     if(accountLabel)accountLabel.textContent=signedIn?'Logged in':'Account';
     open.setAttribute('aria-label',signedIn?'Logged in to your WORTHSY account':'Open your account');
