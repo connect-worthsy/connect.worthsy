@@ -189,6 +189,20 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 .wst-cart-count{position:absolute;top:-.6rem;right:-.6rem;min-width:1.2rem;height:1.2rem;padding:0 .3rem;background:var(--w-grad);color:#fff!important;font:700 .65rem/1.2rem var(--wst-mono);text-align:center}
 .wst-cart-count[data-n="0"]{display:none}
 
+/* Customer account entry and sign-in panel */
+.wst-accountbtn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:2.75rem;padding:0 .8rem;border:2px solid #1c1c1c;background:#fff;color:#111;font-size:.78rem;font-weight:800;cursor:pointer}
+.wst-accountbtn:hover{border-color:#cc1010;color:#cc1010}
+.wst-account-layer{position:fixed;inset:0;z-index:95;display:none;align-items:center;justify-content:center;padding:1rem;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+.wst-account-layer.open{display:flex}
+.wst-account-card{width:min(440px,100%);max-height:min(90vh,760px);overflow:auto;background:#fff;color:#111;border:2px solid #1c1c1c;box-shadow:8px 8px 0 rgba(204,16,16,.18)}
+.wst-account-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;border-bottom:1px solid #ddd}
+.wst-account-body{padding:1.2rem}
+.wst-account-provider{width:100%;display:flex;align-items:center;justify-content:center;gap:.65rem;padding:.8rem 1rem;margin:.55rem 0;border:1px solid #1c1c1c;background:#fff;font-weight:800;cursor:pointer}
+.wst-account-provider:hover{border-color:#cc1010;color:#cc1010}
+.wst-account-note{font-size:.78rem;line-height:1.6;color:#555;background:#fafafa;border-left:3px solid #cc1010;padding:.75rem;margin-top:1rem}
+.wst-account-field{display:block;width:100%;min-height:2.8rem;padding:.7rem .8rem;margin:.45rem 0 .8rem;border:1px solid #aaa;background:#fff;color:#111;box-sizing:border-box}
+@media(max-width:480px){.wst-accountbtn{width:2.75rem;padding:0}.wst-account-label{display:none}}
+
 /* split boxes echo the WORTH | SY logo */
 .wst-split{display:grid;grid-template-columns:2fr 1fr;border:2px solid #1c1c1c}
 .wst-split>.wst-ink{padding:2rem 2rem 2.2rem}
@@ -332,6 +346,9 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 .wst-chat-form .wst-btn{padding:.65rem .9rem}
 @media(max-width:480px){.wst-chat{right:.75rem;width:calc(100vw - 1.5rem)}.wst-chat-btn{right:.9rem}}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -353,6 +370,7 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
             </nav>
 
             <div class="flex items-center space-x-4">
+                <button type="button" id="wst-account-open" class="wst-accountbtn" aria-label="Open your account"><i class="fa-regular fa-user"></i><span class="wst-account-label">Account</span></button>
                 <button type="button" data-wst="open-cart" class="wst-cartbtn" aria-label="Open cart"><i class="fa-solid fa-bag-shopping"></i><span class="wst-cart-count" data-wst-count data-n="0">0</span></button>
                 <a href="#contact" class="hidden sm:inline-flex items-center px-6 py-2.5 text-sm font-bold uppercase tracking-widest bg-brandAccent text-brandBg hover:bg-brandAccentHover transition-all">
                     Inquire
@@ -999,6 +1017,28 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
         <div id="wst-drawer-foot" class="wst-drawer-foot"></div>
     </aside>
     <div id="wst-modal" class="wst-modal" role="dialog" aria-modal="true" aria-label="Product details" aria-hidden="true"></div>
+    <section id="wst-account-layer" class="wst-account-layer" role="dialog" aria-modal="true" aria-labelledby="wst-account-title" aria-hidden="true">
+      <div class="wst-account-card">
+        <div class="wst-bar"></div>
+        <div class="wst-account-head"><div><b id="wst-account-title" class="logo-wordmark text-xl">YOUR WORTHSY ACCOUNT</b><div class="text-xs mt-1" style="color:#666">Sign in to save your cart across devices</div></div><button type="button" id="wst-account-close" class="wst-x" aria-label="Close account panel"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="wst-account-body">
+          <button type="button" class="wst-account-provider" data-account-provider="google"><i class="fa-brands fa-google"></i> Continue with Google</button>
+          <div style="text-align:center;font-size:.72rem;color:#777;margin:1rem 0">OR USE EMAIL AND PASSWORD</div>
+          <label for="wst-account-contact" style="font-size:.8rem;font-weight:800">Email address</label>
+          <input id="wst-account-contact" class="wst-account-field" type="email" autocomplete="username" placeholder="you@example.com">
+          <label for="wst-account-password" style="font-size:.8rem;font-weight:800">Password</label>
+          <input id="wst-account-password" class="wst-account-field" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
+            <button type="button" id="wst-account-signin" class="wst-btn">Sign in</button>
+            <button type="button" id="wst-account-signup" class="wst-btn wst-btn-ghost">Create account</button>
+          </div>
+          <button type="button" id="wst-account-reset" class="wst-account-provider" style="font-size:.8rem">Reset password</button>
+          <button type="button" id="wst-account-signout" class="wst-account-provider" hidden>Sign out</button>
+          <p id="wst-account-status" role="status" aria-live="polite" class="wst-account-note">Sign in or create an account to save your cart across devices.</p>
+          <p style="font-size:.72rem;line-height:1.5;color:#666;margin-top:.8rem">Use a unique password. WORTHSY will never ask you to share your password with support.</p>
+        </div>
+      </div>
+    </section>
         <!-- AI ASSISTANT (floating chat) -->
     <button type="button" id="wst-chat-btn" class="wst-chat-btn" aria-label="Chat with the WORTHSY assistant" aria-expanded="false" aria-controls="wst-chat"><i class="fa-solid fa-comment-dots"></i></button>
     <section id="wst-chat" class="wst-chat" role="dialog" aria-label="WORTHSY assistant" hidden>
@@ -1734,7 +1774,7 @@ function lineKey(id, o) { return id + '|' + JSON.stringify(o || {}); }
 function lines() {
   return cart.map(function (l) { return { l: l, p: byId(l.id) }; }).filter(function (x) { return x.p && x.p.stock !== 'out'; });
 }
-function save() { write('worthsy_cart', cart); write('worthsy_coupon', couponCode); }
+function save() { write('worthsy_cart', cart); write('worthsy_coupon', couponCode); if (window.WORTHSY_CLOUD_CART_SAVE) window.WORTHSY_CLOUD_CART_SAVE(); }
 function calc(pay) {
   var L = lines(), sub = 0;
   L.forEach(function (x) { sub += x.p.price * x.l.qty; });
@@ -1981,6 +2021,50 @@ function supportSubmit(e) {
   fetch(STORE.orderEndpoint, { method: 'POST', mode: 'no-cors', body: d }).then(function () { f.reset(); out.className = 'wst-red'; out.textContent = 'Message sent. We’ll reply to your email within 2 working days.'; })
     .catch(function () { out.textContent = 'Couldn’t send. Check your connection or email ' + STORE.email + '.'; }).then(function () { b.disabled = false; b.textContent = 'Send message'; });
 }
+
+
+
+
+
+/* Firebase customer accounts and cloud cart sync. */
+(function () {
+  var layer=document.getElementById('wst-account-layer'), open=document.getElementById('wst-account-open'), close=document.getElementById('wst-account-close');
+  var status=document.getElementById('wst-account-status'), email=document.getElementById('wst-account-contact'), password=document.getElementById('wst-account-password');
+  var signout=document.getElementById('wst-account-signout'), signin=document.getElementById('wst-account-signin'), signup=document.getElementById('wst-account-signup'), reset=document.getElementById('wst-account-reset');
+  var accountLabel=open.querySelector('.wst-account-label'), auth=null, db=null, cloudReady=false, cloudTimer=null, applyingCloud=false;
+  function say(m){status.textContent=m;}
+  function show(){layer.classList.add('open');layer.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';close.focus();}
+  function hide(){layer.classList.remove('open');layer.setAttribute('aria-hidden','true');document.body.style.overflow='';open.focus();}
+  function errorText(e){var c=e&&e.code||'',m={
+    'auth/invalid-email':'Enter a valid email address.','auth/missing-password':'Enter your password.','auth/weak-password':'Choose a password with at least 6 characters.',
+    'auth/email-already-in-use':'An account already exists for this email. Try signing in.','auth/invalid-credential':'Email or password is incorrect.',
+    'auth/user-not-found':'No account was found. Create an account first.','auth/wrong-password':'Email or password is incorrect.',
+    'auth/popup-closed-by-user':'Google sign-in was cancelled.','auth/unauthorized-domain':'This website domain is not authorized in Firebase Authentication settings.',
+    'auth/operation-not-allowed':'This sign-in method is not enabled in Firebase Authentication settings.'
+  };return m[c]||(e&&e.message)||'Something went wrong. Please try again.';}
+  function ref(user){return db.collection('users').doc(user.uid).collection('cart').doc('current');}
+  function mergeLines(cloud,local){var out=Array.isArray(cloud)?cloud.slice():[];(Array.isArray(local)?local:[]).forEach(function(l){if(!l||typeof l.id!=='string')return;var k=l.key||(l.id+'|'+JSON.stringify(l.opts||{})),x=out.find(function(q){return q&&(q.key||(q.id+'|'+JSON.stringify(q.opts||{})))===k;});if(x)x.qty=Math.min(10,Math.max(1,+x.qty||1)+Math.max(1,+l.qty||1));else out.push({key:k,id:l.id,opts:l.opts&&typeof l.opts==='object'?l.opts:{},qty:Math.min(10,Math.max(1,+l.qty||1))});});return out;}
+  function queueSave(){if(!auth||!auth.currentUser||!db||applyingCloud)return;clearTimeout(cloudTimer);cloudTimer=setTimeout(function(){var u=auth.currentUser;if(!u)return;ref(u).set({cart:cart,couponCode:couponCode||'',updatedAt:firebase.firestore.FieldValue.serverTimestamp()}).catch(function(e){say('Cart is saved on this device, but cloud sync failed: '+errorText(e));});},500);}
+  window.WORTHSY_CLOUD_CART_SAVE=queueSave;
+  function loadCart(user){if(!user||!db)return;say('Signed in. Loading your saved cart…');applyingCloud=true;ref(user).get().then(function(snap){var d=snap.exists?snap.data():null;if(d&&Array.isArray(d.cart)){cart=mergeLines(d.cart,cart);if(typeof d.couponCode==='string'&&!couponCode)couponCode=d.couponCode;}save();refresh();applyingCloud=false;queueSave();say('Signed in as '+(user.email||'your WORTHSY account')+'. Your cart will sync across devices.');}).catch(function(e){applyingCloud=false;say('Signed in, but cloud cart could not load: '+errorText(e));});}
+  open.addEventListener('click',show);close.addEventListener('click',hide);layer.addEventListener('click',function(e){if(e.target===layer)hide();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&layer.classList.contains('open'))hide();});
+  try{
+    if(!window.firebase)throw new Error('Firebase SDK failed to load. Refresh and try again.');
+    if(!firebase.apps.length)firebase.initializeApp({
+      apiKey:'AIzaSyDxBGEZnGnCdUQftwS-Qg0VMH5h9WNzecE',
+      authDomain:'connect1worthsy.firebaseapp.com',projectId:'connect1worthsy',
+      storageBucket:'connect1worthsy.firebasestorage.app',messagingSenderId:'655885819600',
+      appId:'1:655885819600:web:333ab84dac36a82f7408d5'
+    });
+    auth=firebase.auth();db=firebase.firestore();cloudReady=true;
+  }catch(e){say('Account setup is incomplete: '+errorText(e));}
+  layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.addEventListener('click',function(){if(!cloudReady){say('Account services are unavailable. Refresh and try again.');return;}auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(r){loadCart(r.user);}).catch(function(e){say(errorText(e));});});});
+  signin.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and password.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.signInWithEmailAndPassword(e,p).then(function(r){loadCart(r.user);}).catch(function(e){say(errorText(e));});});
+  signup.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and choose a password.');return;}if(p.length<6){say('Choose a password with at least 6 characters.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.createUserWithEmailAndPassword(e,p).then(function(r){return r.user.sendEmailVerification().then(function(){loadCart(r.user);say('Account created. Please verify your email using the link we sent.');});}).catch(function(e){say(errorText(e));});});
+  reset.addEventListener('click',function(){var e=email.value.trim();if(!e){say('Enter your email address first.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.sendPasswordResetEmail(e).then(function(){say('If an account exists for this email, a password reset email will be sent.');}).catch(function(e){say(errorText(e));});});
+  signout.addEventListener('click',function(){if(auth)auth.signOut().then(function(){say('Signed out. This device cart remains available.');}).catch(function(e){say(errorText(e));});});
+  if(cloudReady)auth.onAuthStateChanged(function(u){signout.hidden=!u;signin.hidden=!!u;signup.hidden=!!u;reset.hidden=!!u;if(accountLabel)accountLabel.textContent=u?'My account':'Account';if(u)loadCart(u);else say('Sign in or create an account to save your cart across devices.');});
+})();
 
 /* ============ events ============ */
 document.addEventListener('click', function (e) {
