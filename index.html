@@ -2064,7 +2064,28 @@ function supportSubmit(e) {
     auth=firebase.auth();cloudReady=true;
     try{db=firebase.firestore();}catch(dbError){console.error('WORTHSY Firestore initialization failed:',dbError);db=null;}
   }catch(e){console.error('WORTHSY Firebase Authentication initialization failed:',e);say('Account services could not start: '+errorText(e));}
-  layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.addEventListener('click',function(){if(!cloudReady){say('Account services are unavailable. Refresh and try again.');return;}say('Opening Google sign-in…');var provider=new firebase.auth.GoogleAuthProvider();auth.signInWithRedirect(provider).catch(function(e){say(errorText(e));});});});
+  function updateAccountUI(user){
+    var signedIn=!!user;
+    signout.hidden=!signedIn;signin.hidden=signedIn;signup.hidden=signedIn;reset.hidden=signedIn;
+    layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.hidden=signedIn;});
+    if(accountLabel)accountLabel.textContent=signedIn?'Logged in':'Account';
+    open.setAttribute('aria-label',signedIn?'Logged in to your WORTHSY account':'Open your account');
+    if(signedIn&&email)email.value=user.email||'';
+  }
+  layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.addEventListener('click',function(){
+    if(!cloudReady){say('Account services are unavailable. Refresh and try again.');return;}
+    say('Opening Google sign-in…');
+    var provider=new firebase.auth.GoogleAuthProvider();
+    auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){
+      return auth.signInWithPopup(provider);
+    }).then(function(result){
+      if(result&&result.user){updateAccountUI(result.user);loadCart(result.user);}
+    }).catch(function(e){
+      if(e&&['auth/popup-blocked','auth/operation-not-supported-in-this-environment'].indexOf(e.code)!==-1){
+        auth.signInWithRedirect(provider).catch(function(err){say('Google sign-in failed: '+errorText(err));});
+      }else{say('Google sign-in failed: '+errorText(e));}
+    });
+  });});
   signin.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and password.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.signInWithEmailAndPassword(e,p).then(function(r){loadCart(r.user);}).catch(function(e){say(errorText(e));});});
   signup.addEventListener('click',function(){var e=email.value.trim(),p=password.value;if(!e||!p){say('Enter your email address and choose a password.');return;}if(p.length<6){say('Choose a password with at least 6 characters.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.createUserWithEmailAndPassword(e,p).then(function(r){return r.user.sendEmailVerification().then(function(){loadCart(r.user);say('Account created. Please verify your email using the link we sent.');});}).catch(function(e){say(errorText(e));});});
   reset.addEventListener('click',function(){var e=email.value.trim();if(!e){say('Enter your email address first.');return;}if(!cloudReady){say('Account services are unavailable.');return;}auth.sendPasswordResetEmail(e).then(function(){say('If an account exists for this email, a password reset email will be sent.');}).catch(function(e){say(errorText(e));});});
@@ -2074,11 +2095,8 @@ function supportSubmit(e) {
       if(result&&result.user){say('Google sign-in successful. Loading your account…');}
     }).catch(function(e){say('Google sign-in failed: '+errorText(e));});
     auth.onAuthStateChanged(function(u){
-      signout.hidden=!u;signin.hidden=!!u;signup.hidden=!!u;reset.hidden=!!u;
-      layer.querySelectorAll('[data-account-provider="google"]').forEach(function(btn){btn.hidden=!!u;});
-      if(accountLabel)accountLabel.textContent=u?'Logged in':'Account';
-      open.setAttribute('aria-label',u?'Logged in to your WORTHSY account':'Open your account');
-      if(u){email.value=u.email||'';loadCart(u);}
+      updateAccountUI(u);
+      if(u){loadCart(u);}
       else if(!status.textContent||status.textContent.indexOf('failed:')===-1)say('Sign in or create an account to save your cart across devices.');
     });
   }
