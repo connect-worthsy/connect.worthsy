@@ -1849,6 +1849,7 @@ function renderStore() {
   if (ui.sort === 'price-desc') list.sort(function (a, b) { return b.price - a.price; });
   if (ui.sort === 'name') list.sort(function (a, b) { return a.name.localeCompare(b.name); });
   list.sort(function (a, b) { return (a.id === 'razorpay-trial-1rs' ? -1 : 0) - (b.id === 'razorpay-trial-1rs' ? -1 : 0); });
+  /* Keep the ₹1 payment test visually identifiable at the top of the store. */
   $('#wst-count').textContent = list.length + (list.length === 1 ? ' product' : ' products');
   $('#wst-grid').innerHTML = list.length ? list.map(cardHtml).join('') :
     '<div class="wst-box" style="grid-column:1/-1;text-align:center;padding:3rem 1rem"><p class="logo-wordmark text-2xl mb-2">Nothing matches</p><p class="wst-muted text-sm">Try a different word or choose All.</p></div>';
@@ -2226,6 +2227,26 @@ function supportSubmit(e) {
     });
   }
 })();
+
+/* ============ resilient primary store controls ============ */
+/* Handle the header cart and product add buttons in capture phase so unrelated
+   site scripts cannot swallow these core store actions. */
+document.addEventListener('click', function (e) {
+  var t = e.target && e.target.nodeType === 1 ? e.target : (e.target && e.target.parentElement);
+  if (!t || !t.closest) return;
+  var cartTrigger = t.closest('[data-wst="open-cart"]');
+  if (cartTrigger) {
+    e.preventDefault(); e.stopImmediatePropagation(); openCart(); return;
+  }
+  var add = t.closest('#wst-grid [data-add], #wst-home-grid [data-add], #wst-modal [data-add]');
+  if (add) {
+    var p = byId(add.getAttribute('data-add'));
+    if (!p) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    if ((p.options || []).length) openProduct(p.id);
+    else addToCart(p.id, {}, 1);
+  }
+}, true);
 
 /* ============ events ============ */
 document.addEventListener('click', function (e) {
