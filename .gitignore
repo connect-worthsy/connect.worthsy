@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+.vercel/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
