@@ -1675,8 +1675,9 @@ var STORE = {
   returnDays: 7,
   chatEndpoint: '',              // optional: URL of the AI Worker (see worthsy-chat-worker.js). Leave empty to use built-in answers.
   whatsapp: '',                  // WhatsApp number with country code, digits only, e.g. 919876543210 (shows a chat button when filled)
-  orderEndpoint: 'https://script.google.com/macros/s/AKfycbxyVkMNeZ3939DrZ-_YgvKG-no8MNvKwsUrr0HLF_GBW8sy7VHFAfhWSJ0_mTiHW9qZow/exec', // Google Apps Script that records orders (see worthsy-orders-apps-script.gs)
-  razorpayKey: '',               // paste your Razorpay Key ID (rzp_live_...) to switch on online payments
+  orderEndpoint: 'https://script.google.com/macros/s/AKfycbxyVkMNeZ3939DrZ-_YgvKG-no8MNvKwsUrr0HLF_GBW8sy7VHFAfhWSJ0_mTiHW9qZow/exec', // Google Apps Script that records orders
+  paymentApiBase: '/api',        // Secure Razorpay API routes; deploy this site on Vercel for /api to work
+  razorpayKey: 'rzp_test_TsbBam7zrENiDp', // public test Key ID only; never put the Key Secret here
   coupons: {
     WELCOME10: { type: 'pct',  value: 10,  min: 499,  label: '10% off' },
     SAVE100:   { type: 'flat', value: 100, min: 1499, label: '₹100 off' },
@@ -1982,14 +1983,36 @@ function submitOrder(e) {
     send(o).then(function () { done(o); }).catch(function () { fail('We couldn’t send your order. Check your connection and try again.'); });
     return;
   }
+  if (!STORE.razorpayKey || !STORE.paymentApiBase) { fail('Online payments are not configured yet. Please choose cash on delivery or contact support.'); return; }
   loadRzp().then(function () {
-    var rz = new Razorpay({ key: STORE.razorpayKey, amount: o.totals.total * 100, currency: 'INR', name: 'WORTHSY', description: 'Order ' + o.id,
-      prefill: { name: o.customer.name, email: o.customer.email, contact: o.customer.phone }, notes: { order_id: o.id }, theme: { color: '#cc1010' },
-      handler: function (r) { o.payment.status = 'Paid'; o.payment.ref = r.razorpay_payment_id || ''; send(o).catch(function () {}).then(function () { done(o); }); },
-      modal: { ondismiss: function () { fail('Payment was not completed. You have not been charged.'); } } });
-    rz.on('payment.failed', function () { fail('Payment failed. Please try again or choose cash on delivery.'); });
+    return fetch(STORE.paymentApiBase.replace(/\\/$/, '') + '/create-order', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount: Math.round(o.totals.total * 100), currency: 'INR', receipt: o.id })
+    }).then(function (r) { return r.json().then(function (d) { if (!r.ok) throw new Error(d.error || 'Could not create payment order.'); return d; }); });
+  }).then(function (created) {
+    if (!created.order_id || !created.amount || created.currency !== 'INR') throw new Error('Invalid payment order response.');
+    var rz = new Razorpay({
+      key: STORE.razorpayKey, amount: created.amount, currency: created.currency, order_id: created.order_id,
+      name: 'WORTHSY', description: 'Order ' + o.id,
+      prefill: { name: o.customer.name, email: o.customer.email, contact: o.customer.phone },
+      notes: { order_id: o.id }, theme: { color: '#cc1010' },
+      handler: function (r) {
+        btn.disabled = true; btn.textContent = 'Verifying payment…';
+        fetch(STORE.paymentApiBase.replace(/\\/$/, '') + '/verify-payment', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ razorpay_order_id: r.razorpay_order_id, razorpay_payment_id: r.razorpay_payment_id, razorpay_signature: r.razorpay_signature })
+        }).then(function (res) { return res.json().then(function (d) { if (!res.ok || !d.verified) throw new Error(d.error || 'Payment verification failed.'); return d; }); })
+          .then(function () {
+            o.payment.status = 'Paid'; o.payment.ref = r.razorpay_payment_id || '';
+            return send(o);
+          }).then(function () { done(o); })
+          .catch(function (ex) { fail(ex.message || 'Payment verification failed. Please contact support before trying again.'); });
+      },
+      modal: { ondismiss: function () { fail('Payment was cancelled. You can try again or choose cash on delivery.'); } }
+    });
+    rz.on('payment.failed', function (r) { fail((r && r.error && r.error.description) || 'Payment failed. Please try again or choose cash on delivery.'); });
     rz.open();
-  }).catch(function () { fail('Online payment could not load. Try again or choose cash on delivery.'); });
+  }).catch(function (ex) { fail(ex.message || 'Online payment could not start. Please try again or choose cash on delivery.'); });
 }
 
 /* ============ order tracking ============ */
