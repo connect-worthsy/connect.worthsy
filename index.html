@@ -1931,16 +1931,37 @@ function pageOpen() { var id = location.hash.slice(1), el = id && document.getEl
 function lock(on) { document.body.style.overflow = (on || pageOpen()) ? 'hidden' : ''; }
 function openCart() {
   var toastEl = $('#wst-toast'), overlay = $('#wst-overlay'), d = $('#wst-drawer');
-  if (!overlay || !d) { console.error('WORTHSY cart drawer markup is missing.'); return; }
-  if (toastEl) toastEl.classList.remove('show');
-  lastFocus = document.activeElement; closeAll(true); renderCart();
-  overlay.classList.add('open'); d.classList.add('open'); d.setAttribute('aria-hidden', 'false'); lock(true);
-  var x = $('.wst-x', d); if (x) x.focus();
+  var body = $('#wst-drawer-body'), foot = $('#wst-drawer-foot');
+  if (!overlay || !d || !body || !foot) {
+    console.error('WORTHSY cart markup is incomplete.', { overlay: !!overlay, drawer: !!d, body: !!body, footer: !!foot });
+    return;
+  }
+  try {
+    if (toastEl) toastEl.classList.remove('show');
+    lastFocus = document.activeElement;
+    closeAll(true);
+    renderCart();
+    overlay.classList.add('open');
+    d.classList.add('open');
+    d.setAttribute('aria-hidden', 'false');
+    overlay.setAttribute('aria-hidden', 'false');
+    lock(true);
+    var x = $('.wst-x', d);
+    if (x) x.focus();
+  } catch (err) {
+    console.error('WORTHSY could not open the cart:', err);
+    /* Last-resort open: keep the cart accessible even if rendering fails. */
+    overlay.classList.add('open');
+    d.classList.add('open');
+    d.setAttribute('aria-hidden', 'false');
+    lock(true);
+  }
 }
 function closeAll(keep) {
-  $('#wst-overlay').classList.remove('open');
-  var d = $('#wst-drawer'); d.classList.remove('open'); d.setAttribute('aria-hidden', 'true');
-  var m = $('#wst-modal'); m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); m.innerHTML = '';
+  var overlay = $('#wst-overlay'), d = $('#wst-drawer'), m = $('#wst-modal');
+  if (overlay) { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); }
+  if (d) { d.classList.remove('open'); d.setAttribute('aria-hidden', 'true'); }
+  if (m) { m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); m.innerHTML = ''; }
   if (!keep) { lock(false); if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} } lastFocus = null; }
 }
 var tt;
