@@ -2255,7 +2255,7 @@ function supportSubmit(e) {
 document.addEventListener('click', function (e) {
   var t = e.target && e.target.nodeType === 1 ? e.target : (e.target && e.target.parentElement);
   if (!t || !t.closest) return;
-  var cartTrigger = t.closest('[data-wst="open-cart" onclick="if(!document.getElementById('wst-drawer')||!document.getElementById('wst-drawer').classList.contains('open')){if(window.WORTHSY_STORE&&window.WORTHSY_STORE.openCart){window.WORTHSY_STORE.openCart()}else{var d=document.getElementById('wst-drawer'),o=document.getElementById('wst-overlay');if(d){d.classList.add('open');d.setAttribute('aria-hidden','false')}if(o){o.classList.add('open');o.setAttribute('aria-hidden','false')}document.body.style.overflow='hidden'}}"]');
+  var cartTrigger = t.closest('[data-wst="open-cart"]');
   if (cartTrigger) {
     e.preventDefault(); e.stopImmediatePropagation(); openCart(); return;
   }
@@ -2273,7 +2273,7 @@ document.addEventListener('click', function (e) {
 document.addEventListener('click', function (e) {
   var t = e.target && e.target.nodeType === 1 ? e.target : e.target.parentElement;
   if (!t) return;
-  var cartTrigger = t.closest('[data-wst="open-cart" onclick="if(!document.getElementById('wst-drawer')||!document.getElementById('wst-drawer').classList.contains('open')){if(window.WORTHSY_STORE&&window.WORTHSY_STORE.openCart){window.WORTHSY_STORE.openCart()}else{var d=document.getElementById('wst-drawer'),o=document.getElementById('wst-overlay');if(d){d.classList.add('open');d.setAttribute('aria-hidden','false')}if(o){o.classList.add('open');o.setAttribute('aria-hidden','false')}document.body.style.overflow='hidden'}}"]');
+  var cartTrigger = t.closest('[data-wst="open-cart"]');
   if (cartTrigger) { e.preventDefault(); e.stopPropagation(); openCart(); return; }
   var w = t.closest('[data-wst]'); if (w) { var a = w.getAttribute('data-wst'); if (a === 'open-cart') { openCart(); return; } if (a === 'close-all') { closeAll(); return; } }
   var add = t.closest('[data-add]'); if (add) { e.stopPropagation(); var p = byId(add.getAttribute('data-add')); if (p && (p.options || []).length) openProduct(p.id); else if (p) addToCart(p.id, {}, 1); return; }
