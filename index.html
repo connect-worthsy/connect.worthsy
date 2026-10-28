@@ -1790,7 +1790,7 @@ var STATES = ['Andaman and Nicobar Islands','Andhra Pradesh','Arunachal Pradesh'
 /* ============ helpers ============ */
 var $ = function (s, r) { return (r || document).querySelector(s); };
 var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]; }); }
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]; }); }
 function money(n) { return STORE.currency + Number(n).toLocaleString('en-IN'); }
 function safeImg(u) { return /^(https?:\/\/|[\w\-.\/]+\.(png|jpe?g|webp|gif|svg|avif)(\?.*)?$)/i.test(u || '') ? u : ''; }
 function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : ''; }
