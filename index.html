@@ -2096,7 +2096,7 @@ function submitOrder(e) {
   }
   if (!STORE.paymentApiBase) { fail('Online payments are not configured yet. Please choose cash on delivery or contact support.'); return; }
   loadRzp().then(function () {
-    return fetch(STORE.paymentApiBase.replace(/\\/$/, '') + '/create-order', {
+    return fetch(STORE.paymentApiBase.replace(/\/$/, '') + '/create-order', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ amount: Math.round(o.totals.total * 100), currency: 'INR', receipt: (o.items.length === 1 && o.items[0].id === 'razorpay-trial-1rs' && o.items[0].qty === 1 && o.totals.total === 1) ? 'TRIAL_' + o.id : o.id })
     }).then(function (r) { return r.json().then(function (d) { if (!r.ok) throw new Error(d.error || 'Could not create payment order.'); return d; }); });
@@ -2109,7 +2109,7 @@ function submitOrder(e) {
       notes: { order_id: o.id }, theme: { color: '#cc1010' },
       handler: function (r) {
         btn.disabled = true; btn.textContent = 'Verifying payment…';
-        fetch(STORE.paymentApiBase.replace(/\\/$/, '') + '/verify-payment', {
+        fetch(STORE.paymentApiBase.replace(/\/$/, '') + '/verify-payment', {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ razorpay_order_id: r.razorpay_order_id, razorpay_payment_id: r.razorpay_payment_id, razorpay_signature: r.razorpay_signature })
         }).then(function (res) { return res.json().then(function (d) { if (!res.ok || !d.verified) throw new Error(d.error || 'Payment verification failed.'); return d; }); })
