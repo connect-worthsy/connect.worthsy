@@ -1839,8 +1839,8 @@ function renderStore() {
   $('#wst-cats').innerHTML = cats.map(function (c) { return '<button type="button" class="wst-chip" data-cat="' + esc(c) + '" aria-pressed="' + (ui.cat === c) + '">' + esc(c) + '</button>'; }).join('');
   var q = ui.q.toLowerCase().split(/\s+/).filter(Boolean);
   var list = P.filter(function (p) {
-    /* Keep the requested ₹1 checkout test visible even when a category/search filter is active. */
-    if (p.id === 'razorpay-trial-1rs') return true;
+    /* Payment-test items must never be visible in the public storefront. */
+    if (p.id === 'razorpay-trial-1rs') return false;
     if (ui.cat !== 'All' && p.category !== ui.cat) return false;
     var hay = (p.name + ' ' + p.category + ' ' + (p.highlights || []).join(' ')).toLowerCase();
     return q.every(function (w) { return hay.indexOf(w) >= 0; });
@@ -1856,7 +1856,8 @@ function renderStore() {
 }
 function renderHome() {
   var g = $('#wst-home-grid'); if (!g) return;
-  var f = P.filter(function (p) { return p.featured; }); if (f.length < 4) f = P;
+  var publicProducts = P.filter(function (p) { return p.id !== 'razorpay-trial-1rs'; });
+  var f = publicProducts.filter(function (p) { return p.featured; }); if (f.length < 4) f = publicProducts;
   g.innerHTML = f.slice(0, 4).map(cardHtml).join('');
 }
 
