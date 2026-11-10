@@ -843,6 +843,59 @@ body{background:#fff!important;color:var(--ws-ink)!important;font-family:Inter,-
 @media(prefers-reduced-motion:no-preference){.ws-category-grid>a,.ws-partner-grid>a,.ws-button,.ws-search button{transition:all .28s cubic-bezier(.2,.7,.2,1)!important}.ws-hero-copy>*{animation:ws-rise .7s both}.ws-hero-copy>*:nth-child(2){animation-delay:.06s}.ws-hero-copy>*:nth-child(3){animation-delay:.12s}.ws-hero-copy>*:nth-child(4){animation-delay:.18s}@keyframes ws-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}}
 
 </style>
+
+<style id="worthsy-mobile-layout-fix">
+/* Mobile-only layout guard: keep the AI discovery panel inside the viewport. */
+@media screen and (max-width: 650px) {
+  html, body { max-width: 100%; overflow-x: clip; }
+  .ws-ai-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 28px 14px 22px !important;
+    margin: 0 auto;
+  }
+  .ws-ai-card {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 26px 20px !important;
+    gap: 22px !important;
+    overflow: hidden;
+  }
+  .ws-ai-card:after { display: none !important; }
+  .ws-ai-symbol, .ws-ai-copy, .ws-ai-prompts {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .ws-ai-copy h2 {
+    max-width: 100%;
+    font-size: clamp(30px, 8vw, 40px) !important;
+    line-height: 1.08 !important;
+    overflow-wrap: break-word;
+  }
+  .ws-ai-copy > p:last-child {
+    max-width: 100%;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+  .ws-ai-prompts { gap: 8px; }
+  .ws-ai-prompts button {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+</style>
+
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
