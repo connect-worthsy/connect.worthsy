@@ -30,7 +30,7 @@ jobs:
           python - <<'PY'
           import json, os, pathlib, re
           # Amazon Associates tracking tag supplied by the site owner.
-          tag = "worthsy01-21"
+          tag = "worthsy0d-21"
           pathlib.Path("amazon-config.js").write_text(
               "window.WORTHSY_AMAZON_TAG = " + json.dumps(tag) + ";" + chr(10),
               encoding="utf-8"
