@@ -8568,5 +8568,38 @@
     "images": [
       "https://m.media-amazon.com/images/P/B08VJMYC3K.01._SCLZZZZZZZ_.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Samsung",
+    "category": "Charger",
+    "name": "Samsung 25W USB Type-C Travel Adapter",
+    "description": "Samsung 25W USB Type-C fast-charging travel adapter. Check the Amazon listing for compatibility, current availability and specifications.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D2R26HFV?tag=worthsy0d-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Lenovo",
+    "category": "Tablet",
+    "name": "Lenovo Idea Tab 11-inch 2.5K Tablet with Pen (8GB RAM, 256GB, 5G)",
+    "description": "11-inch 2.5K Lenovo tablet with an included pen, 8GB RAM, 256GB storage and 5G connectivity. Check the Amazon listing for current configuration and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FJG2TL3C?tag=worthsy0d-21",
+    "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Samsung",
+    "category": "Smartphone",
+    "name": "Samsung Galaxy S24 FE 5G (8GB RAM, 128GB)",
+    "description": "Samsung Galaxy S24 FE 5G smartphone with a 6.7-inch Dynamic AMOLED 2X display and 50MP main camera. Check the Amazon listing for colour, storage variant and current availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DHL98QM2?tag=worthsy0d-21",
+    "images": []
   }
 ]
