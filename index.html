@@ -520,6 +520,329 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .wx-foot-text{margin-top:.5rem;max-width:22rem;font-size:.9rem;line-height:1.6;color:var(--wx-mute)}
 .wx-foot-bar{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;margin-top:2.75rem;padding-top:1.5rem;border-top:1px solid #dcdcdc;font-size:.8rem;color:#666}
 </style>
+
+<style id="worthsy-complete-redesign">
+:root{--ws-black:#171717;--ws-muted:#707070;--ws-line:#e9e9e9;--ws-soft:#f7f7f6;--ws-red:#d71920;--ws-red-light:#f04444;--ws-max:1240px}
+html,body{background:#fff!important;color:var(--ws-black)!important;font-family:Inter,Arial,sans-serif!important}
+body{font-size:15px;line-height:1.6}
+body *{text-shadow:none!important;box-shadow:none!important}
+h1,h2,h3,h4{font-family:Inter,Arial,sans-serif!important;text-transform:none!important;letter-spacing:-.045em!important;color:var(--ws-black)}
+a,button{transition:all .2s ease}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--ws-red)!important;outline-offset:3px}
+.worthsy-logo{height:42px!important;aspect-ratio:1046/322!important}
+.worthsy-header,.wx-header{height:auto!important;min-height:76px!important;background:rgba(255,255,255,.94)!important;border-bottom:1px solid var(--ws-line)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.worthsy-header>div:first-child{height:76px!important;max-width:var(--ws-max)!important;padding:0 28px!important}
+.wx-nav{gap:30px!important}
+.wx-nav a,.wx-mobile a{font:600 13px Inter,Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#383838!important}
+.wx-nav a:hover,.wx-mobile a:hover{color:var(--ws-red)!important;text-decoration:none!important}
+.wx-searchpill,.wst-accountbtn,.wst-cartbtn{border:1px solid #e5e5e5!important;border-radius:999px!important;background:#fff!important;color:#222!important;min-height:40px!important;padding:0 14px!important}
+.wx-searchpill:hover,.wst-accountbtn:hover,.wst-cartbtn:hover{background:#f8f8f8!important;border-color:#bbb!important}
+.wx-cta,.wx-cta-header,.wx-cta-block,.wst-btn{border-radius:999px!important;background:#171717!important;color:#fff!important;border:1px solid #171717!important;font:600 13px Inter,Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;padding:12px 20px!important}
+.wx-cta:hover,.wx-cta-header:hover,.wx-cta-block:hover,.wst-btn:hover{background:var(--ws-red)!important;border-color:var(--ws-red)!important}
+.wx-mobile{background:#fff!important;border-top:1px solid var(--ws-line)!important}
+.wx-mobile a{padding:11px 0!important;border-bottom:1px solid #f0f0f0!important}
+.worthsy-home{max-width:none!important;padding:0!important;margin:0!important}
+.ws-hero{max-width:var(--ws-max);margin:0 auto;padding:156px 30px 88px;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;min-height:650px}
+.ws-eyebrow,.ws-kicker{font-size:10px;font-weight:700;letter-spacing:.16em;color:#777;text-transform:uppercase}
+.ws-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+.ws-live-dot{width:7px;height:7px;background:var(--ws-red);border-radius:50%;display:inline-block}
+.ws-hero h1{font-size:clamp(54px,7vw,92px);line-height:.99;font-weight:650;letter-spacing:-.085em!important;margin:0 0 24px}
+.ws-hero h1 em,.ws-ai-copy h2 em{font-style:normal;color:var(--ws-red)}
+.ws-hero-copy>p{font-size:16px;color:#686868;max-width:510px;line-height:1.8;margin:0 0 28px}
+.ws-search{height:58px;max-width:550px;border:1px solid #dedede;border-radius:8px;display:flex;align-items:center;padding:5px 6px 5px 18px;background:#fff;gap:12px}
+.ws-search>i{color:#8a8a8a}
+.ws-search input{flex:1;min-width:0;border:0!important;outline:0!important;background:transparent!important;padding:10px 0!important;color:#171717!important;font-size:14px}
+.ws-search button{width:44px;height:44px;border:0;border-radius:6px;background:#171717;color:#fff}
+.ws-search button:hover{background:var(--ws-red)}
+.ws-quick-search{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:14px;font-size:11px;color:#888}
+.ws-quick-search button{border:1px solid #e8e8e8;background:#fff;border-radius:99px;padding:5px 10px;color:#555;font-size:11px}
+.ws-quick-search button:hover{border-color:#aaa;color:#111}
+.ws-hero-actions{display:flex;align-items:center;gap:22px;margin-top:30px}
+.ws-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:13px 20px;border-radius:5px;font-size:12px;font-weight:650}
+.ws-button-dark{background:#171717;color:#fff;border:1px solid #171717}
+.ws-button-dark:hover{background:var(--ws-red);border-color:var(--ws-red);color:#fff}
+.ws-button-outline{background:#fff;color:#171717;border:1px solid #d9d9d9}
+.ws-button-outline:hover{border-color:#171717}
+.ws-text-button{font-size:12px;font-weight:650;color:#333}
+.ws-text-button:hover,.ws-inline-link:hover{color:var(--ws-red)}
+.ws-hero-art{min-height:440px;background:#f3f2ef;position:relative;overflow:hidden;padding:22px 24px;display:flex;flex-direction:column;justify-content:space-between}
+.ws-art-top,.ws-art-bottom{display:flex;justify-content:space-between;gap:12px;font-size:8px;font-weight:700;letter-spacing:.14em;color:#888}
+.ws-art-main{position:relative;min-height:320px;display:flex;align-items:center;justify-content:center}
+.ws-art-ring{width:300px;height:300px;border:1px solid #d7d4cf;border-radius:50%;position:absolute}
+.ws-art-ring:before,.ws-art-ring:after{content:"";position:absolute;border:1px solid #dedbd6;border-radius:50%;inset:28px}
+.ws-art-ring:after{inset:65px}
+.ws-art-word{font-size:132px;font-weight:800;letter-spacing:-.12em;color:#1a1a1a;z-index:1}
+.ws-art-word span{color:var(--ws-red);font-size:70px;vertical-align:top}
+.ws-art-card{position:absolute;z-index:2;background:#fff;border:1px solid #e7e5e1;padding:11px 14px;display:flex;align-items:center;gap:11px;min-width:150px}
+.ws-art-card>i{width:32px;height:32px;display:grid;place-items:center;background:#f4f3f1;color:var(--ws-red);border-radius:50%}
+.ws-art-card b,.ws-art-card small{display:block}
+.ws-art-card b{font-size:11px}.ws-art-card small{font-size:9px;color:#888}
+.ws-art-card-one{top:18px;left:2%}.ws-art-card-two{right:-1%;top:46%}.ws-art-card-three{bottom:14px;left:9%}
+.ws-valuebar{border-top:1px solid var(--ws-line);border-bottom:1px solid var(--ws-line);display:grid;grid-template-columns:repeat(3,1fr);max-width:var(--ws-max);margin:auto;padding:22px 30px}
+.ws-valuebar>div{display:flex;align-items:center;gap:14px;padding:5px 26px;border-right:1px solid var(--ws-line)}
+.ws-valuebar>div:first-child{padding-left:0}.ws-valuebar>div:last-child{border:0}
+.ws-valuebar>div>i{font-size:18px;color:var(--ws-red)}
+.ws-valuebar b,.ws-valuebar small{display:block}.ws-valuebar b{font-size:12px}.ws-valuebar small{font-size:10px;color:#888;margin-top:2px}
+.ws-section{max-width:var(--ws-max);margin:0 auto;padding:88px 30px}
+.ws-section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:30px}
+.ws-section-head h2,.ws-faq-layout h2{font-size:clamp(29px,3.5vw,42px);font-weight:650;line-height:1.1;margin:7px 0 9px}
+.ws-section-head p:not(.ws-kicker),.ws-faq-layout>div:first-child>p:not(.ws-kicker){font-size:13px;color:#888;margin:0}
+.ws-inline-link{border:0;background:none;padding:8px 0;color:#333;font-size:11px;font-weight:650;white-space:nowrap}
+.ws-inline-link i{margin-left:8px}
+.ws-ai-section{max-width:var(--ws-max);margin:0 auto;padding:16px 30px 24px}
+.ws-ai-card{background:#171717;color:#fff;padding:34px 38px;display:grid;grid-template-columns:1fr 1fr;gap:30px;position:relative;overflow:hidden}
+.ws-ai-card:after{content:"✳";position:absolute;right:42%;top:-115px;font-size:330px;color:rgba(255,255,255,.035);pointer-events:none}
+.ws-ai-symbol{grid-column:1/-1;display:flex;align-items:center;gap:10px;font-size:9px;letter-spacing:.16em;color:#aaa;font-weight:700}
+.ws-ai-spark{color:#ef4a4a;font-size:23px}
+.ws-ai-copy{position:relative;z-index:1}
+.ws-ai-copy .ws-kicker{color:#aaa}
+.ws-ai-copy h2{font-size:clamp(30px,4vw,45px);line-height:1.1;color:#fff;font-weight:650;margin:10px 0 14px}
+.ws-ai-copy h2 em{color:#ff5757}
+.ws-ai-copy>p:last-child{font-size:12px;line-height:1.8;color:#bbb;max-width:440px}
+.ws-ai-prompts{display:flex;flex-direction:column;gap:9px;justify-content:center;position:relative;z-index:1}
+.ws-ai-prompts button{display:flex;align-items:center;justify-content:space-between;text-align:left;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:#eee;padding:13px 15px;font-size:11px}
+.ws-ai-prompts button:hover{background:rgba(255,255,255,.14);border-color:#777}
+.ws-ai-prompts .ws-ai-open{background:#fff;color:#171717;font-weight:700;margin-top:4px}
+.ws-ai-prompts .ws-ai-open:hover{background:#f0eeee}
+.ws-category-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ws-category-grid>a{position:relative;min-height:158px;border:1px solid var(--ws-line);padding:21px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;background:#fff}
+.ws-category-grid>a:hover{border-color:#bbb;background:#fafafa;transform:translateY(-2px)}
+.ws-category-icon{position:absolute;top:20px;left:21px;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#f5f4f2;color:#222;font-size:15px}
+.ws-category-grid b{font-size:13px}.ws-category-grid small{font-size:10px;color:#888;margin-top:3px}
+.ws-card-arrow{position:absolute;right:19px;bottom:22px;color:#aaa;font-size:11px}
+.ws-partners-section,.ws-faq-section,.ws-how-section{background:#f8f8f7;border-top:1px solid #eee;border-bottom:1px solid #eee}
+.ws-partners-section .ws-section,.ws-faq-section .ws-section,.ws-how-section .ws-section{padding-top:82px;padding-bottom:82px}
+.ws-section-note{font-size:10px;color:#888}
+.ws-partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ws-partner-grid>a{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid #e9e9e9;padding:18px 16px;min-height:83px}
+.ws-partner-grid>a:hover{border-color:#bbb;transform:translateY(-2px)}
+.ws-partner-mark{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;background:#f4f3f1;font-size:19px;font-weight:750;color:#333}
+.ws-partner-grid>a>span:nth-child(2){flex:1;min-width:0}
+.ws-partner-grid b,.ws-partner-grid small{display:block}
+.ws-partner-grid b{font-size:12px}.ws-partner-grid small{font-size:10px;color:#888;margin-top:3px}
+.ws-partner-grid>a>i{font-size:10px;color:#aaa}
+.ws-disclosure{font-size:10px;color:#999;margin-top:18px}
+.ws-brand-wrap{max-height:190px;overflow:hidden;transition:max-height .35s ease}
+.ws-brand-wrap:not(.is-collapsed){max-height:2000px}
+.ws-brand-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.ws-brand-grid .brand-logo-card{border:1px solid var(--ws-line)!important;border-radius:0!important;background:#fff!important;min-height:90px;padding:14px!important}
+.ws-brand-grid .brand-logo-card:hover{border-color:#bbb!important}
+.ws-how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ws-how-grid article{background:#fff;border:1px solid #e8e8e8;padding:26px;min-height:205px;position:relative}
+.ws-how-grid article>span{font-size:10px;color:#aaa;letter-spacing:.1em}
+.ws-how-grid article>i{display:block;font-size:21px;color:var(--ws-red);margin:23px 0 15px}
+.ws-how-grid h3{font-size:17px;margin:0 0 7px}.ws-how-grid p{font-size:11px;color:#888;line-height:1.7;margin:0}
+.ws-about{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:center}
+.ws-about-label{min-height:280px;background:#f0efec;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.ws-about-label:before,.ws-about-label:after{content:"";position:absolute;border:1px solid #d8d5d0;border-radius:50%;width:270px;height:270px}
+.ws-about-label:after{width:210px;height:210px}
+.ws-about-label span{position:absolute;left:18px;top:17px;font-size:8px;letter-spacing:.15em;color:#888;font-weight:700}
+.ws-about-label b{font-size:145px;letter-spacing:-.12em;z-index:1}
+.ws-about-copy h2{font-size:clamp(30px,4vw,45px);line-height:1.08;font-weight:650;margin:9px 0 16px}
+.ws-about-copy>p:not(.ws-kicker){font-size:13px;color:#777;line-height:1.8;max-width:560px;margin-bottom:22px}
+.ws-faq-layout{display:grid;grid-template-columns:.7fr 1.3fr;gap:65px}
+.ws-faq-layout>div:first-child .ws-inline-link{display:inline-block;margin-top:22px}
+.ws-faq-list details{border-bottom:1px solid #e2e2e2;padding:17px 0}
+.ws-faq-list summary{font-size:12px;font-weight:650;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:15px}
+.ws-faq-list summary:after{content:"+";font-size:17px;font-weight:400;color:#888}
+.ws-faq-list details[open] summary:after{content:"−"}
+.ws-faq-list p{font-size:11px;color:#777;line-height:1.8;margin:12px 20px 0 0}
+.ws-contact-section{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start;border-top:1px solid var(--ws-line)}
+.ws-contact-intro h2{font-size:clamp(32px,4vw,47px);font-weight:650;line-height:1.06;margin:10px 0 16px}
+.ws-contact-intro>p:not(.ws-kicker){font-size:13px;color:#888;max-width:340px}
+.ws-contact-intro>a{display:inline-block;margin-top:22px;font-size:12px;font-weight:650}
+.ws-contact-intro>a i{margin-left:7px;color:var(--ws-red)}
+.ws-inquiry-card{border:1px solid #e7e7e7;padding:27px;background:#fff}
+.ws-inquiry-card form{display:flex;flex-direction:column;gap:17px}
+.ws-inquiry-card label{display:flex;flex-direction:column;gap:7px;font-size:10px;font-weight:650;color:#555}
+.ws-inquiry-card input,.ws-inquiry-card select,.ws-inquiry-card textarea{width:100%;border:1px solid #e2e2e2!important;border-radius:3px!important;background:#fff!important;color:#171717!important;padding:12px 13px!important;font:400 12px Inter,Arial,sans-serif!important}
+.ws-inquiry-card input::placeholder,.ws-inquiry-card textarea::placeholder{color:#aaa}
+.ws-inquiry-card input:focus,.ws-inquiry-card select:focus,.ws-inquiry-card textarea:focus{border-color:#777!important;outline:none!important}
+.ws-form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.ws-inquiry-card .ws-button{align-self:flex-start;cursor:pointer}
+.ws-success{display:flex;gap:12px;align-items:center;background:#f4faf5;border:1px solid #d8eadb;padding:16px}
+.ws-success i{color:#278248;font-size:20px}.ws-success b,.ws-success span{display:block}.ws-success b{font-size:12px}.ws-success span{font-size:11px;color:#777}
+.wx-foot,.worthsy-footer{background:#f7f7f6!important;border-top:1px solid var(--ws-line)!important;color:#222!important}
+.wx-foot>div{max-width:var(--ws-max)!important;padding:54px 30px 25px!important}
+.wx-foot h4{font-size:11px!important;font-weight:700!important;letter-spacing:.04em!important}
+.wx-foot a{font-size:11px!important;color:#777!important;margin:7px 0!important}
+.wx-foot a:hover{color:var(--ws-red)!important}
+.wx-foot-tag{font-size:12px!important;font-weight:650!important}
+.wx-foot-text{font-size:11px!important;color:#888!important;max-width:280px!important}
+.wx-foot-bar{border-top:1px solid #e4e4e4!important;color:#999!important}
+.wx-foot-bar p{font-size:10px!important;color:#999!important}
+.wx-header.is-scrolled{border-bottom-color:#ddd!important}
+.site-page,.platform-page{background:#fff!important;color:#171717!important}
+.site-page>div:first-child,.platform-page>div:first-child{background:rgba(255,255,255,.96)!important;border-color:#eee!important}
+.site-page>div:first-child>div,.platform-page>div:first-child>div{height:72px!important}
+.site-page main,.platform-page main{max-width:var(--ws-max)!important;padding-top:46px!important}
+.site-page main>div:first-child,.platform-page main>div:first-child{text-align:left!important;margin:0 0 35px!important;max-width:800px!important}
+.site-page h1,.platform-page h1{font-size:clamp(32px,5vw,52px)!important;line-height:1.08!important;font-weight:650!important;letter-spacing:-.06em!important}
+.site-page h2,.platform-page h2{font-size:22px!important;font-weight:650!important}
+.site-page p,.platform-page p{color:#666}
+.site-page .luxury-border,.platform-page .luxury-border{border:1px solid #e8e8e8!important;background:#fff!important}
+input,select,textarea{color:#171717}
+.wst-chat-btn{background:#171717!important;border:1px solid #171717!important;border-radius:50%!important;width:54px!important;height:54px!important}
+.wst-chat-btn:hover{background:var(--ws-red)!important;border-color:var(--ws-red)!important}
+.wst-chat{border:1px solid #ddd!important;border-radius:14px!important;overflow:hidden!important}
+.wst-chat-head{background:#fff!important}
+.wst-chat-head b{font-family:Inter,Arial,sans-serif!important;font-size:13px}
+.wst-chat-head small{font-family:Inter,Arial,sans-serif!important;font-size:9px!important;letter-spacing:.03em!important}
+.wst-chat-log{background:#f8f8f7!important}
+.wst-chat-chip,.wst-chat-link{border:1px solid #ddd!important;border-radius:999px!important;font:500 10px Inter,Arial,sans-serif!important;letter-spacing:0!important}
+.wst-chat-chip:hover,.wst-chat-link:hover{border-color:var(--ws-red)!important;color:var(--ws-red)!important}
+.wst-chat-form .wst-input{border:1px solid #ddd!important;border-radius:6px!important}
+.wst-account-layer{background:rgba(0,0,0,.45)!important;backdrop-filter:blur(5px)}
+.wst-account-card{border:1px solid #e5e5e5!important;border-radius:12px!important;background:#fff!important}
+.wst-account-provider{border:1px solid #ddd!important;border-radius:6px!important;background:#fff!important;color:#222!important}
+.wst-account-provider:hover{background:#f8f8f8!important}
+@media(max-width:900px){
+ .ws-hero{grid-template-columns:1fr;gap:35px;padding-top:125px;min-height:0}
+ .ws-hero-art{min-height:380px}
+ .ws-about,.ws-contact-section,.ws-faq-layout{grid-template-columns:1fr;gap:30px}
+ .ws-brand-grid{grid-template-columns:repeat(4,1fr)}
+ .ws-ai-card{grid-template-columns:1fr}
+ .ws-ai-symbol{grid-column:auto}
+}
+@media(max-width:650px){
+ .worthsy-header>div:first-child{height:66px!important;padding:0 16px!important}
+ .worthsy-header{min-height:66px!important}
+ .worthsy-logo{height:34px!important}
+ .wx-cta-header{display:none!important}
+ .ws-hero{padding:110px 19px 52px;gap:30px}
+ .ws-hero h1{font-size:clamp(51px,14vw,72px)}
+ .ws-hero-copy>p{font-size:14px}
+ .ws-hero-art{min-height:330px;padding:17px}
+ .ws-art-main{min-height:245px}
+ .ws-art-ring{width:230px;height:230px}
+ .ws-art-word{font-size:100px}
+ .ws-art-card{min-width:126px;padding:8px 10px}
+ .ws-art-card-one{top:10px}.ws-art-card-three{bottom:6px}
+ .ws-valuebar{grid-template-columns:1fr;padding:10px 20px}
+ .ws-valuebar>div{border-right:0;border-bottom:1px solid var(--ws-line);padding:12px 0}
+ .ws-valuebar>div:last-child{border:0}
+ .ws-section{padding:58px 19px}
+ .ws-ai-section{padding:10px 19px 18px}
+ .ws-ai-card{padding:25px 21px;gap:20px}
+ .ws-ai-copy h2{font-size:32px}
+ .ws-section-head{align-items:flex-start;flex-direction:column;gap:10px;margin-bottom:22px}
+ .ws-category-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+ .ws-category-grid>a{min-height:145px;padding:15px}
+ .ws-category-icon{top:15px;left:15px}
+ .ws-partner-grid{grid-template-columns:1fr 1fr;gap:8px}
+ .ws-partner-grid>a{padding:12px 10px;gap:9px;min-height:75px}
+ .ws-partner-mark{width:30px;height:30px;flex-basis:30px;font-size:15px}
+ .ws-partner-grid small{font-size:9px}
+ .ws-brand-grid{grid-template-columns:repeat(2,1fr)}
+ .ws-how-grid{grid-template-columns:1fr}
+ .ws-how-grid article{min-height:0}
+ .ws-about-label{min-height:210px}
+ .ws-about-label b{font-size:110px}
+ .ws-faq-layout{gap:20px}
+ .ws-contact-section{gap:22px}
+ .ws-form-row{grid-template-columns:1fr}
+ .ws-inquiry-card{padding:18px}
+ .wx-foot>div{padding:40px 19px 20px!important}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
+
+<style id="worthsy-production-polish">
+/* Shared component system across the store, partner pages, account, checkout and help pages */
+:root{--ws-accent:#d71920;--ws-border:#e7e7e7;--ws-muted:#707070}
+.site-page,.platform-page{font-family:Inter,Arial,sans-serif!important}
+.site-page main,.platform-page main{padding-left:clamp(18px,4vw,48px)!important;padding-right:clamp(18px,4vw,48px)!important}
+.site-page main>div:first-child>span,.platform-page main>div:first-child>span{font-size:10px!important;letter-spacing:.14em!important;color:var(--ws-accent)!important}
+.site-page .luxury-border,.platform-page .luxury-border,.site-page details,.platform-page details{
+ border:1px solid var(--ws-border)!important;border-radius:8px!important;background:#fff!important}
+.site-page button:not(.wst-x),.platform-page button:not(.wst-x){border-radius:6px!important;font-family:Inter,Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important}
+.site-page input,.site-page select,.site-page textarea,.platform-page input,.platform-page select,.platform-page textarea{
+ border:1px solid #dedede!important;border-radius:5px!important;background:#fff!important;color:#171717!important;padding:12px!important}
+.site-page label,.platform-page label{font-family:Inter,Arial,sans-serif!important;font-size:11px!important;font-weight:650!important;color:#555!important;letter-spacing:0!important;text-transform:none!important}
+.site-page .text-slate-400,.platform-page .text-slate-400{color:#777!important}
+.site-page .text-slate-300,.platform-page .text-slate-300{color:#555!important}
+.site-page .bg-\[\#ffffff\],.platform-page .bg-\[\#ffffff\]{background:#fff!important}
+.site-page .border-slate-600,.platform-page .border-slate-600{border-color:#dedede!important}
+.site-page .text-brandAccent,.platform-page .text-brandAccent{color:var(--ws-accent)!important}
+.site-page .bg-brandAccent,.platform-page .bg-brandAccent{background:var(--ws-accent)!important;color:#fff!important}
+.site-page .hover\:bg-brandAccentHover:hover,.platform-page .hover\:bg-brandAccentHover:hover{background:#b9151b!important}
+.wst-account-layer{z-index:100!important}
+.wst-chat{z-index:101!important}
+.wst-chat-btn{z-index:100!important}
+.ws-search button{flex:0 0 44px}
+.ws-hero .ws-quick-search{margin-bottom:0}
+.ws-ai-card{border-radius:10px}
+.ws-ai-prompts button{border-radius:5px}
+.ws-category-grid>a,.ws-partner-grid>a,.ws-how-grid article{border-radius:7px}
+.ws-inquiry-card{border-radius:8px}
+.ws-button{border-radius:5px}
+.ws-brand-wrap .brand-logo-card{border-radius:6px!important}
+@media(max-width:650px){
+ .ws-hero-actions{gap:14px;flex-wrap:wrap}
+ .ws-hero-actions .ws-button{width:100%}
+ .ws-ai-card{border-radius:8px}
+ .ws-section-head .ws-section-note{display:none}
+}
+</style>
+
+<style id="worthsy-apple-inspired-redesign">
+/* WORTHSY — editorial product-theatre redesign, informed by Apple's live web design patterns. */
+:root{--ws-paper:#fff;--ws-cloud:#f5f5f7;--ws-ink:#1d1d1f;--ws-muted:#6e6e73;--ws-line:#d2d2d7;--ws-red:#c8102e;--ws-max:1280px}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:#fff!important;color:var(--ws-ink)!important;font-family:Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif!important;-webkit-font-smoothing:antialiased}
+.worthsy-header,.wx-header{height:54px!important;min-height:54px!important;background:rgba(250,250,252,.82)!important;border:0!important;backdrop-filter:saturate(180%) blur(22px)!important;-webkit-backdrop-filter:saturate(180%) blur(22px)!important;box-shadow:0 1px 0 rgba(0,0,0,.07)!important}
+.worthsy-header:after,.worthsy-footer:before{display:none!important}
+.worthsy-header>div:first-child{height:54px!important;max-width:1200px!important;padding:0 24px!important}
+.wx-header .worthsy-logo{height:30px!important}
+.wx-nav{gap:27px!important}.wx-nav a{font-size:12px!important;font-weight:400!important;letter-spacing:0!important;color:#424245!important;box-shadow:none!important}
+.wx-nav a:hover{color:var(--ws-red)!important;box-shadow:none!important}
+.wx-searchpill{border:0!important;background:transparent!important;color:#424245!important;font-size:12px!important}
+.wst-accountbtn,.wst-cartbtn{border:0!important;background:transparent!important;min-height:34px!important;width:auto!important;height:34px!important;padding:0 8px!important;color:#424245!important;font-size:12px!important}
+.wst-cart-count{background:var(--ws-red)!important;border-radius:50%;top:-3px!important;right:-5px!important}
+.wx-cta-header{border:0!important;border-radius:999px!important;padding:8px 15px!important;background:var(--ws-ink)!important;color:#fff!important;font-size:12px!important;letter-spacing:0!important}
+.ws-hero{max-width:none!important;min-height:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;text-align:center!important;gap:34px!important;padding:122px 24px 0!important;background:var(--ws-cloud)!important;overflow:hidden}
+.ws-hero-copy{width:min(100%,920px)!important;display:flex!important;align-items:center!important;flex-direction:column!important}
+.ws-eyebrow{font-size:11px!important;letter-spacing:.12em!important;color:#6e6e73!important;margin-bottom:17px!important}
+.ws-live-dot{background:var(--ws-red)!important}
+.ws-hero h1{font-size:clamp(54px,8.2vw,104px)!important;line-height:.98!important;letter-spacing:-.075em!important;font-weight:650!important;text-transform:none!important;margin:0 0 19px!important;color:var(--ws-ink)!important}
+.ws-hero h1 em{color:var(--ws-red)!important}
+.ws-hero-copy>p{font-size:clamp(15px,1.6vw,19px)!important;line-height:1.48!important;max-width:650px!important;color:#6e6e73!important;margin:0 auto 24px!important}
+.ws-search{width:min(620px,100%)!important;min-height:54px!important;border:1px solid #d2d2d7!important;border-radius:999px!important;background:#fff!important;padding:5px 7px 5px 20px!important;box-shadow:0 4px 20px rgba(0,0,0,.045)!important}
+.ws-search input{font-size:14px!important;color:#1d1d1f!important}.ws-search button{width:42px!important;height:42px!important;border-radius:50%!important;background:var(--ws-ink)!important;color:#fff!important}
+.ws-quick-search{justify-content:center!important;gap:9px!important;margin-top:14px!important}.ws-quick-search>span{font-size:9px!important;color:#86868b!important}.ws-quick-search button{border:1px solid #d2d2d7!important;border-radius:999px!important;padding:6px 12px!important;font-size:11px!important;background:rgba(255,255,255,.65)!important;color:#424245!important}
+.ws-hero-actions{justify-content:center!important;margin-top:22px!important;gap:20px!important}
+.ws-button,.ws-button-dark,.ws-button-outline{border-radius:999px!important;padding:11px 19px!important;font-size:13px!important;font-weight:500!important;letter-spacing:0!important;text-transform:none!important}
+.ws-button-dark{background:var(--ws-red)!important;border:1px solid var(--ws-red)!important;color:#fff!important}.ws-button-dark:hover{background:#a50d25!important}
+.ws-text-button,.ws-inline-link{font-size:13px!important;color:#06c!important}
+.ws-hero-art{width:min(1180px,100%)!important;min-height:430px!important;height:clamp(320px,42vw,510px)!important;padding:24px 30px!important;border-radius:24px 24px 0 0!important;background:radial-gradient(ellipse at 50% 100%,rgba(200,16,46,.34),transparent 45%),linear-gradient(145deg,#242428,#09090b 70%)!important;color:#fff!important;box-shadow:0 20px 70px rgba(0,0,0,.13)!important}
+.ws-art-top,.ws-art-bottom{font-size:9px!important;letter-spacing:.14em!important;color:rgba(255,255,255,.58)!important}
+.ws-art-main{flex:1!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important}
+.ws-art-ring{width:min(38vw,390px)!important;height:min(38vw,390px)!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:50%!important;box-shadow:0 0 0 35px rgba(255,255,255,.025),0 0 0 75px rgba(255,255,255,.018)!important}
+.ws-art-word{font-size:clamp(100px,21vw,250px)!important;font-weight:900!important;letter-spacing:-.1em!important;color:#fff!important;text-shadow:0 15px 50px rgba(0,0,0,.3)!important}.ws-art-word span{color:#ed2546!important}
+.ws-art-card{border:1px solid rgba(255,255,255,.17)!important;background:rgba(255,255,255,.09)!important;backdrop-filter:blur(18px)!important;border-radius:14px!important;padding:13px 17px!important;box-shadow:0 10px 30px rgba(0,0,0,.18)!important}.ws-art-card i{color:#ff536d!important}.ws-art-card b{font-size:13px!important}.ws-art-card small{color:rgba(255,255,255,.62)!important}
+.ws-valuebar{max-width:1120px!important;margin:0 auto!important;padding:28px 24px!important;border-bottom:1px solid var(--ws-line)!important;display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:24px!important;background:#fff!important}
+.ws-valuebar>div{justify-content:center!important}.ws-valuebar i{color:var(--ws-red)!important}.ws-valuebar b{font-size:12px!important;color:#1d1d1f!important}.ws-valuebar small{font-size:11px!important;color:#86868b!important}
+.ws-section{max-width:1120px!important;padding:100px 24px!important;margin:0 auto!important}
+.ws-section-head{margin-bottom:34px!important;align-items:end!important}.ws-kicker{font-size:10px!important;letter-spacing:.13em!important;color:#86868b!important;font-weight:600!important}
+.ws-section-head h2,.ws-faq-layout h2{font-size:clamp(34px,5vw,58px)!important;letter-spacing:-.065em!important;line-height:1.03!important;font-weight:650!important;text-transform:none!important;color:#1d1d1f!important;margin:8px 0 12px!important}
+.ws-section-head p:not(.ws-kicker),.ws-faq-layout>div:first-child>p:not(.ws-kicker){font-size:14px!important;color:#6e6e73!important}
+.ws-ai-section{background:#111!important;padding:80px 24px!important}.ws-ai-card{max-width:1120px!important;margin:0 auto!important;border-radius:26px!important;padding:64px!important;background:linear-gradient(130deg,#202024,#09090b)!important;grid-template-columns:1.1fr .9fr!important;gap:45px!important;border:1px solid rgba(255,255,255,.1)!important}
+.ws-ai-symbol{font-size:10px!important;letter-spacing:.13em!important;color:#aaa!important}.ws-ai-spark{color:#ff4c68!important}.ws-ai-copy h2{font-size:clamp(34px,5vw,58px)!important;line-height:1.02!important;letter-spacing:-.065em!important;font-weight:650!important;text-transform:none!important}.ws-ai-copy h2 em{color:#ff536d!important}.ws-ai-copy>p:last-child{font-size:14px!important;line-height:1.65!important;color:#aaa!important}.ws-ai-prompts button{border:0!important;border-bottom:1px solid rgba(255,255,255,.16)!important;border-radius:0!important;padding:16px 0!important;background:transparent!important;color:#fff!important;font-size:13px!important}.ws-ai-prompts button:hover{color:#ff536d!important}.ws-ai-prompts .ws-ai-open{display:inline-flex!important;width:auto!important;border:1px solid #ff536d!important;border-radius:999px!important;padding:11px 17px!important;margin-top:17px!important;color:#fff!important}
+.ws-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important}.ws-category-grid>a{min-height:220px!important;border:0!important;border-radius:18px!important;background:var(--ws-cloud)!important;padding:24px!important;transition:transform .35s cubic-bezier(.2,.7,.2,1),background .25s!important}.ws-category-grid>a:hover{background:#ececf0!important;transform:scale(1.015)!important}.ws-category-icon{width:48px!important;height:48px!important;border-radius:50%!important;background:#fff!important;display:grid!important;place-items:center!important;color:var(--ws-red)!important;margin-bottom:auto!important}.ws-category-grid b{font-size:17px!important;font-weight:600!important}.ws-category-grid small{font-size:12px!important;color:#6e6e73!important}.ws-card-arrow{color:#86868b!important}
+.ws-partners-section{background:var(--ws-cloud)!important}.ws-partners-section .ws-section{padding-top:95px!important;padding-bottom:95px!important}.ws-partner-grid{gap:0!important;border-top:1px solid var(--ws-line)!important}.ws-partner-grid>a{border:0!important;border-bottom:1px solid var(--ws-line)!important;border-radius:0!important;background:transparent!important;padding:22px 12px!important}.ws-partner-grid>a:hover{background:rgba(255,255,255,.7)!important}.ws-partner-mark{background:#fff!important;border:0!important;border-radius:50%!important;width:42px!important;height:42px!important;color:#1d1d1f!important}.ws-partner-grid b{font-size:15px!important}.ws-partner-grid small{font-size:11px!important;color:#6e6e73!important}.ws-disclosure{font-size:10px!important;color:#86868b!important}
+.ws-brand-grid>*{border-radius:12px!important}.ws-how-section{background:#111!important;color:#fff!important}.ws-how-section .ws-section{padding-top:95px!important;padding-bottom:95px!important}.ws-how-section .ws-section-head h2{color:#fff!important}.ws-how-grid{gap:0!important;border-top:1px solid rgba(255,255,255,.2)!important}.ws-how-grid article{background:transparent!important;border:0!important;border-radius:0!important;padding:28px 22px!important;border-right:1px solid rgba(255,255,255,.14)!important}.ws-how-grid article:last-child{border-right:0!important}.ws-how-grid article>span{color:#ff536d!important}.ws-how-grid article i{font-size:22px!important;color:#fff!important}.ws-how-grid h3{font-size:21px!important;text-transform:none!important;letter-spacing:-.03em!important}.ws-how-grid p{font-size:13px!important;color:#aaa!important}
+.ws-about{display:grid!important;grid-template-columns:.8fr 1.2fr!important;gap:50px!important;align-items:center!important}.ws-about-label{min-height:270px!important;border-radius:20px!important;background:var(--ws-cloud)!important;display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important}.ws-about-label b{font-size:160px!important;letter-spacing:-.1em!important;color:#1d1d1f!important}.ws-about-copy h2{font-size:clamp(35px,5vw,58px)!important;line-height:1.03!important;letter-spacing:-.065em!important;text-transform:none!important;font-weight:650!important}.ws-about-copy>p:not(.ws-kicker){font-size:15px!important;color:#6e6e73!important;line-height:1.7!important}
+.ws-faq-section{background:var(--ws-cloud)!important}.ws-faq-layout{display:grid!important;grid-template-columns:.7fr 1.3fr!important;gap:60px!important}.ws-faq-list details{border-bottom:1px solid var(--ws-line)!important;padding:19px 0!important}.ws-faq-list summary{font-size:15px!important;font-weight:550!important}.ws-faq-list details p{font-size:13px!important;color:#6e6e73!important;line-height:1.7!important}
+.ws-contact-section{display:grid!important;grid-template-columns:.8fr 1.2fr!important;gap:60px!important;align-items:start!important}.ws-contact-intro h2{font-size:clamp(36px,5vw,58px)!important;line-height:1.02!important;letter-spacing:-.065em!important;text-transform:none!important}.ws-contact-intro>p:not(.ws-kicker){font-size:14px!important;color:#6e6e73!important}.ws-inquiry-card{background:var(--ws-cloud)!important;border:0!important;border-radius:20px!important;padding:30px!important}.ws-inquiry-card input,.ws-inquiry-card select,.ws-inquiry-card textarea{border:1px solid #d2d2d7!important;border-radius:10px!important;background:#fff!important;padding:12px!important;color:#1d1d1f!important}.ws-inquiry-card label{font-size:12px!important;color:#424245!important}
+.worthsy-footer{background:#f5f5f7!important;color:#424245!important}.worthsy-footer h4{font-size:12px!important;color:#1d1d1f!important}.worthsy-footer a,.worthsy-footer p{font-size:11px!important;color:#6e6e73!important}.worthsy-footer a:hover{color:var(--ws-red)!important}
+/* Store and account UI inherit the same restrained, rounded commerce language. */
+.wst-btn{border:0!important;border-radius:999px!important;background:var(--ws-red)!important;font-size:12px!important;letter-spacing:0!important;text-transform:none!important;padding:12px 19px!important}.wst-btn-ghost{background:#fff!important;color:#1d1d1f!important;border:1px solid var(--ws-line)!important}.wst-cartbtn,.wst-accountbtn{border-radius:999px!important}.wst-account-card{border:0!important;border-radius:22px!important;box-shadow:0 20px 80px rgba(0,0,0,.2)!important}.wst-account-provider{border-radius:999px!important;border-color:var(--ws-line)!important;font-size:13px!important}
+@media(max-width:800px){.ws-hero{padding:105px 18px 0!important;gap:25px!important}.ws-hero-art{min-height:330px!important;height:350px!important;border-radius:18px 18px 0 0!important}.ws-art-card{padding:9px 11px!important}.ws-valuebar{grid-template-columns:1fr!important;gap:15px!important;padding:24px!important}.ws-valuebar>div{justify-content:flex-start!important}.ws-section{padding:70px 20px!important}.ws-ai-section{padding:55px 16px!important}.ws-ai-card{grid-template-columns:1fr!important;padding:32px 24px!important;gap:25px!important}.ws-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.ws-about,.ws-faq-layout,.ws-contact-section{grid-template-columns:1fr!important;gap:28px!important}.ws-about-label{min-height:180px!important}.ws-about-label b{font-size:110px!important}.ws-how-grid{grid-template-columns:1fr!important}.ws-how-grid article{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.14)!important}.ws-partner-grid{grid-template-columns:1fr!important}.ws-section-head{align-items:flex-start!important}.wx-nav{display:none!important}}
+@media(max-width:480px){.ws-hero h1{font-size:clamp(48px,14vw,70px)!important}.ws-hero-copy>p{font-size:14px!important}.ws-hero-actions{flex-direction:column!important;gap:12px!important}.ws-hero-actions .ws-button{width:auto!important}.ws-category-grid{gap:9px!important}.ws-category-grid>a{min-height:170px!important;padding:17px!important}.ws-art-ring{width:210px!important;height:210px!important}.ws-art-word{font-size:110px!important}.ws-art-card{font-size:11px!important}.ws-inquiry-card{padding:20px!important}}
+@media(prefers-reduced-motion:no-preference){.ws-category-grid>a,.ws-partner-grid>a,.ws-button,.ws-search button{transition:all .28s cubic-bezier(.2,.7,.2,1)!important}.ws-hero-copy>*{animation:ws-rise .7s both}.ws-hero-copy>*:nth-child(2){animation-delay:.06s}.ws-hero-copy>*:nth-child(3){animation-delay:.12s}.ws-hero-copy>*:nth-child(4){animation-delay:.18s}@keyframes ws-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}}
+
+</style>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -532,8 +855,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
             </a>
 
             <nav class="hidden lg:flex items-center gap-8 wx-nav" aria-label="Main">
+                <a href="#ws-ai-section">AI assistant</a>
                 <a href="#store">Store</a>
-                <a href="#affiliates">Partner platforms</a>
+                <a href="#affiliates">Partners</a>
                 <a href="#featured-brands">Brands</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
@@ -553,8 +877,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
         </div>
 
         <div id="mobileMenu" class="hidden lg:hidden wx-mobile px-5 py-4">
+            <a href="#ws-ai-section">AI assistant</a>
             <a href="#store">Store</a>
-            <a href="#affiliates">Partner platforms</a>
+            <a href="#affiliates">Partners</a>
             <a href="#featured-brands">Brands</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
@@ -562,290 +887,162 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
         </div>
     </header>
 
-    <main id="top">
-
-    <!-- ============ HERO ============ -->
-    <section class="wx-hero px-5 lg:px-12 max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-
-            <div class="lg:col-span-7">
-                <h1 class="wx-h1 wx-in" style="--d:0ms">
-                    <span class="block">Discover.</span>
-                    <span class="block">Compare.</span>
-                    <span class="block"><span class="wx-box">Shop.</span></span>
-                </h1>
-                <p class="wx-lead wx-in" style="--d:120ms">
-                    Find good products in one place. Buy selected items straight from the WORTHSY Store, or compare picks from Amazon, Flipkart and other platforms before you decide.
-                </p>
-
-                <form id="wx-hero-search" class="wx-search wx-in" style="--d:220ms" role="search" autocomplete="off">
-                    <i class="fa-solid fa-magnifying-glass wx-search-icon" aria-hidden="true"></i>
-                    <input id="wx-hero-q" type="search" placeholder="Search a product, brand or platform" aria-label="Search products, brands or platforms">
-                    <button type="submit" class="wx-cta">Search</button>
-                </form>
-
-                <div class="wx-chips wx-in" style="--d:300ms" aria-label="Popular searches">
-                    <span class="wx-chips-label">Popular</span>
-                    <button type="button" data-q="headphones">Headphones</button>
-                    <button type="button" data-q="watch">Watches</button>
-                    <button type="button" data-q="power bank">Power banks</button>
-                    <button type="button" data-q="router">Routers</button>
-                    <button type="button" data-q="ssd">Storage</button>
-                    <button type="button" data-q="laptop">Laptops</button>
-                </div>
-            </div>
-
-            <div class="lg:col-span-5 wx-in" style="--d:380ms">
-                <div class="wx-paths">
-                    <a href="#store" class="wx-path wx-path-ink">
-                        <span class="wx-path-icon"><i class="fa-solid fa-box-open"></i></span>
-                        <span class="wx-path-body">
-                            <b>WORTHSY Store</b>
-                            <span>Sold and shipped by us. Pay online or on delivery, and track your order.</span>
-                        </span>
-                    </a>
-                    <a href="#affiliates" class="wx-path">
-                        <span class="wx-path-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-                        <span class="wx-path-body">
-                            <b>Partner picks</b>
-                            <span>Our selections from Amazon, Flipkart and more. You buy on the partner’s site.</span>
-                        </span>
-                    </a>
-                </div>
-            </div>
+    <main id="top" class="worthsy-home">
+      <!-- HERO -->
+      <section class="ws-hero">
+        <div class="ws-hero-copy">
+          <div class="ws-eyebrow"><span class="ws-live-dot"></span> THE SMARTER WAY TO SHOP</div>
+          <h1>Good finds.<br><em>Clear choices.</em></h1>
+          <p>Discover products worth your attention. Compare curated picks across trusted platforms, then shop where it works best for you.</p>
+          <form id="wx-hero-search" class="ws-search" role="search" autocomplete="off">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            <input id="wx-hero-q" type="search" placeholder="Describe what you need, your budget or your idea…" aria-label="Ask the WORTHSY AI shopping assistant">
+            <button type="submit" aria-label="Ask WORTHSY AI"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <div class="ws-quick-search"><span>ASK ABOUT</span>
+            <button type="button" data-q="wireless headphones">Headphones</button>
+            <button type="button" data-q="smart watch">Smart watches</button>
+            <button type="button" data-q="desk accessories">Desk setup</button>
+          </div>
+          <div class="ws-hero-actions">
+            <a href="#store" class="ws-button ws-button-dark">Explore the store <i class="fa-solid fa-arrow-up-right"></i></a>
+            <a href="#affiliates" class="ws-text-button">Browse partner picks</a>
+          </div>
         </div>
-    </section>
-
-    <!-- ============ TRUST STRIP ============ -->
-    <section class="wx-strip" aria-label="Store promises">
-        <div class="max-w-7xl mx-auto px-5 lg:px-12 grid grid-cols-2 lg:grid-cols-4">
-            <div class="wx-strip-item"><i class="fa-solid fa-truck-fast"></i><div><b>Delivered in <span data-st="days"></span> days</b><span>Business days, with tracking</span></div></div>
-            <div class="wx-strip-item"><i class="fa-solid fa-tag"></i><div><b>Free shipping over <span data-st="freeShip"></span></b><span>On Store orders</span></div></div>
-            <div class="wx-strip-item"><i class="fa-solid fa-hand-holding-dollar"></i><div><b>Cash on delivery</b><span>Or pay online</span></div></div>
-            <div class="wx-strip-item"><i class="fa-solid fa-rotate-left"></i><div><b><span data-st="returnDays"></span>-day issue reporting</b><span>Damaged or wrong items covered</span></div></div>
+        <div class="ws-hero-art" aria-label="WORTHSY shopping discovery">
+          <div class="ws-art-top"><span>WORTHSY / EDITION 01</span><span>DISCOVER BETTER</span></div>
+          <div class="ws-art-main">
+            <div class="ws-art-ring"></div>
+            <div class="ws-art-word">W<span>·</span>S</div>
+            <div class="ws-art-card ws-art-card-one"><i class="fa-solid fa-magnifying-glass"></i><div><b>Find</b><small>What matters</small></div></div>
+            <div class="ws-art-card ws-art-card-two"><i class="fa-solid fa-scale-balanced"></i><div><b>Compare</b><small>Before you buy</small></div></div>
+            <div class="ws-art-card ws-art-card-three"><i class="fa-solid fa-bag-shopping"></i><div><b>Choose</b><small>With confidence</small></div></div>
+          </div>
+          <div class="ws-art-bottom"><span>CURATED FOR EVERYDAY LIFE</span><span>INDIA · ONLINE</span></div>
         </div>
-    </section>
+      </section>
 
-    <!-- ============ STORE CATEGORIES ============ -->
-    <section id="store-categories" class="wx-section max-w-7xl mx-auto px-5 lg:px-12">
-        <div class="wx-head">
-            <div>
-                <h2 class="wx-h2">Shop the Store by category</h2>
-                <p class="wx-sub">Everyday finds we stock ourselves.</p>
-            </div>
-            <a href="#store" class="wx-textlink">See the whole Store</a>
+      <!-- TRUST / VALUE -->
+      <section class="ws-valuebar" aria-label="Shopping benefits">
+        <div><i class="fa-solid fa-layer-group"></i><span><b>One place to discover</b><small>Curated product picks</small></span></div>
+        <div><i class="fa-solid fa-scale-balanced"></i><span><b>Compare with clarity</b><small>Know where you are buying</small></span></div>
+        <div><i class="fa-solid fa-shield-halved"></i><span><b>Shop with confidence</b><small>Clear store and partner details</small></span></div>
+      </section>
+
+      <!-- AI DISCOVERY -->
+      <section id="ws-ai-section" class="ws-ai-section" aria-labelledby="ws-ai-title">
+        <div class="ws-ai-card">
+          <div class="ws-ai-symbol"><span class="ws-ai-spark">✳</span><span>WORTHSY INTELLIGENCE</span></div>
+          <div class="ws-ai-copy">
+            <p class="ws-kicker">AI SHOPPING, BUILT AROUND YOU</p>
+            <h2 id="ws-ai-title">Your next great find starts here.<br><em>Start with a question.</em></h2>
+            <p>Tell our shopping assistant what you need, your budget or the problem you want to solve. It can help you explore products and answer questions about orders and policies.</p>
+          </div>
+          <div class="ws-ai-prompts">
+            <button type="button" data-ws-ai="Find the best wireless headphones under ₹2,000">Headphones under ₹2,000 <i class="fa-solid fa-arrow-up-right"></i></button>
+            <button type="button" data-ws-ai="Help me choose useful desk accessories">Improve my desk setup <i class="fa-solid fa-arrow-up-right"></i></button>
+            <button type="button" data-ws-ai="I need a practical gift under ₹1,500">Gift ideas under ₹1,500 <i class="fa-solid fa-arrow-up-right"></i></button>
+            <button type="button" class="ws-ai-open" id="ws-ai-open">Ask WORTHSY AI <i class="fa-solid fa-arrow-up-right"></i></button>
+          </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-            <a href="#store" class="wx-tile" data-wx-cat="Gadgets"><i class="fa-solid fa-headphones"></i><b>Gadgets</b></a>
-            <a href="#store" class="wx-tile" data-wx-cat="Home &amp; Kitchen"><i class="fa-solid fa-blender"></i><b>Home &amp; Kitchen</b></a>
-            <a href="#store" class="wx-tile" data-wx-cat="Work &amp; Desk"><i class="fa-solid fa-laptop"></i><b>Work &amp; Desk</b></a>
-            <a href="#store" class="wx-tile" data-wx-cat="Car &amp; Travel"><i class="fa-solid fa-car"></i><b>Car &amp; Travel</b></a>
-            <a href="#store" class="wx-tile" data-wx-cat="Fitness"><i class="fa-solid fa-dumbbell"></i><b>Fitness</b></a>
-            <a href="#store" class="wx-tile" data-wx-cat="Accessories"><i class="fa-solid fa-wallet"></i><b>Accessories</b></a>
+      </section>
+
+      <!-- SHOP BY CATEGORY -->
+      <section id="store-categories" class="ws-section">
+        <div class="ws-section-head">
+          <div><p class="ws-kicker">THE WORTHSY STORE</p><h2>Explore by category</h2><p>Useful finds for your everyday routine.</p></div>
+          <a href="#store" class="ws-inline-link">View all products <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-    </section>
-
-    <!-- ============ PARTNER PLATFORMS ============ -->
-    <section id="affiliates" class="wx-section wx-tint">
-        <div class="max-w-7xl mx-auto px-5 lg:px-12">
-            <div class="wx-head">
-                <div>
-                    <h2 class="wx-h2">Partner platforms</h2>
-                    <p class="wx-sub">Our picks from the platforms you already use. Tap a platform to browse.</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a href="#amazon" class="wx-plat">
-                    <span class="wx-plat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
-                    <span class="wx-plat-body"><b>Amazon</b><span>Gadgets, home and everyday picks</span></span>
-                </a>
-                <a href="#flipkart" class="wx-plat">
-                    <span class="wx-plat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
-                    <span class="wx-plat-body"><b>Flipkart</b><span>Electronics, fashion and more</span></span>
-                </a>
-                <a href="#shopify" class="wx-plat">
-                    <span class="wx-plat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m2 7 3-5h14l3 5"/><path d="M2 7h20v2a3 3 0 0 1-6 0 3 3 0 0 1-4 0 3 3 0 0 1-4 0 3 3 0 0 1-6 0Z"/><path d="M10 22v-5h4v5"/></svg></span>
-                    <span class="wx-plat-body"><b>Shopify</b><span>Independent brand stores</span></span>
-                </a>
-                <a href="#clickbank" class="wx-plat">
-                    <span class="wx-plat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 6v2m0 8v2"/></svg></span>
-                    <span class="wx-plat-body"><b>ClickBank</b><span>Digital products and guides</span></span>
-                </a>
-                <a href="#coursera" class="wx-plat">
-                    <span class="wx-plat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.42 10.92a1 1 0 0 0 0-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg></span>
-                    <span class="wx-plat-body"><b>Coursera</b><span>Online courses and certificates</span></span>
-                </a>
-                <a href="#awin" class="wx-plat">
-                    <span class="wx-plat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
-                    <span class="wx-plat-body"><b>Awin</b><span>Offers from many brands</span></span>
-                </a>
-            </div>
-
-            <p class="wx-note"><i class="fa-solid fa-circle-info"></i> Partner links take you to the partner’s site, where you complete the purchase. WORTHSY may earn a commission at no extra cost to you.</p>
+        <div class="ws-category-grid">
+          <a href="#store" data-wx-cat="Gadgets"><span class="ws-category-icon"><i class="fa-solid fa-headphones"></i></span><b>Gadgets</b><small>Tech that makes life easier</small><i class="fa-solid fa-arrow-up-right ws-card-arrow"></i></a>
+          <a href="#store" data-wx-cat="Home &amp; Kitchen"><span class="ws-category-icon"><i class="fa-solid fa-house"></i></span><b>Home &amp; kitchen</b><small>Thoughtful everyday essentials</small><i class="fa-solid fa-arrow-up-right ws-card-arrow"></i></a>
+          <a href="#store" data-wx-cat="Work &amp; Desk"><span class="ws-category-icon"><i class="fa-solid fa-laptop"></i></span><b>Work &amp; desk</b><small>Make your setup work better</small><i class="fa-solid fa-arrow-up-right ws-card-arrow"></i></a>
+          <a href="#store" data-wx-cat="Car &amp; Travel"><span class="ws-category-icon"><i class="fa-solid fa-car-side"></i></span><b>Car &amp; travel</b><small>Ready for the road</small><i class="fa-solid fa-arrow-up-right ws-card-arrow"></i></a>
+          <a href="#store" data-wx-cat="Fitness"><span class="ws-category-icon"><i class="fa-solid fa-dumbbell"></i></span><b>Fitness</b><small>Small upgrades, better habits</small><i class="fa-solid fa-arrow-up-right ws-card-arrow"></i></a>
+          <a href="#store" data-wx-cat="Accessories"><span class="ws-category-icon"><i class="fa-solid fa-glasses"></i></span><b>Accessories</b><small>Finishing touches</small><i class="fa-solid fa-arrow-up-right ws-card-arrow"></i></a>
         </div>
-    </section>
+      </section>
 
-    <!-- ============ BRANDS ============ -->
-    <section id="featured-brands" class="wx-section max-w-7xl mx-auto px-5 lg:px-12">
-        <div class="wx-head">
-            <div>
-                <h2 class="wx-h2">Shop by brand</h2>
-                <p class="wx-sub">Pick a brand to see its products on Amazon.</p>
-            </div>
-            <button type="button" id="wx-brands-toggle" class="wx-textlink" aria-expanded="false" aria-controls="brand-logo-grid">Show all brands</button>
+      <!-- PARTNER PLATFORMS -->
+      <section id="affiliates" class="ws-partners-section">
+        <div class="ws-section">
+          <div class="ws-section-head">
+            <div><p class="ws-kicker">MORE PLACES TO DISCOVER</p><h2>Explore our partners</h2><p>Browse curated selections from platforms you know.</p></div>
+            <span class="ws-section-note">You complete partner purchases on their websites.</span>
+          </div>
+          <div class="ws-partner-grid">
+            <a href="#amazon"><span class="ws-partner-mark">a.</span><span><b>Amazon</b><small>Everyday products &amp; technology</small></span><i class="fa-solid fa-arrow-up-right"></i></a>
+            <a href="#flipkart"><span class="ws-partner-mark">f.</span><span><b>Flipkart</b><small>Electronics, fashion &amp; more</small></span><i class="fa-solid fa-arrow-up-right"></i></a>
+            <a href="#shopify"><span class="ws-partner-mark"><i class="fa-brands fa-shopify"></i></span><span><b>Shopify</b><small>Independent online brands</small></span><i class="fa-solid fa-arrow-up-right"></i></a>
+            <a href="#clickbank"><span class="ws-partner-mark">c.</span><span><b>ClickBank</b><small>Digital products &amp; resources</small></span><i class="fa-solid fa-arrow-up-right"></i></a>
+            <a href="#coursera"><span class="ws-partner-mark"><i class="fa-solid fa-graduation-cap"></i></span><span><b>Coursera</b><small>Courses &amp; learning</small></span><i class="fa-solid fa-arrow-up-right"></i></a>
+            <a href="#awin"><span class="ws-partner-mark"><i class="fa-solid fa-link"></i></span><span><b>Awin</b><small>Discover brands and offers</small></span><i class="fa-solid fa-arrow-up-right"></i></a>
+          </div>
+          <p class="ws-disclosure">Some links are affiliate links. WORTHSY may earn a commission if you buy through them, at no additional cost to you.</p>
         </div>
-        <div class="wx-brands is-collapsed">
-            <div id="brand-logo-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4"></div>
+      </section>
+
+      <!-- BRANDS -->
+      <section id="featured-brands" class="ws-section">
+        <div class="ws-section-head">
+          <div><p class="ws-kicker">THE BRAND DIRECTORY</p><h2>Browse by brand</h2><p>Find products from brands you already know.</p></div>
+          <button type="button" id="wx-brands-toggle" class="ws-inline-link" aria-expanded="false" aria-controls="brand-logo-grid">Show all brands <i class="fa-solid fa-arrow-right"></i></button>
         </div>
-        <p class="wx-fine">Brand names and logos belong to their respective owners. Availability may change.</p>
-    </section>
+        <div class="ws-brand-wrap wx-brands is-collapsed"><div id="brand-logo-grid" class="ws-brand-grid"></div></div>
+        <p class="ws-disclosure">Brand names and logos belong to their respective owners. Availability may change.</p>
+      </section>
 
-    <!-- ============ HOW IT WORKS ============ -->
-    <section class="wx-section wx-tint" aria-labelledby="wx-how-title">
-        <div class="max-w-7xl mx-auto px-5 lg:px-12">
-            <div class="wx-head">
-                <div>
-                    <h2 id="wx-how-title" class="wx-h2">How WORTHSY works</h2>
-                    <p class="wx-sub">Three steps from searching to buying.</p>
-                </div>
-            </div>
-            <ol class="wx-steps">
-                <li>
-                    <span class="wx-step-n">1</span>
-                    <h3>Discover</h3>
-                    <p>Search by product, brand or platform, or browse the Store by category.</p>
-                </li>
-                <li>
-                    <span class="wx-step-n">2</span>
-                    <h3>Compare</h3>
-                    <p>See prices and details for Store items next to picks from partner platforms.</p>
-                </li>
-                <li>
-                    <span class="wx-step-n">3</span>
-                    <h3>Shop</h3>
-                    <p>Check out in the Store, or continue to the partner’s site for their listings.</p>
-                </li>
-            </ol>
+      <!-- HOW IT WORKS -->
+      <section class="ws-how-section">
+        <div class="ws-section">
+          <div class="ws-section-head"><div><p class="ws-kicker">SIMPLE BY DESIGN</p><h2>Shopping, without the clutter.</h2></div></div>
+          <div class="ws-how-grid">
+            <article><span>01</span><i class="fa-solid fa-compass"></i><h3>Discover</h3><p>Search or browse thoughtfully grouped products and brands.</p></article>
+            <article><span>02</span><i class="fa-solid fa-list-check"></i><h3>Compare</h3><p>Understand whether a product is sold by WORTHSY or a partner.</p></article>
+            <article><span>03</span><i class="fa-solid fa-arrow-up-right-from-square"></i><h3>Choose</h3><p>Buy directly from our Store or continue to the partner website.</p></article>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ============ ABOUT ============ -->
-    <section id="about" class="wx-section max-w-7xl mx-auto px-5 lg:px-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <div class="lg:col-span-7">
-                <h2 class="wx-h2">A curated shop, built to save you time.</h2>
-                <p class="wx-body">WORTHSY is a shopping site for India. We sell a selected range directly through the WORTHSY Store, and we share affiliate picks from other platforms so you can compare before you buy.</p>
-                <ul class="wx-checks">
-                    <li><i class="fa-solid fa-check"></i><span><b>Store orders</b> are sold and shipped by WORTHSY, with our returns policy and support behind them.</span></li>
-                    <li><i class="fa-solid fa-check"></i><span><b>Partner picks</b> open on the partner’s own site, where you buy from them.</span></li>
-                    <li><i class="fa-solid fa-check"></i><span><b>Clear labels</b> show where each product is sold, so you always know who you’re buying from.</span></li>
-                </ul>
-                <div class="flex flex-wrap gap-3 mt-8">
-                    <a href="#about-us" class="wx-btn-ghost">More about us</a>
-                    <a href="#faq" class="wx-btn-ghost">Read the FAQ</a>
-                </div>
-            </div>
-            <div class="lg:col-span-5">
-                <div class="wx-stats wx-on-ink">
-                    <div><b>6</b><span>partner platforms</span></div>
-                    <div><b data-wx-brandcount>50</b><span>brands to browse</span></div>
-                    <div><b><span data-st="days"></span></b><span>business days Store delivery</span></div>
-                    <div><b><span data-st="returnDays"></span></b><span>days to report an issue</span></div>
-                </div>
-            </div>
+      <!-- ABOUT -->
+      <section id="about" class="ws-section ws-about">
+        <div class="ws-about-label"><span>ABOUT WORTHSY</span><b>W.</b></div>
+        <div class="ws-about-copy"><p class="ws-kicker">LESS SCROLLING. BETTER DECISIONS.</p><h2>A considered way to discover what’s worth buying.</h2><p>WORTHSY brings selected products and partner recommendations into one simple shopping experience. Our aim is to make discovery easier and the buying journey clearer.</p><a href="#about-us" class="ws-button ws-button-outline">Our story <i class="fa-solid fa-arrow-right"></i></a></div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="ws-faq-section">
+        <div class="ws-section ws-faq-layout">
+          <div><p class="ws-kicker">NEED TO KNOW</p><h2>Good to know.</h2><p>Quick answers to common shopping questions.</p><a href="#faq" class="ws-inline-link">Visit help centre <i class="fa-solid fa-arrow-right"></i></a></div>
+          <div class="ws-faq-list">
+            <details><summary>What is the difference between the Store and partner picks?</summary><p>WORTHSY Store products are sold through WORTHSY. Partner picks take you to the partner’s website, where you complete the purchase.</p></details>
+            <details><summary>How long does Store delivery take?</summary><p>Delivery usually takes <span data-st="days"></span> business days. Shipping is free over <span data-st="freeShip"></span>.</p></details>
+            <details><summary>Can I pay on delivery?</summary><p>Cash on delivery is available with a handling fee of <span data-st="codFee"></span>. Online payment options may also be available at checkout.</p></details>
+            <details><summary>What if my order arrives damaged?</summary><p>Report damaged or incorrect items within <span data-st="returnDays"></span> days of delivery. See the returns page for the process.</p></details>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ============ FAQ ============ -->
-    <section class="wx-section wx-tint" aria-labelledby="wx-faq-title">
-        <div class="max-w-4xl mx-auto px-5 lg:px-12">
-            <div class="wx-head">
-                <div>
-                    <h2 id="wx-faq-title" class="wx-h2">Quick answers</h2>
-                    <p class="wx-sub">The questions we hear most.</p>
-                </div>
-                <a href="#faq" class="wx-textlink">All FAQs</a>
+      <!-- CONTACT / INQUIRY FORM PRESERVED -->
+      <section id="contact" class="ws-section ws-contact-section">
+        <div class="ws-contact-intro"><p class="ws-kicker">WE’RE HERE TO HELP</p><h2>Let’s make things clear.</h2><p>Questions about a product, an order or a possible collaboration? Send us a message.</p><a href="mailto:support@worthsy.in">support@worthsy.in <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div>
+        <div class="ws-inquiry-card">
+          <form id="inquiryForm" action="https://script.google.com/macros/s/AKfycbxyVkMNeZ3939DrZ-_YgvKG-no8MNvKwsUrr0HLF_GBW8sy7VHFAfhWSJ0_mTiHW9qZow/exec" method="POST" target="wx-submit-frame">
+            <input type="hidden" name="form_type" value="inquiry"><input type="hidden" name="_url" value="https://www.worthsy.in/index.html">
+            <div class="ws-form-row">
+              <label for="clientName">Your name<input type="text" id="clientName" name="name" required maxlength="150" autocomplete="name" placeholder="Full name"></label>
+              <label for="clientEmail">Email address<input type="email" id="clientEmail" name="email" required maxlength="200" autocomplete="email" placeholder="you@example.com"></label>
             </div>
-            <div class="wx-faq">
-                <details>
-                    <summary>What’s the difference between the Store and partner picks?</summary>
-                    <p>Store products are sold and shipped by WORTHSY. Partner picks are affiliate links to Amazon, Flipkart, Shopify, ClickBank, Coursera and Awin, where you buy from the partner.</p>
-                </details>
-                <details>
-                    <summary>How long does Store delivery take?</summary>
-                    <p>Usually <span data-st="days"></span> business days, and you get tracking once your order ships. Shipping is free over <span data-st="freeShip"></span>.</p>
-                </details>
-                <details>
-                    <summary>Can I pay on delivery?</summary>
-                    <p>Yes. A small handling fee of <span data-st="codFee"></span> applies to cash on delivery. Paying online avoids it.</p>
-                </details>
-                <details>
-                    <summary>What if my item arrives damaged or wrong?</summary>
-                    <p>Report it within <span data-st="returnDays"></span> days of delivery with photos, and we will replace or refund it. See <a href="#returns">Returns</a> for details.</p>
-                </details>
-            </div>
+            <label for="assetInterest">What can we help with?
+              <select id="assetInterest" name="asset" required><option value="General question">General question</option><option value="Order or delivery help">Order or delivery help</option><option value="Product recommendation">Product recommendation</option><option value="Partnership or collaboration">Partnership or collaboration</option></select>
+            </label>
+            <label for="clientMessage">Your message<textarea id="clientMessage" name="message" rows="4" required maxlength="3000" placeholder="Tell us a little about what you need…"></textarea></label>
+            <button type="submit" class="ws-button ws-button-dark">Send inquiry <i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <div id="successNotice" class="hidden ws-success" role="status"><i class="fa-solid fa-circle-check"></i><div><b>Message sent</b><span>Thanks for writing. We will reply within 2 working days.</span></div></div>
+          <iframe name="wx-submit-frame" id="wx-submit-frame" title="Form submission" hidden></iframe>
         </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section id="contact" class="wx-section max-w-7xl mx-auto px-5 lg:px-12">
-        <div class="wx-contact">
-            <div class="wx-contact-side wx-on-ink">
-                <h2 class="wx-h2">Talk to the team</h2>
-                <p>Ask about a product, an order, or working with WORTHSY. We reply within 2 working days.</p>
-                <div class="wx-contact-list">
-                    <div><i class="fa-solid fa-envelope"></i><a href="mailto:support@worthsy.in">support@worthsy.in</a></div>
-                    <div><i class="fa-solid fa-truck-fast"></i><a href="#track">Track an order</a></div>
-                    <div><i class="fa-solid fa-life-ring"></i><a href="#support">Support centre</a></div>
-                </div>
-                <div class="wx-social">
-                    <a href="https://www.instagram.com/connect.worthsy/" target="_blank" rel="noopener noreferrer" aria-label="WORTHSY on Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/channel/UCknrjHin9s5REYpQebDoHlQ" target="_blank" rel="noopener noreferrer" aria-label="WORTHSY on YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://x.com/connect_worthsy" target="_blank" rel="noopener noreferrer" aria-label="WORTHSY on X"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=61594883553153" target="_blank" rel="noopener noreferrer" aria-label="WORTHSY on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.linkedin.com/in/worthsy-undefined-937aa343b/" target="_blank" rel="noopener noreferrer" aria-label="WORTHSY on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-            </div>
-
-            <div class="wx-contact-form">
-                <form id="inquiryForm" action="https://script.google.com/macros/s/AKfycbxyVkMNeZ3939DrZ-_YgvKG-no8MNvKwsUrr0HLF_GBW8sy7VHFAfhWSJ0_mTiHW9qZow/exec" method="POST" target="wx-submit-frame" class="space-y-5">
-                    <input type="hidden" name="form_type" value="inquiry">
-                    <input type="hidden" name="_url" value="https://www.worthsy.in/index.html">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div>
-                            <label for="clientName" class="wx-label">Your name</label>
-                            <input type="text" id="clientName" name="name" required maxlength="150" autocomplete="name" class="wx-input" placeholder="Full name">
-                        </div>
-                        <div>
-                            <label for="clientEmail" class="wx-label">Email</label>
-                            <input type="email" id="clientEmail" name="email" required maxlength="200" autocomplete="email" class="wx-input" placeholder="you@example.com">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="assetInterest" class="wx-label">What do you need help with?</label>
-                        <select id="assetInterest" name="asset" required class="wx-input">
-                            <option value="General question">General question</option>
-                            <option value="Order or delivery help">Order or delivery help</option>
-                            <option value="Product recommendation">Product recommendation</option>
-                            <option value="Partnership or collaboration">Partnership or collaboration</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="clientMessage" class="wx-label">Message</label>
-                        <textarea id="clientMessage" name="message" rows="4" required maxlength="3000" class="wx-input resize-none" placeholder="Tell us how we can help"></textarea>
-                    </div>
-                    <button type="submit" class="wx-cta wx-cta-block">Send message</button>
-                </form>
-                <div id="successNotice" class="hidden wx-success" role="status">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <div><b>Message sent.</b><span>Thanks for writing. We will reply within 2 working days.</span></div>
-                </div>
-                <iframe name="wx-submit-frame" id="wx-submit-frame" title="Form submission" hidden></iframe>
-            </div>
-        </div>
-    </section>
-
+      </section>
     </main>
 
     <!-- ============ FOOTER ============ -->
@@ -2000,7 +2197,7 @@ var STORE = {
   codFee: 40,                    // cash-on-delivery handling fee
   daysMin: 7, daysMax: 12,       // business days to deliver
   returnDays: 7,
-  chatEndpoint: '',              // optional: URL of the AI Worker (see worthsy-chat-worker.js). Leave empty to use built-in answers.
+  chatEndpoint: '/api/chat',   // Secure same-origin AI endpoint. Deploy the included /api/chat.js and set OPENAI_API_KEY on the server.
   whatsapp: '',                  // WhatsApp number with country code, digits only, e.g. 919876543210 (shows a chat button when filled)
   orderEndpoint: 'https://script.google.com/macros/s/AKfycbxyVkMNeZ3939DrZ-_YgvKG-no8MNvKwsUrr0HLF_GBW8sy7VHFAfhWSJ0_mTiHW9qZow/exec', // Google Apps Script that records orders
   paymentApiBase: '/api',        // Secure Razorpay API routes; deploy this site on Vercel for /api to work
@@ -2638,7 +2835,7 @@ function ask(q) {
   if (!st.chatEndpoint) return Promise.resolve(local(q));
   var site = { shipping: { minDays: st.daysMin, maxDays: st.daysMax, freeOver: st.freeShip, fee: st.shipFee, codFee: st.codFee }, returnDays: st.returnDays, email: st.email, onlinePayment: !!st.razorpayKey,
     coupons: Object.keys(st.coupons).map(function (k) { return { code: k, label: st.coupons[k].label, min: st.coupons[k].min }; }),
-    products: s.products().map(function (p) { return { name: p.name, category: p.category, price: p.price, mrp: p.mrp, highlights: p.highlights, options: p.options, soldOut: p.stock === 'out' }; }) };
+    products: s.products().slice(0, 80).map(function (p) { return { name: p.name, category: p.category, price: p.price, mrp: p.mrp, highlights: (p.highlights || []).slice(0, 4), options: p.options, soldOut: p.stock === 'out' }; }) };
   return fetch(st.chatEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: hist.slice(-8), site: site }) })
     .then(function (r) { return r.json(); }).then(function (d) { return d && d.reply ? { text: String(d.reply).slice(0, 1200), links: L('sup') } : local(q); }).catch(function () { return local(q); });
 }
@@ -2737,5 +2934,40 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
   }
 })();
 </script>
+
+
+<script id="worthsy-ai-entry">
+(function(){
+  'use strict';
+  var chat=document.getElementById('wst-chat-btn');
+  function openAssistant(q){
+    if(!chat)return;
+    if(chat.getAttribute('aria-expanded')!=='true')chat.click();
+    var input=document.getElementById('wst-chat-in');
+    var form=document.getElementById('wst-chat-form');
+    if(input&&form&&q){
+      input.value=q;
+      if(typeof form.requestSubmit==='function')form.requestSubmit();
+      else form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));
+    }
+  }
+  var heroForm=document.getElementById('wx-hero-search');
+  if(heroForm){
+    heroForm.addEventListener('submit',function(e){
+      e.preventDefault();e.stopImmediatePropagation();
+      var field=document.getElementById('wx-hero-q');
+      var question=field&&field.value.trim();
+      if(question)openAssistant(question);
+    },true);
+  }
+  document.querySelectorAll('[data-ws-ai]').forEach(function(button){
+    button.addEventListener('click',function(){openAssistant(button.getAttribute('data-ws-ai'));});
+  });
+  var open=document.getElementById('ws-ai-open');
+  if(open)open.addEventListener('click',function(){openAssistant('Help me choose a product. Ask me for my budget and requirements.');});
+})();
+</script>
+
+
 </body>
 </html>
