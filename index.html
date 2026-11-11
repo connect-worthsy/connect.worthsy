@@ -1130,6 +1130,7 @@ html body .wx-marquee-title{font-family:'Space Mono',monospace;font-size:11px;le
 .wx-track{display:flex;width:max-content;gap:0;animation:wxslide 60s linear infinite}
 .wx-marquee:hover .wx-track,.wx-marquee:focus-within .wx-track{animation-play-state:paused}
 .wx-track a{display:inline-flex;align-items:center;white-space:nowrap;text-decoration:none;color:#111;font-weight:800;font-size:clamp(18px,2.4vw,26px);letter-spacing:-.02em;padding:0 22px;position:relative}
+.wx-track a[data-brand-filter]{cursor:pointer;pointer-events:auto;touch-action:manipulation}
 .wx-track a:after{content:"";position:absolute;right:-3px;top:50%;width:6px;height:6px;background:#cc1010;transform:translateY(-50%) rotate(45deg)}
 .wx-track a.wx-p{color:#cc1010}
 .wx-track a:hover{color:#cc1010;text-decoration:underline}
@@ -3307,28 +3308,32 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
       var l=(c.getAttribute('aria-label')||'').replace(/^Explore\s+/,'').replace(/\s+products$/,'').trim();
       if(l&&!seen[l]){seen[l]=1;items.push({n:l,h:c.getAttribute('href')||'#amazon'});}
     });
-    function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');a.href=i.h;a.textContent=i.n;if(i.p)a.className='wx-p';else{a.setAttribute('data-brand-filter',i.n);a.setAttribute('role','button');a.setAttribute('aria-pressed','false');}a.title=i.p?'Shop '+i.n+' picks':'Filter all platforms by '+i.n;f.appendChild(a);});return f;}
+    function activateBrand(link){
+      var brand=link.getAttribute('data-brand-filter');
+      if(!brand)return;
+      var active=window.WORTHSY_ACTIVE_BRAND===brand?'All':brand;
+      window.WORTHSY_ACTIVE_BRAND=active;
+      window.dispatchEvent(new CustomEvent('worthsy:brand-filter',{detail:{brand:active}}));
+      document.querySelectorAll('#wxTrack a[data-brand-filter]').forEach(function(a){
+        a.setAttribute('aria-pressed',String(active!=='All'&&a.getAttribute('data-brand-filter')===active));
+      });
+      var title=document.getElementById('amazon-page-title');
+      var desc=document.getElementById('amazon-page-description');
+      var eyebrow=document.getElementById('amazon-page-eyebrow');
+      if(title)title.textContent=active==='All'?'Amazon':active;
+      if(desc)desc.textContent=active==='All'?'Shop the best of Amazon':'Explore '+active+' products across all available platforms';
+      if(eyebrow)eyebrow.textContent=active==='All'?'Brand Store':active+' Brand Store';
+      var grids=Array.from(document.querySelectorAll('.product-grid'));
+      var target=grids.find(function(g){return Number(g.dataset.brandMatchCount||0)>0;})||document.getElementById('products-amazon');
+      if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    window.worthsyApplyBrandFilter=activateBrand;
+    function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');a.href=i.p?i.h:'#brand='+encodeURIComponent(i.n);a.textContent=i.n;if(i.p)a.className='wx-p';else{a.setAttribute('data-brand-filter',i.n);a.setAttribute('role','button');a.setAttribute('aria-pressed','false');a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();activateBrand(a);});a.addEventListener('pointerdown',function(){t.style.animationPlayState='paused';},{passive:true});}a.title=i.p?'Shop '+i.n+' picks':'Filter all platforms by '+i.n;f.appendChild(a);});return f;}
     t.appendChild(row());
     var d=row();d.childNodes.forEach(function(a){a.setAttribute('aria-hidden','true');a.tabIndex=-1;});
     t.appendChild(d);
     t.style.animationDuration=Math.max(40,items.length*2.2)+'s';
-    t.addEventListener('click',function(e){
-      var link=e.target.closest('a[data-brand-filter]');
-      if(!link)return;
-      /* The second marquee row is a visual duplicate; it must remain clickable too. */
-      e.preventDefault();
-      var brand=link.getAttribute('data-brand-filter');
-      var active=window.WORTHSY_ACTIVE_BRAND===brand?'All':brand;
-      window.WORTHSY_ACTIVE_BRAND=active;
-      window.dispatchEvent(new CustomEvent('worthsy:brand-filter',{detail:{brand:active}}));
-      t.querySelectorAll('a[data-brand-filter]').forEach(function(a){
-        var selected=active!=='All'&&a.getAttribute('data-brand-filter')===active;
-        a.setAttribute('aria-pressed',String(selected));
-      });
-      var grids=Array.from(document.querySelectorAll('.product-grid')).filter(function(g){return Number(g.dataset.brandMatchCount||0)>0;});
-      var target=grids[0]||document.getElementById('products-amazon');
-      if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
-    });
+    /* Brand anchors use their own click handlers so animated duplicate rows remain interactive. */
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
   var b=document.getElementById('wxShopBtn'),m=document.getElementById('wxShopMenu'),ab=document.getElementById('wxAffBtn'),al=document.getElementById('wxAffList');
