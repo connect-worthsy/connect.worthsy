@@ -8757,5 +8757,265 @@
     "images": [
       "https://images-na.ssl-images-amazon.com/images/P/B0F9X7PGNW.01._SCLZZZZZZZ_.jpg"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Lenovo",
+    "category": "Laptop",
+    "name": "IdeaPad Slim 3 13th Gen Core i5-13420H, 16GB/512GB",
+    "description": "IdeaPad Slim 3 13th Gen Core i5-13420H, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0G2X76KX6?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0G2X76KX6.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "HP",
+    "category": "Laptop",
+    "name": "Professional 15 Core i5-1334U, 16GB/512GB",
+    "description": "Professional 15 Core i5-1334U, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FPBK86B8?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0FPBK86B8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "ASUS",
+    "category": "Laptop",
+    "name": "Vivobook 15 Core 5 120U, 8GB/512GB (2026)",
+    "description": "Vivobook 15 Core 5 120U, 8GB/512GB (2026). Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0H8P895HL?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0H8P895HL.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Acer",
+    "category": "Laptop",
+    "name": "Aspire Lite Ryzen 5 7430U, 16GB/512GB",
+    "description": "Aspire Lite Ryzen 5 7430U, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0F8RCM49Y?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0F8RCM49Y.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Acer",
+    "category": "Laptop",
+    "name": "Aspire 5 AI PC Core Ultra 5 125H, 16GB/512GB",
+    "description": "Aspire 5 AI PC Core Ultra 5 125H, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0H2H5QTJD?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0H2H5QTJD.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Acer",
+    "category": "Gaming Laptop",
+    "name": "Nitro V i5-13420H, RTX 4050, 16GB/512GB",
+    "description": "Nitro V i5-13420H, RTX 4050, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CHJJZ9G8?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0CHJJZ9G8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "ASUS",
+    "category": "Laptop",
+    "name": "Vivobook 15 Core i5-13420H, 16GB/512GB",
+    "description": "Vivobook 15 Core i5-13420H, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DTYKLHYC?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0DTYKLHYC.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Acer",
+    "category": "Laptop",
+    "name": "Aspire Lite Core i5-12450H, 16GB/512GB",
+    "description": "Aspire Lite Core i5-12450H, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DDL495SX?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0DDL495SX.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "HP",
+    "category": "Laptop",
+    "name": "HP 15 Ryzen 5 7535U, 16GB/512GB (2026)",
+    "description": "HP 15 Ryzen 5 7535U, 16GB/512GB (2026). Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0GY7N53RK?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0GY7N53RK.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "HP",
+    "category": "Gaming Laptop",
+    "name": "Victus 15 Ryzen 7 8845HS, RTX 4060, 16GB/1TB",
+    "description": "Victus 15 Ryzen 7 8845HS, RTX 4060, 16GB/1TB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DB2SVS68?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0DB2SVS68.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "HP",
+    "category": "Gaming Laptop",
+    "name": "Victus Ryzen 7 8845HS, RTX 4050, 16GB/512GB",
+    "description": "Victus Ryzen 7 8845HS, RTX 4050, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D7PY3NHG?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0D7PY3NHG.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Dell",
+    "category": "Laptop",
+    "name": "Dell 15 Core 3 100U, 16GB/512GB",
+    "description": "Dell 15 Core 3 100U, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FDWH5WTL?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0FDWH5WTL.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Lenovo",
+    "category": "Gaming Laptop",
+    "name": "LOQ i5-13450HX, RTX 4050, 16GB/512GB",
+    "description": "LOQ i5-13450HX, RTX 4050, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D49W5KZP?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0D49W5KZP.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "HP",
+    "category": "Gaming Laptop",
+    "name": "Victus Ryzen 7 7445HS, RTX 4050, 16GB/512GB",
+    "description": "Victus Ryzen 7 7445HS, RTX 4050, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FJYJP1L6?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0FJYJP1L6.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "HP",
+    "category": "Gaming Laptop",
+    "name": "Victus Ryzen 7 7445HS, RTX 3050, 16GB/512GB",
+    "description": "Victus Ryzen 7 7445HS, RTX 3050, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FPGC76SD?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0FPGC76SD.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "MSI",
+    "category": "Gaming Laptop",
+    "name": "Katana 15 HX i7-14650HX, RTX 5060, 16GB/1TB",
+    "description": "Katana 15 HX i7-14650HX, RTX 5060, 16GB/1TB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B096Y39PNF?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B096Y39PNF.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "MSI",
+    "category": "Gaming Laptop",
+    "name": "Katana 15 HX i7-14650HX, RTX 5050, 16GB/512GB",
+    "description": "Katana 15 HX i7-14650HX, RTX 5050, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B096Y2YTSX?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B096Y2YTSX.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "MSI",
+    "category": "Gaming Laptop",
+    "name": "Katana 15 i7-14650HX, RTX 5060, 16GB/1TB",
+    "description": "Katana 15 i7-14650HX, RTX 5060, 16GB/1TB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B097PNJL56?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B097PNJL56.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "ASUS",
+    "category": "Gaming Laptop",
+    "name": "TUF Gaming A15 Ryzen 7 170, RTX 3050, 16GB/512GB",
+    "description": "TUF Gaming A15 Ryzen 7 170, RTX 3050, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0GW85JTBN?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0GW85JTBN.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "brand": "Acer",
+    "category": "Laptop",
+    "name": "Swift Pro AI Core Ultra 5 125H, 16GB/512GB",
+    "description": "Swift Pro AI Core Ultra 5 125H, 16GB/512GB. Check the Amazon listing for the current configuration, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0HKMRG5XR?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/P/B0HKMRG5XR.01._SCLZZZZZZZ_.jpg"
+    ]
   }
 ]
