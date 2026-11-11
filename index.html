@@ -2206,26 +2206,19 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
             card.appendChild(label);
             card.addEventListener('click', function (event) {
                 event.preventDefault();
+                var active = window.WORTHSY_ACTIVE_BRAND === name ? 'All' : name;
+                window.WORTHSY_ACTIVE_BRAND = active;
+                window.dispatchEvent(new CustomEvent('worthsy:brand-filter', { detail: { brand: active } }));
                 location.hash = 'amazon';
-                const amazonGrid = document.getElementById('products-amazon');
-                const brandSelect = amazonGrid && amazonGrid.parentElement.querySelector('select[aria-label="Filter by brand"]');
-                const pageTitle = document.getElementById('amazon-page-title');
-                const pageDescription = document.getElementById('amazon-page-description');
-                const pageEyebrow = document.getElementById('amazon-page-eyebrow');
-                if (pageTitle) pageTitle.textContent = name;
-                if (pageDescription) pageDescription.textContent = 'Explore ' + name + ' products available on Amazon';
-                if (pageEyebrow) pageEyebrow.textContent = name + ' Brand Store';
-                if (brandSelect) {
-                    const wanted = name.toLowerCase().replace(/[^a-z0-9]/g, '');
-                    const option = Array.from(brandSelect.options).find(function (o) {
-                        return o.value.toLowerCase().replace(/[^a-z0-9]/g, '') === wanted;
-                    });
-                    if (option) {
-                        brandSelect.value = option.value;
-                        brandSelect.dispatchEvent(new Event('change', { bubbles: true }));
-                    }
-                }
-                if (amazonGrid) amazonGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                var pageTitle = document.getElementById('amazon-page-title');
+                var pageDescription = document.getElementById('amazon-page-description');
+                var pageEyebrow = document.getElementById('amazon-page-eyebrow');
+                if (pageTitle) pageTitle.textContent = active === 'All' ? 'Discover products' : active;
+                if (pageDescription) pageDescription.textContent = active === 'All' ? 'Explore products across our partner platforms' : 'Explore ' + active + ' products across all available platforms';
+                if (pageEyebrow) pageEyebrow.textContent = active === 'All' ? 'WORTHSY PRODUCT DISCOVERY' : active + ' Brand Store';
+                var grids = Array.from(document.querySelectorAll('.product-grid')).filter(function (g) { return Number(g.dataset.brandMatchCount || 0) > 0; });
+                var target = grids[0] || document.getElementById('products-amazon');
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
             grid.appendChild(card);
         });
@@ -2280,14 +2273,20 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
             function empty(text) { const d = el('div', 'col-span-full text-center py-16 bg-[#ffffff]/60 luxury-border'); d.appendChild(el('p', 'logo-wordmark text-2xl text-brandAccent mb-2', 'Products coming soon')); d.appendChild(el('p', 'text-slate-400 text-xs font-mono', text)); return d; }
             function fill(g, items) {
                 const PAGE = g.dataset.platform === 'amazon' ? 100 : 24;
-                let n = 0, current = items.slice(), selectedCategory = 'All', selectedBrand = 'All', searchTerm = '', sortMode = 'featured';
+                let n = 0, current = items.slice(), selectedCategory = 'All', selectedBrand = window.WORTHSY_ACTIVE_BRAND || 'All', searchTerm = '', sortMode = 'featured', categoryBase = items.slice();
                 const isAmazon = g.dataset.platform === 'amazon';
                 const isAwin = g.dataset.platform === 'awin';
                 const more = el('button', 'mt-8 mx-auto block px-8 py-3 bg-brandAccent text-brandBg font-bold uppercase tracking-widest text-sm');
                 more.type = 'button';
+                function matchesBrand(p) {
+                    if (selectedBrand === 'All') return true;
+                    const norm = function (v) { return String(v || '').toLowerCase().replace(/[^a-z0-9]/g, ''); };
+                    return norm(productBrand(p)) === norm(selectedBrand);
+                }
+                function brandFiltered(list) { return list.filter(matchesBrand); }
                 function filteredItems() {
                     return items.filter(function (p) {
-                        const categoryMatch = selectedCategory === 'All' || String(p.category || 'Other') === selectedCategory; const brandMatch = selectedBrand === 'All' || productBrand(p).toLowerCase() === selectedBrand.toLowerCase(); const searchable = [p.name, p.brand, productBrand(p), p.description, p.category, p.merchant].filter(Boolean).join(' ').toLowerCase(); return categoryMatch && brandMatch && searchable.includes(searchTerm.toLowerCase());
+                        const categoryMatch = selectedCategory === 'All' || String(p.category || 'Other') === selectedCategory; const searchable = [p.name, p.brand, productBrand(p), p.description, p.category, p.merchant].filter(Boolean).join(' ').toLowerCase(); return categoryMatch && matchesBrand(p) && searchable.includes(searchTerm.toLowerCase());
                     });
                 }
                 function sorted(list) {
@@ -2315,6 +2314,21 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
                 function show(list) { current = list; n = 0; g.textContent = ''; next(); }
                 more.addEventListener('click', next);
                 g.insertAdjacentElement('afterend', more);
+                window.addEventListener('worthsy:brand-filter', function (event) {
+                    selectedBrand = event.detail && event.detail.brand ? event.detail.brand : 'All';
+                    if (isAmazon || isAwin) {
+                        show(filteredItems());
+                        const brandSelect = g.parentElement && g.parentElement.querySelector('select[aria-label="Filter by brand"]');
+                        if (brandSelect) {
+                            const wanted = selectedBrand.toLowerCase().replace(/[^a-z0-9]/g, '');
+                            const option = Array.from(brandSelect.options).find(function (o) { return o.value.toLowerCase().replace(/[^a-z0-9]/g, '') === wanted; });
+                            brandSelect.value = selectedBrand === 'All' ? 'All' : (option ? option.value : 'All');
+                        }
+                    } else {
+                        show(brandFiltered(categoryBase));
+                    }
+                    g.dataset.brandMatchCount = String(current.length);
+                });
 
                 if (isAmazon || isAwin) {
                     const tools = el('div', 'flex flex-col gap-4 mb-6');
@@ -2375,7 +2389,7 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
                             b.addEventListener('click', function () {
                                 chips.forEach(function (x) { x.classList.remove('bg-brandAccent', 'text-brandBg'); x.classList.add('text-brandAccent'); });
                                 b.classList.remove('text-brandAccent'); b.classList.add('bg-brandAccent', 'text-brandBg');
-                                show(list);
+                                categoryBase = list; show(brandFiltered(categoryBase));
                             });
                             chips.push(b); bar.appendChild(b); return b;
                         }
@@ -3293,11 +3307,27 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
       var l=(c.getAttribute('aria-label')||'').replace(/^Explore\s+/,'').replace(/\s+products$/,'').trim();
       if(l&&!seen[l]){seen[l]=1;items.push({n:l,h:c.getAttribute('href')||'#amazon'});}
     });
-    function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');a.href=i.h;a.textContent=i.n;if(i.p)a.className='wx-p';a.title=i.p?'Shop '+i.n+' picks':'Explore '+i.n+' products';f.appendChild(a);});return f;}
+    function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');a.href=i.h;a.textContent=i.n;if(i.p)a.className='wx-p';else{a.setAttribute('data-brand-filter',i.n);a.setAttribute('role','button');a.setAttribute('aria-pressed','false');}a.title=i.p?'Shop '+i.n+' picks':'Filter all platforms by '+i.n;f.appendChild(a);});return f;}
     t.appendChild(row());
     var d=row();d.childNodes.forEach(function(a){a.setAttribute('aria-hidden','true');a.tabIndex=-1;});
     t.appendChild(d);
     t.style.animationDuration=Math.max(40,items.length*2.2)+'s';
+    t.addEventListener('click',function(e){
+      var link=e.target.closest('a[data-brand-filter]');
+      if(!link||link.getAttribute('aria-hidden')==='true')return;
+      e.preventDefault();
+      var brand=link.getAttribute('data-brand-filter');
+      var active=window.WORTHSY_ACTIVE_BRAND===brand?'All':brand;
+      window.WORTHSY_ACTIVE_BRAND=active;
+      window.dispatchEvent(new CustomEvent('worthsy:brand-filter',{detail:{brand:active}}));
+      t.querySelectorAll('a[data-brand-filter]').forEach(function(a){
+        var selected=active!=='All'&&a.getAttribute('data-brand-filter')===active;
+        a.setAttribute('aria-pressed',String(selected));
+      });
+      var grids=Array.from(document.querySelectorAll('.product-grid')).filter(function(g){return Number(g.dataset.brandMatchCount||0)>0;});
+      var target=grids[0]||document.getElementById('products-amazon');
+      if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    });
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
   var b=document.getElementById('wxShopBtn'),m=document.getElementById('wxShopMenu'),ab=document.getElementById('wxAffBtn'),al=document.getElementById('wxAffList');
