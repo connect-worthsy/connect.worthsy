@@ -2444,7 +2444,8 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
                         g.insertAdjacentElement('beforebegin', bar);
                     }
                 }
-                next();
+                /* Apply a brand selected before the product feed finished loading. */
+                show(filteredItems());
             }
             fetch('products.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (list) {
                 window.WORTHSY_PRODUCTS = list;
@@ -3389,6 +3390,32 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
   document.addEventListener('click',function(e){if(!m.contains(e.target)&&e.target!==b)close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
   window.addEventListener('hashchange',close);
+})();
+</script>
+<script id="worthsy-brand-click-guard">
+(function () {
+  /* Capture the click before other page scripts or animated duplicate links can swallow it. */
+  document.addEventListener('click', function (event) {
+    var link = event.target && event.target.closest ? event.target.closest('#wxTrack a[data-brand-filter]') : null;
+    if (!link) return;
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+    if (typeof window.worthsyApplyBrandFilter === 'function') {
+      window.worthsyApplyBrandFilter(link);
+      return;
+    }
+    var brand = link.getAttribute('data-brand-filter');
+    var active = window.WORTHSY_ACTIVE_BRAND === brand ? 'All' : brand;
+    window.WORTHSY_ACTIVE_BRAND = active;
+    window.dispatchEvent(new CustomEvent('worthsy:brand-filter', { detail: { brand: active } }));
+    var title = document.getElementById('amazon-page-title');
+    var desc = document.getElementById('amazon-page-description');
+    if (title) title.textContent = active === 'All' ? 'Amazon' : active;
+    if (desc) desc.textContent = active === 'All' ? 'Shop the best of Amazon' : 'Explore ' + active + ' products across all available platforms';
+    var grid = document.querySelector('.product-grid');
+    if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, true);
 })();
 </script>
 </body>
