@@ -2318,7 +2318,7 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
             function empty(text) { const d = el('div', 'col-span-full text-center py-16 bg-[#ffffff]/60 luxury-border'); d.appendChild(el('p', 'logo-wordmark text-2xl text-brandAccent mb-2', 'Products coming soon')); d.appendChild(el('p', 'text-slate-400 text-xs font-mono', text)); return d; }
             function fill(g, items) {
                 const PAGE = g.dataset.platform === 'amazon' ? 100 : 24;
-                let n = 0, current = items.slice(), selectedCategory = 'All', selectedBrand = window.WORTHSY_ACTIVE_BRAND || 'All', searchTerm = '', sortMode = 'featured', categoryBase = items.slice();
+                let n = 0, current = items.slice(), selectedCategory = 'All', selectedBrand = (new URLSearchParams(window.location.search).get('worthsyBrand') || window.WORTHSY_ACTIVE_BRAND || 'All'), searchTerm = '', sortMode = 'featured', categoryBase = items.slice();
                 const isAmazon = g.dataset.platform === 'amazon';
                 const isAwin = g.dataset.platform === 'awin';
                 const more = el('button', 'mt-8 mx-auto block px-8 py-3 bg-brandAccent text-brandBg font-bold uppercase tracking-widest text-sm');
@@ -2386,6 +2386,7 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
                     const brandAll = el('option', '', 'All brands'); brandAll.value = 'All'; brandSelect.appendChild(brandAll);
                     Array.from(new Set(items.map(productBrand))).sort(function(a,b){return a.localeCompare(b);}).forEach(function (brand) { const o = el('option', '', brand); o.value = brand; brandSelect.appendChild(o); });
                     brandSelect.addEventListener('change', function () { selectedBrand = brandSelect.value; show(filteredItems()); });
+                    if (selectedBrand !== 'All') { const wanted = selectedBrand.toLowerCase().replace(/[^a-z0-9]/g, ''); const match = Array.from(brandSelect.options).find(function (o) { return o.value.toLowerCase().replace(/[^a-z0-9]/g, '') === wanted; }); if (match) brandSelect.value = match.value; }
                     searchRow.append(search, brandSelect); tools.appendChild(searchRow);
                     const top = el('div', 'flex flex-wrap items-center justify-between gap-3');
                     const count = el('span', 'text-xs font-mono uppercase tracking-widest text-slate-400', items.length + ' products');
@@ -3373,7 +3374,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
       if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
     }
     window.worthsyApplyBrandFilter=activateBrand;
-    function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');a.href=i.p?i.h:'#brand='+encodeURIComponent(i.n);a.textContent=i.n;if(i.p)a.className='wx-p';else{a.setAttribute('data-brand-filter',i.n);a.setAttribute('role','button');a.setAttribute('aria-pressed','false');a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();activateBrand(a);});a.addEventListener('pointerdown',function(){t.style.animationPlayState='paused';},{passive:true});}a.title=i.p?'Shop '+i.n+' picks':'Filter all platforms by '+i.n;f.appendChild(a);});return f;}
+    function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');if(i.p){a.href=i.h;a.className='wx-p';}else{var current=new URLSearchParams(window.location.search).get('worthsyBrand');var selected=current===i.n;a.href=window.location.pathname+'?worthsyBrand='+encodeURIComponent(selected?'All':i.n)+'#amazon';a.setAttribute('data-brand-filter',i.n);a.setAttribute('aria-pressed',String(selected));}a.textContent=i.n;a.title=i.p?'Shop '+i.n+' picks':(new URLSearchParams(window.location.search).get('worthsyBrand')===i.n?'Clear '+i.n+' filter':'Show '+i.n+' products across all platforms');f.appendChild(a);});return f;}
     t.appendChild(row());
     var d=row();d.childNodes.forEach(function(a){a.setAttribute('aria-hidden','true');a.tabIndex=-1;});
     t.appendChild(d);
@@ -3390,32 +3391,6 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
   document.addEventListener('click',function(e){if(!m.contains(e.target)&&e.target!==b)close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
   window.addEventListener('hashchange',close);
-})();
-</script>
-<script id="worthsy-brand-click-guard">
-(function () {
-  /* Capture the click before other page scripts or animated duplicate links can swallow it. */
-  document.addEventListener('click', function (event) {
-    var link = event.target && event.target.closest ? event.target.closest('#wxTrack a[data-brand-filter]') : null;
-    if (!link) return;
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-    if (typeof window.worthsyApplyBrandFilter === 'function') {
-      window.worthsyApplyBrandFilter(link);
-      return;
-    }
-    var brand = link.getAttribute('data-brand-filter');
-    var active = window.WORTHSY_ACTIVE_BRAND === brand ? 'All' : brand;
-    window.WORTHSY_ACTIVE_BRAND = active;
-    window.dispatchEvent(new CustomEvent('worthsy:brand-filter', { detail: { brand: active } }));
-    var title = document.getElementById('amazon-page-title');
-    var desc = document.getElementById('amazon-page-description');
-    if (title) title.textContent = active === 'All' ? 'Amazon' : active;
-    if (desc) desc.textContent = active === 'All' ? 'Shop the best of Amazon' : 'Explore ' + active + ' products across all available platforms';
-    var grid = document.querySelector('.product-grid');
-    if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, true);
 })();
 </script>
 </body>
