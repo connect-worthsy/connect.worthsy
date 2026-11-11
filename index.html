@@ -3314,7 +3314,8 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
     t.style.animationDuration=Math.max(40,items.length*2.2)+'s';
     t.addEventListener('click',function(e){
       var link=e.target.closest('a[data-brand-filter]');
-      if(!link||link.getAttribute('aria-hidden')==='true')return;
+      if(!link)return;
+      /* The second marquee row is a visual duplicate; it must remain clickable too. */
       e.preventDefault();
       var brand=link.getAttribute('data-brand-filter');
       var active=window.WORTHSY_ACTIVE_BRAND===brand?'All':brand;
