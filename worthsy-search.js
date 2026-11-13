@@ -110,7 +110,20 @@ convertBtn.addEventListener('click',async function(){
     body:JSON.stringify({asin,title})
    });
    const result=await response.json();
-   if(!response.ok)throw new Error(result.error||'Product submission failed.');
+   if(!response.ok||!result.ok)throw new Error(result.error||'Product submission failed.');
+   // Refresh the live in-memory search catalogue after the server confirms publication.
+   const fresh=await fetch(feed+'?v='+Date.now(),{cache:'no-store'});
+   if(fresh.ok){
+    const list=await fresh.json();
+    if(Array.isArray(list))products=list.filter(p=>p&&p.name&&(p.link||p.url));
+   }
+   // The GitHub Pages feed can take a moment to update; keep this session searchable too.
+   if(!products.some(p=>String(p.link||p.url||'').includes('/dp/'+asin))){
+    products.unshift({platform:'amazon',merchant:'Amazon India',category:'Community Finds',name:result.productName||title||('Amazon product '+asin),description:'Community-discovered Amazon India product.',price:'',link:result.affiliateUrl||link,images:['https://m.media-amazon.com/images/P/'+asin+'.01._SCLZZZZZZZ_.jpg'],fallback_image:'https://images-na.ssl-images-amazon.com/images/P/'+asin+'.01._SCLZZZZZZZ_.jpg'});
+   }
+   window.WORTHSY_PRODUCTS=products;
+   render(input.value);
+   document.dispatchEvent(new CustomEvent('worthsy:catalogue-updated',{detail:{products:products}}));
    convertFeedback.textContent=result.duplicate?'Affiliate link ready. This product is already listed on WORTHSY.':'Affiliate link ready — this product has been added to WORTHSY!';
   }else{
    convertFeedback.textContent='Affiliate link ready. Product auto-listing will start once WORTHSY connects its Supabase project.';
