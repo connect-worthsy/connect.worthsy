@@ -1399,6 +1399,16 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
   .wx-gta-ps5-mark b{font-size:14px;font-weight:900;letter-spacing:-.06em}
   @media(max-width:640px){.wx-gta-ps5-combo{height:36px;gap:5px;margin-left:-12px;padding:2px 4px}.wx-gta-vi-mark{width:58px;height:30px}.wx-gta-ps5-mark{gap:2px;padding-left:5px}.wx-gta-ps5-mark i{font-size:15px}.wx-gta-ps5-mark b{font-size:12px}}
 </style>
+<style id="worthsy-shop-hub-nav">
+.wx-shop-actions{display:flex;align-items:center;gap:0}
+.wx-shop-actions #wxShopBtn{border-radius:999px 0 0 999px!important;text-decoration:none!important}
+.wx-shop-actions .wx-shop-arrow{border-radius:0 999px 999px 0!important;border-left:1px solid rgba(255,255,255,.28)!important;padding-left:12px!important;padding-right:13px!important}
+.wx-shop-menu-title{padding:10px 12px 6px;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#999}
+.wx-shop-viewall{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;margin-top:5px;border-top:1px solid #eee;color:#111;text-decoration:none;font-size:12px;font-weight:800}
+.wx-shop-viewall:hover{color:#cc1010}
+.wx-shop-menu[hidden]{display:none}
+@media(max-width:1023px){.wx-mobile>a[href="shop.html"]{display:flex;align-items:center;justify-content:space-between}.wx-mobile>a[href="shop.html"] span{font-size:11px;color:#888;font-weight:500}}
+</style>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -1415,7 +1425,8 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
             </a>
 
             <nav class="hidden lg:flex items-center gap-8 wx-nav" aria-label="Main">
-                <a href="#affiliates">Partners</a>
+                <a href="shop.html"><b>Shop Now</b> <span>Explore all affiliate products</span></a>
+            <a href="#affiliates">Partners</a>
             <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -1424,7 +1435,7 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
                 <button id="uniSearchBtn" type="button" class="wx-searchpill" aria-label="Search products">
                     <i class="fa-solid fa-magnifying-glass"></i><span class="hidden sm:inline">Search products</span>
                 </button>
-                <div class="wx-shop"><button type="button" id="wxShopBtn" class="wx-cta wx-cta-header" aria-haspopup="true" aria-expanded="false" aria-controls="wxShopMenu">Shop now <i class="fa-solid fa-chevron-down"></i></button><div id="wxShopMenu" class="wx-shop-menu" role="menu" hidden><button type="button" role="menuitem" id="wxAffBtn" class="wx-shop-main" aria-expanded="false" aria-controls="wxAffList"><b>Affiliate platforms <i class="fa-solid fa-chevron-down"></i></b><small>Explore our partner product links</small></button><div id="wxAffList" class="wx-aff-list" hidden><a role="menuitem" href="#amazon">Amazon</a><a role="menuitem" href="#flipkart">Flipkart</a><a role="menuitem" href="#shopify">Shopify</a><a role="menuitem" href="#clickbank">ClickBank</a><a role="menuitem" href="#coursera">Coursera</a><a role="menuitem" href="#awin">Awin</a></div></div></div>
+                <div class="wx-shop"><div class="wx-shop-actions"><a id="wxShopBtn" href="shop.html" class="wx-cta wx-cta-header">Shop now</a><button type="button" id="wxShopToggle" class="wx-cta wx-cta-header wx-shop-arrow" aria-label="Open affiliate platform menu" aria-haspopup="true" aria-expanded="false" aria-controls="wxShopMenu"><i class="fa-solid fa-chevron-down"></i></button></div><div id="wxShopMenu" class="wx-shop-menu" role="menu" hidden><div class="wx-shop-menu-title">Explore affiliate platforms</div><div class="wx-aff-list"><a role="menuitem" href="shop.html#amazon">Amazon</a><a role="menuitem" href="shop.html#flipkart">Flipkart</a><a role="menuitem" href="shop.html#shopify">Shopify</a><a role="menuitem" href="shop.html#clickbank">ClickBank</a><a role="menuitem" href="shop.html#coursera">Coursera</a><a role="menuitem" href="shop.html#awin">Awin</a></div><a class="wx-shop-viewall" href="shop.html">Explore all products <span>→</span></a></div></div>
                 <button id="mobileMenuBtn" aria-label="Toggle navigation" class="lg:hidden p-2">
                     <i class="fa-solid fa-bars text-xl"></i>
                 </button>
@@ -3624,13 +3635,12 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
     /* Brand anchors use their own click handlers so animated duplicate rows remain interactive. */
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
-  var b=document.getElementById('wxShopBtn'),m=document.getElementById('wxShopMenu'),ab=document.getElementById('wxAffBtn'),al=document.getElementById('wxAffList');
-  if(!b||!m)return;
-  function close(){m.hidden=true;b.setAttribute('aria-expanded','false');if(al){al.hidden=true;ab.setAttribute('aria-expanded','false');}}
-  b.addEventListener('click',function(e){e.stopPropagation();var o=m.hidden;close();if(o){m.hidden=false;b.setAttribute('aria-expanded','true');}});
-  if(ab)ab.addEventListener('click',function(e){e.stopPropagation();var o=al.hidden;al.hidden=!o;ab.setAttribute('aria-expanded',String(o));});
+  var b=document.getElementById('wxShopBtn'),t=document.getElementById('wxShopToggle'),m=document.getElementById('wxShopMenu');
+  if(!t||!m)return;
+  function close(){m.hidden=true;t.setAttribute('aria-expanded','false');}
+  t.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var o=m.hidden;close();if(o){m.hidden=false;t.setAttribute('aria-expanded','true');}});
   m.addEventListener('click',function(e){if(e.target.closest('a'))close();});
-  document.addEventListener('click',function(e){if(!m.contains(e.target)&&e.target!==b)close();});
+  document.addEventListener('click',function(e){if(!m.contains(e.target)&&!t.contains(e.target))close();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
   window.addEventListener('hashchange',close);
 })();
