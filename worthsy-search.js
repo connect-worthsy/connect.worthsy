@@ -44,32 +44,38 @@ function render(q){
 input.addEventListener('input',()=>render(input.value));
 const convertUrl=layer.querySelector('#wsy-convert-url'),convertBtn=layer.querySelector('#wsy-convert-btn'),convertResult=layer.querySelector('#wsy-convert-result'),convertOutput=layer.querySelector('#wsy-convert-output'),convertFeedback=layer.querySelector('#wsy-convert-feedback'),copyBtn=layer.querySelector('#wsy-copy-btn');
 function extractAsin(raw){
- let u;try{u=new URL(raw)}catch(e){throw new Error('The Amazon link could not be read. Please check the URL.')}
+ let u;try{u=new URL(raw)}catch(e){throw new Error('The Amazon link could not be read.')}
  const host=u.hostname.toLowerCase();
- if(!/(^|\\.)amazon\\.in$/.test(host))throw new Error('This converter currently supports Amazon India links only.');
- const path=decodeURIComponent(u.pathname),patterns=[/\\/(?:dp|product)\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/gp\\/(?:product|aw\\/d)\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/exec\\/obidos\\/ASIN\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/ASIN\\/([A-Z0-9]{10})(?:[/?]|$)/i];
- for(let i=0;i<patterns.length;i++){const m=path.match(patterns[i]);if(m)return m[1].toUpperCase()}
- throw new Error('The destination is not an Amazon India product page (no product ASIN found).');
+ if(host!=='amazon.in'&&!host.endsWith('.amazon.in'))throw new Error('This converter supports Amazon India links only.');
+ const parts=decodeURIComponent(u.pathname).split('/').filter(Boolean);
+ for(let i=0;i<parts.length;i++){
+  const part=parts[i].toLowerCase();
+  if((part==='dp'||part==='product'||part==='asin')&&parts[i+1]&&parts[i+1].length===10)return parts[i+1].toUpperCase();
+  if(part==='gp'&&parts[i+1]&&['product','aw'].includes(parts[i+1].toLowerCase())&&parts[i+2]&&parts[i+2].length===10)return parts[i+2].toUpperCase();
+ }
+ throw new Error('The destination is not an Amazon India product page. No product ID was found.');
 }
 async function resolveAmazonLink(raw){
- let u;try{u=new URL(/^https?:\\/\\//i.test(raw)?raw:'https://'+raw)}catch(e){throw new Error('Paste a valid Amazon product URL.')}
- const host=u.hostname.toLowerCase();
- if(!/(^|\\.)amazon\\.in$/.test(host)&&host!=='amzn.in'&&!host.endsWith('.amzn.in'))throw new Error('Please paste an Amazon India product link (amazon.in or amzn.in).');
- try{return extractAsin(u.href)}catch(e){if(host==='amzn.in'||host.endsWith('.amzn.in')){
-  convertFeedback.textContent='Resolving Amazon short link…';
-  let response;try{response=await fetch('https://unshorten.umaneti.net/c?url='+encodeURIComponent(u.href),{method:'GET',headers:{'Accept':'text/plain,application/json'}})}catch(err){throw new Error('Amazon short-link resolution was blocked. Please paste the full Amazon product-page URL instead.')}
-  if(!response.ok)throw new Error('The Amazon short link could not be resolved. Please paste the full Amazon product-page URL.');
-  const body=await response.text();let candidate=body.trim();
-  try{const data=JSON.parse(candidate);candidate=data.url||data.finalUrl||data.final_url||data.destination||data.expanded_url||data.unshortened_url||candidate}catch(err){}
-  const urls=candidate.match(/https?:\\/\\/[^\\s"'<>]+/gi)||[];let lastError=e;
-  for(let i=0;i<urls.length;i++){try{return extractAsin(urls[i].replace(/[),.;]+$/,''))}catch(err){lastError=err}}
-  throw new Error('The short link did not resolve to an Amazon India product. '+lastError.message);
- }throw e}
+ let u;try{u=new URL(raw.indexOf('://')<0?'https://'+raw:raw)}catch(e){throw new Error('Paste a valid Amazon product URL.')}
+ const host=u.hostname.toLowerCase(),isAmazon=host==='amazon.in'||host.endsWith('.amazon.in'),isShort=host==='amzn.in'||host.endsWith('.amzn.in');
+ if(!isAmazon&&!isShort)throw new Error('Please paste an Amazon India link (amazon.in or amzn.in).');
+ if(isAmazon)return extractAsin(u.href);
+ convertFeedback.textContent='Resolving your Amazon short link…';
+ let response;try{response=await fetch('https://unshorten.umaneti.net/c?url='+encodeURIComponent(u.href),{headers:{Accept:'text/plain, application/json'}})}catch(err){throw new Error('The short-link resolver could not be reached from this browser. Please paste the full Amazon product-page link.')}
+ if(!response.ok)throw new Error('Amazon could not resolve this short link. Please paste the full product-page link.');
+ const body=(await response.text()).trim();let candidates=[body];
+ try{const data=JSON.parse(body);candidates=[data.url,data.finalUrl,data.final_url,data.destination,data.expanded_url,data.unshortened_url,body].filter(Boolean)}catch(err){}
+ for(let i=0;i<candidates.length;i++){
+  let candidate=String(candidates[i]).trim();
+  const match=candidate.match(/https?:\\/\\/[^\\s"'<>]+/i);if(match)candidate=match[0].replace(/[),.;]+$/,'');
+  try{return extractAsin(candidate)}catch(err){}
+ }
+ throw new Error('The short link did not resolve to an Amazon India product page. Try pasting the full Amazon product URL.');
 }
 convertBtn.addEventListener('click',async function(){
  const raw=convertUrl.value.trim();if(!raw){convertFeedback.textContent='Paste an Amazon India product link first.';return}
  convertBtn.disabled=true;convertBtn.textContent='Converting…';convertOutput.classList.remove('show');convertFeedback.textContent='Checking the Amazon product link…';
- try{const asin=await resolveAmazonLink(raw),link='https://www.amazon.in/dp/'+asin+'?tag='+TAG;convertResult.value=link;convertOutput.classList.add('show');convertFeedback.textContent='Affiliate link ready. Copy it and use this link when sharing the product.';copyBtn.textContent='Copy link'}
+ try{const asin=await resolveAmazonLink(raw),link='https://www.amazon.in/dp/'+asin+'?tag='+TAG;convertResult.value=link;convertOutput.classList.add('show');convertFeedback.textContent='Affiliate link ready. Copy it and share this link.';copyBtn.textContent='Copy link'}
  catch(e){convertFeedback.textContent=e.message}
  finally{convertBtn.disabled=false;convertBtn.textContent='Convert link'}
 });
