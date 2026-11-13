@@ -34,12 +34,12 @@ footer{border-top:1px solid var(--line);padding:24px 5vw;color:#888;font-size:10
 <section class="hero"><div class="wrap"><div class="eyebrow">WORTHSY · CURATED AFFILIATE DISCOVERY</div><h1>Find your next<br><span>worthwhile</span> pick.</h1><p>Explore handpicked products across categories and trusted shopping partners. Discover something great, compare your options, and continue to the retailer you prefer.</p><div class="hero-meta"><span class="pill"><i class="fa-solid fa-check"></i> Curated product picks</span><span class="pill"><i class="fa-solid fa-layer-group"></i> Multiple categories</span><span class="pill"><i class="fa-solid fa-arrow-up-right-from-square"></i> Trusted partner platforms</span></div></div></section>
 <main class="wrap">
 <section class="section" id="platforms"><div class="section-head"><div><div class="kicker">Shop by partner</div><h2>Explore platforms.</h2><p class="sub">Choose a shopping partner to browse its available picks.</p></div></div><div class="platform-grid" id="platformGrid">
-<a class="platform" href="index.html#amazon"><span class="mark">amazon</span><small>Marketplace</small><span class="state">Explore products ↗</span></a>
-<a class="platform soon" href="#featured"><span class="mark">Flipkart</span><small>Marketplace</small><span class="state">Partner catalogue expanding</span></a>
-<a class="platform soon" href="#featured"><span class="mark">Shopify</span><small>Independent stores</small><span class="state">Partner catalogue expanding</span></a>
-<a class="platform soon" href="#featured"><span class="mark">ClickBank</span><small>Digital offers</small><span class="state">Partner catalogue expanding</span></a>
-<a class="platform soon" href="#featured"><span class="mark">Coursera</span><small>Learning</small><span class="state">Partner catalogue expanding</span></a>
-<a class="platform" href="index.html#awin"><span class="mark">Awin</span><small>Brand partners</small><span class="state">Explore products ↗</span></a>
+<a id="amazon" class="platform" href="index.html#amazon"><span class="mark">amazon</span><small>Marketplace</small><span class="state">Explore products ↗</span></a>
+<a id="flipkart" class="platform soon" href="#featured"><span class="mark">Flipkart</span><small>Marketplace</small><span class="state">Partner catalogue expanding</span></a>
+<a id="shopify" class="platform soon" href="#featured"><span class="mark">Shopify</span><small>Independent stores</small><span class="state">Partner catalogue expanding</span></a>
+<a id="clickbank" class="platform soon" href="#featured"><span class="mark">ClickBank</span><small>Digital offers</small><span class="state">Partner catalogue expanding</span></a>
+<a id="coursera" class="platform soon" href="#featured"><span class="mark">Coursera</span><small>Learning</small><span class="state">Partner catalogue expanding</span></a>
+<a id="awin" class="platform" href="index.html#awin"><span class="mark">Awin</span><small>Brand partners</small><span class="state">Explore products ↗</span></a>
 </div></section>
 <section class="section" id="categories"><div class="kicker">Browse your interests</div><h2>Shop by category.</h2><p class="sub">Filter the current WORTHSY product catalogue by the category you want.</p><div class="category-row" id="categoryFilters"><button class="chip active" data-cat="all">All categories</button></div></section>
 <section class="section" id="featured"><div class="section-head"><div><div class="kicker">Worth a closer look</div><h2>Featured product picks.</h2><p class="sub" id="productCount">Loading curated picks…</p></div></div><div class="product-grid" id="featuredGrid"><div class="empty">Loading products…</div></div></section>
@@ -52,8 +52,8 @@ const grid=document.getElementById('featuredGrid'),filters=document.getElementBy
 let all=[],active='all';
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function render(){
- const items=all.filter(p=>(p.platform==='amazon'||p.platform==='awin')&&(active==='all'||p.category===active)).slice(0,active==='all'?12:24);
- count.textContent=active==='all'?'Showing curated picks from '+all.length+' live affiliate products':'Showing '+items.length+' picks in '+active;
+ const items=active==='all'?[...all.filter(p=>p.platform==='amazon').slice(0,6),...all.filter(p=>p.platform==='awin').slice(0,6)]:all.filter(p=>(p.platform==='amazon'||p.platform==='awin')&&p.category===active).slice(0,24);
+ count.textContent=active==='all'?'Showing 12 curated picks from '+all.length+' live affiliate products':'Showing '+items.length+' picks in '+active;
  grid.innerHTML=items.length?items.map(p=>{
  const image=(Array.isArray(p.images)&&p.images[0])||p.fallback_image||'';
  const merchant=p.merchant||((p.platform||'').toUpperCase());
