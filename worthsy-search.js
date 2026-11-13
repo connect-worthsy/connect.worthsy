@@ -44,10 +44,10 @@ function render(q){
 input.addEventListener('input',()=>render(input.value));
 const convertUrl=layer.querySelector('#wsy-convert-url'),convertBtn=layer.querySelector('#wsy-convert-btn'),convertResult=layer.querySelector('#wsy-convert-result'),convertOutput=layer.querySelector('#wsy-convert-output'),convertFeedback=layer.querySelector('#wsy-convert-feedback'),copyBtn=layer.querySelector('#wsy-copy-btn');
 function makeAffiliateLink(raw){
- let u;try{u=new URL(/^https?:\\/\\//i.test(raw)?raw:'https://'+raw)}catch(e){throw new Error('Paste a complete, valid Amazon product URL.')}
+ let u;try{u=new URL(/^https?:\/\//i.test(raw)?raw:'https://'+raw)}catch(e){throw new Error('Paste a complete, valid Amazon product URL.')}
  const host=u.hostname.toLowerCase();
- if(!/(^|\\.)amazon\\.in$/.test(host))throw new Error('This converter currently supports Amazon India (amazon.in) links only. Your WORTHSY tag is registered for Amazon India.');
- const path=decodeURIComponent(u.pathname),patterns=[/\\/(?:dp|product)\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/gp\\/(?:product|aw\\/d)\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/exec\\/obidos\\/ASIN\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/ASIN\\/([A-Z0-9]{10})(?:[/?]|$)/i];
+ if(!/(^|\.)amazon\.in$/.test(host))throw new Error('This converter currently supports Amazon India (amazon.in) links only. Your WORTHSY tag is registered for Amazon India.');
+ const path=decodeURIComponent(u.pathname),patterns=[/\/(?:dp|product)\/([A-Z0-9]{10})(?:[/?]|$)/i,/\/gp\/(?:product|aw\/d)\/([A-Z0-9]{10})(?:[/?]|$)/i,/\/exec\/obidos\/ASIN\/([A-Z0-9]{10})(?:[/?]|$)/i,/\/ASIN\/([A-Z0-9]{10})(?:[/?]|$)/i];
  let asin='';for(let i=0;i<patterns.length;i++){const m=path.match(patterns[i]);if(m){asin=m[1].toUpperCase();break}}
  if(!asin)throw new Error('No product ID was found. Paste the actual Amazon product page, not a search/category URL or shortened amzn.in link.');
  return 'https://www.amazon.in/dp/'+asin+'?tag='+TAG;
