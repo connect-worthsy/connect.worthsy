@@ -3747,7 +3747,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
 })();
 </script>
 <script src="worthsy-supabase-config.js?v=1"></script>
-<script src="worthsy-search.js?v=community2" defer></script>
+<script src="worthsy-search.js?v=community3" defer></script>
 
     <script id="worthsy-amazon-community-publisher">
     (function () {
@@ -3775,7 +3775,16 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
             var match = url.pathname.match(/\/(?:dp|gp\/product|product)\/([a-z0-9]{10})(?:\/|$)/i);
             if (!match) match = url.pathname.match(/\/([A-Z0-9]{10})(?:\/|$)/i);
             if (!match) throw new Error('Could not find a 10-character Amazon product ID (ASIN) in that URL.');
-            return { asin: match[1].toUpperCase(), title: '' };
+            var segments = url.pathname.split('/').filter(Boolean);
+            var marker = segments.findIndex(function (part) { return /^(dp|product)$/i.test(part); });
+            var title = '';
+            if (marker > 0) {
+                try { title = decodeURIComponent(segments[marker - 1]).replace(/[-_]+/g, ' ').replace(/\\s+/g, ' ').trim().slice(0, 140); } catch (_) {}
+            }
+            if (!title && segments.length > 2 && /^dp$/i.test(segments[segments.length - 2])) {
+                try { title = decodeURIComponent(segments[segments.length - 3]).replace(/[-_]+/g, ' ').replace(/\\s+/g, ' ').trim().slice(0, 140); } catch (_) {}
+            }
+            return { asin: match[1].toUpperCase(), title: title };
         }
         button.addEventListener('click', async function () {
             result.classList.add('hidden');
