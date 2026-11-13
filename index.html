@@ -1216,7 +1216,18 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
   .wx-gta-note{font-size:10px!important;color:#999!important;margin:14px 0 0!important;line-height:1.6!important}
   .wx-gta-visual{height:100%;min-height:350px;display:flex;align-items:center;justify-content:center;padding:24px 28px;background:radial-gradient(ellipse at 50% 55%,#444 0%,#222 43%,#111 74%)}
   .wx-gta-visual img{width:100%;max-width:470px;max-height:360px;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(0,0,0,.48))}
-  @media(max-width:760px){.wx-gta-campaign{padding:4px 18px 38px}.wx-gta-panel{grid-template-columns:1fr}.wx-gta-copy{padding:34px 26px 12px}.wx-gta-copy h2{font-size:clamp(38px,12vw,58px)}.wx-gta-visual{min-height:240px;padding:0 20px 24px}.wx-gta-visual img{max-height:250px}.wx-gta-date{font-size:9px}}
+  .wx-gta-product-showcase{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;padding:24px;background:radial-gradient(ellipse at 50% 55%,#444 0%,#222 43%,#111 74%)}
+  .wx-gta-product{min-width:0;min-height:150px;padding:12px;background:#1a1a1a;border:1px solid #444;color:#fff!important;text-decoration:none;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:8px;transition:transform .2s ease,border-color .2s ease}
+  .wx-gta-product:hover{transform:translateY(-3px);border-color:#fff}
+  .wx-gta-product-console{grid-row:1 / span 2}
+  .wx-gta-product-label,.wx-gta-product-link{font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#bbb;text-align:center}
+  .wx-gta-product img{width:100%;height:150px;max-height:150px;object-fit:contain;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45))}
+  .wx-gta-product-console img{height:245px;max-height:245px}
+  .wx-gta-product-name{font-size:12px;font-weight:800;text-align:center;line-height:1.35}
+  .wx-gta-product-link{color:#fff}
+  .wx-gta-product-game img{height:118px;max-height:118px}
+  .wx-gta-product-controller img{height:118px;max-height:118px}
+  @media(max-width:760px){.wx-gta-campaign{padding:4px 18px 38px}.wx-gta-panel{grid-template-columns:1fr}.wx-gta-copy{padding:34px 26px 12px}.wx-gta-copy h2{font-size:clamp(38px,12vw,58px)}.wx-gta-visual{min-height:420px;padding:18px}.wx-gta-product-showcase{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}.wx-gta-product{min-height:160px}.wx-gta-product-console img{height:220px;max-height:220px}.wx-gta-product-game img,.wx-gta-product-controller img{height:120px;max-height:120px}.wx-gta-date{font-size:9px}}
 </style>
 
 </head>
@@ -1320,8 +1331,25 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
             </div>
             <p class="wx-gta-note">Amazon listing is a code-in-box version; no disc is included. Check the listing for current price and availability. WORTHSY may earn a commission from qualifying purchases. Not affiliated with Rockstar Games or Sony Interactive Entertainment.</p>
           </div>
-          <div class="wx-gta-visual">
-            <img src="https://www.showgame.it/cdn/shop/files/GTA_VI_-_Grand_Theft_Auto_VI_-_GIOCO_PlayStation_5.png?v=1782851576" alt="Grand Theft Auto VI Standard Edition cover for PlayStation 5" loading="lazy" decoding="async">
+          <div class="wx-gta-visual wx-gta-product-showcase" aria-label="Featured gaming products">
+            <a class="wx-gta-product wx-gta-product-console" href="https://www.amazon.in/dp/B0HJR4QJL6?tag=worthsy0d-21" target="_blank" rel="sponsored noopener noreferrer">
+              <span class="wx-gta-product-label">THE CONSOLE</span>
+              <img src="https://pssalesandservice.com/cdn/shop/files/51Ex3GcYMIL._SL1000_1800x1800.jpg?v=1747392428" alt="PlayStation 5 Slim console with controller" loading="lazy" decoding="async">
+              <span class="wx-gta-product-name">PlayStation 5 Slim</span>
+              <span class="wx-gta-product-link">SHOP PS5 ↗</span>
+            </a>
+            <a class="wx-gta-product wx-gta-product-game" href="https://www.amazon.in/dp/B0H6X8VNQC?tag=worthsy0d-21" target="_blank" rel="sponsored noopener noreferrer">
+              <span class="wx-gta-product-label">THE MAIN EVENT</span>
+              <img src="https://www.showgame.it/cdn/shop/files/GTA_VI_-_Grand_Theft_Auto_VI_-_GIOCO_PlayStation_5.png?v=1782851576" alt="Grand Theft Auto VI Standard Edition for PlayStation 5" loading="lazy" decoding="async">
+              <span class="wx-gta-product-name">Grand Theft Auto VI</span>
+              <span class="wx-gta-product-link">PRE-ORDER ↗</span>
+            </a>
+            <a class="wx-gta-product wx-gta-product-controller" href="https://www.amazon.in/dp/B08GZ6QNTC?tag=worthsy0d-21" target="_blank" rel="sponsored noopener noreferrer">
+              <span class="wx-gta-product-label">THE EXTRA</span>
+              <img src="https://images-na.ssl-images-amazon.com/images/P/B08GZ6QNTC.01._SCLZZZZZZZ_.jpg" alt="Extra Sony DualSense wireless controller for PlayStation 5 in white" loading="lazy" decoding="async">
+              <span class="wx-gta-product-name">Extra DualSense Controller</span>
+              <span class="wx-gta-product-link">ADD A CONTROLLER ↗</span>
+            </a>
           </div>
         </div>
       </section>
