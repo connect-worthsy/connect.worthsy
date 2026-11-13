@@ -1400,9 +1400,12 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
   @media(max-width:640px){.wx-gta-ps5-combo{height:36px;gap:5px;margin-left:-12px;padding:2px 4px}.wx-gta-vi-mark{width:58px;height:30px}.wx-gta-ps5-mark{gap:2px;padding-left:5px}.wx-gta-ps5-mark i{font-size:15px}.wx-gta-ps5-mark b{font-size:12px}}
 </style>
 <style id="worthsy-shop-hub-nav">
-.wx-shop-actions{display:flex;align-items:center;gap:0}
-.wx-shop-actions #wxShopBtn{border-radius:999px 0 0 999px!important;text-decoration:none!important}
-.wx-shop-actions .wx-shop-arrow{border-radius:0 999px 999px 0!important;border-left:1px solid rgba(255,255,255,.28)!important;padding-left:12px!important;padding-right:13px!important}
+.wx-shop-actions{display:inline-flex;align-items:stretch;gap:0;height:42px;flex:0 0 auto;white-space:nowrap;border-radius:999px;overflow:hidden;background:#050505;box-shadow:0 2px 7px rgba(0,0,0,.12)}
+.wx-shop-actions #wxShopBtn{display:inline-flex!important;align-items:center;justify-content:center;min-width:92px;height:42px!important;padding:0 19px!important;margin:0!important;border:0!important;border-radius:999px 0 0 999px!important;text-decoration:none!important;white-space:nowrap!important;line-height:1!important;font-size:12px!important;font-weight:800!important;letter-spacing:0!important;flex:1 0 auto}
+.wx-shop-actions .wx-shop-arrow{display:inline-flex!important;align-items:center;justify-content:center;width:42px;min-width:42px;height:42px!important;padding:0!important;margin:0!important;border:0!important;border-left:1px solid rgba(255,255,255,.25)!important;border-radius:0 999px 999px 0!important;background:#050505!important;color:#fff!important;flex:0 0 42px}
+.wx-shop-actions .wx-shop-arrow i{font-size:11px;margin:0!important;line-height:1}
+.wx-shop-actions #wxShopBtn:hover,.wx-shop-actions .wx-shop-arrow:hover{background:#242424!important}
+@media(max-width:640px){.wx-shop-actions{height:38px}.wx-shop-actions #wxShopBtn{height:38px!important;min-width:82px;padding:0 14px!important;font-size:11px!important}.wx-shop-actions .wx-shop-arrow{height:38px!important;width:38px;min-width:38px;flex-basis:38px}}
 .wx-shop-menu-title{padding:10px 12px 6px;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#999}
 .wx-shop-viewall{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;margin-top:5px;border-top:1px solid #eee;color:#111;text-decoration:none;font-size:12px;font-weight:800}
 .wx-shop-viewall:hover{color:#cc1010}
@@ -1425,7 +1428,6 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
             </a>
 
             <nav class="hidden lg:flex items-center gap-8 wx-nav" aria-label="Main">
-                <a href="shop.html"><b>Shop Now</b> <span>Explore all affiliate products</span></a>
             <a href="#affiliates">Partners</a>
             <a href="#about">About</a>
                 <a href="#contact">Contact</a>
