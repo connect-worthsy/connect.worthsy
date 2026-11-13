@@ -1390,6 +1390,19 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
 
 </style>
 
+<style id="worthsy-gta-nav-links">
+  .wx-gta-nav-link{display:inline-flex;align-items:center;justify-content:center;gap:5px;text-decoration:none!important;color:#111!important;white-space:nowrap;transition:opacity .2s ease,transform .2s ease}
+  .wx-gta-nav-link:hover{opacity:.68;transform:translateY(-1px)}
+  .wx-gta-nav-vi .wx-gta-nav-wordmark{font-size:13px;font-weight:1000;font-style:italic;letter-spacing:-.08em;border:1.5px solid currentColor;padding:3px 5px;line-height:1}
+  .wx-gta-nav-ps{font-size:12px;font-weight:850;letter-spacing:-.03em}
+  .wx-gta-nav-ps i{font-size:19px}
+  .wx-gta-mobile-link{display:flex!important;align-items:center;gap:10px}
+  .wx-gta-mobile-link strong{font-size:13px;font-weight:900}
+  .wx-gta-mobile-link span{font-size:11px;opacity:.65}
+  .wx-gta-mobile-link i{font-size:19px}
+  #gta-ps5-campaign{scroll-margin-top:88px}
+  @media(max-width:1023px){.wx-gta-mobile-link{padding:10px 0!important}}
+</style>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -1404,6 +1417,10 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
             <nav class="hidden lg:flex items-center gap-8 wx-nav" aria-label="Main">
                 <a href="#store">Store</a>
                 <a href="#affiliates">Partners</a>
+            <a href="#gta-ps5-campaign" class="wx-gta-mobile-link"><strong>GTA VI</strong><span>Explore the gaming campaign</span></a>
+            <a href="#gta-ps5-campaign" class="wx-gta-mobile-link"><i class="fa-brands fa-playstation" aria-hidden="true"></i><strong>PS5</strong><span>Explore the gaming campaign</span></a>
+                <a href="#gta-ps5-campaign" class="wx-gta-nav-link wx-gta-nav-vi" aria-label="Explore GTA VI campaign"><span class="wx-gta-nav-wordmark">GTA VI</span></a>
+                <a href="#gta-ps5-campaign" class="wx-gta-nav-link wx-gta-nav-ps" aria-label="Explore PlayStation 5 campaign"><i class="fa-brands fa-playstation" aria-hidden="true"></i><span>PS5</span></a>
             <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </nav>
