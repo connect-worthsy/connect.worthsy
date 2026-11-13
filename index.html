@@ -2269,6 +2269,19 @@ html body .ws-hero-copy{
                 <input id="modalSearch" type="search" autocomplete="off" placeholder="Search products or platforms..." class="flex-1 min-w-0 bg-[#ffffff] luxury-border px-4 py-3 text-white outline-none font-mono text-sm">
                 <button id="modalSearchBtn" type="button" class="px-6 py-3 bg-brandAccent text-brandBg font-bold uppercase tracking-widest text-sm"><i class="fa-solid fa-magnifying-glass mr-2"></i>Search</button>
             </div>
+            <section id="worthsy-amazon-publish" class="mt-6 border border-slate-200 rounded-xl bg-white p-4 sm:p-5" aria-label="Amazon link converter">
+                <h2 class="text-base font-extrabold tracking-wide text-black">CONVERT AN AMAZON LINK</h2>
+                <p class="mt-1 text-xs text-slate-600">Paste an Amazon India product link. WORTHSY will create your affiliate link and submit the product to the community catalogue.</p>
+                <div class="mt-3 flex flex-col sm:flex-row gap-2">
+                    <input id="worthsy-amazon-url" type="url" inputmode="url" autocomplete="url" placeholder="Paste Amazon.in product URL…" class="min-w-0 flex-1 rounded-lg border border-slate-300 bg-white px-3 py-3 text-sm text-black outline-none focus:border-black" aria-label="Amazon product URL">
+                    <button id="worthsy-amazon-convert" type="button" class="rounded-lg bg-black px-5 py-3 text-sm font-bold text-white">Convert &amp; submit</button>
+                </div>
+                <p id="worthsy-amazon-status" class="mt-3 text-sm text-slate-700" role="status" aria-live="polite"></p>
+                <div id="worthsy-amazon-result" class="mt-2 hidden items-center gap-2">
+                    <input id="worthsy-amazon-affiliate" type="text" readonly class="min-w-0 flex-1 rounded-lg border border-slate-300 bg-slate-50 px-3 py-2 text-xs text-black" aria-label="Worthsy affiliate link">
+                    <button id="worthsy-amazon-copy" type="button" class="rounded-lg border border-black px-3 py-2 text-xs font-bold text-black">Copy link</button>
+                </div>
+            </section>
             <div id="modalResults" class="mt-4 space-y-3"></div>
         </div>
     </div>
@@ -3735,5 +3748,93 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
 </script>
 <script src="worthsy-supabase-config.js?v=1"></script>
 <script src="worthsy-search.js?v=community1" defer></script>
+
+    <script id="worthsy-amazon-community-publisher">
+    (function () {
+        'use strict';
+        var cfg = window.WORTHSY_SUPABASE_CONFIG || {};
+        var endpoint = String(cfg.url || 'https://aipooedxncqslcrxfyyv.supabase.co').replace(/\/+$/, '') + '/functions/v1/submit-amazon-product';
+        var publishableKey = cfg.anonKey || 'sb_publishable_VKy31h5V0NFdYVoydd-JZA_w97SRlWv';
+        var input = document.getElementById('worthsy-amazon-url');
+        var button = document.getElementById('worthsy-amazon-convert');
+        var status = document.getElementById('worthsy-amazon-status');
+        var result = document.getElementById('worthsy-amazon-result');
+        var output = document.getElementById('worthsy-amazon-affiliate');
+        var copy = document.getElementById('worthsy-amazon-copy');
+        if (!input || !button || !status || !result || !output || !copy) return;
+
+        function setStatus(message, isError) {
+            status.textContent = message;
+            status.style.color = isError ? '#b42318' : '#344054';
+        }
+        function extractProduct(urlText) {
+            var url;
+            try { url = new URL(urlText.trim()); } catch (_) { throw new Error('Paste a valid Amazon India product URL.'); }
+            var host = url.hostname.toLowerCase().replace(/^www\./, '');
+            if (host !== 'amazon.in' && host !== 'amzn.in') throw new Error('Please paste an Amazon India link (amazon.in).');
+            var match = url.pathname.match(/\/(?:dp|gp\/product|product)\/([a-z0-9]{10})(?:\/|$)/i);
+            if (!match) match = url.pathname.match(/\/([A-Z0-9]{10})(?:\/|$)/i);
+            if (!match) throw new Error('Could not find a 10-character Amazon product ID (ASIN) in that URL.');
+            return { asin: match[1].toUpperCase(), title: '' };
+        }
+        button.addEventListener('click', async function () {
+            result.classList.add('hidden');
+            result.classList.remove('flex');
+            var product;
+            try { product = extractProduct(input.value); }
+            catch (error) { setStatus(error.message, true); return; }
+            if (!publishableKey) { setStatus('WORTHSY publishing is not configured. Please contact the site team.', true); return; }
+
+            button.disabled = true;
+            button.textContent = 'Submitting…';
+            setStatus('Converting your link and submitting the product to WORTHSY…', false);
+            var affiliateUrl = 'https://www.amazon.in/dp/' + product.asin + '?tag=worthsy0d-21';
+            try {
+                var response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': publishableKey,
+                        'Authorization': 'Bearer ' + publishableKey
+                    },
+                    body: JSON.stringify(product)
+                });
+                var data = {};
+                try { data = await response.json(); } catch (_) {}
+                if (!response.ok || !data.ok) {
+                    throw new Error(data.error || ('Product submission failed (HTTP ' + response.status + ').'));
+                }
+                output.value = affiliateUrl;
+                result.classList.remove('hidden');
+                result.classList.add('flex');
+                if (data.duplicate) {
+                    setStatus('This product is already in the WORTHSY catalogue. Your affiliate link is ready.', false);
+                } else {
+                    setStatus('Affiliate link created and product submitted to WORTHSY. Catalogue publication confirmed by the server.', false);
+                }
+            } catch (error) {
+                setStatus(error.message || 'Could not submit this product. Please try again.', true);
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Convert & submit';
+            }
+        });
+        input.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') { event.preventDefault(); button.click(); }
+        });
+        copy.addEventListener('click', async function () {
+            try {
+                await navigator.clipboard.writeText(output.value);
+                copy.textContent = 'Copied';
+                setTimeout(function () { copy.textContent = 'Copy link'; }, 1800);
+            } catch (_) {
+                output.focus();
+                output.select();
+                setStatus('Select and copy the affiliate link above.', false);
+            }
+        });
+    })();
+    </script>
+
 </body>
 </html>
