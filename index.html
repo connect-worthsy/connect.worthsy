@@ -3779,10 +3779,10 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
             var marker = segments.findIndex(function (part) { return /^(dp|product)$/i.test(part); });
             var title = '';
             if (marker > 0) {
-                try { title = decodeURIComponent(segments[marker - 1]).replace(/[-_]+/g, ' ').replace(/\\s+/g, ' ').trim().slice(0, 140); } catch (_) {}
+                try { title = decodeURIComponent(segments[marker - 1]).replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 140); } catch (_) {}
             }
             if (!title && segments.length > 2 && /^dp$/i.test(segments[segments.length - 2])) {
-                try { title = decodeURIComponent(segments[segments.length - 3]).replace(/[-_]+/g, ' ').replace(/\\s+/g, ' ').trim().slice(0, 140); } catch (_) {}
+                try { title = decodeURIComponent(segments[segments.length - 3]).replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 140); } catch (_) {}
             }
             return { asin: match[1].toUpperCase(), title: title };
         }
