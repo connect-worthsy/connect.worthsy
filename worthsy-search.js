@@ -21,12 +21,12 @@ const css=[
 '@media(max-width:560px){#wsy-search-results{grid-template-columns:1fr;padding:0 14px 16px}#wsy-search-top{padding:14px}#wsy-search-input-wrap{margin:14px 14px 8px}#wsy-search-meta,#wsy-search-chips{padding-left:14px;padding-right:14px}#wsy-search-launch{right:14px;bottom:14px}}'
 ].join('');
 const st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
-const layer=document.createElement('div');layer.id='wsy-search-layer';layer.innerHTML='<div id="wsy-search-panel" role="dialog" aria-modal="true" aria-label="Search WORTHSY products"><div id="wsy-search-top"><div id="wsy-search-brand">WORTH<span>SY</span> <small style="font-size:10px;letter-spacing:.12em;color:#888">UNIVERSAL SEARCH</small></div><button id="wsy-search-close" aria-label="Close search">×</button></div><div id="wsy-search-input-wrap"><span aria-hidden="true">⌕</span><input id="wsy-search-input" type="search" autocomplete="off" placeholder="Search products, brands, categories or platforms…" aria-label="Search all WORTHSY products"></div><div id="wsy-search-meta">Loading the WORTHSY catalogue…</div><div id="wsy-search-chips"></div><div id="wsy-search-results"></div><section id="wsy-converter"><h3>Amazon link converter</h3><p>Paste an Amazon India product-page link to create a WORTHSY affiliate link. Copy it and use it when you share or shop.</p><div id="wsy-convert-row"><input id="wsy-convert-url" type="url" placeholder="Paste your Amazon.in product link here" aria-label="Amazon product link"><button id="wsy-convert-btn" type="button">Convert link</button></div><div id="wsy-convert-output"><input id="wsy-convert-result" type="text" readonly aria-label="WORTHSY affiliate link"><button id="wsy-copy-btn" type="button">Copy link</button></div><div id="wsy-convert-feedback" aria-live="polite">Supports Amazon India product links with a product ID. Search links and shortened links cannot be converted in this browser-only version.</div></section></div>';document.body.appendChild(layer);
+const layer=document.createElement('div');layer.id='wsy-search-layer';layer.innerHTML='<div id="wsy-search-panel" role="dialog" aria-modal="true" aria-label="Search WORTHSY products"><div id="wsy-search-top"><div id="wsy-search-brand">WORTH<span>SY</span> <small style="font-size:10px;letter-spacing:.12em;color:#888">UNIVERSAL SEARCH</small></div><button id="wsy-search-close" aria-label="Close search">×</button></div><div id="wsy-search-input-wrap"><span aria-hidden="true">⌕</span><input id="wsy-search-input" type="search" autocomplete="off" placeholder="Search products, brands, categories or platforms…" aria-label="Search all WORTHSY products"></div><div id="wsy-search-meta">Loading the WORTHSY catalogue…</div><div id="wsy-search-chips"></div><div id="wsy-search-results"></div><section id="wsy-converter"><h3>Amazon link converter</h3><p>Paste an Amazon India product-page link to create a WORTHSY affiliate link. Copy it and use it when you share or shop.</p><div id="wsy-convert-row"><input id="wsy-convert-url" type="url" placeholder="Paste your Amazon.in product link here" aria-label="Amazon product link"><button id="wsy-convert-btn" type="button">Convert link</button></div><div id="wsy-convert-output"><input id="wsy-convert-result" type="text" readonly aria-label="WORTHSY affiliate link"><button id="wsy-copy-btn" type="button">Copy link</button></div><div id="wsy-convert-feedback" aria-live="polite">Supports full Amazon.in product links and amzn.in short links. Short links are resolved before the affiliate tag is added.</div></section></div>';document.body.appendChild(layer);
 const input=layer.querySelector('#wsy-search-input'),results=layer.querySelector('#wsy-search-results'),meta=layer.querySelector('#wsy-search-meta'),chips=layer.querySelector('#wsy-search-chips');
 function imgOf(p){return(Array.isArray(p.images)&&p.images[0])||p.fallback_image||p.image||''}
 function plat(p){return p.merchant||({amazon:'Amazon',flipkart:'Flipkart',awin:'Awin',coursera:'Coursera',clickbank:'ClickBank',shopify:'Shopify',dailyobjects:'DailyObjects'}[p.platform])||p.platform||'Partner'}
 function open(q){layer.classList.add('open');document.body.style.overflow='hidden';input.value=q||'';render(input.value);setTimeout(()=>input.focus(),30)}
-function close(){layer.classList.remove('open');document.body.style.overflow='';input.value='';render('');['wx-hero-q','modalSearch','productSearch'].forEach(function(id){const el=document.getElementById(id);if(el)el.value=''});const cu=layer.querySelector('#wsy-convert-url'),cr=layer.querySelector('#wsy-convert-result'),co=layer.querySelector('#wsy-convert-output'),cf=layer.querySelector('#wsy-convert-feedback');if(cu)cu.value='';if(cr)cr.value='';if(co)co.classList.remove('show');if(cf)cf.textContent='Supports Amazon India product links with a product ID. Search links and shortened links cannot be converted in this browser-only version.'}
+function close(){layer.classList.remove('open');document.body.style.overflow='';input.value='';render('');['wx-hero-q','modalSearch','productSearch'].forEach(function(id){const el=document.getElementById(id);if(el)el.value=''});const cu=layer.querySelector('#wsy-convert-url'),cr=layer.querySelector('#wsy-convert-result'),co=layer.querySelector('#wsy-convert-output'),cf=layer.querySelector('#wsy-convert-feedback');if(cu)cu.value='';if(cr)cr.value='';if(co)co.classList.remove('show');if(cf)cf.textContent='Supports full Amazon.in product links and amzn.in short links. Short links are resolved before the affiliate tag is added.'}
 layer.querySelector('#wsy-search-close').addEventListener('click',close);layer.addEventListener('click',e=>{if(e.target===layer)close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&layer.classList.contains('open'))close();if(e.key==='/'&&!/input|textarea/i.test(document.activeElement.tagName)){e.preventDefault();open('')}});
 function score(p,q){const ts=N(q).split(' ').filter(Boolean);if(!ts.length)return 0;const name=N(p.name),brand=N(p.brand),cat=N(p.category),desc=N(p.description),merchant=N(p.merchant),platform=N(p.platform),all=[name,brand,cat,desc,merchant,platform].join(' ');let n=0;ts.forEach(t=>{if(name.includes(t))n+=8;if(brand.includes(t))n+=6;if(cat.includes(t))n+=5;if(platform.includes(t)||merchant.includes(t))n+=4;if(desc.includes(t))n+=1});if(ts.length>1&&all.includes(ts.join(' ')))n+=8;return n}
@@ -43,16 +43,37 @@ function render(q){
 }
 input.addEventListener('input',()=>render(input.value));
 const convertUrl=layer.querySelector('#wsy-convert-url'),convertBtn=layer.querySelector('#wsy-convert-btn'),convertResult=layer.querySelector('#wsy-convert-result'),convertOutput=layer.querySelector('#wsy-convert-output'),convertFeedback=layer.querySelector('#wsy-convert-feedback'),copyBtn=layer.querySelector('#wsy-copy-btn');
-function makeAffiliateLink(raw){
- let u;try{u=new URL(/^https?:\/\//i.test(raw)?raw:'https://'+raw)}catch(e){throw new Error('Paste a complete, valid Amazon product URL.')}
+function extractAsin(raw){
+ let u;try{u=new URL(raw)}catch(e){throw new Error('The Amazon link could not be read. Please check the URL.')}
  const host=u.hostname.toLowerCase();
- if(!/(^|\.)amazon\.in$/.test(host))throw new Error('This converter currently supports Amazon India (amazon.in) links only. Your WORTHSY tag is registered for Amazon India.');
- const path=decodeURIComponent(u.pathname),patterns=[/\/(?:dp|product)\/([A-Z0-9]{10})(?:[/?]|$)/i,/\/gp\/(?:product|aw\/d)\/([A-Z0-9]{10})(?:[/?]|$)/i,/\/exec\/obidos\/ASIN\/([A-Z0-9]{10})(?:[/?]|$)/i,/\/ASIN\/([A-Z0-9]{10})(?:[/?]|$)/i];
- let asin='';for(let i=0;i<patterns.length;i++){const m=path.match(patterns[i]);if(m){asin=m[1].toUpperCase();break}}
- if(!asin)throw new Error('No product ID was found. Paste the actual Amazon product page, not a search/category URL or shortened amzn.in link.');
- return 'https://www.amazon.in/dp/'+asin+'?tag='+TAG;
+ if(!/(^|\\.)amazon\\.in$/.test(host))throw new Error('This converter currently supports Amazon India links only.');
+ const path=decodeURIComponent(u.pathname),patterns=[/\\/(?:dp|product)\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/gp\\/(?:product|aw\\/d)\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/exec\\/obidos\\/ASIN\\/([A-Z0-9]{10})(?:[/?]|$)/i,/\\/ASIN\\/([A-Z0-9]{10})(?:[/?]|$)/i];
+ for(let i=0;i<patterns.length;i++){const m=path.match(patterns[i]);if(m)return m[1].toUpperCase()}
+ throw new Error('The destination is not an Amazon India product page (no product ASIN found).');
 }
-convertBtn.addEventListener('click',function(){try{const link=makeAffiliateLink(convertUrl.value.trim());convertResult.value=link;convertOutput.classList.add('show');convertFeedback.textContent='Ready. Copy this WORTHSY affiliate link before sharing it.';copyBtn.textContent='Copy link'}catch(e){convertOutput.classList.remove('show');convertFeedback.textContent=e.message}});
+async function resolveAmazonLink(raw){
+ let u;try{u=new URL(/^https?:\\/\\//i.test(raw)?raw:'https://'+raw)}catch(e){throw new Error('Paste a valid Amazon product URL.')}
+ const host=u.hostname.toLowerCase();
+ if(!/(^|\\.)amazon\\.in$/.test(host)&&host!=='amzn.in'&&!host.endsWith('.amzn.in'))throw new Error('Please paste an Amazon India product link (amazon.in or amzn.in).');
+ try{return extractAsin(u.href)}catch(e){if(host==='amzn.in'||host.endsWith('.amzn.in')){
+  convertFeedback.textContent='Resolving Amazon short link…';
+  let response;try{response=await fetch('https://unshorten.umaneti.net/c?url='+encodeURIComponent(u.href),{method:'GET',headers:{'Accept':'text/plain,application/json'}})}catch(err){throw new Error('Amazon short-link resolution was blocked. Please paste the full Amazon product-page URL instead.')}
+  if(!response.ok)throw new Error('The Amazon short link could not be resolved. Please paste the full Amazon product-page URL.');
+  const body=await response.text();let candidate=body.trim();
+  try{const data=JSON.parse(candidate);candidate=data.url||data.finalUrl||data.final_url||data.destination||data.expanded_url||data.unshortened_url||candidate}catch(err){}
+  const urls=candidate.match(/https?:\\/\\/[^\\s"'<>]+/gi)||[];let lastError=e;
+  for(let i=0;i<urls.length;i++){try{return extractAsin(urls[i].replace(/[),.;]+$/,''))}catch(err){lastError=err}}
+  throw new Error('The short link did not resolve to an Amazon India product. '+lastError.message);
+ }throw e}
+}
+convertBtn.addEventListener('click',async function(){
+ const raw=convertUrl.value.trim();if(!raw){convertFeedback.textContent='Paste an Amazon India product link first.';return}
+ convertBtn.disabled=true;convertBtn.textContent='Converting…';convertOutput.classList.remove('show');convertFeedback.textContent='Checking the Amazon product link…';
+ try{const asin=await resolveAmazonLink(raw),link='https://www.amazon.in/dp/'+asin+'?tag='+TAG;convertResult.value=link;convertOutput.classList.add('show');convertFeedback.textContent='Affiliate link ready. Copy it and use this link when sharing the product.';copyBtn.textContent='Copy link'}
+ catch(e){convertFeedback.textContent=e.message}
+ finally{convertBtn.disabled=false;convertBtn.textContent='Convert link'}
+});
+
 copyBtn.addEventListener('click',function(){if(!convertResult.value)return;const fallback=function(){convertResult.focus();convertResult.select();convertFeedback.textContent='Select and copy the highlighted affiliate link.'};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(convertResult.value).then(function(){convertFeedback.textContent='Copied! Share this link so eligible purchases can be attributed to WORTHSY.';copyBtn.textContent='Copied'}).catch(fallback)}else fallback()});
 const legacyModal=document.getElementById('searchModal');
 document.addEventListener('click',function(e){const b=e.target.closest&&e.target.closest('#uniSearchBtn');if(b){e.preventDefault();e.stopPropagation();if(e.stopImmediatePropagation)e.stopImmediatePropagation();open('')}},true);
