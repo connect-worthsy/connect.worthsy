@@ -1412,6 +1412,62 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
 .wx-shop-menu[hidden]{display:none}
 @media(max-width:1023px){.wx-mobile>a[href="shop.html"]{display:flex;align-items:center;justify-content:space-between}.wx-mobile>a[href="shop.html"] span{font-size:11px;color:#888;font-weight:500}}
 </style>
+<style id="worthsy-gta-ps5-hero-watermarks">
+/* Subtle gaming-brand watermarks behind the main homepage headline */
+html body .ws-hero{
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+}
+html body .ws-hero::before,
+html body .ws-hero::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:50%;
+  transform:translateY(-50%);
+  pointer-events:none;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  filter:grayscale(.08);
+}
+html body .ws-hero::before{
+  left:clamp(8px,3.5vw,58px);
+  width:clamp(190px,25vw,355px);
+  height:clamp(190px,30vw,365px);
+  background-image:url("https://upload.wikimedia.org/wikipedia/commons/9/94/Grand_Theft_Auto_VI_logo.svg");
+  opacity:.13;
+}
+html body .ws-hero::after{
+  right:clamp(8px,3.5vw,58px);
+  width:clamp(210px,27vw,390px);
+  height:clamp(100px,15vw,190px);
+  background-image:url("https://upload.wikimedia.org/wikipedia/commons/c/cb/PlayStation_5_logo_and_wordmark.svg");
+  opacity:.12;
+}
+html body .ws-hero-copy{
+  position:relative!important;
+  z-index:1!important;
+}
+@media(max-width:760px){
+  html body .ws-hero::before{
+    left:-48px;
+    width:175px;
+    height:205px;
+    opacity:.075;
+  }
+  html body .ws-hero::after{
+    right:-55px;
+    width:190px;
+    height:100px;
+    opacity:.075;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body .ws-hero::before,html body .ws-hero::after{transition:none!important}
+}
+</style>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
