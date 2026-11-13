@@ -107,7 +107,7 @@ convertBtn.addEventListener('click',async function(){
    try{const path=new URL(raw.indexOf('://')<0?'https://'+raw:raw).pathname.split('/').filter(Boolean);const dp=path.findIndex(x=>x.toLowerCase()==='dp');if(dp>0)title=decodeURIComponent(path[dp-1]).replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim().slice(0,140)}catch(e){}
    const response=await fetch(cfg.url.replace(/\/$/, '')+'/functions/v1/submit-amazon-product',{
     method:'POST',headers:{'Content-Type':'application/json','apikey':cfg.anonKey,'Authorization':'Bearer '+cfg.anonKey},
-    body:JSON.stringify({asin,title})
+    body:JSON.stringify({asin,title,url:raw})
    });
    const result=await response.json();
    if(!response.ok||!result.ok)throw new Error(result.error||'Product submission failed.');
