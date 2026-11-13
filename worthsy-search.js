@@ -60,17 +60,39 @@ async function resolveAmazonLink(raw){
  const host=u.hostname.toLowerCase(),isAmazon=host==='amazon.in'||host.endsWith('.amazon.in'),isShort=host==='amzn.in'||host.endsWith('.amzn.in');
  if(!isAmazon&&!isShort)throw new Error('Please paste an Amazon India link (amazon.in or amzn.in).');
  if(isAmazon)return extractAsin(u.href);
- convertFeedback.textContent='Resolving your Amazon short link…';
- let response;try{response=await fetch('https://unshorten.umaneti.net/c?url='+encodeURIComponent(u.href),{headers:{Accept:'text/plain, application/json'}})}catch(err){throw new Error('The short-link resolver could not be reached from this browser. Please paste the full Amazon product-page link.')}
- if(!response.ok)throw new Error('Amazon could not resolve this short link. Please paste the full product-page link.');
- const body=(await response.text()).trim();let candidates=[body];
- try{const data=JSON.parse(body);candidates=[data.url,data.finalUrl,data.final_url,data.destination,data.expanded_url,data.unshortened_url,body].filter(Boolean)}catch(err){}
- for(let i=0;i<candidates.length;i++){
-  let candidate=String(candidates[i]).trim();
-  const first=candidate.indexOf('http://'),second=candidate.indexOf('https://'),pos=first<0?second:(second<0?first:Math.min(first,second));if(pos>=0)candidate=candidate.slice(pos).split(/[\\s"'<>]/)[0].replace(/[),.;]+$/,'');
-  try{return extractAsin(candidate)}catch(err){}
- }
- throw new Error('The short link did not resolve to an Amazon India product page. Try pasting the full Amazon product URL.');
+ const shortUrl=u.href,problems=[];
+ const attempts=[
+  async function(){
+   const r=await fetch('https://proxy.cors.dev/raw?url='+encodeURIComponent(shortUrl),{credentials:'omit'});
+   if(!r.ok)throw new Error('Redirect proxy HTTP '+r.status);
+   const html=await r.text();
+   const m=html.match(/\/(?:dp|product|gp\/product|gp\/aw\/d)\/([A-Z0-9]{10})/i);
+   if(m)return m[1].toUpperCase();
+   const c=html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)/i);
+   if(c)return extractAsin(new URL(c[1],'https://www.amazon.in').href);
+   throw new Error('Redirect page did not expose product ID.');
+  },
+  async function(){
+   const r=await fetch('https://api.allorigins.win/get?url='+encodeURIComponent(shortUrl),{credentials:'omit'});
+   if(!r.ok)throw new Error('Link resolver HTTP '+r.status);
+   const data=await r.json(),html=String(data.contents||'');
+   const m=html.match(/\/(?:dp|product|gp\/product|gp\/aw\/d)\/([A-Z0-9]{10})/i);
+   if(m)return m[1].toUpperCase();
+   throw new Error('No product ID returned.');
+  },
+  async function(){
+   const r=await fetch('https://unshorten.umaneti.net/c?url='+encodeURIComponent(shortUrl),{credentials:'omit'});
+   if(!r.ok)throw new Error('Short-link resolver HTTP '+r.status);
+   const body=(await r.text()).trim();let data;
+   try{data=JSON.parse(body)}catch(e){data={url:body}}
+   const candidates=[data.url,data.finalUrl,data.final_url,data.destination,data.expanded_url,data.unshortened_url,body].filter(Boolean);
+   for(let i=0;i<candidates.length;i++){try{return extractAsin(String(candidates[i]).trim())}catch(e){}}
+   throw new Error('No product URL returned.');
+  }
+ ];
+ convertFeedback.textContent='Resolving Amazon short link…';
+ for(let i=0;i<attempts.length;i++){try{return await attempts[i]()}catch(e){problems.push(e.message)}}
+ throw new Error('Could not resolve this short link. Please paste the full Amazon product-page URL. '+problems.join(' | '));
 }
 convertBtn.addEventListener('click',async function(){
  const raw=convertUrl.value.trim();if(!raw){convertFeedback.textContent='Paste an Amazon India product link first.';return}
