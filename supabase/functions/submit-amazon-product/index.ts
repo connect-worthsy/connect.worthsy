@@ -27,12 +27,49 @@ Deno.serve(async (req) => {
   const db = createClient(supabaseUrl, serviceKey);
   try {
     const body = await req.json();
-    const asin = String(body.asin || "").toUpperCase().trim();
-    const title = String(body.title || "").trim().slice(0, 140);
-    if (!/^[A-Z0-9]{10}$/.test(asin)) return reply(400, { error: "Invalid Amazon product ID." });
+    let asin = String(body.asin || "").toUpperCase().trim();
+    let title = String(body.title || "").replace(/[-_]+/g, " ").trim().slice(0, 140);
+    let productImage = "";
+    const submittedUrl = String(body.url || "").trim();
+    if (submittedUrl) {
+      let inputUrl: URL;
+      try { inputUrl = new URL(submittedUrl); } catch { return reply(400, { error: "Paste a valid Amazon India product link." }); }
+      const host = inputUrl.hostname.toLowerCase().replace(/^www\./, "");
+      if (host !== "amazon.in" && host !== "amzn.in") return reply(400, { error: "Only Amazon India product links are supported." });
+      if (!/^[A-Z0-9]{10}$/.test(asin)) {
+        try {
+          const resolved = await fetch(inputUrl.toString(), { redirect: "follow", headers: { "User-Agent": "Mozilla/5.0 (compatible; WORTHSY/1.0)", "Accept-Language": "en-IN,en;q=0.9" } });
+          const finalUrl = new URL(resolved.url || inputUrl.toString());
+          const parts = finalUrl.pathname.split("/").filter(Boolean);
+          for (let i = 0; i < parts.length; i++) {
+            const part = parts[i].toUpperCase();
+            if ((part === "DP" || part === "PRODUCT" || part === "D") && parts[i + 1] && /^[A-Z0-9]{10}$/i.test(parts[i + 1])) asin = parts[i + 1].toUpperCase();
+            if (part === "GP" && parts[i + 2] && /^[A-Z0-9]{10}$/i.test(parts[i + 2])) asin = parts[i + 2].toUpperCase();
+            if (/^[A-Z0-9]{10}$/.test(part)) asin = part;
+          }
+          if (!title) {
+            const marker = parts.findIndex((part) => /^(dp|product)$/i.test(part));
+            if (marker > 0) title = decodeURIComponent(parts[marker - 1]).replace(/[-_]+/g, " ").trim().slice(0, 140);
+          }
+          if (resolved.ok) {
+            const page = await resolved.text();
+            const tags = page.match(/<meta[^>]*>/gi) || [];
+            const og = tags.find((tag) => tag.includes('property="og:title"') || tag.includes("property='og:title'"));
+            const image = tags.find((tag) => tag.includes('property="og:image"') || tag.includes("property='og:image'"));
+            const getContent = (tag?: string) => tag?.match(/content=["']([^"']+)["']/i)?.[1] || "";
+            const decode = (value: string) => value.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'");
+            if (!title) title = decode(getContent(og)).replace(/\s*:\s*Amazon\.in.*$/i, "").trim().slice(0, 140);
+            productImage = decode(getContent(image));
+          }
+        } catch (error) {
+          console.warn("Amazon short-link resolution or metadata lookup failed:", error);
+        }
+      }
+    }
+    if (!/^[A-Z0-9]{10}$/.test(asin)) return reply(422, { error: "Could not resolve the Amazon short link. Please paste the full Amazon product URL." });
+    if (!title || title.length < 4) return reply(422, { error: "Could not verify the product name from this link. Please use the full Amazon product URL." });
 
     const existing = await db.from("community_product_submissions").select("asin").eq("asin", asin).maybeSingle();
-    if (existing.data) return reply(200, { ok: true, duplicate: true, asin });
 
     const forwarded = req.headers.get("x-forwarded-for") || "unknown";
     const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(forwarded.split(",")[0].trim()));
@@ -55,19 +92,19 @@ Deno.serve(async (req) => {
       if (!Array.isArray(catalogue)) throw new Error("WORTHSY product catalogue format is invalid.");
       const alreadyThere = catalogue.some((p: any) => String(p.link || "").match(/\/dp\/([A-Z0-9]{10})/i)?.[1]?.toUpperCase() === asin);
       if (alreadyThere) {
-        await db.from("community_product_submissions").insert({ asin, affiliate_url: affiliateUrl, product_name: title || ("Amazon community find " + asin), status: "duplicate" });
-        return reply(200, { ok: true, duplicate: true, asin });
+        if (!existing.data) await db.from("community_product_submissions").insert({ asin, affiliate_url: affiliateUrl, product_name: title, status: "duplicate" });
+        return reply(200, { ok: true, duplicate: true, asin, affiliateUrl, productName: title });
       }
       // Match the Amazon ASIN image URL pattern already used in WORTHSY's catalogue.
       // The second host is used by the product card if the primary image host fails.
-      const primaryImage = "https://m.media-amazon.com/images/P/" + asin + ".01._SCLZZZZZZZ_.jpg";
+      const primaryImage = productImage.startsWith("https://") ? productImage : "https://m.media-amazon.com/images/P/" + asin + ".01._SCLZZZZZZZ_.jpg";
       const fallbackImage = "https://images-na.ssl-images-amazon.com/images/P/" + asin + ".01._SCLZZZZZZZ_.jpg";
       const cleanTitle = title.replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim().slice(0, 140);
       const product = {
         platform: "amazon",
         merchant: "Amazon India",
         category: "Community Finds",
-        name: cleanTitle || ("Amazon product " + asin),
+        name: cleanTitle,
         description: "Community-discovered Amazon India product. Check Amazon for the latest specifications, price and availability.",
         price: "",
         link: affiliateUrl,
@@ -89,8 +126,8 @@ Deno.serve(async (req) => {
       if (put.status !== 409 && put.status !== 422) throw new Error("Could not publish product (GitHub " + put.status + ").");
     }
     if (!published) throw new Error("The catalogue changed during publishing. Please retry.");
-    await db.from("community_product_submissions").insert({ asin, affiliate_url: affiliateUrl, product_name: title || ("Amazon community find " + asin), status: "published" });
-    return reply(200, { ok: true, duplicate: false, asin, affiliateUrl, productName: title || ("Amazon community find " + asin) });
+    if (!existing.data) await db.from("community_product_submissions").insert({ asin, affiliate_url: affiliateUrl, product_name: title, status: "published" });
+    return reply(200, { ok: true, duplicate: false, asin, affiliateUrl, productName: title });
   } catch (err) {
     console.error(err);
     return reply(500, { error: "WORTHSY could not publish this product right now. Please try again later." });
