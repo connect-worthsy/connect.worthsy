@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop Affiliate Picks | WORTHSY</title>
+<meta name="description" content="Discover curated products, categories and trusted affiliate shopping platforms on WORTHSY.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{--ink:#101010;--muted:#777;--line:#e9e9e9;--red:#d71920;--paper:#fff;--soft:#f6f6f6}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif}
+a{color:inherit}.top{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 max(5vw,22px);position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);z-index:20}
+.logo{font-weight:950;font-size:22px;letter-spacing:-1.8px;text-decoration:none;border:1px solid #222;padding:3px 5px}.logo span{color:var(--red);border-left:1px solid var(--red);padding-left:2px}
+.toplinks{display:flex;align-items:center;gap:24px;font-size:12px;font-weight:700}.toplinks a{text-decoration:none}.toplinks a:hover{color:var(--red)}
+.wrap{width:min(1200px,90vw);margin:auto}
+.hero{padding:70px 0 52px;background:#0d0d0d;color:#fff;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 25%,rgba(215,25,32,.32),transparent 42%),linear-gradient(120deg,transparent 45%,rgba(255,255,255,.04));pointer-events:none}
+.hero .wrap{position:relative}.eyebrow{font-size:10px;letter-spacing:.22em;font-weight:800;color:#bbb;text-transform:uppercase}.hero h1{font-size:clamp(42px,7vw,82px);line-height:.98;letter-spacing:-.075em;margin:18px 0 16px;max-width:850px}.hero h1 span{color:#ef343b}.hero p{color:#c4c4c4;max-width:620px;line-height:1.7;font-size:14px}.hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}.pill{border:1px solid #555;border-radius:999px;padding:9px 14px;font-size:10px;font-weight:800;letter-spacing:.06em;color:#eee}
+.section{padding:52px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:22px}.kicker{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:900}.section h2{font-size:clamp(26px,4vw,38px);letter-spacing:-.06em;margin:7px 0 0}.sub{color:var(--muted);font-size:12px;line-height:1.6;margin:8px 0 0}
+.platform-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.platform{border:1px solid var(--line);border-radius:13px;padding:19px 15px;min-height:126px;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;transition:.2s;background:#fff}.platform:hover{border-color:#222;transform:translateY(-3px);box-shadow:0 12px 28px #0000000d}.platform .mark{font-size:20px;font-weight:950;letter-spacing:-1px}.platform small{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}.platform .state{font-size:9px;font-weight:800;color:#15803d}.platform.soon{background:#fafafa;color:#777}.platform.soon .state{color:#999}
+.category-row{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 26px}.chip{border:1px solid #ddd;background:#fff;padding:9px 14px;border-radius:999px;font-size:11px;font-weight:750;cursor:pointer}.chip.active,.chip:hover{background:#111;color:#fff;border-color:#111}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.product{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;transition:.22s;display:flex;flex-direction:column;min-width:0}.product:hover{transform:translateY(-4px);box-shadow:0 15px 35px #00000010;border-color:#ccc}.product-img{height:210px;background:#f5f5f5;display:flex;align-items:center;justify-content:center;padding:12px}.product-img img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}.product-body{padding:15px;display:flex;flex-direction:column;flex:1}.product-tag{font-size:9px;color:var(--red);font-weight:900;text-transform:uppercase;letter-spacing:.12em}.product h3{font-size:13px;line-height:1.45;margin:8px 0 6px}.product p{font-size:10px;color:var(--muted);line-height:1.5;margin:0 0 14px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}.merchant{font-size:9px;color:#777;font-weight:800;text-transform:uppercase}.buy{background:#111;color:#fff;text-decoration:none;padding:10px 12px;border-radius:999px;font-size:9px;font-weight:900;white-space:nowrap}.buy:hover{background:var(--red)}
+.empty{grid-column:1/-1;padding:30px;text-align:center;color:#777;border:1px dashed #ddd;border-radius:12px;font-size:12px}
+.cta-band{background:#f5f5f5;border-radius:18px;padding:30px;display:flex;justify-content:space-between;align-items:center;gap:20px}.cta-band h2{font-size:25px;margin:0;letter-spacing:-.05em}.cta-band p{color:#777;font-size:12px;margin:8px 0 0}.cta{background:#111;color:white;text-decoration:none;padding:13px 18px;border-radius:999px;font-size:11px;font-weight:900;white-space:nowrap}
+footer{border-top:1px solid var(--line);padding:24px 5vw;color:#888;font-size:10px;line-height:1.7;margin-top:40px}
+@media(max-width:900px){.platform-grid{grid-template-columns:repeat(3,1fr)}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:620px){.top{height:62px}.toplinks{gap:12px;font-size:10px}.toplinks a:nth-child(2){display:none}.hero{padding:52px 0 42px}.section{padding:38px 0}.platform-grid{grid-template-columns:repeat(2,1fr);gap:9px}.platform{min-height:112px;padding:14px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-img{height:155px;padding:8px}.product-body{padding:11px}.product h3{font-size:11px}.buy{padding:9px 10px;font-size:8px}.cta-band{align-items:flex-start;flex-direction:column}.cta-band h2{font-size:22px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="index.html" aria-label="WORTHSY home">WORTH<span>SY</span></a><nav class="toplinks"><a href="index.html">Home</a><a href="#platforms">Platforms</a><a href="#categories">Categories</a><a href="#featured">Top picks</a></nav></header>
+<section class="hero"><div class="wrap"><div class="eyebrow">WORTHSY · CURATED AFFILIATE DISCOVERY</div><h1>Find your next<br><span>worthwhile</span> pick.</h1><p>Explore handpicked products across categories and trusted shopping partners. Discover something great, compare your options, and continue to the retailer you prefer.</p><div class="hero-meta"><span class="pill"><i class="fa-solid fa-check"></i> Curated product picks</span><span class="pill"><i class="fa-solid fa-layer-group"></i> Multiple categories</span><span class="pill"><i class="fa-solid fa-arrow-up-right-from-square"></i> Trusted partner platforms</span></div></div></section>
+<main class="wrap">
+<section class="section" id="platforms"><div class="section-head"><div><div class="kicker">Shop by partner</div><h2>Explore platforms.</h2><p class="sub">Choose a shopping partner to browse its available picks.</p></div></div><div class="platform-grid" id="platformGrid">
+<a class="platform" href="index.html#amazon"><span class="mark">amazon</span><small>Marketplace</small><span class="state">Explore products ↗</span></a>
+<a class="platform soon" href="#featured"><span class="mark">Flipkart</span><small>Marketplace</small><span class="state">Partner catalogue expanding</span></a>
+<a class="platform soon" href="#featured"><span class="mark">Shopify</span><small>Independent stores</small><span class="state">Partner catalogue expanding</span></a>
+<a class="platform soon" href="#featured"><span class="mark">ClickBank</span><small>Digital offers</small><span class="state">Partner catalogue expanding</span></a>
+<a class="platform soon" href="#featured"><span class="mark">Coursera</span><small>Learning</small><span class="state">Partner catalogue expanding</span></a>
+<a class="platform" href="index.html#awin"><span class="mark">Awin</span><small>Brand partners</small><span class="state">Explore products ↗</span></a>
+</div></section>
+<section class="section" id="categories"><div class="kicker">Browse your interests</div><h2>Shop by category.</h2><p class="sub">Filter the current WORTHSY product catalogue by the category you want.</p><div class="category-row" id="categoryFilters"><button class="chip active" data-cat="all">All categories</button></div></section>
+<section class="section" id="featured"><div class="section-head"><div><div class="kicker">Worth a closer look</div><h2>Featured product picks.</h2><p class="sub" id="productCount">Loading curated picks…</p></div></div><div class="product-grid" id="featuredGrid"><div class="empty">Loading products…</div></div></section>
+<section class="section"><div class="cta-band"><div><h2>Know what you're looking for?</h2><p>Explore the full catalogue and browse products by partner.</p></div><a class="cta" href="index.html#amazon">BROWSE AMAZON PICKS ↗</a></div></section>
+</main>
+<footer>WORTHSY is an affiliate discovery platform. We may earn a commission from qualifying purchases at no additional cost to you. Product prices, availability and terms are controlled by the retailer and may change. Partner availability shown here reflects the current product catalogue.</footer>
+<script>
+(function(){
+const grid=document.getElementById('featuredGrid'),filters=document.getElementById('categoryFilters'),count=document.getElementById('productCount');
+let all=[],active='all';
+const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function render(){
+ const items=all.filter(p=>(p.platform==='amazon'||p.platform==='awin')&&(active==='all'||p.category===active)).slice(0,active==='all'?12:24);
+ count.textContent=active==='all'?'Showing curated picks from '+all.length+' live affiliate products':'Showing '+items.length+' picks in '+active;
+ grid.innerHTML=items.length?items.map(p=>{
+ const image=(Array.isArray(p.images)&&p.images[0])||p.fallback_image||'';
+ const merchant=p.merchant||((p.platform||'').toUpperCase());
+ const price=p.price?'<strong>'+esc(p.price)+'</strong>':'';
+ return '<article class="product"><div class="product-img">'+(image?'<img loading="lazy" src="'+esc(image)+'" alt="'+esc(p.name)+'" onerror="this.style.display=\'none\'">':'<i class="fa-solid fa-cube" style="font-size:32px;color:#bbb"></i>')+'</div><div class="product-body"><span class="product-tag">'+esc(p.category||'Featured')+'</span><h3>'+esc(p.name)+'</h3><p>'+esc(p.description||'Explore this pick on the partner platform.')+'</p><div class="product-bottom"><span class="merchant">'+esc(merchant)+'</span><a class="buy" href="'+esc(p.link||'#')+'" target="_blank" rel="sponsored noopener">VIEW PRODUCT ↗</a></div></div></article>';
+ }).join(''):'<div class="empty">No products in this category yet.</div>';
+}
+function buildCategories(){
+ const cats=[...new Set(all.map(p=>p.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+ filters.innerHTML='<button class="chip active" data-cat="all">All categories</button>'+cats.map(c=>'<button class="chip" data-cat="'+esc(c)+'">'+esc(c)+'</button>').join('');
+ filters.addEventListener('click',e=>{const b=e.target.closest('button[data-cat]');if(!b)return;active=b.dataset.cat;filters.querySelectorAll('.chip').forEach(x=>x.classList.toggle('active',x===b));render();});
+}
+fetch('products.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('feed unavailable');return r.json()}).then(list=>{
+ all=list.filter(p=>(p.platform==='amazon'||p.platform==='awin')&&!/daily[\s._-]*objects/i.test([p.name,p.merchant,p.category].join(' ')));
+ buildCategories();render();
+}).catch(()=>{grid.innerHTML='<div class="empty">Product picks could not load right now. Please refresh in a moment.</div>';count.textContent='Catalogue temporarily unavailable';});
+if(location.hash){setTimeout(()=>{const target=document.querySelector(location.hash);if(target)target.scrollIntoView()},250);}
+})();
+</script>
+</body></html>
