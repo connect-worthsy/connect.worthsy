@@ -3823,6 +3823,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
                     setStatus('This product is already in the WORTHSY catalogue. Your affiliate link is ready.', false);
                 } else {
                     setStatus('Affiliate link created and product submitted to WORTHSY. Catalogue publication confirmed by the server.', false);
+                    setTimeout(function () { window.location.reload(); }, 1800);
                 }
             } catch (error) {
                 setStatus(error.message || 'Could not submit this product. Please try again.', true);
