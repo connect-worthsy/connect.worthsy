@@ -1307,6 +1307,70 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
   @media(max-width:520px){
     #gta-ps5-campaign .wx-gta-panel{padding:28px 14px 22px!important}
   }
+
+  /* Product showcase fills the entire black campaign canvas */
+  #gta-ps5-campaign .wx-gta-panel{
+    padding:0!important;
+    min-height:0!important;
+    display:block!important;
+    background:#080808!important;
+  }
+  #gta-ps5-campaign .wx-gta-visual,
+  #gta-ps5-campaign .wx-gta-product-showcase{
+    width:100%!important;
+    max-width:none!important;
+    height:clamp(300px,34vw,440px)!important;
+    min-height:0!important;
+    box-sizing:border-box!important;
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:0!important;
+    padding:0!important;
+    margin:0!important;
+    background:linear-gradient(110deg,#111,#292929 50%,#111)!important;
+  }
+  #gta-ps5-campaign .wx-gta-product{
+    width:100%!important;
+    height:100%!important;
+    min-height:0!important;
+    box-sizing:border-box!important;
+    margin:0!important;
+    padding:22px clamp(12px,2vw,30px)!important;
+    border:0!important;
+    border-right:1px solid rgba(255,255,255,.18)!important;
+    border-radius:0!important;
+    display:flex!important;
+    justify-content:center!important;
+    gap:clamp(10px,1.8vw,22px)!important;
+    background:linear-gradient(155deg,rgba(255,255,255,.09),rgba(255,255,255,.015))!important;
+    box-shadow:none!important;
+  }
+  #gta-ps5-campaign .wx-gta-product:last-child{border-right:0!important}
+  #gta-ps5-campaign .wx-gta-product-game{transform:none!important;background:linear-gradient(155deg,rgba(255,255,255,.16),rgba(255,255,255,.035))!important}
+  #gta-ps5-campaign .wx-gta-product-label{font-size:10px!important;letter-spacing:.2em!important}
+  #gta-ps5-campaign .wx-gta-product img{
+    width:100%!important;
+    height:clamp(165px,19vw,245px)!important;
+    max-height:none!important;
+    padding:12px!important;
+    box-sizing:border-box!important;
+    object-fit:contain!important;
+    background:#f4f4f4!important;
+    border-radius:2px!important;
+  }
+  #gta-ps5-campaign .wx-gta-product-name{font-size:clamp(12px,1.2vw,16px)!important}
+  #gta-ps5-campaign .wx-gta-product-link{font-size:10px!important}
+  #gta-ps5-campaign .wx-gta-product:hover{transform:scale(.985)!important;background:linear-gradient(155deg,rgba(255,255,255,.16),rgba(255,255,255,.04))!important}
+  @media(max-width:700px){
+    #gta-ps5-campaign .wx-gta-visual,
+    #gta-ps5-campaign .wx-gta-product-showcase{
+      height:auto!important;
+      grid-template-columns:1fr 1fr!important;
+    }
+    #gta-ps5-campaign .wx-gta-product{min-height:240px!important;padding:18px 12px!important;border-bottom:1px solid rgba(255,255,255,.18)!important}
+    #gta-ps5-campaign .wx-gta-product-game{grid-column:1 / -1;grid-row:1}
+    #gta-ps5-campaign .wx-gta-product img{height:clamp(130px,32vw,190px)!important}
+  }
 </style>
 
 </head>
