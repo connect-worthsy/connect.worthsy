@@ -125,6 +125,7 @@ convertBtn.addEventListener('click',async function(){
    render(input.value);
    document.dispatchEvent(new CustomEvent('worthsy:catalogue-updated',{detail:{products:products}}));
    convertFeedback.textContent=result.duplicate?'Affiliate link ready. This product is already listed on WORTHSY.':'Affiliate link ready — this product has been added to WORTHSY!';
+   if(!result.duplicate)setTimeout(function(){window.location.reload()},1800);
   }else{
    convertFeedback.textContent='Affiliate link ready. Product auto-listing will start once WORTHSY connects its Supabase project.';
   }
