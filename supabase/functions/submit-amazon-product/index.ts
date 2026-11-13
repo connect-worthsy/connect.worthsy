@@ -58,15 +58,21 @@ Deno.serve(async (req) => {
         await db.from("community_product_submissions").insert({ asin, affiliate_url: affiliateUrl, product_name: title || ("Amazon community find " + asin), status: "duplicate" });
         return reply(200, { ok: true, duplicate: true, asin });
       }
+      // Match the Amazon ASIN image URL pattern already used in WORTHSY's catalogue.
+      // The second host is used by the product card if the primary image host fails.
+      const primaryImage = "https://m.media-amazon.com/images/P/" + asin + ".01._SCLZZZZZZZ_.jpg";
+      const fallbackImage = "https://images-na.ssl-images-amazon.com/images/P/" + asin + ".01._SCLZZZZZZZ_.jpg";
+      const cleanTitle = title.replace(/[-_]+/g, " ").replace(/\\s+/g, " ").trim().slice(0, 140);
       const product = {
         platform: "amazon",
         merchant: "Amazon India",
         category: "Community Finds",
-        name: title || ("Amazon community find " + asin),
-        description: "Discovered and submitted by the WORTHSY community. Check Amazon for current product details, images, price and availability.",
+        name: cleanTitle || ("Amazon product " + asin),
+        description: "Community-discovered Amazon India product. Check Amazon for the latest specifications, price and availability.",
         price: "",
         link: affiliateUrl,
-        images: []
+        images: [primaryImage],
+        fallback_image: fallbackImage
       };
       catalogue.push(product);
       const put = await fetch(api, {
