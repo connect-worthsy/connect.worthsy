@@ -3747,7 +3747,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
 })();
 </script>
 <script src="worthsy-supabase-config.js?v=1"></script>
-<script src="worthsy-search.js?v=community4" defer></script>
+<script src="worthsy-search.js?v=community5" defer></script>
 
     <script id="worthsy-amazon-community-publisher">
     (function () {
@@ -3774,6 +3774,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
             if (host !== 'amazon.in' && host !== 'amzn.in') throw new Error('Please paste an Amazon India link (amazon.in).');
             var match = url.pathname.match(/\/(?:dp|gp\/product|product)\/([a-z0-9]{10})(?:\/|$)/i);
             if (!match) match = url.pathname.match(/\/([A-Z0-9]{10})(?:\/|$)/i);
+            if (!match && host === 'amzn.in') return { asin: '', title: '', url: url.href };
             if (!match) throw new Error('Could not find a 10-character Amazon product ID (ASIN) in that URL.');
             var segments = url.pathname.split('/').filter(Boolean);
             var marker = segments.findIndex(function (part) { return /^(dp|product)$/i.test(part); });
@@ -3784,7 +3785,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
             if (!title && segments.length > 2 && /^dp$/i.test(segments[segments.length - 2])) {
                 try { title = decodeURIComponent(segments[segments.length - 3]).replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 140); } catch (_) {}
             }
-            return { asin: match[1].toUpperCase(), title: title };
+            return { asin: match[1].toUpperCase(), title: title, url: url.href };
         }
         button.addEventListener('click', async function () {
             result.classList.add('hidden');
@@ -3797,7 +3798,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
             button.disabled = true;
             button.textContent = 'Submitting…';
             setStatus('Converting your link and submitting the product to WORTHSY…', false);
-            var affiliateUrl = 'https://www.amazon.in/dp/' + product.asin + '?tag=worthsy0d-21';
+            var affiliateUrl = product.asin ? 'https://www.amazon.in/dp/' + product.asin + '?tag=worthsy0d-21' : '';
             try {
                 var response = await fetch(endpoint, {
                     method: 'POST',
@@ -3813,6 +3814,8 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
                 if (!response.ok || !data.ok) {
                     throw new Error(data.error || ('Product submission failed (HTTP ' + response.status + ').'));
                 }
+                affiliateUrl = data.affiliateUrl || (data.asin ? 'https://www.amazon.in/dp/' + data.asin + '?tag=worthsy0d-21' : affiliateUrl);
+                if (!affiliateUrl) throw new Error('The server did not return a valid affiliate link.');
                 output.value = affiliateUrl;
                 result.classList.remove('hidden');
                 result.classList.add('flex');
