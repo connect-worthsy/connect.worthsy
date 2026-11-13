@@ -1,0 +1,4 @@
+project_id = "worthsy-community"
+
+[functions.submit-amazon-product]
+verify_jwt = true
