@@ -97,8 +97,26 @@ async function resolveAmazonLink(raw){
 convertBtn.addEventListener('click',async function(){
  const raw=convertUrl.value.trim();if(!raw){convertFeedback.textContent='Paste an Amazon India product link first.';return}
  convertBtn.disabled=true;convertBtn.textContent='Converting…';convertOutput.classList.remove('show');convertFeedback.textContent='Checking the Amazon product link…';
- try{const asin=await resolveAmazonLink(raw),link='https://www.amazon.in/dp/'+asin+'?tag='+TAG;convertResult.value=link;convertOutput.classList.add('show');convertFeedback.textContent='Affiliate link ready. Copy it and share this link.';copyBtn.textContent='Copy link'}
- catch(e){convertFeedback.textContent=e.message}
+ try{
+  const asin=await resolveAmazonLink(raw),link='https://www.amazon.in/dp/'+asin+'?tag='+TAG;
+  convertResult.value=link;convertOutput.classList.add('show');copyBtn.textContent='Copy link';
+  const cfg=window.WORTHSY_SUPABASE_CONFIG||{};
+  if(cfg.url&&cfg.anonKey){
+   convertFeedback.textContent='Affiliate link ready. Adding this product to WORTHSY…';
+   let title='';
+   try{const path=new URL(raw.indexOf('://')<0?'https://'+raw:raw).pathname.split('/').filter(Boolean);const dp=path.findIndex(x=>x.toLowerCase()==='dp');if(dp>0)title=decodeURIComponent(path[dp-1]).replace(/[-_]+/g,' ').replace(/\s+/g,' ').trim().slice(0,140)}catch(e){}
+   const response=await fetch(cfg.url.replace(/\/$/, '')+'/functions/v1/submit-amazon-product',{
+    method:'POST',headers:{'Content-Type':'application/json','apikey':cfg.anonKey,'Authorization':'Bearer '+cfg.anonKey},
+    body:JSON.stringify({asin,title})
+   });
+   const result=await response.json();
+   if(!response.ok)throw new Error(result.error||'Product submission failed.');
+   convertFeedback.textContent=result.duplicate?'Affiliate link ready. This product is already listed on WORTHSY.':'Affiliate link ready — this product has been added to WORTHSY!';
+  }else{
+   convertFeedback.textContent='Affiliate link ready. Product auto-listing will start once WORTHSY connects its Supabase project.';
+  }
+ }
+ catch(e){convertFeedback.textContent='Affiliate link is ready, but product auto-listing failed: '+e.message}
  finally{convertBtn.disabled=false;convertBtn.textContent='Convert link'}
 });
 
