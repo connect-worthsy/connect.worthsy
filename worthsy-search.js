@@ -42,7 +42,7 @@ function render(q){
 input.addEventListener('input',()=>render(input.value));
 const launcher=document.getElementById('uniSearchBtn');if(launcher)launcher.addEventListener('click',()=>open(''));else if(!document.getElementById('wsy-search-launch')){const b=document.createElement('button');b.id='wsy-search-launch';b.type='button';b.textContent='⌕  Search products';b.onclick=()=>open('');document.body.appendChild(b)}
 document.querySelectorAll('input[type="search"]:not(#wsy-search-input)').forEach(el=>{el.addEventListener('focus',()=>{if(['productSearch','wx-hero-q','modalSearch'].includes(el.id))open(el.value)});el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();open(el.value)}})});
-const hero=document.getElementById('wx-hero-search');if(hero)hero.addEventListener('submit',e=>{e.preventDefault();open(document.getElementById('wx-hero-q')?.value||'')});
+const hero=document.getElementById('wx-hero-search');if(hero)hero.addEventListener('submit',e=>{e.preventDefault();open((document.getElementById('wx-hero-q')||{}).value||'')});
 document.querySelectorAll('[data-q]').forEach(b=>b.addEventListener('click',()=>open(b.getAttribute('data-q'))));
 const script=document.currentScript,feed=new URL('products.json',script.src).toString();fetch(feed,{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('feed unavailable');return r.json()}).then(list=>{products=Array.isArray(list)?list.filter(p=>p&&p.name&&(p.link||p.url)):[];ready=true;if(layer.classList.contains('open'))render(input.value)}).catch(()=>{ready=true;meta.textContent='Catalogue temporarily unavailable. Please try again shortly.'});
 })();
