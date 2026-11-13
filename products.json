@@ -9056,5 +9056,15 @@
     "images": [
       "https://www.showgame.it/cdn/shop/files/GTA_VI_-_Grand_Theft_Auto_VI_-_GIOCO_PlayStation_5.png?v=1782851576"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Community Finds",
+    "name": "Amazon community find B0GX25GCZR",
+    "description": "Discovered and submitted by the WORTHSY community. Check Amazon for current product details, images, price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0GX25GCZR?tag=worthsy0d-21",
+    "images": []
   }
 ]
