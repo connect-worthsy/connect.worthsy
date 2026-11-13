@@ -62,7 +62,7 @@ Deno.serve(async (req) => {
       // The second host is used by the product card if the primary image host fails.
       const primaryImage = "https://m.media-amazon.com/images/P/" + asin + ".01._SCLZZZZZZZ_.jpg";
       const fallbackImage = "https://images-na.ssl-images-amazon.com/images/P/" + asin + ".01._SCLZZZZZZZ_.jpg";
-      const cleanTitle = title.replace(/[-_]+/g, " ").replace(/\\s+/g, " ").trim().slice(0, 140);
+      const cleanTitle = title.replace(/[-_]+/g, " ").replace(/\s+/g, " ").trim().slice(0, 140);
       const product = {
         platform: "amazon",
         merchant: "Amazon India",
