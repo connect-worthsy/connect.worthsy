@@ -33,7 +33,7 @@ function score(p,q){const ts=N(q).split(' ').filter(Boolean);if(!ts.length)retur
 function render(q){
  const query=N(q),matches=[];
  products.forEach(function(p){const n=score(p,query);if(!query||n>0)matches.push({p:p,s:n})});
- matches.sort(function(x,y){return y.s-x.s});matches.length=24&&matches.splice(24);
+ matches.sort(function(x,y){return y.s-x.s});if(matches.length>24)matches.splice(24);
  meta.textContent=ready?(query?matches.length+' matching products':'Search across '+products.length+' curated affiliate products'):'Loading the WORTHSY catalogue…';
  chips.innerHTML='';results.innerHTML='';
  if(!query&&ready){const cats=[];products.forEach(function(p){if(p.category&&cats.indexOf(p.category)<0&&cats.length<8)cats.push(p.category)});cats.forEach(function(c){const btn=document.createElement('button');btn.className='wsy-chip';btn.textContent=c;btn.onclick=function(){input.value=c;render(c)};chips.appendChild(btn)})}
