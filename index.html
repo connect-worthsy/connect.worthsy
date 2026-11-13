@@ -1353,6 +1353,41 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
     }
   }
 
+  /* Make product artwork substantially larger within the existing cards */
+  @media(min-width:821px){
+    #gta-ps5-campaign .wx-gta-product img{
+      height:225px;
+      max-height:225px;
+      padding:0;
+      background:#f5f5f5;
+    }
+    #gta-ps5-campaign .wx-gta-product-console img,
+    #gta-ps5-campaign .wx-gta-product-controller img{
+      height:215px;
+      max-height:215px;
+    }
+    #gta-ps5-campaign .wx-gta-product-game img{
+      height:245px;
+      max-height:245px;
+    }
+  }
+  @media(max-width:820px){
+    #gta-ps5-campaign .wx-gta-product img{
+      height:150px;
+      max-height:150px;
+      padding:2px;
+    }
+    #gta-ps5-campaign .wx-gta-product-console img,
+    #gta-ps5-campaign .wx-gta-product-controller img{
+      height:145px;
+      max-height:145px;
+    }
+    #gta-ps5-campaign .wx-gta-product-game img{
+      height:175px;
+      max-height:175px;
+    }
+  }
+
 </style>
 
 </head>
