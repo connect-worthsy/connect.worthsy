@@ -67,7 +67,7 @@ async function resolveAmazonLink(raw){
  try{const data=JSON.parse(body);candidates=[data.url,data.finalUrl,data.final_url,data.destination,data.expanded_url,data.unshortened_url,body].filter(Boolean)}catch(err){}
  for(let i=0;i<candidates.length;i++){
   let candidate=String(candidates[i]).trim();
-  const match=candidate.match(/https?:\\/\\/[^\\s"'<>]+/i);if(match)candidate=match[0].replace(/[),.;]+$/,'');
+  const first=candidate.indexOf('http://'),second=candidate.indexOf('https://'),pos=first<0?second:(second<0?first:Math.min(first,second));if(pos>=0)candidate=candidate.slice(pos).split(/[\\s"'<>]/)[0].replace(/[),.;]+$/,'');
   try{return extractAsin(candidate)}catch(err){}
  }
  throw new Error('The short link did not resolve to an Amazon India product page. Try pasting the full Amazon product URL.');
