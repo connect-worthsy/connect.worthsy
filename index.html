@@ -1544,10 +1544,10 @@ html body .ws-hero-copy{
 .amazon-smile{display:none!important}
 </style>
 <style id="wx-sneaker-spotlight-css">
-.wx-sneaker-spotlight{width:min(1160px,calc(100% - 56px));max-width:1160px;margin:30px auto 0;padding:0 0 42px;box-sizing:border-box}
+.wx-sneaker-spotlight{width:calc(100vw - 48px);max-width:none;margin:30px 0 0 calc(50% - 50vw + 24px);padding:0 0 42px;box-sizing:border-box}
 .wx-sneaker-spotlight-panel{position:relative;isolation:isolate;overflow:hidden;min-height:174px;width:100%;box-sizing:border-box;display:grid;grid-template-columns:minmax(245px,.85fr) minmax(0,1.5fr);align-items:center;gap:28px;padding:22px 28px;color:#171326;background:linear-gradient(112deg,#ffe1f0 0%,#f5ddff 34%,#d9e8ff 67%,#fff0c7 100%);border:1px solid rgba(121,74,143,.2);border-radius:18px;box-shadow:0 14px 38px rgba(112,65,140,.12)}
 .wx-sneaker-spotlight-panel:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.62;background:radial-gradient(circle at 12% 20%,rgba(255,92,167,.42),transparent 27%),radial-gradient(circle at 86% 80%,rgba(255,190,63,.42),transparent 28%),linear-gradient(135deg,transparent 48%,rgba(255,255,255,.55) 49%,transparent 51%);background-size:auto,auto,32px 32px;animation:wx-sneaker-shimmer 12s linear infinite}
-.wx-sneaker-spotlight-panel:after{content:"✳";position:absolute;z-index:-1;right:30%;top:-24px;color:rgba(255,255,255,.62);font-size:150px;line-height:1;transform:rotate(-15deg);pointer-events:none}
+
 .wx-sneaker-spotlight-copy{position:relative;z-index:1}
 .wx-sneaker-kicker{margin:0 0 8px;color:#8a3974;font-size:8px;font-weight:950;letter-spacing:.2em}
 .wx-sneaker-spotlight-copy h2{margin:0 0 8px;color:#21152d;font-size:clamp(27px,3.1vw,39px);font-weight:950;line-height:.9;letter-spacing:-.075em}
@@ -1560,14 +1560,14 @@ html body .ws-hero-copy{
 .wx-sneaker-spotlight-brands a:hover{transform:translateY(-4px) rotate(-1deg);background:#fff;box-shadow:0 10px 22px rgba(90,55,105,.16)}
 .wx-sneaker-spotlight-brands img{display:block;width:auto;height:auto;max-width:100%;max-height:29px;object-fit:contain}
 .wx-sneaker-spotlight-brands a:nth-child(2) img{max-height:34px}
-.wx-sneaker-spotlight-brands a:nth-child(3) img{max-height:36px}
+.wx-sneaker-spotlight-brands a:nth-child(3) img{max-height:36px;width:190px;max-width:100%}
 .wx-sneaker-spotlight-brands a:nth-child(4) img{max-height:25px}
 .wx-sneaker-spotlight-brands a:nth-child(6) img{max-height:28px}
 .wx-onitsuka-wordmark{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#111;line-height:.82;letter-spacing:.035em}
 .wx-onitsuka-wordmark b{font-size:13px;font-weight:900}
 .wx-onitsuka-wordmark strong{margin-top:3px;font-size:18px;font-weight:950;letter-spacing:.14em}
 @keyframes wx-sneaker-shimmer{0%{background-position:0 0,0 0,0 0}100%{background-position:0 0,0 0,96px 64px}}
-@media(max-width:760px){.wx-sneaker-spotlight{width:calc(100% - 32px);margin-top:24px;padding-bottom:30px}.wx-sneaker-spotlight-panel{grid-template-columns:1fr;gap:16px;padding:22px 18px}.wx-sneaker-spotlight-copy{text-align:center}.wx-sneaker-spotlight-copy>p:not(.wx-sneaker-kicker){margin-left:auto;margin-right:auto}.wx-sneaker-spotlight-brands{gap:7px}.wx-sneaker-spotlight-brands a{height:44px;padding:7px}.wx-sneaker-spotlight-brands img{max-height:25px}}
+@media(max-width:760px){.wx-sneaker-spotlight{width:calc(100vw - 28px);margin:24px 0 0 calc(50% - 50vw + 14px);padding-bottom:30px}.wx-sneaker-spotlight-panel{grid-template-columns:1fr;gap:16px;padding:22px 18px}.wx-sneaker-spotlight-copy{text-align:center}.wx-sneaker-spotlight-copy>p:not(.wx-sneaker-kicker){margin-left:auto;margin-right:auto}.wx-sneaker-spotlight-brands{gap:7px}.wx-sneaker-spotlight-brands a{height:44px;padding:7px}.wx-sneaker-spotlight-brands img{max-height:25px}}
 @media(max-width:420px){.wx-sneaker-spotlight-brands{grid-template-columns:repeat(2,minmax(0,1fr))}.wx-sneaker-spotlight-panel{padding:20px 14px}}
 @media(prefers-reduced-motion:reduce){.wx-sneaker-spotlight-panel:before{animation:none}.wx-sneaker-spotlight-brands a,.wx-sneaker-cta{transition:none}}
 </style>
@@ -1707,7 +1707,7 @@ html body .ws-hero-copy{
           <div class="wx-sneaker-spotlight-brands" aria-label="Featured sneaker brands">
             <a href="sneakerhead.html?brand=Nike#collection" aria-label="Explore Nike sneakers"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Nike_wordmark.svg" alt="Nike" loading="lazy" decoding="async"></a>
             <a href="sneakerhead.html?brand=adidas#collection" aria-label="Explore adidas sneakers"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Adidas.svg" alt="adidas" loading="lazy" decoding="async"></a>
-            <a href="sneakerhead.html?brand=New%20Balance#collection" aria-label="Explore New Balance sneakers"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/New_Balance_logo.svg" alt="New Balance" loading="lazy" decoding="async"></a>
+            <a href="sneakerhead.html?brand=New%20Balance#collection" aria-label="Explore New Balance sneakers"><img src="https://cdn.simpleicons.org/newbalance/171326" alt="New Balance" loading="lazy" decoding="async"></a>
             <a href="sneakerhead.html?brand=Puma#collection" aria-label="Explore Puma sneakers"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Puma-logo-%28text%29.svg" alt="Puma" loading="lazy" decoding="async"></a>
             <a href="sneakerhead.html?brand=Onitsuka%20Tiger#collection" aria-label="Explore Onitsuka Tiger sneakers"><span class="wx-onitsuka-wordmark" aria-label="Onitsuka Tiger"><b>ONITSUKA</b><strong>TIGER</strong></span></a>
             <a href="sneakerhead.html?brand=Converse#collection" aria-label="Explore Converse sneakers"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/ConverseLogo.svg" alt="Converse" loading="lazy" decoding="async"></a>
