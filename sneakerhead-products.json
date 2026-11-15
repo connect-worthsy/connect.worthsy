@@ -989,14 +989,15 @@
     },
     {
       "brand": "Puma",
-      "name": "Puma T7 Racer",
-      "model": "T7 Racer",
-      "category": "Performance",
+      "name": "Puma Suede T7",
+      "model": "Suede T7",
+      "category": "Lifestyle",
       "trendScore": 93,
       "amazonUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://feature.com/cdn/shop/products/Puma-Womens-Suede-T7-Black-39006702-11-20-22-Feature-JM-2.jpg?v=1669425726",
       "price": "",
-      "verification": "pending"
+      "verification": "pending",
+      "imageSource": "verified retailer product photo"
     },
     {
       "brand": "Puma",
@@ -1312,14 +1313,15 @@
     },
     {
       "brand": "Onitsuka Tiger",
-      "name": "Onitsuka Tiger Delegation Chukai",
-      "model": "Delegation Chukai",
+      "name": "Onitsuka Tiger DENTIGRE LS",
+      "model": "DENTIGRE LS",
       "category": "Lifestyle",
       "trendScore": 91,
       "amazonUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://fredsjapan.com/cdn/shop/files/1183B421_001_SR_LT_AJP.webp?v=1773018313&width=1445",
       "price": "",
-      "verification": "pending"
+      "verification": "pending",
+      "imageSource": "verified retailer product photo"
     },
     {
       "brand": "Onitsuka Tiger",
