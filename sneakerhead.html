@@ -194,6 +194,15 @@ $('modalClose').addEventListener('click',closeProduct);$('sneakerModal').addEven
 
 $('search').addEventListener('input',render);$('brandFilter').addEventListener('change',()=>{const b=$('brandFilter').value;$('brandStrip').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.brand===b));render();});$('typeFilter').addEventListener('change',render);$('sort').addEventListener('change',render);
 initFilters();render();
-fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Catalogue request failed: '+r.status);return r.json();}).then(d=>{if(d&&Array.isArray(d.products)&&d.products.length===150){products=d.products;render();initBrandShowcase();}else{throw new Error('Catalogue data format was not recognized.');}}).catch(err=>{console.error('WORTHSY SNEAKERHEAD catalogue:',err);$('resultCount').textContent='Catalogue could not load — refresh the page';});
+function applyBrandFromUrl(){
+ const requested=new URLSearchParams(window.location.search).get('brand');
+ if(!requested)return;
+ const match=brands.find(b=>b.toLowerCase()===requested.toLowerCase());
+ if(!match)return;
+ $('brandFilter').value=match;
+ $('brandStrip').querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.brand===match));
+ render();
+}
+fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Catalogue request failed: '+r.status);return r.json();}).then(d=>{if(d&&Array.isArray(d.products)&&d.products.length===150){products=d.products;render();initBrandShowcase();applyBrandFromUrl();}else{throw new Error('Catalogue data format was not recognized.');}}).catch(err=>{console.error('WORTHSY SNEAKERHEAD catalogue:',err);$('resultCount').textContent='Catalogue could not load — refresh the page';});
 </script>
 </body></html>
