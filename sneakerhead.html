@@ -114,12 +114,34 @@ footer a{color:#fff}
  .product-modal{padding:24px 18px}.retailer-row{padding:12px}
 }
 
+
+/* Compact, rotating multi-brand hero */
+.hero{padding:14px 0 18px}
+.hero-grid{grid-template-columns:1fr 1fr;min-height:0;height:clamp(285px,34vw,390px);max-height:390px}
+.hero-copy{padding:clamp(24px,3.3vw,48px)}
+.hero .eyebrow{font-size:9px;letter-spacing:.2em;color:#aaa}
+.hero h1{font-size:clamp(43px,5.4vw,72px);line-height:.88;letter-spacing:-.075em;margin:17px 0 12px}
+.hero p{font-size:12px;line-height:1.65;max-width:360px;margin:0;color:#c8c8c8}
+.hero-actions{margin-top:18px;gap:8px}
+.hero-actions .btn{padding:11px 14px;font-size:9px}
+.hero-art{min-height:0;height:100%;background-color:#ededed;background-image:none;background-position:center;background-size:cover;position:relative;overflow:hidden;filter:none;transition:opacity .45s ease}
+.hero-art.is-changing{opacity:.35}
+.hero-art:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.18),transparent 48%),linear-gradient(0deg,rgba(0,0,0,.48),transparent 48%);pointer-events:none}
+.hero-art:after{display:none}
+.hero-brand-stamp{position:absolute;left:24px;bottom:23px;color:#fff;display:flex;flex-direction:column;gap:4px;text-shadow:0 1px 10px #0008}
+.hero-brand-stamp span,.hero-slide-count{font-size:8px;font-weight:800;letter-spacing:.22em}
+.hero-brand-stamp strong{font-size:clamp(25px,3vw,40px);line-height:1;letter-spacing:-.05em}
+.hero-brand-stamp small{font-size:10px;letter-spacing:.05em}
+.hero-slide-count{position:absolute;right:22px;bottom:26px;color:#fff}
+@media(max-width:850px){.hero-grid{height:auto;max-height:none;grid-template-columns:1fr}.hero-copy{padding:28px 26px}.hero h1{font-size:clamp(48px,9vw,68px)}.hero-art{height:260px;min-height:260px}}
+@media(max-width:560px){.hero{padding:12px 0 16px}.hero-copy{padding:25px 20px}.hero h1{font-size:clamp(44px,12vw,60px);margin:14px 0 10px}.hero p{font-size:11px}.hero-art{height:220px;min-height:220px}.hero-brand-stamp{left:16px;bottom:16px}.hero-slide-count{right:16px;bottom:19px}}
+
 </style>
 </head>
 <body>
 <header class="top"><a class="brand-home" href="index.html" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a><nav class="topnav"><a href="index.html">Home</a><a href="#brands">Brands</a><a href="#collection">Collection</a><a href="shop.html">Shop</a></nav><a class="top-cta" href="#collection">Explore sneakers ↘</a></header>
 <main class="wrap">
-<section class="hero"><div class="hero-grid"><div class="hero-copy"><div class="eyebrow">WORTHSY / SNEAKERHEAD / VOL. 001</div><h1>STEP INTO<br>THE CULTURE.</h1><p>A considered edit of iconic silhouettes, fresh drops and pairs shaping sneaker culture. Six brands. One destination. Your next rotation starts here.</p><div class="hero-actions"><a class="btn" href="#collection">Explore the edit ↘</a><a class="btn ghost" href="#brands">Discover brands</a></div></div><div class="hero-art" role="img" aria-label="Editorial sneaker campaign image"></div></div></section>
+<section class="hero"><div class="hero-grid"><div class="hero-copy"><div class="eyebrow">WORTHSY / THE SNEAKER EDIT</div><h1>FIND YOUR<br> NEXT PAIR.</h1><p>Iconic silhouettes. Fresh drops. Six brands shaping sneaker culture — all in one place.</p><div class="hero-actions"><a class="btn" href="#collection">Explore sneakers ↘</a><a class="btn ghost" href="#brands">Browse brands</a></div></div><div class="hero-art" id="brandShowcase" role="img" aria-label="Rotating sneaker brand showcase"><div class="hero-brand-stamp"><span>NOW FEATURING</span><strong id="heroBrandName">NIKE</strong><small id="heroProductName">Air Force 1 '07</small></div><div class="hero-slide-count" id="heroSlideCount">01 / 06</div></div></div></section>
 <section id="brands"><div class="eyebrow">THE LINE-UP</div><div class="section-head"><div><h2>Six labels. Endless rotation.</h2><p class="muted">Explore the sneaker worlds we are curating.</p></div></div><div class="brand-strip" id="brandStrip"></div></section>
 <section id="collection"><div class="section-head"><div><div class="eyebrow">THE SNEAKER INDEX / 001—150</div><h2>Find your next pair.</h2><p class="muted">A 150-model discovery edit, curated across six sneaker labels.</p></div><div class="eyebrow" id="countLabel">150 MODELS</div></div>
 <div class="filters"><input id="search" type="search" placeholder="Search sneaker or silhouette…" aria-label="Search sneakers"><select id="brandFilter" aria-label="Filter by brand"><option value="">All brands</option></select><select id="typeFilter" aria-label="Filter by style"><option value="">All styles</option><option>Streetwear</option><option>Retro runner</option><option>Court</option><option>Performance</option><option>Lifestyle</option></select><select id="sort" aria-label="Sort sneakers"><option value="trending">Trending edit</option><option value="az">Name: A to Z</option><option value="brand">Brand</option></select></div>
@@ -151,6 +173,16 @@ mk('Tata CLiQ',p.tatacliqUrl,p.tatacliqPrice,'https://www.tatacliq.com/search/?s
 mk('Superkicks',p.superkicksUrl,p.superkicksPrice,'https://www.superkicks.in/search?q='+q)];
 return list.concat((Array.isArray(p.otherRetailers)?p.otherRetailers:[]).filter(s=>!/amazon/i.test(s.name||'')));}
 
+
+function initBrandShowcase(){
+ const art=$('brandShowcase');if(!art)return;
+ const slides=brands.map(brand=>{const p=products.filter(x=>x.brand===brand&&x.imageUrl).sort((a,b)=>(b.trendScore||0)-(a.trendScore||0))[0];return p?{brand,product:p.name,image:p.imageUrl}:null;}).filter(Boolean);
+ if(!slides.length)return;
+ let index=0;
+ const show=()=>{const slide=slides[index];art.classList.add('is-changing');const preload=new Image();preload.onload=()=>{art.style.backgroundImage='url('+JSON.stringify(slide.image)+')';$('heroBrandName').textContent=slide.brand.toUpperCase();$('heroProductName').textContent=slide.product;$('heroSlideCount').textContent=String(index+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');art.setAttribute('aria-label',slide.brand+' sneaker showcase featuring '+slide.product);requestAnimationFrame(()=>art.classList.remove('is-changing'));};preload.onerror=()=>{art.classList.remove('is-changing');};preload.src=slide.image;};
+ show();if(window.worthsyBrandTimer)clearInterval(window.worthsyBrandTimer);window.worthsyBrandTimer=setInterval(()=>{index=(index+1)%slides.length;show();},4200);
+}
+
 function initFilters(){ $('brandStrip').innerHTML='<button class="brand-btn active" data-brand="">ALL</button>'+brands.map(b=>'<button class="brand-btn" data-brand="'+b+'">'+b.toUpperCase()+'</button>').join(''); $('brandFilter').innerHTML='<option value="">All brands</option>'+brands.map(b=>'<option>'+b+'</option>').join(''); $('brandStrip').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ $('brandFilter').value=b.dataset.brand; $('brandStrip').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render();}));}
 function render(){let list=products.slice();const q=$('search').value.trim().toLowerCase(),brand=$('brandFilter').value,type=$('typeFilter').value,sort=$('sort').value;list=list.filter(p=>(!brand||p.brand===brand)&&(!type||p.category===type)&&(!q||(p.name+' '+p.brand+' '+p.category).toLowerCase().includes(q)));if(sort==='az')list.sort((a,b)=>a.name.localeCompare(b.name));else if(sort==='brand')list.sort((a,b)=>a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name));else list.sort((a,b)=>b.trendScore-a.trendScore);$('resultCount').textContent=list.length+' models';$('countLabel').textContent=list.length+' / 150 MODELS';$('productGrid').innerHTML=list.length?list.map((p,i)=>'<article class="card" tabindex="0" role="button" data-product-index="'+products.indexOf(p)+'" aria-label="View '+p.name+' details"><div class="card-media">'+'<img src="'+imgSrc(p)+'" alt="'+p.name+'" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="imgFail(this)">'+'</div><div class="card-info"><div class="brand-name">'+p.brand+'</div><h3>'+p.name+'</h3><div class="card-type">'+p.category+'</div><div class="card-foot"><span class="pending">Compare stores</span><span aria-hidden="true">↗</span></div></div></article>').join(''):'<div class="empty" style="grid-column:1/-1">No sneakers match these filters. Try another search.</div>';}
 
@@ -162,6 +194,6 @@ $('modalClose').addEventListener('click',closeProduct);$('sneakerModal').addEven
 
 $('search').addEventListener('input',render);$('brandFilter').addEventListener('change',()=>{const b=$('brandFilter').value;$('brandStrip').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.brand===b));render();});$('typeFilter').addEventListener('change',render);$('sort').addEventListener('change',render);
 initFilters();render();
-fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Catalogue request failed: '+r.status);return r.json();}).then(d=>{if(d&&Array.isArray(d.products)&&d.products.length===150){products=d.products;render();}else{throw new Error('Catalogue data format was not recognized.');}}).catch(err=>{console.error('WORTHSY SNEAKERHEAD catalogue:',err);$('resultCount').textContent='Catalogue could not load — refresh the page';});
+fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Catalogue request failed: '+r.status);return r.json();}).then(d=>{if(d&&Array.isArray(d.products)&&d.products.length===150){products=d.products;render();initBrandShowcase();}else{throw new Error('Catalogue data format was not recognized.');}}).catch(err=>{console.error('WORTHSY SNEAKERHEAD catalogue:',err);$('resultCount').textContent='Catalogue could not load — refresh the page';});
 </script>
 </body></html>
