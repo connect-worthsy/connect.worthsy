@@ -58,9 +58,10 @@
       "category": "Streetwear",
       "trendScore": 96,
       "amazonUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://nohble.com/cdn/shop/files/AURORA_DQ8426-132_PHSLH000-2000.jpg?v=1712264260",
       "price": "",
-      "verification": "pending"
+      "verification": "pending",
+      "imageSource": "verified retailer product photo"
     },
     {
       "brand": "Nike",
@@ -93,9 +94,10 @@
       "category": "Performance",
       "trendScore": 93,
       "amazonUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://image-cdn.hypb.st/https%3A/hypebeast.com/image/2023/02/goat-air-jordan-3-retro-white-cement-reimagined-release-date-3.jpg?cbr=1&fit=max&q=90&w=1260",
       "price": "",
-      "verification": "pending"
+      "verification": "pending",
+      "imageSource": "verified retailer product photo"
     },
     {
       "brand": "Nike",
@@ -764,9 +766,10 @@
       "category": "Retro runner",
       "trendScore": 87,
       "amazonUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://images.novelship.com/product/new_balance_1906u__castlerock_ginger_lemon__m1906n_0_73681.jpeg",
       "price": "",
-      "verification": "pending"
+      "verification": "pending",
+      "imageSource": "verified retailer product photo"
     },
     {
       "brand": "New Balance",
@@ -1468,9 +1471,10 @@
       "category": "Lifestyle",
       "trendScore": 78,
       "amazonUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://images.asics.com/is/image/asics/1183B514_300_SB_FR_GLB?bgc=255%2C255%2C255&hei=1452&qlt=80&resMode=bisharp&wid=1280",
       "price": "",
-      "verification": "pending"
+      "verification": "pending",
+      "imageSource": "verified retailer product photo"
     },
     {
       "brand": "Onitsuka Tiger",
