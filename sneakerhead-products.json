@@ -14,7 +14,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B09QN2KBRV",
       "amazonVerification": "verified-model-match"
     },
@@ -29,7 +29,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B08QBXWBVR",
       "amazonVerification": "verified-model-match"
     },
@@ -44,7 +44,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "retailer product photography",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -59,7 +59,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "retailer product photography",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -74,7 +74,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B09HWK4ST3",
       "amazonVerification": "verified-model-match"
     },
@@ -89,7 +89,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -104,7 +104,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -119,7 +119,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B0CDJMRG3L",
       "amazonVerification": "verified-model-match"
     },
@@ -134,7 +134,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B084471YL3",
       "amazonVerification": "verified-model-match"
     },
@@ -149,7 +149,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -164,7 +164,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B07QXK2XD3",
       "amazonVerification": "verified-model-match"
     },
@@ -179,7 +179,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -194,7 +194,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -209,7 +209,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B0D95L4M52",
       "amazonVerification": "verified-model-match"
     },
@@ -219,14 +219,14 @@
       "model": "Cortez",
       "category": "Court",
       "trendScore": 86,
-      "amazonUrl": "",
+      "amazonUrl": "https://www.amazon.in/dp/B002CCJ69U?tag=worthsy0d-21",
       "imageUrl": "https://www.nike.ae/dw/image/v2/BDVB_PRD/on/demandware.static/-/Sites-akeneo-master-catalog/default/dw1fc6f9b3/nk/acc/d/6/e/6/d/accd6e6d_04e2_4df6_b2b8_798d63cd3a9c.jpg?sh=2000&sm=fit&sw=2000",
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
-      "amazonAsin": "",
-      "amazonVerification": "not-yet-verified"
+      "amazonLinkType": "individual-product",
+      "amazonAsin": "B002CCJ69U",
+      "amazonVerification": "verified-model-match"
     },
     {
       "brand": "Nike",
@@ -234,14 +234,14 @@
       "model": "Killshot 2",
       "category": "Performance",
       "trendScore": 85,
-      "amazonUrl": "",
+      "amazonUrl": "https://www.amazon.in/dp/B0D1YFP5SX?tag=worthsy0d-21",
       "imageUrl": "https://www.nike.qa/dw/image/v2/BDVB_PRD/on/demandware.static/-/Sites-akeneo-master-catalog/default/dwc5bcf66e/nk/1a9/0/4/d/c/7/1a904dc7_65c9_4a97_b977_e0551d59dc22.png?sh=2000&sm=fit&sw=2000",
       "price": "",
       "verification": "pending",
       "imageSource": "retailer product photography",
-      "amazonLinkType": "product-specific-search",
-      "amazonAsin": "",
-      "amazonVerification": "not-yet-verified"
+      "amazonLinkType": "individual-product",
+      "amazonAsin": "B0D1YFP5SX",
+      "amazonVerification": "verified-model-match"
     },
     {
       "brand": "Nike",
@@ -254,7 +254,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -269,7 +269,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -284,7 +284,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -299,7 +299,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -314,7 +314,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B0D2DH21CT",
       "amazonVerification": "verified-model-match"
     },
@@ -329,7 +329,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -344,7 +344,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -359,7 +359,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -374,7 +374,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -384,14 +384,14 @@
       "model": "Samba OG",
       "category": "Streetwear",
       "trendScore": 100,
-      "amazonUrl": "",
+      "amazonUrl": "https://www.amazon.in/dp/B07D73JB9P?tag=worthsy0d-21",
       "imageUrl": "https://millenniumshoes.com/cdn/shop/files/JI2724_Photo_1_decad53f-b5ea-46d8-9759-c3e66efe7811_1200x.jpg?v=1738542019",
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
-      "amazonAsin": "",
-      "amazonVerification": "not-yet-verified"
+      "amazonLinkType": "individual-product",
+      "amazonAsin": "B07D73JB9P",
+      "amazonVerification": "verified-model-match"
     },
     {
       "brand": "adidas",
@@ -404,7 +404,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -419,7 +419,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -434,7 +434,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -449,7 +449,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -464,7 +464,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -474,14 +474,14 @@
       "model": "Campus 00s",
       "category": "Court",
       "trendScore": 94,
-      "amazonUrl": "",
+      "amazonUrl": "https://www.amazon.in/dp/B0C13D52M1?tag=worthsy0d-21",
       "imageUrl": "https://pharmacyboardshop.com/cdn/shop/files/campus00black1.png?v=1750819794&width=1024",
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
-      "amazonAsin": "",
-      "amazonVerification": "not-yet-verified"
+      "amazonLinkType": "individual-product",
+      "amazonAsin": "B0C13D52M1",
+      "amazonVerification": "verified-model-match"
     },
     {
       "brand": "adidas",
@@ -494,7 +494,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -509,7 +509,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -524,7 +524,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -539,7 +539,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -554,7 +554,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -569,7 +569,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -584,7 +584,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -599,7 +599,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -614,7 +614,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -629,7 +629,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -644,7 +644,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -659,7 +659,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -674,7 +674,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -689,7 +689,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -704,7 +704,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -719,7 +719,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -734,7 +734,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -749,7 +749,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -764,7 +764,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -774,14 +774,14 @@
       "model": "574 Core",
       "category": "Retro runner",
       "trendScore": 99,
-      "amazonUrl": "",
+      "amazonUrl": "https://www.amazon.in/dp/B093QH6CMS?tag=worthsy0d-21",
       "imageUrl": "https://image-raw.reversible.com/raw_images/8438972142c2c081b71d98debdf90e9b9cf03cf93bb21a9e3ee6a5f7fff3d383",
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
-      "amazonAsin": "",
-      "amazonVerification": "not-yet-verified"
+      "amazonLinkType": "individual-product",
+      "amazonAsin": "B093QH6CMS",
+      "amazonVerification": "verified-model-match"
     },
     {
       "brand": "New Balance",
@@ -794,7 +794,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -809,7 +809,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B0CJVK2WGM",
       "amazonVerification": "verified-model-match"
     },
@@ -819,14 +819,14 @@
       "model": "2002R",
       "category": "Streetwear",
       "trendScore": 96,
-      "amazonUrl": "",
+      "amazonUrl": "https://www.amazon.in/dp/B0F6TYG6NJ?tag=worthsy0d-21",
       "imageUrl": "https://newbalance.ua/img/photos/d8d2aa820ba099994e1bc7c960a9654a.jpg",
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
-      "amazonAsin": "",
-      "amazonVerification": "not-yet-verified"
+      "amazonLinkType": "individual-product",
+      "amazonAsin": "B0F6TYG6NJ",
+      "amazonVerification": "verified-model-match"
     },
     {
       "brand": "New Balance",
@@ -839,7 +839,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -854,7 +854,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -869,7 +869,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -884,7 +884,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -899,7 +899,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -914,7 +914,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -929,7 +929,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -944,7 +944,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -959,7 +959,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -974,7 +974,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -989,7 +989,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1004,7 +1004,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1019,7 +1019,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1034,7 +1034,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1049,7 +1049,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1064,7 +1064,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1079,7 +1079,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1094,7 +1094,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1109,7 +1109,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1124,7 +1124,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1139,7 +1139,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B0F7RB8QM2",
       "amazonVerification": "verified-model-match"
     },
@@ -1154,7 +1154,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1164,14 +1164,14 @@
       "model": "Palermo",
       "category": "Court",
       "trendScore": 98,
-      "amazonUrl": "",
+      "amazonUrl": "https://www.amazon.in/dp/B0FBT76Q6X?tag=worthsy0d-21",
       "imageUrl": "https://images.puma.com/image/upload/f_auto%2Cq_auto%2Cb_rgb%3Afafafa%2Cw_2000%2Ch_2000/global/383011/01/sv01/fnd/IND/fmt/png/Palermo-OG-Sneakers",
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
-      "amazonAsin": "",
-      "amazonVerification": "not-yet-verified"
+      "amazonLinkType": "individual-product",
+      "amazonAsin": "B0FBT76Q6X",
+      "amazonVerification": "verified-model-match"
     },
     {
       "brand": "Puma",
@@ -1179,14 +1179,14 @@
       "model": "Suede Classic",
       "category": "Performance",
       "trendScore": 97,
-      "amazonUrl": "",
+      "amazonUrl": "https://www.amazon.in/dp/B0D674MRG7?tag=worthsy0d-21",
       "imageUrl": "https://pumamoldova.md/uploads/md/jpg/108/39978101_02.jpg?v=1766496231",
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
-      "amazonAsin": "",
-      "amazonVerification": "not-yet-verified"
+      "amazonLinkType": "individual-product",
+      "amazonAsin": "B0D674MRG7",
+      "amazonVerification": "verified-model-match"
     },
     {
       "brand": "Puma",
@@ -1199,7 +1199,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1214,7 +1214,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1229,7 +1229,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1244,7 +1244,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1259,7 +1259,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1274,7 +1274,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1289,7 +1289,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1304,7 +1304,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1319,7 +1319,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1334,7 +1334,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1349,7 +1349,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1364,7 +1364,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1379,7 +1379,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1394,7 +1394,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1409,7 +1409,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1424,7 +1424,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1439,7 +1439,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1454,7 +1454,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1469,7 +1469,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1484,7 +1484,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1499,7 +1499,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1514,7 +1514,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1529,7 +1529,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1544,7 +1544,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1559,7 +1559,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1574,7 +1574,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1589,7 +1589,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1604,7 +1604,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1619,7 +1619,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1634,7 +1634,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1649,7 +1649,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1664,7 +1664,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1679,7 +1679,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1694,7 +1694,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1709,7 +1709,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1724,7 +1724,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1739,7 +1739,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1754,7 +1754,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1769,7 +1769,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1784,7 +1784,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1799,7 +1799,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1814,7 +1814,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1829,7 +1829,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1844,7 +1844,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1859,7 +1859,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1874,7 +1874,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1889,7 +1889,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "B0001Y8ZLG",
       "amazonVerification": "verified-model-match"
     },
@@ -1904,7 +1904,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1919,7 +1919,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1934,7 +1934,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1949,7 +1949,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1964,7 +1964,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1979,7 +1979,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -1994,7 +1994,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2009,7 +2009,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2024,7 +2024,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2039,7 +2039,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2054,7 +2054,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2069,7 +2069,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2084,7 +2084,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2099,7 +2099,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2114,7 +2114,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2129,7 +2129,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2144,7 +2144,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2159,7 +2159,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2174,7 +2174,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2189,7 +2189,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2204,7 +2204,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2219,7 +2219,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2234,7 +2234,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     },
@@ -2249,7 +2249,7 @@
       "price": "",
       "verification": "pending",
       "imageSource": "verified retailer product photo",
-      "amazonLinkType": "product-specific-search",
+      "amazonLinkType": "individual-product",
       "amazonAsin": "",
       "amazonVerification": "not-yet-verified"
     }
