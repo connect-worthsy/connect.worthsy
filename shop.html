@@ -220,6 +220,18 @@ footer{border-top:1px solid var(--line);padding:24px 5vw;color:#888;font-size:10
   }
 
 </style>
+<style id="worthsy-shop-platform-logos">
+.platform{justify-content:flex-start;align-items:flex-start;gap:13px;min-height:142px}
+.platform-logo-card{display:block;width:auto;height:auto;max-width:100%;max-height:56px;object-fit:contain;object-position:left center;margin:0 0 1px}
+.platform-logo-card-amazon{width:160px;max-height:48px}
+.platform-logo-card-flipkart{width:180px;max-height:58px}
+.platform-logo-card-shopify{width:175px;max-height:52px}
+.platform-logo-card-clickbank{width:180px;max-height:50px}
+.platform-logo-card-coursera{width:175px;max-height:50px}
+.platform-logo-card-awin{width:145px;max-height:54px}
+.platform .state{margin-top:auto}
+@media(max-width:620px){.platform{min-height:128px}.platform-logo-card{max-height:48px}}
+</style>
 </head>
 <body>
 <header class="top"><a href="index.html" class="worthsy-universal-home" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a><nav class="toplinks"><a href="#platforms">Platforms</a><a href="#search">Search</a><a href="#featured">Top picks</a></nav></header>
@@ -264,12 +276,12 @@ footer{border-top:1px solid var(--line);padding:24px 5vw;color:#888;font-size:10
       </section>
 <main class="wrap">
 <section class="section" id="platforms"><div class="section-head"><div><div class="kicker">Shop by partner</div><h2>Explore platforms.</h2><p class="sub">Choose a shopping partner to browse its available picks.</p></div></div><div class="platform-grid" id="platformGrid">
-<a class="platform" href="index.html#amazon"><span class="mark">amazon</span><small>Marketplace</small><span class="state">Open platform ↗</span></a>
-<a class="platform" href="index.html#flipkart"><span class="mark">Flipkart</span><small>Marketplace</small><span class="state">Open platform ↗</span></a>
-<a class="platform" href="index.html#shopify"><span class="mark">Shopify</span><small>Independent stores</small><span class="state">Open platform ↗</span></a>
-<a class="platform" href="index.html#clickbank"><span class="mark">ClickBank</span><small>Digital offers</small><span class="state">Open platform ↗</span></a>
-<a class="platform" href="index.html#coursera"><span class="mark">Coursera</span><small>Learning</small><span class="state">Open platform ↗</span></a>
-<a class="platform" href="index.html#awin"><span class="mark">Awin</span><small>Brand partners</small><span class="state">Open platform ↗</span></a>
+<a class="platform" href="index.html#amazon"><img class="platform-logo-card platform-logo-card-amazon" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon logo" width="180" height="62" loading="lazy" decoding="async"><span class="sr-only">Amazon</span><small>Marketplace</small><span class="state">Open platform ↗</span></a>
+<a class="platform" href="index.html#flipkart"><img class="platform-logo-card platform-logo-card-flipkart" src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Flipkart_logo_%282026%29.svg" alt="Flipkart logo" width="190" height="68" loading="lazy" decoding="async"><span class="sr-only">Flipkart</span><small>Marketplace</small><span class="state">Open platform ↗</span></a>
+<a class="platform" href="index.html#shopify"><img class="platform-logo-card platform-logo-card-shopify" src="https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg" alt="Shopify logo" width="190" height="64" loading="lazy" decoding="async"><span class="sr-only">Shopify</span><small>Independent stores</small><span class="state">Open platform ↗</span></a>
+<a class="platform" href="index.html#clickbank"><img class="platform-logo-card platform-logo-card-clickbank" src="https://www.clickbank.com/assets/images/2021/04/Blue_ClickBank_Logo.webp" alt="ClickBank logo" width="190" height="62" loading="lazy" decoding="async"><span class="sr-only">ClickBank</span><small>Digital offers</small><span class="state">Open platform ↗</span></a>
+<a class="platform" href="index.html#coursera"><img class="platform-logo-card platform-logo-card-coursera" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Coursera_logo_%282020%29.svg" alt="Coursera logo" width="190" height="62" loading="lazy" decoding="async"><span class="sr-only">Coursera</span><small>Learning</small><span class="state">Open platform ↗</span></a>
+<a class="platform" href="index.html#awin"><img class="platform-logo-card platform-logo-card-awin" src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Logo-awin-black.svg" alt="Awin logo" width="160" height="66" loading="lazy" decoding="async"><span class="sr-only">Awin</span><small>Brand partners</small><span class="state">Open platform ↗</span></a>
 </div></section>
 <section class="section search-section" id="search"><div class="section-head"><div><div class="kicker">Find it on WORTHSY</div><h2>What are you looking for?</h2><p class="sub">Search across every product in our affiliate catalogue.</p></div></div><div class="search-wrap"><i class="fa-solid fa-magnifying-glass"></i><input id="productSearch" type="search" placeholder="Search products, brands or platforms..." autocomplete="off"><button id="clearSearch" type="button" aria-label="Clear search">×</button></div><p class="search-hint" id="searchStatus">Search all available affiliate picks.</p></section>
 <section class="section roam-section"><div class="section-head"><div><div class="kicker">A little inspiration</div><h2>Discover something new.</h2><p class="sub">Products from across our partner platforms, rotating automatically.</p></div><span class="live-dot">LIVE PICKS</span></div><div class="roam-window"><div class="roam-track" id="roamTrack"><div class="empty">Loading products…</div></div></div></section>
