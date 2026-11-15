@@ -1544,19 +1544,20 @@ html body .ws-hero-copy{
 .amazon-smile{display:none!important}
 </style>
 <style id="wx-sneaker-spotlight-css">
-.wx-sneaker-spotlight{width:min(1160px,calc(100% - 56px));margin:0 auto;padding:0 0 34px}
-.wx-sneaker-spotlight-panel{position:relative;isolation:isolate;overflow:hidden;min-height:174px;display:grid;grid-template-columns:minmax(245px,.85fr) minmax(0,1.5fr);align-items:center;gap:28px;padding:22px 28px;color:#fff;background:radial-gradient(ellipse at 75% 50%,#292929 0%,#151515 55%,#080808 100%);border:1px solid #333;box-shadow:0 14px 38px rgba(0,0,0,.15)}
-.wx-sneaker-spotlight-panel:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.15;background-image:linear-gradient(rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(90deg,transparent,black 55%,transparent)}
+.wx-sneaker-spotlight{width:min(1160px,calc(100% - 56px));max-width:1160px;margin:30px auto 0;padding:0 0 42px;box-sizing:border-box}
+.wx-sneaker-spotlight-panel{position:relative;isolation:isolate;overflow:hidden;min-height:174px;width:100%;box-sizing:border-box;display:grid;grid-template-columns:minmax(245px,.85fr) minmax(0,1.5fr);align-items:center;gap:28px;padding:22px 28px;color:#171326;background:linear-gradient(112deg,#ffe1f0 0%,#f5ddff 34%,#d9e8ff 67%,#fff0c7 100%);border:1px solid rgba(121,74,143,.2);border-radius:18px;box-shadow:0 14px 38px rgba(112,65,140,.12)}
+.wx-sneaker-spotlight-panel:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.62;background:radial-gradient(circle at 12% 20%,rgba(255,92,167,.42),transparent 27%),radial-gradient(circle at 86% 80%,rgba(255,190,63,.42),transparent 28%),linear-gradient(135deg,transparent 48%,rgba(255,255,255,.55) 49%,transparent 51%);background-size:auto,auto,32px 32px;animation:wx-sneaker-shimmer 12s linear infinite}
+.wx-sneaker-spotlight-panel:after{content:"✳";position:absolute;z-index:-1;right:30%;top:-24px;color:rgba(255,255,255,.62);font-size:150px;line-height:1;transform:rotate(-15deg);pointer-events:none}
 .wx-sneaker-spotlight-copy{position:relative;z-index:1}
-.wx-sneaker-kicker{margin:0 0 8px;color:#c7c7c7;font-size:8px;font-weight:900;letter-spacing:.2em}
-.wx-sneaker-spotlight-copy h2{margin:0 0 8px;color:#fff;font-size:clamp(27px,3.1vw,39px);font-weight:950;line-height:.9;letter-spacing:-.075em}
-.wx-sneaker-spotlight-copy h2 span{color:#aaa}
-.wx-sneaker-spotlight-copy>p:not(.wx-sneaker-kicker){max-width:330px;margin:0 0 12px;color:#c7c7c7;font-size:10px;line-height:1.55}
-.wx-sneaker-cta{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #fff;background:#fff;color:#111!important;font-size:8px;font-weight:900;letter-spacing:.1em;text-decoration:none;transition:transform .2s,background .2s,color .2s}
-.wx-sneaker-cta:hover{transform:translateY(-2px);background:transparent;color:#fff!important}
+.wx-sneaker-kicker{margin:0 0 8px;color:#8a3974;font-size:8px;font-weight:950;letter-spacing:.2em}
+.wx-sneaker-spotlight-copy h2{margin:0 0 8px;color:#21152d;font-size:clamp(27px,3.1vw,39px);font-weight:950;line-height:.9;letter-spacing:-.075em}
+.wx-sneaker-spotlight-copy h2 span{color:#e34b91}
+.wx-sneaker-spotlight-copy>p:not(.wx-sneaker-kicker){max-width:330px;margin:0 0 12px;color:#594b65;font-size:10px;line-height:1.55}
+.wx-sneaker-cta{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #21152d;border-radius:999px;background:#21152d;color:#fff!important;font-size:8px;font-weight:950;letter-spacing:.1em;text-decoration:none;box-shadow:0 5px 0 rgba(33,21,45,.12);transition:transform .2s,background .2s,color .2s,box-shadow .2s}
+.wx-sneaker-cta:hover{transform:translateY(-3px) rotate(-1deg);background:#f04c9a;border-color:#f04c9a;color:#fff!important;box-shadow:0 8px 18px rgba(240,76,154,.24)}
 .wx-sneaker-spotlight-brands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
-.wx-sneaker-spotlight-brands a{min-width:0;height:48px;display:flex;align-items:center;justify-content:center;padding:8px 13px;background:#fff;border:1px solid rgba(255,255,255,.28);border-radius:2px;transition:transform .22s,box-shadow .22s}
-.wx-sneaker-spotlight-brands a:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.wx-sneaker-spotlight-brands a{min-width:0;height:48px;display:flex;align-items:center;justify-content:center;padding:8px 13px;background:rgba(255,255,255,.88);border:1px solid rgba(107,75,125,.14);border-radius:12px;box-shadow:0 5px 15px rgba(90,55,105,.07);transition:transform .22s,box-shadow .22s,background .22s}
+.wx-sneaker-spotlight-brands a:hover{transform:translateY(-4px) rotate(-1deg);background:#fff;box-shadow:0 10px 22px rgba(90,55,105,.16)}
 .wx-sneaker-spotlight-brands img{display:block;width:auto;height:auto;max-width:100%;max-height:29px;object-fit:contain}
 .wx-sneaker-spotlight-brands a:nth-child(2) img{max-height:34px}
 .wx-sneaker-spotlight-brands a:nth-child(3) img{max-height:36px}
@@ -1565,9 +1566,10 @@ html body .ws-hero-copy{
 .wx-onitsuka-wordmark{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#111;line-height:.82;letter-spacing:.035em}
 .wx-onitsuka-wordmark b{font-size:13px;font-weight:900}
 .wx-onitsuka-wordmark strong{margin-top:3px;font-size:18px;font-weight:950;letter-spacing:.14em}
-@media(max-width:760px){.wx-sneaker-spotlight{width:calc(100% - 32px);padding-bottom:26px}.wx-sneaker-spotlight-panel{grid-template-columns:1fr;gap:16px;padding:22px 18px}.wx-sneaker-spotlight-copy{text-align:center}.wx-sneaker-spotlight-copy>p:not(.wx-sneaker-kicker){margin-left:auto;margin-right:auto}.wx-sneaker-spotlight-brands{gap:7px}.wx-sneaker-spotlight-brands a{height:44px;padding:7px}.wx-sneaker-spotlight-brands img{max-height:25px}}
+@keyframes wx-sneaker-shimmer{0%{background-position:0 0,0 0,0 0}100%{background-position:0 0,0 0,96px 64px}}
+@media(max-width:760px){.wx-sneaker-spotlight{width:calc(100% - 32px);margin-top:24px;padding-bottom:30px}.wx-sneaker-spotlight-panel{grid-template-columns:1fr;gap:16px;padding:22px 18px}.wx-sneaker-spotlight-copy{text-align:center}.wx-sneaker-spotlight-copy>p:not(.wx-sneaker-kicker){margin-left:auto;margin-right:auto}.wx-sneaker-spotlight-brands{gap:7px}.wx-sneaker-spotlight-brands a{height:44px;padding:7px}.wx-sneaker-spotlight-brands img{max-height:25px}}
 @media(max-width:420px){.wx-sneaker-spotlight-brands{grid-template-columns:repeat(2,minmax(0,1fr))}.wx-sneaker-spotlight-panel{padding:20px 14px}}
-@media(prefers-reduced-motion:reduce){.wx-sneaker-spotlight-brands a,.wx-sneaker-cta{transition:none}}
+@media(prefers-reduced-motion:reduce){.wx-sneaker-spotlight-panel:before{animation:none}.wx-sneaker-spotlight-brands a,.wx-sneaker-cta{transition:none}}
 </style>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
