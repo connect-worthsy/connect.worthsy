@@ -862,9 +862,10 @@
       "category": "Retro runner",
       "trendScore": 79,
       "amazonUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://www.datocms-assets.com/24293/1726681147-new-balance-1000-black-rain-cloud-m1000ja-6.png?fm=jpg&max-h=420&max-w=645",
       "price": "",
-      "verification": "pending"
+      "verification": "pending",
+      "imageSource": "verified retailer product photo"
     },
     {
       "brand": "New Balance",
@@ -1795,9 +1796,10 @@
       "category": "Lifestyle",
       "trendScore": 76,
       "amazonUrl": "",
-      "imageUrl": "",
+      "imageUrl": "https://i5.walmartimages.com/seo/Converse-Chuck-Taylor-All-Star-Street-Canvas-Sneaker-1-Black_7148f67d-62b9-4532-96c7-ea9ed222ba87.cf2663e1ffa879ac1ea86c3c6ef551b9.jpeg?odnBg=FFFFFF&odnHeight=573&odnWidth=573",
       "price": "",
-      "verification": "pending"
+      "verification": "pending",
+      "imageSource": "verified retailer product photo"
     }
   ]
 }
