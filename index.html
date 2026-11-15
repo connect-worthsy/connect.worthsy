@@ -1498,6 +1498,16 @@ html body .ws-hero-copy{
   isolation:auto!important;
 }
 </style>
+<style id="wx-sneaker-nav-style">
+.wx-nav .wx-sneaker-nav{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.wx-sneaker-nav svg{width:29px;height:20px;flex:none;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.wx-sneaker-nav:hover svg{transform:translateX(3px) rotate(-8deg) scale(1.13)}
+.wx-sneaker-nav span{position:relative}
+.wx-sneaker-nav span:after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:2px;background:currentColor;transition:right .25s}
+.wx-sneaker-nav:hover span:after{right:0}
+.wx-mobile .wx-sneaker-nav{display:flex;align-items:center;gap:9px}
+.wx-mobile .wx-sneaker-nav svg{width:26px;height:18px}
+</style>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -1514,7 +1524,7 @@ html body .ws-hero-copy{
             </a>
 
             <nav class="hidden lg:flex items-center gap-8 wx-nav" aria-label="Main">
-            <a href="sneakerhead.html">Sneakerhead</a>
+            <a href="sneakerhead.html" class="wx-sneaker-nav"><svg viewBox="0 0 64 40" aria-hidden="true" focusable="false"><path d="M5 25c7-1 12-4 17-13l5-7 8 9c4 4 9 6 17 7 5 1 8 4 8 8v4H7c-4 0-5-5-2-8Z" fill="currentColor"/><path d="M4 30h56M23 14l7 4m-2-8 7 6m-1-8 7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg><span>Sneakerhead</span></a>
             <a href="#affiliates">Partners</a>
             <a href="#about">About</a>
                 <a href="#contact">Contact</a>
@@ -1532,7 +1542,7 @@ html body .ws-hero-copy{
         </div>
 
         <div id="mobileMenu" class="hidden lg:hidden wx-mobile px-5 py-4">
-            <a href="sneakerhead.html">Sneakerhead</a>
+            <a href="sneakerhead.html" class="wx-sneaker-nav"><svg viewBox="0 0 64 40" aria-hidden="true" focusable="false"><path d="M5 25c7-1 12-4 17-13l5-7 8 9c4 4 9 6 17 7 5 1 8 4 8 8v4H7c-4 0-5-5-2-8Z" fill="currentColor"/><path d="M4 30h56M23 14l7 4m-2-8 7 6m-1-8 7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg><span>Sneakerhead</span></a>
             <a href="#affiliates">Partners</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
