@@ -1571,6 +1571,26 @@ html body .ws-hero-copy{
 @media(max-width:420px){.wx-sneaker-spotlight-brands{grid-template-columns:repeat(2,minmax(0,1fr))}.wx-sneaker-spotlight-panel{padding:20px 14px}}
 @media(prefers-reduced-motion:reduce){.wx-sneaker-spotlight-panel:before{animation:none}.wx-sneaker-spotlight-brands a,.wx-sneaker-cta{transition:none}}
 </style>
+<style id="wx-sneaker-hover-preview-css">
+.wx-sneaker-spotlight{position:relative;z-index:35}
+.wx-sneaker-spotlight-panel{overflow:visible!important}
+.wx-sneaker-spotlight-brands{position:relative;z-index:5}
+.wx-sneaker-spotlight-brands>a{position:relative;overflow:visible;z-index:1}
+.wx-sneaker-spotlight-brands>a:hover,.wx-sneaker-spotlight-brands>a:focus-visible,.wx-sneaker-spotlight-brands>a:focus-within{z-index:30}
+.wx-sneaker-hover-preview{position:absolute;left:50%;bottom:calc(100% + 13px);width:clamp(260px,30vw,360px);padding:12px;background:rgba(255,255,255,.98);border:1px solid rgba(85,58,112,.16);border-radius:15px;box-shadow:0 18px 44px rgba(48,30,65,.2);opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,8px) scale(.97);transform-origin:bottom center;transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:80;color:#21152d;text-align:left}
+.wx-sneaker-hover-preview:after{content:"";position:absolute;left:50%;bottom:-7px;width:13px;height:13px;background:#fff;border-right:1px solid rgba(85,58,112,.14);border-bottom:1px solid rgba(85,58,112,.14);transform:translateX(-50%) rotate(45deg)}
+.wx-sneaker-spotlight-brands>a:hover .wx-sneaker-hover-preview,.wx-sneaker-spotlight-brands>a:focus-visible .wx-sneaker-hover-preview,.wx-sneaker-spotlight-brands>a:focus-within .wx-sneaker-hover-preview{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0) scale(1)}
+.wx-sneaker-hover-title{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 9px;font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.wx-sneaker-hover-title span:last-child{color:#8b7797;font-size:8px;font-weight:700;letter-spacing:.04em}
+.wx-sneaker-hover-items{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.wx-sneaker-hover-item{min-width:0;display:flex;flex-direction:column;gap:6px}
+.wx-sneaker-hover-image{height:78px;display:flex;align-items:center;justify-content:center;padding:5px;background:linear-gradient(145deg,#fff4fa,#f1efff 58%,#fff5dc);border-radius:9px;overflow:hidden}
+.wx-sneaker-hover-image img{width:100%;height:100%;object-fit:contain;display:block}
+.wx-sneaker-hover-name{font-size:8px;line-height:1.3;font-weight:750;color:#40334b;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.wx-sneaker-hover-loading{grid-column:1/-1;padding:18px 8px;text-align:center;color:#81728a;font-size:10px}
+@media(max-width:760px){.wx-sneaker-hover-preview{display:none!important}}
+@media(prefers-reduced-motion:reduce){.wx-sneaker-hover-preview{transition:none}}
+</style>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -3940,5 +3960,50 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
     })();
     </script>
 
+<script id="wx-sneaker-hover-preview-script">
+(function(){
+  const root=document.querySelector("#sneakerhead-spotlight .wx-sneaker-spotlight-brands");
+  if(!root||root.dataset.previewReady==="1")return;
+  root.dataset.previewReady="1";
+  const cards=[...root.querySelectorAll(":scope > a")];
+  const titleCase=s=>s;
+  function makePreview(anchor,brand,products){
+    const panel=document.createElement("div");
+    panel.className="wx-sneaker-hover-preview";
+    panel.setAttribute("role","group");
+    panel.setAttribute("aria-label",brand+" sneaker preview");
+    const heading=document.createElement("div");
+    heading.className="wx-sneaker-hover-title";
+    const name=document.createElement("span");name.textContent=brand;
+    const hint=document.createElement("span");hint.textContent="POPULAR PICKS";
+    heading.append(name,hint);
+    const items=document.createElement("div");items.className="wx-sneaker-hover-items";
+    products.slice(0,3).forEach(product=>{
+      const item=document.createElement("div");item.className="wx-sneaker-hover-item";
+      const frame=document.createElement("div");frame.className="wx-sneaker-hover-image";
+      const img=document.createElement("img");img.src=product.imageUrl;img.alt=product.name||brand+" sneaker";img.loading="lazy";img.decoding="async";
+      img.addEventListener("error",()=>{item.remove();},{once:true});
+      frame.appendChild(img);
+      const label=document.createElement("div");label.className="wx-sneaker-hover-name";label.textContent=product.name||product.model||brand+" sneaker";
+      item.append(frame,label);items.appendChild(item);
+    });
+    if(!products.length){const loading=document.createElement("div");loading.className="wx-sneaker-hover-loading";loading.textContent="Sneaker previews are loading";items.appendChild(loading);}
+    panel.append(heading,items);anchor.appendChild(panel);
+  }
+  fetch("sneakerhead-products.json?v=3c3a6347", {cache:"force-cache"})
+    .then(response=>{if(!response.ok)throw new Error("Could not load sneaker catalogue");return response.json();})
+    .then(data=>{
+      const products=Array.isArray(data.products)?data.products:[];
+      cards.forEach(anchor=>{
+        const match=(anchor.getAttribute("aria-label")||"").match(/^Explore (.+?) sneakers$/i);
+        if(!match)return;
+        const brand=match[1];
+        const picks=products.filter(p=>(p.brand||"").toLowerCase()===brand.toLowerCase()).sort((a,b)=>(Number(b.trendScore)||0)-(Number(a.trendScore)||0));
+        makePreview(anchor,brand,picks);
+      });
+    })
+    .catch(()=>{cards.forEach(anchor=>{const label=(anchor.getAttribute("aria-label")||"").replace(/^Explore | sneakers$/g,"");makePreview(anchor,label,[]);});});
+})();
+</script>
 </body>
 </html>
