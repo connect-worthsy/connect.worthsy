@@ -60,7 +60,7 @@ function imgFail(img){const p=img.parentElement;if(!img.dataset.proxyTried){img.
 const officialSearch={'Nike':'https://www.nike.com/in/w?q=','adidas':'https://www.adidas.co.in/search?q=','New Balance':'https://www.newbalance.in/search?q=','Puma':'https://in.puma.com/in/en/search?q=','Onitsuka Tiger':'https://www.onitsukatiger.com/in/en-in/search?q=','Converse':'https://www.converse.in/search?q='};
 function storeList(p){const q=encodeURIComponent(p.name),dash=fileSlug(p.name);
 const mk=(name,custom,price,searchUrl)=>({name:name,url:custom||searchUrl,price:price||'',search:!custom});
-const list=[mk('Amazon India',p.amazonUrl,'','https://www.amazon.in/s?k='+q+'&tag=worthsy0d-21'),mk('Official '+p.brand+' store',p.officialUrl,p.officialPrice,(officialSearch[p.brand]||'')+q),
+const list=[...(p.amazonUrl&&/^https:\/\/www\\.amazon\\.in\/dp\/[A-Z0-9]{10}\\?tag=worthsy0d-21$/.test(p.amazonUrl)?[mk('Amazon India',p.amazonUrl,'',null)]:[]),mk('Official '+p.brand+' store',p.officialUrl,p.officialPrice,(officialSearch[p.brand]||'')+q),
 mk('Flipkart',p.flipkartUrl,p.flipkartPrice,'https://www.flipkart.com/search?q='+q),
 mk('Myntra',p.myntraUrl,p.myntraPrice,'https://www.myntra.com/'+dash),
 mk('AJIO',p.ajioUrl,p.ajioPrice,'https://www.ajio.com/search/?text='+q),
