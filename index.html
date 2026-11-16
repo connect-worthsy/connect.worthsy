@@ -2954,122 +2954,193 @@ html body .ws-hero-copy{
                 const go = document.createElement('span'); go.className = 'text-xs font-bold uppercase tracking-widest text-brandAccent whitespace-nowrap'; go.textContent = ext ? 'View' : 'Open page';
                 a.append(l, go); return a;
             }
-            /* WORTHSY UNIVERSAL SEARCH v3 — single index, built from live catalogue files. */
-            var mainSearchCatalogue = fetch('products.json?v=3', {cache:'no-store'})
-                .then(function(r){if(!r.ok)throw new Error('Product catalogue unavailable');return r.json();})
-                .catch(function(){return [];});
-            var sneakerSearchCatalogue = fetch('sneakerhead-products.json?v=3', {cache:'no-store'})
-                .then(function(r){if(!r.ok)throw new Error('Sneaker catalogue unavailable');return r.json();})
-                .then(function(d){return Array.isArray(d)?d:(Array.isArray(d.products)?d.products:[]);})
-                .catch(function(){return [];});
+            /* WORTHSY UNIVERSAL SEARCH — unified, affiliate-only, live catalogue index. */
+            var SEARCH_VERSION = '20261117-fix1';
+            function loadJSON(path) {
+                return fetch(path + '?v=' + SEARCH_VERSION, { cache: 'no-store' })
+                    .then(function (r) { if (!r.ok) throw new Error(path + ' returned ' + r.status); return r.json(); });
+            }
+            var mainSearchCatalogue = loadJSON('products.json').catch(function (e) { console.error(e); return []; });
+            var sneakerSearchCatalogue = loadJSON('sneakerhead-products.json')
+                .then(function (d) { return Array.isArray(d) ? d : (Array.isArray(d.products) ? d.products : []); })
+                .catch(function (e) { console.error(e); return []; });
 
-            function bind(input,out,btn,onNav){
-                var allItems=[],ready=false,runId=0;
-                var suggestions=document.getElementById('modalSuggestions');
-                var status=document.createElement('p');
-                status.className='text-xs text-slate-500 mt-2';
-                status.textContent='Loading the WORTHSY catalogue…';
-                if(suggestions) suggestions.appendChild(status);
+            function bind(input, out, btn, onNav) {
+                var allItems = [], ready = false, runId = 0;
+                var suggestions = document.getElementById('modalSuggestions');
+                var status = document.createElement('p');
+                status.className = 'w-full text-xs text-slate-500 mt-2';
+                status.textContent = 'Loading every WORTHSY product…';
+                if (suggestions) suggestions.appendChild(status);
 
-                function approved(url,kind){
-                    url=String(url||'');
-                    if(kind==='amazon') return /^https:\/\/www\.amazon\.in\/dp\/[A-Z0-9]{10}\?(?:[^#]*&)?tag=worthsy0d-21(?:&|#|$)/.test(url);
-                    if(kind==='awin') return /^https:\/\/www\.awin1\.com\/pclick\.php\?(?:[^#]*&)?a=3110404(?:&|#|$)/.test(url);
+                function affiliate(url, platform) {
+                    try {
+                        var u = new URL(String(url || ''), window.location.href);
+                        if (platform === 'amazon') {
+                            return (u.hostname === 'amazon.in' || u.hostname === 'www.amazon.in') &&
+                                /^\\/dp\\/[A-Z0-9]{10}\\/?$/i.test(u.pathname) &&
+                                u.searchParams.get('tag') === 'worthsy0d-21';
+                        }
+                        if (platform === 'awin') {
+                            return u.hostname === 'www.awin1.com' && u.pathname === '/pclick.php' &&
+                                u.searchParams.get('a') === '3110404';
+                        }
+                    } catch (e) {}
                     return false;
                 }
-                function add(p,isSneaker){
-                    var name=String(p.name||p.model||'').trim();
-                    if(!name)return;
-                    var link='',platform='';
-                    if(isSneaker){
-                        var al=String(p.amazonUrl||p.link||'');
-                        var wl=String(p.awinUrl||p.affiliateUrl||'');
-                        if(approved(al,'amazon')){link=al;platform='Amazon';}
-                        else if(approved(wl,'awin')){link=wl;platform='Awin';}
+                function add(p, sneaker) {
+                    if (!p || typeof p !== 'object') return;
+                    var name = String(p.name || p.model || '').trim();
+                    if (!name) return;
+                    var link = '', platform = '';
+                    if (sneaker) {
+                        var amazon = String(p.amazonUrl || p.link || '');
+                        var awin = String(p.awinUrl || p.affiliateUrl || '');
+                        if (affiliate(amazon, 'amazon')) { link = amazon; platform = 'Amazon'; }
+                        else if (affiliate(awin, 'awin')) { link = awin; platform = 'Awin'; }
+                        else return; // Never expose a non-affiliate sneaker destination.
+                    } else {
+                        var kind = String(p.platform || '').toLowerCase();
+                        link = String(p.link || p.url || '');
+                        if (kind === 'amazon' && affiliate(link, 'amazon')) platform = 'Amazon';
+                        else if (kind === 'awin' && affiliate(link, 'awin')) platform = 'Awin';
                         else return;
-                    }else{
-                        link=String(p.link||p.url||'');
-                        platform=String(p.platform||'').toLowerCase()==='awin'?'Awin':'Amazon';
-                        if(!link || !['amazon','awin'].includes(String(p.platform||'').toLowerCase()))return;
                     }
-                    var brand=String(p.brand||p.merchant|| (isSneaker?'Sneakerhead':'')).trim();
-                    var category=String(p.category||(isSneaker?'Sneakers':'Other')).trim();
-                    var fields=[name,p.model,brand,p.merchant,category,p.description,p.platform,platform,isSneaker?'sneaker sneakers shoes footwear trainers':''].filter(Boolean);
-                    allItems.push({name:name,brand:brand,category:category,platform:platform,price:p.price||'',link:link,searchText:fields.join(' ').toLowerCase(),isSneaker:isSneaker});
+                    var brand = String(p.brand || (sneaker ? '' : p.merchant) || '').trim();
+                    var category = String(p.category || (sneaker ? 'Sneakers' : 'Other')).trim();
+                    var textFields = [name, p.model, brand, p.merchant, category, p.description,
+                        p.platform, platform, sneaker ? 'sneaker sneakers shoe shoes footwear trainer trainers' : '']
+                        .filter(Boolean).join(' ').toLowerCase();
+                    allItems.push({ name: name, brand: brand, category: category, platform: platform,
+                        price: p.price || '', link: link, searchText: textFields, isSneaker: !!sneaker });
                 }
-                function build(main,sneakers){
-                    allItems=[];
-                    (Array.isArray(main)?main:[]).forEach(function(p){add(p,false);});
-                    (Array.isArray(sneakers)?sneakers:[]).forEach(function(p){add(p,true);});
-                    ready=true;
-                    if(suggestions){
-                        suggestions.textContent='';
-                        status.textContent=allItems.length+' products indexed · '+new Set(allItems.map(x=>x.brand).filter(Boolean)).size+' brands · Amazon + Awin';
+                function build(main, sneakers) {
+                    var previousQuery = input.value;
+                    allItems = [];
+                    (Array.isArray(main) ? main : []).forEach(function (p) { add(p, false); });
+                    (Array.isArray(sneakers) ? sneakers : []).forEach(function (p) { add(p, true); });
+                    var seen = {};
+                    allItems = allItems.filter(function (p) {
+                        var key = p.link.toLowerCase();
+                        if (seen[key]) return false;
+                        seen[key] = true;
+                        return true;
+                    });
+                    ready = true;
+                    if (suggestions) {
+                        suggestions.textContent = '';
+                        status.textContent = allItems.length + ' affiliate products synced · ' +
+                            new Set(allItems.map(function (x) { return x.brand; }).filter(Boolean)).size +
+                            ' brands · Amazon + Awin';
                         suggestions.appendChild(status);
                     }
-                    if(input.value.trim())run();
+                    if (previousQuery.trim()) run();
                 }
-                Promise.all([mainSearchCatalogue,sneakerSearchCatalogue]).then(function(d){build(d[0],d[1]);});
+                Promise.all([mainSearchCatalogue, sneakerSearchCatalogue]).then(function (d) {
+                    build(d[0], d[1]);
+                });
 
-                function terms(q){
-                    var t=String(q||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim().split(/\s+/).filter(Boolean);
-                    var map={sneaker:['sneakers','shoe','shoes','footwear','trainers'],sneakers:['sneaker','shoe','shoes','footwear','trainers'],shoe:['shoes','sneaker','sneakers','footwear'],shoes:['shoe','sneaker','sneakers','footwear'],earbuds:['earphone','earphones','tws','headphones'],headphones:['headphone','headset','earbuds'],laptop:['notebook','computer'],phone:['mobile','smartphone'],smartwatch:['smart','watch','wearable'],mouse:['mice'],charger:['adapter','charging']};
-                    return t.map(function(w){return [w].concat(map[w]||[]);});
+                var synonymMap = {
+                    sneaker: ['sneakers', 'shoe', 'shoes', 'footwear', 'trainer', 'trainers'],
+                    sneakers: ['sneaker', 'shoe', 'shoes', 'footwear', 'trainer', 'trainers'],
+                    shoe: ['shoes', 'sneaker', 'sneakers', 'footwear'],
+                    shoes: ['shoe', 'sneaker', 'sneakers', 'footwear'],
+                    footwear: ['shoe', 'shoes', 'sneaker', 'sneakers'],
+                    nike: ['sneaker', 'sneakers', 'shoes'],
+                    adidas: ['sneaker', 'sneakers', 'shoes'],
+                    earbuds: ['earphone', 'earphones', 'tws', 'headphones'],
+                    headphones: ['headphone', 'headset', 'earbuds'],
+                    laptop: ['notebook', 'computer'],
+                    phone: ['mobile', 'smartphone'],
+                    smartwatch: ['smart', 'watch', 'wearable'],
+                    mouse: ['mice'], charger: ['adapter', 'charging']
+                };
+                function queryWords(q) {
+                    return String(q || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ')
+                        .trim().split(/\\s+/).filter(Boolean);
                 }
-                function matching(q){
-                    var groups=terms(q);
-                    return allItems.map(function(p){
-                        var score=0;
-                        groups.forEach(function(g){if(g.some(function(w){return p.searchText.indexOf(w)>=0;}))score++;});
-                        return {p:p,score:score};
-                    }).filter(function(x){return groups.length&&x.score>0;})
-                      .sort(function(a,b){return b.score-a.score||a.p.name.localeCompare(b.p.name);});
+                function matchItems(q) {
+                    var words = queryWords(q);
+                    if (!words.length) return [];
+                    var expanded = words.map(function (w) {
+                        return [w].concat(synonymMap[w] || []);
+                    });
+                    return allItems.map(function (p) {
+                        var score = 0;
+                        expanded.forEach(function (group) {
+                            if (group.some(function (word) { return p.searchText.indexOf(word) !== -1; })) score += 1;
+                        });
+                        if (words.some(function (w) { return w === 'sneaker' || w === 'sneakers' || w === 'shoe' || w === 'shoes' || w === 'footwear'; }) && p.isSneaker) score += 4;
+                        return { product: p, score: score };
+                    }).filter(function (x) { return x.score > 0; })
+                      .sort(function (a, b) { return b.score - a.score || a.product.name.localeCompare(b.product.name); });
                 }
-                function addSuggestion(label,value){
-                    var b=document.createElement('button');b.type='button';
-                    b.className='rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-800 hover:border-black';
-                    b.textContent=label;b.addEventListener('click',function(){input.value=value;run();input.focus();});
+                function suggestion(label, value) {
+                    if (!suggestions) return;
+                    var b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-800 hover:border-black';
+                    b.textContent = label;
+                    b.addEventListener('click', function () { input.value = value; run(); input.focus(); });
                     suggestions.appendChild(b);
                 }
-                function run(){
-                    var q=input.value.trim(),id=++runId;
-                    out.textContent='';
-                    if(!suggestions)return;
-                    suggestions.textContent='';
-                    if(!ready){
-                        var loading=document.createElement('span');loading.className='text-xs text-slate-500';loading.textContent='Loading products…';suggestions.appendChild(loading);return;
-                    }
-                    var hits=matching(q);
-                    if(!q){
-                        ['Sneakers','Nike','Adidas','Headphones','Laptops','Smartwatches'].forEach(function(x){addSuggestion('Trending · '+x,x);});
+                function run() {
+                    var q = input.value.trim(), id = ++runId;
+                    if (out) out.textContent = '';
+                    if (!suggestions) return;
+                    suggestions.textContent = '';
+                    if (!ready) {
+                        var loading = document.createElement('span');
+                        loading.className = 'text-xs text-slate-500';
+                        loading.textContent = 'Loading the live WORTHSY catalogue…';
+                        suggestions.appendChild(loading);
                         return;
                     }
-                    var lower=q.toLowerCase();
-                    var brands=[...new Set(allItems.map(x=>x.brand).filter(Boolean))].filter(x=>x.toLowerCase().includes(lower)).slice(0,4);
-                    var cats=[...new Set(allItems.map(x=>x.category).filter(Boolean))].filter(x=>x.toLowerCase().includes(lower)).slice(0,4);
-                    var platforms=['Amazon','Awin'].filter(x=>x.toLowerCase().includes(lower));
-                    brands.forEach(x=>addSuggestion('Brand · '+x,x));
-                    cats.forEach(x=>addSuggestion('Category · '+x,x));
-                    platforms.forEach(x=>addSuggestion('Platform · '+x,x));
-                    hits.slice(0,5).forEach(x=>addSuggestion('Product · '+x.p.name,x.p.name));
-                    if(id!==runId)return;
-                    var summary=document.createElement('p');summary.className='text-xs text-slate-500 mb-2';
-                    summary.textContent=hits.length+' matching products · '+new Set(hits.map(x=>x.p.brand).filter(Boolean)).size+' brands';out.appendChild(summary);
-                    hits.slice(0,100).forEach(function(x){
-                        var p=x.p,label=[p.brand,p.category,p.platform].filter(Boolean).join(' · ');
-                        out.appendChild(row(label,p.name+(p.price?' — '+p.price:''),p.link,true));
-                    });
-                    if(!hits.length){
-                        var empty=document.createElement('p');empty.className='text-sm text-slate-600 border border-dashed border-slate-300 rounded-xl p-6 text-center';
-                        empty.textContent='No matching product found. Try a brand, category, model, or a related term.';out.appendChild(empty);
+                    if (!q) {
+                        ['Sneakers', 'Nike', 'adidas', 'New Balance', 'Puma', 'Headphones', 'Laptops', 'Smartwatches', 'Amazon', 'Awin']
+                            .forEach(function (x) { suggestion('Popular · ' + x, x); });
+                        return;
                     }
-                    if(hits.length>100){var note=document.createElement('p');note.className='text-xs text-slate-500';note.textContent='Showing first 100 results. Refine your search to narrow them.';out.appendChild(note);}
+                    var hits = matchItems(q);
+                    var lower = q.toLowerCase();
+                    var brands = Array.from(new Set(allItems.map(function (x) { return x.brand; }).filter(Boolean)))
+                        .filter(function (x) { return x.toLowerCase().indexOf(lower) !== -1; }).slice(0, 5);
+                    var categories = Array.from(new Set(allItems.map(function (x) { return x.category; }).filter(Boolean)))
+                        .filter(function (x) { return x.toLowerCase().indexOf(lower) !== -1; }).slice(0, 5);
+                    brands.forEach(function (x) { suggestion('Brand · ' + x, x); });
+                    categories.forEach(function (x) { suggestion('Category · ' + x, x); });
+                    hits.slice(0, 6).forEach(function (x) { suggestion('Product · ' + x.product.name, x.product.name); });
+                    if (id !== runId || !out) return;
+                    var summary = document.createElement('p');
+                    summary.className = 'w-full text-xs text-slate-500 mb-2';
+                    summary.textContent = hits.length + ' matching affiliate products';
+                    out.appendChild(summary);
+                    hits.slice(0, 100).forEach(function (x) {
+                        var p = x.product;
+                        var label = [p.brand, p.category, p.platform].filter(Boolean).join(' · ');
+                        out.appendChild(row(label, p.name + (p.price ? ' — ' + p.price : ''), p.link, true));
+                    });
+                    if (!hits.length) {
+                        var empty = document.createElement('p');
+                        empty.className = 'w-full text-sm text-slate-600 border border-dashed border-slate-300 rounded-xl p-6 text-center';
+                        empty.textContent = 'No matching affiliate product found. Try a product name, brand, category or platform.';
+                        out.appendChild(empty);
+                    }
+                    if (hits.length > 100) {
+                        var note = document.createElement('p');
+                        note.className = 'text-xs text-slate-500';
+                        note.textContent = 'Showing the first 100 results. Refine your search to narrow them.';
+                        out.appendChild(note);
+                    }
                 }
-                input.addEventListener('input',run);\n                input.addEventListener('focus',run);
-                input.addEventListener('keydown',function(e){if(e.key==='Enter')run();});
-                btn.addEventListener('click',run);
-                window.addEventListener('worthsy:products-ready',function(){
-                    if(Array.isArray(window.WORTHSY_PRODUCTS)) Promise.all([Promise.resolve(window.WORTHSY_PRODUCTS),sneakerSearchCatalogue]).then(function(d){build(d[0],d[1]);});
+                input.addEventListener('input', run);
+                input.addEventListener('focus', run);
+                input.addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
+                btn.addEventListener('click', run);
+                window.addEventListener('worthsy:products-ready', function () {
+                    if (Array.isArray(window.WORTHSY_PRODUCTS)) {
+                        Promise.all([Promise.resolve(window.WORTHSY_PRODUCTS), sneakerSearchCatalogue]).then(function (d) { build(d[0], d[1]); });
+                    }
                 });
             }
             const modal = document.getElementById('searchModal');
