@@ -318,6 +318,16 @@ body[data-brand-theme]:not([data-brand-theme="all"]) .card-tag{box-shadow:none}
 .brand-strip .brand-all{--card-brand-paper:#111;--card-brand-line:#111;--card-brand-ink:#fff;background:#111;color:#fff}
 @media(max-width:850px){.brand-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
 @media(max-width:560px){.brand-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.brand-strip .brand-btn{min-height:94px;padding:10px 7px}.brand-strip .brand-logo{height:38px}.brand-strip .brand-logo-img{width:36px;height:36px}}
+
+/* Stable text-based wordmarks for Onitsuka Tiger and Converse */
+.brand-strip .brand-wordmark{display:flex;align-items:center;justify-content:center;gap:5px;width:100%;height:44px;min-width:0;overflow:hidden;color:var(--card-brand-ink,#111);line-height:1}
+.brand-strip .onitsuka-wordmark{flex-direction:column;gap:1px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:900;letter-spacing:.09em;transform:scaleX(.94)}
+.brand-strip .onitsuka-wordmark strong{font-size:19px;letter-spacing:.16em}
+.brand-strip .converse-wordmark{gap:6px;font-family:Arial,Helvetica,sans-serif}
+.brand-strip .converse-star{display:flex;align-items:center;justify-content:center;width:31px;height:31px;flex:0 0 31px;border:2px solid currentColor;border-radius:50%;font-size:18px;line-height:1}
+.brand-strip .converse-wordmark strong{font-size:15px;font-weight:950;letter-spacing:-.045em;white-space:nowrap}
+.brand-strip .brand-btn.active .brand-wordmark{color:var(--card-brand-paper)}
+@media(max-width:560px){.brand-strip .brand-wordmark{height:38px}.brand-strip .onitsuka-wordmark{font-size:12px}.brand-strip .onitsuka-wordmark strong{font-size:16px}.brand-strip .converse-star{width:27px;height:27px;flex-basis:27px}.brand-strip .converse-wordmark strong{font-size:13px}}
 </style>
 </head>
 <body>
@@ -367,7 +377,9 @@ function initBrandShowcase(){
 
 function applyBrandTheme(brand){const key=brand?slug(brand):'all';document.body.dataset.brandTheme=key;const label=brand||'All brands';$('heroEyebrow').textContent=brand?label.toUpperCase()+' / THE BRAND EDIT':'WORTHSY / THE SNEAKER EDIT';$('heroHeadline').innerHTML=brand?('DISCOVER<br><em>'+label.toUpperCase()+'</em>'):'FIND YOUR<br> NEXT PAIR.';$('heroDescription').textContent=brand?'Explore the '+label+' sneaker collection, signature silhouettes and latest favourites.':'Iconic silhouettes. Fresh drops. Six brands shaping sneaker culture — all in one place.';$('heroBrandName').textContent=brand?label.toUpperCase():'NIKE';$('heroBrandStampLabel').textContent=brand?'THE BRAND EDIT':'NOW FEATURING';$('heroSlideCount').textContent=brand?'01 / 01':'01 / 06';if(brand){if(window.worthsyBrandTimer){clearInterval(window.worthsyBrandTimer);window.worthsyBrandTimer=null;}const featured=products.filter(p=>p.brand===brand&&p.imageUrl).sort((a,b)=>(b.trendScore||0)-(a.trendScore||0))[0];if(featured){$('heroProductName').textContent=featured.name;$('brandShowcase').style.backgroundImage='linear-gradient(90deg,'+getComputedStyle(document.body).getPropertyValue('--brand-deep').trim()+' 0%,transparent 30%),url('+JSON.stringify(featured.imageUrl)+')';}}else if(!window.worthsyBrandTimer){initBrandShowcase();}}
 function brandLogo(b){
- const icons={'Nike':{slug:'nike',color:'111111',fallback:'NIKE'},'adidas':{slug:'adidas',color:'111111',fallback:'adidas'},'New Balance':{slug:'newbalance',color:'CF0A2C',fallback:'NB'},'Puma':{slug:'puma',color:'181818',fallback:'PUMA'},'Onitsuka Tiger':{slug:'onitsukatiger',color:'111111',fallback:'ONITSUKA TIGER'},'Converse':{slug:'converse',color:'111111',fallback:'CONVERSE'}};
+ const icons={'Nike':{slug:'nike',color:'111111',fallback:'NIKE'},'adidas':{slug:'adidas',color:'111111',fallback:'adidas'},'New Balance':{slug:'newbalance',color:'CF0A2C',fallback:'NB'},'Puma':{slug:'puma',color:'181818',fallback:'PUMA'}};
+ if(b==='Onitsuka Tiger')return '<span class="brand-wordmark onitsuka-wordmark" aria-label="Onitsuka Tiger logo"><span>ONITSUKA</span><strong>TIGER</strong></span>';
+ if(b==='Converse')return '<span class="brand-wordmark converse-wordmark" aria-label="Converse logo"><span class="converse-star">★</span><strong>CONVERSE</strong></span>';
  const icon=icons[b];if(!icon)return '<span class="brand-logo-fallback">'+b.toUpperCase()+'</span>';
  return '<img class="brand-logo-img" src="https://cdn.simpleicons.org/'+icon.slug+'/'+icon.color+'" alt="'+b+' logo" loading="eager" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="brand-logo-fallback" hidden>'+icon.fallback+'</span>';
 }
