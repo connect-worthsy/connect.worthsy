@@ -1,0 +1,14 @@
+:root{--worthsy-nav-height:64px}
+.worthsy-universal-bar{position:fixed;inset:0 0 auto;z-index:9999;height:var(--worthsy-nav-height);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(16px,4vw,56px);background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid #e8e8e8;color:#171717;font-family:Inter,Arial,sans-serif;box-sizing:border-box}
+.worthsy-universal-bar *{box-sizing:border-box}
+.worthsy-universal-brand{display:inline-flex;align-items:center;flex:none;color:#111;text-decoration:none;font-size:23px;font-weight:950;letter-spacing:-.075em;line-height:1}
+.worthsy-universal-brand em{font-style:normal;color:#d71920}
+.worthsy-universal-links{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.5vw,34px);min-width:0}
+.worthsy-universal-links a{color:#424242;text-decoration:none;font-size:12px;font-weight:650;white-space:nowrap;transition:color .18s ease}
+.worthsy-universal-links a:hover,.worthsy-universal-links a[aria-current=page]{color:#d71920}
+.worthsy-universal-action{display:inline-flex;align-items:center;justify-content:center;flex:none;padding:9px 15px;border:1px solid #171717;border-radius:999px;background:#171717;color:#fff;text-decoration:none;font-size:11px;font-weight:750;white-space:nowrap;transition:background .18s ease,border-color .18s ease}
+.worthsy-universal-action:hover{background:#d71920;border-color:#d71920}
+body{padding-top:var(--worthsy-nav-height)!important}
+@media(max-width:760px){.worthsy-universal-bar{gap:12px;padding:0 14px}.worthsy-universal-links{flex:1;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;gap:18px}.worthsy-universal-links::-webkit-scrollbar{display:none}.worthsy-universal-links a{font-size:11px}.worthsy-universal-action{padding:8px 11px;font-size:10px}}
+@media(max-width:420px){.worthsy-universal-brand{font-size:19px}.worthsy-universal-action{display:none}.worthsy-universal-links{gap:15px}}
+@media(prefers-reduced-motion:reduce){.worthsy-universal-bar *{transition:none!important}}
