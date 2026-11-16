@@ -2998,7 +2998,7 @@ html body .ws-hero-copy{
                         var awin = String(p.awinUrl || p.affiliateUrl || '');
                         if (affiliate(amazon, 'amazon')) { link = amazon; platform = 'Amazon'; }
                         else if (affiliate(awin, 'awin')) { link = awin; platform = 'Awin'; }
-                        else return; // Never expose a non-affiliate sneaker destination.
+                        else { link = ''; platform = 'Affiliate link pending'; } // Index all sneakers, but never link to a non-partner retailer.
                     } else {
                         var kind = String(p.platform || '').toLowerCase();
                         link = String(p.link || p.url || '');
@@ -3118,7 +3118,16 @@ html body .ws-hero-copy{
                     hits.slice(0, 100).forEach(function (x) {
                         var p = x.product;
                         var label = [p.brand, p.category, p.platform].filter(Boolean).join(' · ');
-                        out.appendChild(row(label, p.name + (p.price ? ' — ' + p.price : ''), p.link, true));
+                        if (p.link) {
+                            out.appendChild(row(label, p.name + (p.price ? ' — ' + p.price : ''), p.link, true));
+                        } else {
+                            var pending = document.createElement('div');
+                            pending.className = 'flex items-center justify-between gap-4 bg-white border border-slate-200 px-4 py-3';
+                            var info = document.createElement('div');
+                            var title = document.createElement('span'); title.className = 'block font-bold'; title.textContent = p.name;
+                            var meta = document.createElement('span'); meta.className = 'block text-xs text-slate-500'; meta.textContent = [p.brand, p.category, 'Amazon/Awin link pending'].filter(Boolean).join(' · ');
+                            info.append(title, meta); pending.appendChild(info); out.appendChild(pending);
+                        }
                     });
                     if (!hits.length) {
                         var empty = document.createElement('p');
