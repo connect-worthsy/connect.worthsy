@@ -117,4 +117,6 @@ footer{font-size:14px!important;padding:32px 0!important}
 document.getElementById('applicationForm').addEventListener('submit',function(e){e.preventDefault();if(!this.reportValidity())return;const v=id=>document.getElementById(id).value.trim();const body='WORTHSY CAREER APPLICATION\n\nName: '+v('name')+'\nEmail: '+v('email')+'\nPhone: '+v('phone')+'\nArea of interest: '+v('role')+'\nLocation: '+v('location')+'\nCV / Portfolio: '+v('portfolio')+'\n\nAbout the applicant:\n'+v('message');document.getElementById('status').textContent='Your email draft is opening. Review the details and press Send in your email app.';window.location.href='mailto:careers@worthsy.in?subject='+encodeURIComponent('WORTHSY Career Application — '+v('name'))+'&body='+encodeURIComponent(body);});
 </script><script src="worthsy-supabase-config.js?v=1"></script>
 <script src="worthsy-search.js?v=community6" defer></script>
+<script src="worthsy-personalization-config.js?v=1"></script>
+<script src="worthsy-personalization.js?v=1" defer></script>
 </body></html>
