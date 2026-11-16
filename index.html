@@ -3049,7 +3049,7 @@ html body .ws-hero-copy{
                 input.addEventListener('input', run);
                 input.addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
                 btn.addEventListener('click', run);
-                window.addEventListener('worthsy:products-ready', function () { if (input.value.trim()) run(); });
+                window.addEventListener('worthsy:products-ready', function () { if (Array.isArray(window.WORTHSY_PRODUCTS)) mainSearchCatalogue = Promise.resolve(window.WORTHSY_PRODUCTS); if (input.value.trim()) run(); });
             }
             const modal = document.getElementById('searchModal');
             const mInput = document.getElementById('modalSearch');
