@@ -2972,8 +2972,8 @@ html body .ws-hero-copy{
                     if (!q) return;
                     var LIM = 40;
                     var normalized = q.replace(/[^a-z0-9]+/g, ' ').trim();
-                    var words = normalized.split(/\\s+/).filter(Boolean);
-                    var sneakerIntent = /\\b(sneaker|sneakers|shoe|shoes|footwear)\\b/.test(normalized);
+                    var words = normalized.split(/\s+/).filter(Boolean);
+                    var sneakerIntent = /\b(sneaker|sneakers|shoe|shoes|footwear)\b/.test(normalized);
                     var synonyms = sneakerIntent ? ['sneaker','sneakers','shoe','shoes','footwear'] : [];
                     var platformHits = 0, sneakerHits = 0, productHits = 0, found = 0;
 
@@ -2998,8 +2998,21 @@ html body .ws-hero-copy{
                         });
 
                         var seen = Object.create(null);
+                        function hasApprovedSneakerAffiliate(p) {
+                            var amazon = String(p.amazonUrl || p.link || '');
+                            var awin = String(p.awinUrl || p.affiliateUrl || '');
+                            try {
+                                var au = new URL(amazon, location.href);
+                                if (au.hostname === 'www.amazon.in' && /^(?:[A-Za-z0-9-]+\/)?dp\/[A-Z0-9]{10}$/.test(au.pathname.replace(/^\//,'')) && au.searchParams.get('tag') === 'worthsy0d-21') return true;
+                            } catch (e) {}
+                            try {
+                                var wu = new URL(awin, location.href);
+                                if (wu.hostname === 'www.awin1.com' && wu.pathname === '/pclick.php' && wu.searchParams.get('a') === '3110404') return true;
+                            } catch (e) {}
+                            return false;
+                        }
                         sneakers.forEach(function (p) {
-                            if (!/^https:\/\/www\.amazon\.in\/(?:[A-Za-z0-9-]+\/)?dp\/[A-Z0-9]{10}\?tag=worthsy0d-21$/.test(String(p.amazonUrl || '')) && !(/^https:\/\/www\.awin1\.com\/pclick\.php\?/.test(String(p.awinUrl || p.affiliateUrl || '')) && /[?&]a=3110404(?:&|$)/.test(String(p.awinUrl || p.affiliateUrl || '')))) return;
+                            if (!hasApprovedSneakerAffiliate(p)) return;
                             var name = p.name || p.model || 'Sneaker';
                             var hay = [name,p.brand,p.category,p.description,p.model,'sneaker sneakers shoes footwear'].filter(Boolean).join(' ').toLowerCase();
                             if (!matches(hay)) return;
