@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brand Store | WORTHSY</title>
+<meta name="description" content="Explore products from your favourite brands across WORTHSY shopping partners.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="worthsy-universal-nav.css?v=13">
+<script src="worthsy-universal-nav.js?v=9" defer></script>
+<style>
+:root{--brand-accent:#111;--brand-accent-2:#777;--brand-bg:#f7f7f7;--brand-panel:#fff;--brand-ink:#151515;--brand-muted:#686868;--brand-line:rgba(0,0,0,.12);--brand-soft:#eee}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--brand-bg);color:var(--brand-ink);font-family:Inter,Arial,sans-serif;transition:background .35s,color .35s}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}
+.brand-shell{min-height:100vh;padding-bottom:70px}
+.brand-hero{position:relative;overflow:hidden;background:var(--brand-accent);color:#fff;padding:72px max(5vw,24px) 58px;isolation:isolate}
+.brand-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 82% 22%,color-mix(in srgb,var(--brand-accent-2) 48%,transparent),transparent 35%),linear-gradient(120deg,transparent 25%,rgba(255,255,255,.09));z-index:-1}
+.brand-hero:after{content:"";position:absolute;width:460px;height:460px;border:1px solid rgba(255,255,255,.18);border-radius:50%;right:-120px;top:-230px;box-shadow:0 0 0 48px rgba(255,255,255,.035),0 0 0 96px rgba(255,255,255,.025);z-index:-1}
+.hero-inner{width:min(1280px,100%);margin:auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:36px}
+.brand-kicker{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.68)}
+.brand-hero h1{font-size:clamp(46px,8vw,92px);line-height:.9;letter-spacing:-.075em;margin:18px 0 16px;font-weight:900}
+.brand-hero p{max-width:620px;color:rgba(255,255,255,.78);font-size:14px;line-height:1.7;margin:0}
+.hero-logo{width:clamp(150px,22vw,270px);height:150px;display:grid;place-items:center;background:rgba(255,255,255,.94);border-radius:24px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.2);transform:rotate(2deg)}
+.hero-logo img{max-width:100%;max-height:100%;object-fit:contain}
+.hero-logo span{font-size:clamp(25px,4vw,46px);font-weight:900;letter-spacing:-.07em;color:var(--brand-accent);text-align:center}
+.brand-main{width:min(1280px,92vw);margin:42px auto 0}
+.brand-toolbar{display:grid;grid-template-columns:minmax(200px,1.5fr) repeat(2,minmax(150px,.65fr));gap:10px;margin:22px 0}
+.brand-toolbar input,.brand-toolbar select{height:48px;width:100%;border:1px solid var(--brand-line);background:var(--brand-panel);color:var(--brand-ink);padding:0 14px;border-radius:10px;outline:none}
+.brand-toolbar input:focus,.brand-toolbar select:focus{border-color:var(--brand-accent)}
+.brand-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0 20px;color:var(--brand-muted);font-size:11px}
+.brand-meta strong{color:var(--brand-ink);font-size:12px}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.product-card{min-width:0;background:var(--brand-panel);border:1px solid var(--brand-line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s}
+.product-card:hover{transform:translateY(-5px);border-color:var(--brand-accent-2);box-shadow:0 16px 34px rgba(0,0,0,.09)}
+.product-image{position:relative;aspect-ratio:1/1;background:var(--brand-soft);display:grid;place-items:center;padding:16px}
+.product-image img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+.product-brand-mark{position:absolute;left:12px;top:12px;width:54px;height:34px;display:grid;place-items:center;padding:5px;background:rgba(255,255,255,.94);border-radius:7px;box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.product-brand-mark img{max-width:100%;max-height:100%;object-fit:contain}
+.product-brand-mark span{font-size:10px;font-weight:900;color:var(--brand-accent);letter-spacing:-.04em;text-align:center}
+.product-copy{padding:14px;display:flex;flex-direction:column;flex:1}
+.product-category{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--brand-muted);font-weight:800}
+.product-copy h2{font-size:14px;line-height:1.4;margin:7px 0;color:var(--brand-ink)}
+.product-copy p{font-size:11px;line-height:1.6;color:var(--brand-muted);margin:0 0 15px}
+.product-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.product-price{font-size:12px;font-weight:800;color:var(--brand-accent)}
+.product-buy{display:inline-flex;align-items:center;justify-content:center;background:var(--brand-accent);color:#fff;border-radius:999px;padding:10px 13px;font-size:9px;font-weight:900;letter-spacing:.08em;white-space:nowrap}
+.product-buy:hover{background:var(--brand-accent-2)}
+.empty{grid-column:1/-1;text-align:center;padding:65px 20px;background:var(--brand-panel);border:1px dashed var(--brand-line);border-radius:14px;color:var(--brand-muted);font-size:13px}
+.brand-disclaimer{margin:36px 0 0;color:var(--brand-muted);font-size:10px;line-height:1.7}
+.brand-back{display:inline-flex;gap:8px;align-items:center;color:var(--brand-muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.brand-back:hover{color:var(--brand-accent)}
+@media(max-width:900px){.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-logo{width:160px;height:125px}}
+@media(max-width:650px){.brand-hero{padding:45px 20px 38px}.hero-inner{grid-template-columns:1fr auto;gap:12px}.hero-logo{width:92px;height:92px;padding:16px;border-radius:16px}.brand-hero h1{font-size:clamp(42px,13vw,66px)}.brand-hero p{font-size:12px}.brand-main{width:calc(100% - 32px);margin-top:28px}.brand-toolbar{grid-template-columns:1fr 1fr}.brand-toolbar input{grid-column:1/-1}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-copy{padding:10px}.product-copy h2{font-size:12px}.product-copy p{font-size:10px}.product-buy{padding:9px 10px;font-size:8px}.product-brand-mark{width:45px;height:29px;left:8px;top:8px}}
+</style>
+</head>
+<body>
+<header class="worthsy-header wx-header fixed top-0 left-0 right-0 z-50">
+        <div class="relative max-w-7xl mx-auto px-5 lg:px-12 h-20 flex items-center justify-between gap-4">
+
+            <a href="index.html" aria-label="WORTHSY home" class="flex items-center shrink-0">
+                <span class="worthsy-logo" role="img" aria-label="WORTHSY"></span>
+            </a>
+            <a href="index.html#gta-ps5-campaign" class="wx-gta-ps5-combo" aria-label="GTA VI and PlayStation 5 campaign">
+                <img src="https://www.rockstargames.com/VI/_next/static/media/vi.0hxa9~pf214xe.png?akim=1&amp;imdensity=1&amp;imwidth=3840" alt="" class="wx-gta-vi-mark">
+                <span class="wx-gta-ps5-mark" aria-hidden="true"><i class="fa-brands fa-playstation"></i><b>PS5</b></span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 wx-nav" aria-label="Main">
+            <a href="sneakerhead.html" class="wx-sneaker-nav"><svg viewBox="0 0 64 40" aria-hidden="true" focusable="false"><path d="M5 25c7-1 12-4 17-13l5-7 8 9c4 4 9 6 17 7 5 1 8 4 8 8v4H7c-4 0-5-5-2-8Z" fill="currentColor"/><path d="M4 30h56M23 14l7 4m-2-8 7 6m-1-8 7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg><span>Sneakerhead</span></a>
+            <a href="index.html#affiliates">Partners</a>
+            <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="uniSearchBtn" type="button" class="wx-searchpill" aria-label="Search products">
+                    <i class="fa-solid fa-magnifying-glass"></i><span class="hidden sm:inline">Search products</span>
+                </button>
+                <div class="wx-shop"><div class="wx-shop-actions"><a id="wxShopBtn" href="shop.html" class="wx-cta wx-cta-header">Shop now</a><button type="button" id="wxShopToggle" class="wx-cta wx-cta-header wx-shop-arrow" aria-label="Open affiliate platform menu" aria-haspopup="true" aria-expanded="false" aria-controls="wxShopMenu"><i class="fa-solid fa-chevron-down"></i></button></div><div id="wxShopMenu" class="wx-shop-menu" role="menu" hidden><div class="wx-shop-menu-title">Explore affiliate platforms</div><div class="wx-aff-list"><a role="menuitem" href="shop.html#amazon">Amazon</a><a role="menuitem" href="shop.html#flipkart">Flipkart</a><a role="menuitem" href="shop.html#shopify">Shopify</a><a role="menuitem" href="shop.html#clickbank">ClickBank</a><a role="menuitem" href="shop.html#coursera">Coursera</a><a role="menuitem" href="shop.html#awin">Awin</a></div><a class="wx-shop-viewall" href="shop.html">Explore all products <span>→</span></a></div></div>
+                <button id="mobileMenuBtn" aria-label="Toggle navigation" class="lg:hidden p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden wx-mobile px-5 py-4">
+            <a href="sneakerhead.html" class="wx-sneaker-nav"><svg viewBox="0 0 64 40" aria-hidden="true" focusable="false"><path d="M5 25c7-1 12-4 17-13l5-7 8 9c4 4 9 6 17 7 5 1 8 4 8 8v4H7c-4 0-5-5-2-8Z" fill="currentColor"/><path d="M4 30h56M23 14l7 4m-2-8 7 6m-1-8 7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg><span>Sneakerhead</span></a>
+            <a href="index.html#affiliates">Partners</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <span class="wx-mob-h">Affiliate platforms</span>
+            <a href="index.html#amazon" class="wx-mob-sub">Amazon</a>
+            <a href="index.html#flipkart" class="wx-mob-sub">Flipkart</a>
+            <a href="index.html#shopify" class="wx-mob-sub">Shopify</a>
+            <a href="index.html#clickbank" class="wx-mob-sub">ClickBank</a>
+            <a href="index.html#coursera" class="wx-mob-sub">Coursera</a>
+            <a href="index.html#awin" class="wx-mob-sub">Awin</a>
+        </div>
+    </header>
+<div class="brand-shell">
+<section class="brand-hero">
+ <div class="hero-inner">
+  <div><div class="brand-kicker">THE BRAND STORE · WORTHSY</div><h1 id="brandTitle">Brand Store</h1><p id="brandDescription">Discover products from this brand across all WORTHSY shopping partners.</p></div>
+  <div class="hero-logo" id="heroLogo"><span id="brandWordmark">BRAND</span></div>
+ </div>
+</section>
+<main class="brand-main">
+ <a class="brand-back" href="index.html#featured-brands"><i class="fa-solid fa-arrow-left"></i> All brands</a>
+ <div class="brand-toolbar">
+  <input id="brandSearch" type="search" placeholder="Search this brand's products..." aria-label="Search brand products">
+  <select id="categoryFilter" aria-label="Filter by category"><option value="All">All categories</option></select>
+  <select id="sortFilter" aria-label="Sort products"><option value="featured">Featured</option><option value="name">Name A–Z</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option></select>
+ </div>
+ <div class="brand-meta"><strong id="productCount">Loading products…</strong><span id="partnerCount">Across all available partners</span></div>
+ <section class="product-grid" id="productGrid"><div class="empty">Loading brand products…</div></section>
+ <p class="brand-disclaimer">Product listings and availability are provided by participating shopping partners and may change. WORTHSY may earn a commission from qualifying purchases. Brand names and logos belong to their respective owners. WORTHSY is not affiliated with or endorsed by the brands shown.</p>
+</main>
+</div>
+<script>
+(function(){
+ const BRAND_NAMES=['Western Digital','Amazon Basics','DailyObjects','TheGiftKart','G.Skill','TP-Link','SanDisk','Kingston','Crucial','Corsair','Logitech','Ambrane','Portronics','Zebronics','Netgear','Samsung','OnePlus','Xiaomi','Realme','Fastrack','Philips','Havells','Wakefit','Fujifilm','Spigen','TORRAS','SUPFINE','FNTCASE','NutriPro','URBN','boAt','Noise','Apple','ASUS','GIGABYTE','Dell','Lenovo','Acer','HP','D-Link','Tenda','Seagate','JBL','Sony','Anker','UGREEN','Qubo','Wipro','Syska','Milton','Tygot','Fire-Boltt','Beetel','MSI','Redragon','Nothing','CMF','Sennheiser','Tribit','Google','MI','EZVIZ','Jio','WD'];
+ BRAND_NAMES.sort((a,b)=>b.length-a.length);
+ const LOGOS={
+ 'Apple':'apple','Xiaomi':'xiaomi','OnePlus':'oneplus','Samsung':'samsung','Logitech':'logitech','TP-Link':'tplink','Philips':'philips','HP':'hp','Dell':'dell','Lenovo':'lenovo','Acer':'acer','ASUS':'asus','Sony':'sony','JBL':'jbl','Anker':'anker','Corsair':'corsair','Kingston':'kingstontechnology','SanDisk':'sandisk','G.Skill':'gskill','Realme':'realme','boAt':'boat','Noise':'noise','Amazon':'amazon','Amazon Basics':'amazon','Fastrack':'fastrack','MSI':'msi','Nothing':'nothing','Google':'google','Fire-Boltt':'fireboltt','Seagate':'seagate','Western Digital':'westerndigital','WD':'westerndigital','UGREEN':'ugreen','Wipro':'wipro','Tenda':'tenda','D-Link':'dlink','Netgear':'netgear','Zebronics':'zebronics','Portronics':'portronics','Ambrane':'ambrane','Qubo':'qubo','Syska':'syska','Havells':'havells','Fujifilm':'fujifilm','Spigen':'spigen','Milton':'milton'};
+ const THEMES={
+ 'boAt':['#e31b36','#ff5b67','#fff4f5','#171015'],'Noise':['#111111','#b8ff36','#f4f7ee','#101010'],'Apple':['#111111','#8e8e93','#f5f5f7','#111111'],'Xiaomi':['#ff6900','#ffad66','#fff5ed','#1b1b1b'],'OnePlus':['#eb0029','#ff536b','#fff0f2','#181818'],'Samsung':['#1428a0','#526cf4','#f0f2ff','#111936'],'Logitech':['#00b8fc','#005da8','#eefaff','#10232e'],'Ambrane':['#00a7e1','#52c8ee','#eefaff','#092b3a'],'URBN':['#1d1d1f','#777777','#f2f2f2','#111111'],'TP-Link':['#4acbd6','#167d88','#e9fbfc','#102a2c'],'Philips':['#0066a1','#00a0df','#eef8ff','#08283c'],'Havells':['#ed1c24','#ff666b','#fff1f1','#241011'],'Kingston':['#ed1c24','#ff6b6b','#fff1f1','#211010'],'Crucial':['#00a3e0','#5bc9f4','#effaff','#082b3a'],'Corsair':['#e9a11b','#ffd26d','#fff8e8','#191919'],'G.Skill':['#c81922','#ff6269','#fff1f1','#1b1111'],'ASUS':['#111111','#8a8a8a','#f2f2f2','#101010'],'Dell':['#0076ce','#43a7f2','#eef7ff','#082c4c'],'Lenovo':['#e2231a','#ff675e','#fff1f0','#211010'],'Acer':['#83b81a','#b9e45b','#f5fae9','#17210a'],'D-Link':['#c8102e','#f15a72','#fff0f3','#260b12'],'Netgear':['#00a8e0','#56d1fa','#edfbff','#082936'],'Tenda':['#e60012','#ff5c68','#fff0f1','#260a0d'],'SanDisk':['#e31837','#ff6c7e','#fff0f3','#241014'],'Seagate':['#6ebe4a','#a6dc83','#f3faef','#15210f'],'JBL':['#f37021','#ffad75','#fff4eb','#25150c'],'Sony':['#111111','#777777','#f3f3f3','#111111'],'Realme':['#ffc915','#ffdf70','#fff9e2','#1b1708'],'Anker':['#00a9e0','#5bd2f7','#effbff','#082a37'],'Portronics':['#ed1c24','#ff7070','#fff1f1','#210d0d'],'Zebronics':['#f58220','#ffb36d','#fff5eb','#24170b'],'UGREEN':['#00a650','#52cf88','#edfff4','#092717'],'Qubo':['#f36f21','#ffad7c','#fff4ed','#251308'],'Wipro':['#34205f','#7c67ae','#f4f0ff','#171025'],'Syska':['#e31e24','#ff7478','#fff1f1','#241010'],'Amazon Basics':['#232f3e','#ff9900','#f0f2f4','#111820'],'Milton':['#e31e24','#ff7777','#fff1f1','#211010'],'Wakefit':['#b38b62','#ddc2a2','#f7f0e8','#21180f'],'Fujifilm':['#ed1c24','#ff7070','#fff1f1','#241010'],'Spigen':['#00a6d6','#5ccded','#effbff','#082a35'],'TORRAS':['#111111','#777777','#f2f2f2','#111111'],'SUPFINE':['#111111','#777777','#f3f3f3','#111111'],'FNTCASE':['#222222','#888888','#f5f5f5','#111111'],'Tygot':['#f58220','#ffb36d','#fff5eb','#24170b'],'TheGiftKart':['#ef5b25','#ffad83','#fff3ed','#24120b'],'HP':['#0096d6','#55c5f1','#eefaff','#082b3d'],'Fastrack':['#111111','#f5d400','#fffbe5','#111111'],'Fire-Boltt':['#111111','#ed1c24','#f7f7f7','#111111'],'MSI':['#e31e24','#ff7777','#fff1f1','#231010'],'Redragon':['#c8102e','#ff6577','#fff0f3','#210c10'],'Nothing':['#111111','#888888','#f2f2f2','#111111'],'CMF':['#ff5a00','#ffb088','#fff3eb','#24150e'],'Sennheiser':['#111111','#777777','#f4f4f4','#111111'],'Google':['#4285f4','#34a853','#eff5ff','#111111'],'MI':['#ff6900','#ffad66','#fff5ed','#1b1b1b'],'EZVIZ':['#00a0e9','#69d2ff','#effaff','#082a38'],'Jio':['#0a2885','#5574d8','#eef1ff','#101a40']
+ };
+ const params=new URLSearchParams(location.search);
+ const requested=params.get('brand')||'';
+ const canonical=BRAND_NAMES.find(b=>norm(b)===norm(requested))||requested.trim();
+ function norm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
+ function productBrand(p){if(p&&p.brand&&String(p.brand).trim())return String(p.brand).trim();const n=String(p&&p.name||'').trim();const found=BRAND_NAMES.find(b=>norm(n)===norm(b)||norm(n).startsWith(norm(b)));return found||(n.split(/\s+/)[0]||'Other')}
+ function logoUrl(b,color){const slug=LOGOS[b];return slug?'https://cdn.simpleicons.org/'+slug+'/'+String(color||'111111').replace('#',''):''}
+ const theme=THEMES[canonical]||['#171717','#777777','#f4f4f4','#111111'];
+ document.documentElement.style.setProperty('--brand-accent',theme[0]);document.documentElement.style.setProperty('--brand-accent-2',theme[1]);document.documentElement.style.setProperty('--brand-bg',theme[2]);document.documentElement.style.setProperty('--brand-ink',theme[3]);document.documentElement.style.setProperty('--brand-panel','#ffffff');document.documentElement.style.setProperty('--brand-soft',theme[2]);
+ document.title=canonical+' | Brand Store | WORTHSY';
+ document.getElementById('brandTitle').textContent=canonical;
+ document.getElementById('brandWordmark').textContent=canonical;
+ const logo=logoUrl(canonical,'111111');
+ if(logo){const img=document.createElement('img');img.src=logo;img.alt=canonical+' logo';img.onerror=()=>img.remove();document.getElementById('heroLogo').replaceChildren(img);}
+ const desc=document.getElementById('brandDescription');desc.textContent='Discover '+canonical+' products from every available WORTHSY shopping partner, all in one place.';
+ const grid=document.getElementById('productGrid'),search=document.getElementById('brandSearch'),category=document.getElementById('categoryFilter'),sort=document.getElementById('sortFilter'),count=document.getElementById('productCount'),partner=document.getElementById('partnerCount');
+ const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const imageOf=p=>Array.isArray(p.images)?p.images.find(Boolean)||p.fallback_image||'':(p.image||p.fallback_image||'');
+ const priceVal=p=>{const m=String(p.price||'').replace(/,/g,'').match(/[0-9]+(?:\.[0-9]+)?/);return m?Number(m[0]):Number.POSITIVE_INFINITY};
+ let all=[];
+ function render(){
+  const q=search.value.trim().toLowerCase(),cat=category.value;
+  let list=all.filter(p=>(cat==='All'||String(p.category||'Other')===cat)&&(!q||[p.name,p.description,p.category,p.brand].filter(Boolean).join(' ').toLowerCase().includes(q)));
+  if(sort.value==='name')list.sort((a,b)=>String(a.name).localeCompare(String(b.name)));
+  if(sort.value==='price-low')list.sort((a,b)=>priceVal(a)-priceVal(b));
+  if(sort.value==='price-high')list.sort((a,b)=>priceVal(b)-priceVal(a));
+  count.textContent=list.length+' products';
+  const partners=new Set(list.map(p=>p.platform||'').filter(Boolean));
+  partner.textContent='From '+partners.size+' shopping partners';
+  grid.innerHTML=list.length?list.map(p=>{
+   const img=imageOf(p),brandLogo=logoUrl(canonical,'111111');
+   return '<article class="product-card"><div class="product-image">'+(img?'<img src="'+esc(img)+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.style.display=\'none\'">':'<i class="fa-solid fa-cube"></i>')+'<span class="product-brand-mark">'+(brandLogo?'<img src="'+esc(brandLogo)+'" alt="'+esc(canonical)+' logo">':'<span>'+esc(canonical)+'</span>')+'</span></div><div class="product-copy"><span class="product-category">'+esc(p.category||'Featured pick')+'</span><h2>'+esc(p.name)+'</h2><p>'+esc(p.description||'Discover this '+esc(canonical)+' product through a WORTHSY shopping partner.')+'</p><div class="product-foot"><span class="product-price">'+esc(p.price||'')+'</span><a class="product-buy" href="'+esc(p.link||'#')+'" target="_blank" rel="sponsored noopener noreferrer">VIEW PRODUCT ↗</a></div></div></article>';
+  }).join(''):'<div class="empty">No '+esc(canonical)+' products match this search yet. Try another category or check back soon.</div>';
+ }
+ search.addEventListener('input',render);category.addEventListener('change',render);sort.addEventListener('change',render);
+ fetch('products.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('catalogue unavailable');return r.json()}).then(items=>{
+  all=items.filter(p=>p&&p.name&&p.link&&norm(productBrand(p))===norm(canonical));
+  const cats=[...new Set(all.map(p=>String(p.category||'Other')))].sort();
+  cats.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;category.appendChild(o)});
+  render();
+  if(!all.length){count.textContent='0 products currently listed';partner.textContent='More products are being added';}
+ }).catch(()=>{grid.innerHTML='<div class="empty">Products could not load right now. Please refresh shortly.</div>';count.textContent='Catalogue unavailable';});
+})();
+</script>
+</body>
+</html>
