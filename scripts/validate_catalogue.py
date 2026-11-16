@@ -109,6 +109,10 @@ def main() -> int:
             raise SystemExit(f"ERROR: {filename} is not loading the shared header assets")
         if "worthsy-search.js" not in html:
             raise SystemExit(f"ERROR: {filename} is not loading the universal search engine")
+        if "worthsy-personalization-config.js" not in html or "worthsy-personalization.js" not in html:
+            raise SystemExit(f"ERROR: {filename} is missing the My WORTHSY personalisation layer")
+        if r"\\n</body>" in html:
+            raise SystemExit(f"ERROR: {filename} contains a literal escaped newline before </body>")
 
     search_js = (ROOT / "worthsy-search.js").read_text(encoding="utf-8")
     if "sneakerhead-products.json" not in search_js or "approvedAffiliateLink" not in search_js:
