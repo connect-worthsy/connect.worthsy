@@ -7,7 +7,7 @@
   document.addEventListener('click',e=>{if(!e.target.closest('.wx-shop')&&shopMenu){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false')}});
   const mobileBtn=header.querySelector('#mobileMenuBtn'),mobile=header.querySelector('#mobileMenu');
   mobileBtn?.addEventListener('click',()=>{const open=!mobile.classList.contains('is-open');mobile.classList.toggle('is-open',open);mobileBtn.setAttribute('aria-expanded',String(open));mobileBtn.innerHTML=open?'<i class="fa-solid fa-xmark text-xl"></i>':'<i class="fa-solid fa-bars text-xl"></i>'});
-  header.querySelector('#uniSearchBtn')?.addEventListener('click',()=>location.href='index.html#top');
+  // The shared search engine owns #uniSearchBtn on every page. Never redirect it.
  };
  const mount=async()=>{
   let header=document.querySelector('body>header.worthsy-header.wx-header');
