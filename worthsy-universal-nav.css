@@ -61,3 +61,17 @@ body{padding-top:80px!important}
 .wx-shop{position:relative}.wx-shop-actions{display:inline-flex;align-items:stretch;gap:0;height:42px;white-space:nowrap;border-radius:999px;overflow:hidden;background:#050505}.wx-shop-actions #wxShopBtn{min-width:92px;height:42px;padding:0 19px;border:0;border-radius:999px 0 0 999px;font-size:12px}.wx-shop-actions #wxShopToggle{width:42px;height:42px;padding:0;border:0;border-left:1px solid rgba(255,255,255,.22);border-radius:0 999px 999px 0}.wx-shop-menu{position:absolute;right:0;top:calc(100% + 10px);width:270px;background:#fff;border:1px solid #e5e5e5;border-radius:16px;padding:8px;z-index:10000;box-shadow:0 18px 40px rgba(0,0,0,.15)}.wx-shop-menu[hidden]{display:none}.wx-shop-menu-title{padding:9px 10px;font-size:12px;font-weight:800;color:#555}.wx-aff-list{padding:4px 6px 6px;display:grid;grid-template-columns:1fr 1fr;gap:4px}.wx-aff-list a{padding:8px 10px;border:1px solid #e5e5e5;border-radius:999px;font-size:13px;font-weight:700;color:#111;text-decoration:none;text-align:center}.wx-shop-viewall{display:block;padding:10px 12px;color:#111;font-size:13px;font-weight:800}
 .wx-mobile{border-top:1px solid #e5e5e5;background:#fff}.wx-mobile a{display:block;padding:.9rem 0;font-weight:700;border-bottom:1px solid #eee;color:#111}.wx-mobile a:last-child{border-bottom:0}.wx-mobile .wx-sneaker-nav{display:flex;align-items:center;gap:9px}.wx-mobile .wx-sneaker-nav svg{width:26px;height:18px}.wx-mob-h{display:block;padding:12px 4px 4px;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#cc1010}html body .wx-mobile a.wx-mob-sub{padding-left:16px;font-weight:500}
 @media(max-width:640px){.wx-gta-ps5-combo{height:36px;gap:5px;margin-left:-12px;padding:2px 4px}.wx-gta-vi-mark{width:58px;height:30px}.wx-gta-ps5-mark{gap:2px;padding-left:5px}.wx-gta-ps5-mark i{font-size:15px}.wx-gta-ps5-mark b{font-size:12px}.wx-searchpill{padding:0;width:40px}}
+
+
+/* Match the landing-page header dimensions exactly: 80px desktop, 66px mobile */
+body{padding-top:80px!important}
+.worthsy-header{height:80px!important;min-height:80px!important}
+.worthsy-header>div:first-child{height:80px!important;min-height:80px!important}
+.worthsy-header .worthsy-logo{height:44px!important}
+@media(max-width:650px){
+ body{padding-top:66px!important}
+ .worthsy-header{height:66px!important;min-height:66px!important}
+ .worthsy-header>div:first-child{height:66px!important;min-height:66px!important;padding:0 16px!important}
+ .worthsy-header .worthsy-logo{height:34px!important}
+ .worthsy-header .wx-cta-header{display:none!important}
+}
