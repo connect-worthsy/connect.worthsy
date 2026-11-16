@@ -164,12 +164,46 @@ footer a{color:#fff}
 #brands:hover .section-head h2{letter-spacing:-.09em}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 
+
+/* Brand-specific storefront palettes */
+body{--brand-accent:#111;--brand-accent-contrast:#fff;--brand-wash:#f3f3f3;--brand-deep:#111;--brand-paper:#fff;--brand-line:#dedede;transition:background-color .3s,color .3s}
+body[data-brand-theme="nike"]{--brand-accent:#f15a24;--brand-accent-contrast:#fff;--brand-wash:#fff0e9;--brand-deep:#171717;--brand-paper:#fff;--brand-line:#f2c5ae}
+body[data-brand-theme="adidas"]{--brand-accent:#d5ff00;--brand-accent-contrast:#111;--brand-wash:#f2f7d9;--brand-deep:#080808;--brand-paper:#fff;--brand-line:#d9e69a}
+body[data-brand-theme="new-balance"]{--brand-accent:#cf202e;--brand-accent-contrast:#fff;--brand-wash:#f9e9eb;--brand-deep:#142b4a;--brand-paper:#fff;--brand-line:#e8bfc4}
+body[data-brand-theme="puma"]{--brand-accent:#e31b36;--brand-accent-contrast:#fff;--brand-wash:#fbe9ec;--brand-deep:#171717;--brand-paper:#fff;--brand-line:#efc1c8}
+body[data-brand-theme="onitsuka-tiger"]{--brand-accent:#e9bd22;--brand-accent-contrast:#171717;--brand-wash:#fbf4d9;--brand-deep:#171717;--brand-paper:#fffdf5;--brand-line:#eadb9e}
+body[data-brand-theme="converse"]{--brand-accent:#111;--brand-accent-contrast:#fff;--brand-wash:#eeeae3;--brand-deep:#191919;--brand-paper:#fdfcf9;--brand-line:#d8d2c8}
+body[data-brand-theme]:not([data-brand-theme="all"]){background:var(--brand-paper)}
+body[data-brand-theme] .top{background:color-mix(in srgb,var(--brand-paper) 92%,transparent);border-color:var(--brand-line)}
+body[data-brand-theme] .top-cta,body[data-brand-theme] .btn{background:var(--brand-accent);border-color:var(--brand-accent);color:var(--brand-accent-contrast)}
+body[data-brand-theme] .btn.ghost{background:transparent;color:var(--brand-accent-contrast);border-color:currentColor}
+body[data-brand-theme] .hero-grid{background:var(--brand-deep)}
+body[data-brand-theme] .hero-copy{background:var(--brand-deep)}
+body[data-brand-theme] .hero .eyebrow,body[data-brand-theme] .section-head .eyebrow{color:var(--brand-accent)}
+body[data-brand-theme] .hero h1 em{color:var(--brand-accent);font-style:normal}
+body[data-brand-theme] .brand-btn{background:var(--brand-wash);border-color:var(--brand-line);color:var(--brand-deep)}
+body[data-brand-theme] .brand-btn:hover,body[data-brand-theme] .brand-btn.active{background:var(--brand-accent);color:var(--brand-accent-contrast);border-color:var(--brand-accent)}
+body[data-brand-theme] .brand-btn .brand-mark{color:inherit}
+body[data-brand-theme] .filters input:focus,body[data-brand-theme] .filters select:focus{border-color:var(--brand-accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--brand-accent) 18%,transparent)}
+body[data-brand-theme] .card-media{background:var(--brand-wash)}
+body[data-brand-theme] .card-tag{background:var(--brand-accent);color:var(--brand-accent-contrast)}
+body[data-brand-theme] .card:focus-visible{outline-color:var(--brand-accent)}
+body[data-brand-theme] .note{border-color:var(--brand-line);background:var(--brand-wash)}
+body[data-brand-theme] footer{border-color:var(--brand-line)}
+.brand-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+.brand-mark{font-size:clamp(16px,2vw,23px);font-weight:950;letter-spacing:-.08em;line-height:1}
+.brand-mark-adidas{font-style:italic;letter-spacing:-.12em}
+.brand-mark-new-balance{font-size:12px;letter-spacing:-.07em}
+.brand-mark-onitsuka-tiger{font-size:10px;letter-spacing:.04em}
+.brand-caption{font-size:9px;letter-spacing:.12em;font-weight:850}
+.hero-brand-stamp strong{color:var(--brand-accent)}
+@media(max-width:850px){.brand-btn{gap:5px}.brand-mark{font-size:18px}}
 </style>
 </head>
 <body>
 <header class="top"><a class="brand-home" href="index.html" aria-label="WORTHSY home"><span class="worthsy-logo" role="img" aria-label="WORTHSY"></span></a><nav class="topnav"><a href="index.html">Home</a><a href="#brands">Brands</a><a href="#collection">Collection</a><a href="shop.html">Shop</a></nav><a class="top-cta" href="#collection">Explore sneakers ↘</a></header>
 <main class="wrap">
-<section class="hero"><div class="hero-grid"><div class="hero-copy"><div class="eyebrow">WORTHSY / THE SNEAKER EDIT</div><h1>FIND YOUR<br> NEXT PAIR.</h1><p>Iconic silhouettes. Fresh drops. Six brands shaping sneaker culture — all in one place.</p><div class="hero-actions"><a class="btn" href="#collection">Explore sneakers ↘</a><a class="btn ghost" href="#brands">Browse brands</a></div></div><div class="hero-art" id="brandShowcase" role="img" aria-label="Rotating sneaker brand showcase"><div class="hero-brand-stamp"><span>NOW FEATURING</span><strong id="heroBrandName">NIKE</strong><small id="heroProductName">Air Force 1 '07</small></div><div class="hero-slide-count" id="heroSlideCount">01 / 06</div></div></div></section>
+<section class="hero"><div class="hero-grid"><div class="hero-copy"><div class="eyebrow" id="heroEyebrow">WORTHSY / THE SNEAKER EDIT</div><h1 id="heroHeadline">FIND YOUR<br> NEXT PAIR.</h1><p id="heroDescription">Iconic silhouettes. Fresh drops. Six brands shaping sneaker culture — all in one place.</p><div class="hero-actions"><a class="btn" href="#collection">Explore sneakers ↘</a><a class="btn ghost" href="#brands">Browse brands</a></div></div><div class="hero-art" id="brandShowcase" role="img" aria-label="Rotating sneaker brand showcase"><div class="hero-brand-stamp"><span id="heroBrandStampLabel">NOW FEATURING</span><strong id="heroBrandName">NIKE</strong><small id="heroProductName">Air Force 1 '07</small></div><div class="hero-slide-count" id="heroSlideCount">01 / 06</div></div></div></section>
 <section id="brands"><div class="eyebrow">THE LINE-UP</div><div class="section-head"><div><h2>Six labels. Endless rotation.</h2><p class="muted">Explore the sneaker worlds we are curating.</p></div></div><div class="brand-strip" id="brandStrip"></div></section>
 <section id="collection"><div class="section-head"><div><div class="eyebrow">THE SNEAKER INDEX / 001—150</div><h2>Find your next pair.</h2><p class="muted">A 150-model discovery edit, curated across six sneaker labels.</p></div><div class="eyebrow" id="countLabel">150 MODELS</div></div>
 <div class="filters"><input id="search" type="search" placeholder="Search sneaker or silhouette…" aria-label="Search sneakers"><select id="brandFilter" aria-label="Filter by brand"><option value="">All brands</option></select><select id="typeFilter" aria-label="Filter by style"><option value="">All styles</option><option>Streetwear</option><option>Retro runner</option><option>Court</option><option>Performance</option><option>Lifestyle</option></select><select id="sort" aria-label="Sort sneakers"><option value="trending">Trending edit</option><option value="az">Name: A to Z</option><option value="brand">Brand</option></select></div>
@@ -211,7 +245,8 @@ function initBrandShowcase(){
  show();if(window.worthsyBrandTimer)clearInterval(window.worthsyBrandTimer);window.worthsyBrandTimer=setInterval(()=>{index=(index+1)%slides.length;show();},4200);
 }
 
-function initFilters(){ $('brandStrip').innerHTML='<button class="brand-btn active" data-brand="">ALL</button>'+brands.map(b=>'<button class="brand-btn" data-brand="'+b+'">'+b.toUpperCase()+'</button>').join(''); $('brandFilter').innerHTML='<option value="">All brands</option>'+brands.map(b=>'<option>'+b+'</option>').join(''); $('brandStrip').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ $('brandFilter').value=b.dataset.brand; $('brandStrip').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));render();}));}
+function applyBrandTheme(brand){const key=brand?slug(brand):'all';document.body.dataset.brandTheme=key;const label=brand||'All brands';$('heroEyebrow').textContent=brand?label.toUpperCase()+' / THE BRAND EDIT':'WORTHSY / THE SNEAKER EDIT';$('heroHeadline').innerHTML=brand?('DISCOVER<br><em>'+label.toUpperCase()+'</em>'):'FIND YOUR<br> NEXT PAIR.';$('heroDescription').textContent=brand?'Explore the '+label+' sneaker collection, signature silhouettes and latest favourites.':'Iconic silhouettes. Fresh drops. Six brands shaping sneaker culture — all in one place.';$('heroBrandName').textContent=brand?label.toUpperCase():'NIKE';$('heroBrandStampLabel').textContent=brand?'THE BRAND EDIT':'NOW FEATURING';$('heroSlideCount').textContent=brand?'01 / 01':'01 / 06';}
+function initFilters(){ $('brandStrip').innerHTML='<button class="brand-btn active" data-brand=""><span class="brand-mark">W</span><span class="brand-caption">ALL BRANDS</span></button>'+brands.map(b=>'<button class="brand-btn" data-brand="'+b+'"><span class="brand-mark brand-mark-'+slug(b)+'">'+(b==='New Balance'?'NB':b==='Onitsuka Tiger'?'OT':b.toUpperCase())+'</span><span class="brand-caption">'+b.toUpperCase()+'</span></button>').join(''); $('brandFilter').innerHTML='<option value="">All brands</option>'+brands.map(b=>'<option>'+b+'</option>').join(''); $('brandStrip').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ $('brandFilter').value=b.dataset.brand; $('brandStrip').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));applyBrandTheme(b.dataset.brand);render();}));}
 function render(){let list=products.slice();const q=$('search').value.trim().toLowerCase(),brand=$('brandFilter').value,type=$('typeFilter').value,sort=$('sort').value;list=list.filter(p=>(!brand||p.brand===brand)&&(!type||p.category===type)&&(!q||(p.name+' '+p.brand+' '+p.category).toLowerCase().includes(q)));if(sort==='az')list.sort((a,b)=>a.name.localeCompare(b.name));else if(sort==='brand')list.sort((a,b)=>a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name));else list.sort((a,b)=>b.trendScore-a.trendScore);$('resultCount').textContent=list.length+' models';$('countLabel').textContent=list.length+' / 150 MODELS';$('productGrid').innerHTML=list.length?list.map((p,i)=>'<article class="card" tabindex="0" role="button" data-product-index="'+products.indexOf(p)+'" aria-label="View '+p.name+' details"><div class="card-media">'+'<img src="'+imgSrc(p)+'" alt="'+p.name+'" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="imgFail(this)">'+'</div><div class="card-info"><div class="brand-name">'+p.brand+'</div><h3>'+p.name+'</h3><div class="card-type">'+p.category+'</div><div class="card-foot"><span class="pending">Compare stores</span><span aria-hidden="true">↗</span></div></div></article>').join(''):'<div class="empty" style="grid-column:1/-1">No sneakers match these filters. Try another search.</div>';}
 
 function openProduct(p){if(!p)return;const modal=$('sneakerModal');$('modalBrand').textContent=p.brand;$('modalName').textContent=p.name;$('modalCategory').textContent=p.category||'Sneakers';const visual=$('modalVisual');visual.innerHTML='<img src="'+imgSrc(p)+'" alt="'+p.name+'" referrerpolicy="no-referrer" onerror="this.outerHTML=\'<span>PHOTO COMING SOON</span>\'">';const stores=storeList(p);$('retailerList').innerHTML=stores.map(s=>'<div class="retailer-row"><div><strong>'+s.name+'</strong><small>'+(s.price||(s.search?'Opens search results for this model':'Price not verified'))+'</small></div>'+(s.url?'<a href="'+s.url+'" target="_blank" rel="noopener sponsored">'+(s.search?'SEARCH ↗':'VIEW OFFER ↗')+'</a>':'<span class="pending-price">Listing pending</span>')+'</div>').join('');modal.hidden=false;modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('modalClose').focus();}
@@ -220,7 +255,7 @@ $('productGrid').addEventListener('click',e=>{const card=e.target.closest('[data
 $('productGrid').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-product-index]')){e.preventDefault();openProduct(products[Number(e.target.dataset.productIndex)]);}});
 $('modalClose').addEventListener('click',closeProduct);$('sneakerModal').addEventListener('click',e=>{if(e.target===$('sneakerModal'))closeProduct();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('sneakerModal').hidden)closeProduct();});
 
-$('search').addEventListener('input',render);$('brandFilter').addEventListener('change',()=>{const b=$('brandFilter').value;$('brandStrip').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.brand===b));render();});$('typeFilter').addEventListener('change',render);$('sort').addEventListener('change',render);
+$('search').addEventListener('input',render);$('brandFilter').addEventListener('change',()=>{const b=$('brandFilter').value;$('brandStrip').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.brand===b));applyBrandTheme(b);render();});$('typeFilter').addEventListener('change',render);$('sort').addEventListener('change',render);
 initFilters();render();
 function applyBrandFromUrl(){
  const params=new URLSearchParams(window.location.search),requested=params.get('brand');
