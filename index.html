@@ -1587,7 +1587,22 @@ html body .ws-hero-copy{
 .wx-sneaker-hover-arrows{display:flex;gap:8px}.wx-sneaker-hover-arrow{width:42px;height:42px;display:grid;place-items:center;border:1px solid #e5dce9;border-radius:50%;background:#fff;color:#30213a;font-size:25px;line-height:1;cursor:pointer}.wx-sneaker-hover-arrow:hover{background:#fce4f1;border-color:#edb6d4}
 @media(max-width:760px){.wx-sneaker-hover-preview{display:none!important}}@media(prefers-reduced-motion:reduce){.wx-sneaker-hover-preview,.wx-sneaker-hover-track,.wx-sneaker-hover-item{transition:none}}
 </style>
-</head>
+<style id="w-brand-store-css">
+#w-brand-campaign{display:none;--w-accent:#111;--w-soft:#f4f4f4;margin:-20px 0 34px;border:1px solid var(--w-accent);border-radius:18px;overflow:hidden;background:linear-gradient(110deg,var(--w-soft),#fff 76%);color:#111}
+#w-brand-campaign.active{display:grid;grid-template-columns:.85fr 1.15fr;min-height:270px}
+#w-brand-campaign .w-copy{padding:clamp(22px,4vw,46px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+#w-brand-campaign .w-logo{max-width:190px;width:auto;height:58px;object-fit:contain;object-position:left;margin-bottom:16px}
+#w-brand-campaign .w-word{font-size:clamp(32px,4vw,52px);font-weight:950;letter-spacing:-.06em;margin-bottom:15px}
+#w-brand-campaign .w-kicker{font-size:9px;font-weight:900;letter-spacing:.2em;color:var(--w-accent)}
+#w-brand-campaign h2{font-size:clamp(25px,3vw,42px);font-weight:900;letter-spacing:-.05em;line-height:1;margin:10px 0}
+#w-brand-campaign p{font-size:12px;line-height:1.6;color:#555;max-width:390px}
+#w-brand-picks{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:10px;padding:14px}
+#w-brand-picks a{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:210px;padding:10px;background:#fff;border:1px solid #e8e8e8;border-radius:12px;overflow:hidden}
+#w-brand-picks img{width:100%;height:100%;max-height:250px;object-fit:contain}
+#w-brand-picks span{position:absolute;bottom:8px;left:8px;right:8px;background:#ffffffed;padding:7px;border-radius:6px;font-size:9px;font-weight:800;line-height:1.25}
+#amazon-platform-intro.brand-mode #amazon-page-logo,#amazon-platform-intro.brand-mode #amazon-page-title{display:none!important}
+@media(max-width:700px){#w-brand-campaign.active{grid-template-columns:1fr}#w-brand-campaign .w-copy{padding:22px}#w-brand-picks{padding:8px;gap:6px}#w-brand-picks a{min-height:125px;padding:5px}#w-brand-picks span{font-size:8px;left:4px;right:4px;bottom:4px}}
+</style></head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
     <!-- ============ HEADER ============ -->
@@ -2406,11 +2421,8 @@ html body .ws-hero-copy{
             </div>
         </div>
         <main class="pt-10 pb-20 px-6 lg:px-12 max-w-7xl mx-auto">
-        <div class="platform-intro mb-14">
-  <span id="amazon-page-eyebrow" class="platform-eyebrow">Brand Store</span>
-  <img class="platform-logo-image platform-logo-amazon" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon logo" width="230" height="78" loading="eager" decoding="async"><h1 id="amazon-page-title" class="sr-only">Amazon</h1>
-  <p id="amazon-page-description" class="platform-description">Shop the best of Amazon</p>
- </div>
+        <div class="platform-intro mb-14" id="amazon-platform-intro"><span id="amazon-page-eyebrow" class="platform-eyebrow">Brand Store</span><img id="amazon-page-logo" class="platform-logo-image platform-logo-amazon" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon logo" width="230" height="78" loading="eager" decoding="async"><h1 id="amazon-page-title" class="sr-only">Amazon</h1><p id="amazon-page-description" class="platform-description">Shop the best of Amazon</p></div>
+<section id="w-brand-campaign" aria-label="Brand campaign"><div class="w-copy"><span class="w-kicker">BRAND SPOTLIGHT</span><img id="w-brand-logo" class="w-logo" alt="" hidden><div id="w-brand-word" class="w-word" hidden></div><h2 id="w-brand-title">Discover the brand.</h2><p id="w-brand-desc">Explore this brand across WORTHSY shopping partners.</p></div><div id="w-brand-picks"></div></section>
 
         <!-- Amazon product cards are rendered from products.json so counts, sorting and filters share one source of truth. -->
         <div id="products-amazon" data-platform="amazon" class="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
@@ -3829,6 +3841,10 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
     SNEAKER_BRANDS.forEach(function(name){
       if(!seen[name]){seen[name]=1;items.push({n:name,h:'sneakerhead.html?brand='+encodeURIComponent(name)+'#collection',sneaker:1});}
     });
+    var WBT={boAt:['#e31b36','#fff4f5'],Noise:['#111111','#f4f7ee'],Apple:['#111111','#f5f5f7'],Xiaomi:['#ff6900','#fff5ed'],OnePlus:['#eb0029','#fff0f2'],Samsung:['#1428a0','#f0f2ff'],Logitech:['#00b8fc','#eefaff'],Ambrane:['#00a7e1','#eefaff'],'TP-Link':['#4acbd6','#e9fbfc'],Philips:['#0066a1','#eef8ff'],Havells:['#ed1c24','#fff1f1'],Kingston:['#ed1c24','#fff1f1'],Corsair:['#e9a11b','#fff8e8'],ASUS:['#111111','#f2f2f2'],Dell:['#0076ce','#eef7ff'],Lenovo:['#e2231a','#fff1f0'],Acer:['#83b81a','#f5fae9'],JBL:['#f37021','#fff4eb'],Sony:['#111111','#f3f3f3'],Realme:['#ffc915','#fff9e2'],Anker:['#00a9e0','#effbff'],Portronics:['#ed1c24','#fff1f1'],Zebronics:['#f58220','#fff5eb'],UGREEN:['#00a650','#edfff4'],Wipro:['#34205f','#f4f0ff'],Syska:['#e31e24','#fff1f1'],HP:['#0096d6','#eefaff'],Fastrack:['#111111','#fffbe5'],Nothing:['#111111','#f2f2f2'],CMF:['#ff5a00','#fff3eb'],Google:['#4285f4','#eff5ff'],MSI:['#e31e24','#fff1f1'],Seagate:['#6ebe4a','#f3faef'],'Western Digital':['#00529b','#edf6ff'],DailyObjects:['#202020','#f2f2f2'],NutriPro:['#ff6b00','#fff4eb'],GIGABYTE:['#00a6e8','#eefaff']};
+    var WBL={boAt:'boat',Noise:'noise',Apple:'apple',Xiaomi:'xiaomi',OnePlus:'oneplus',Samsung:'samsung',Logitech:'logitech','TP-Link':'tplink',Philips:'philips',HP:'hp',Dell:'dell',Lenovo:'lenovo',Acer:'acer',ASUS:'asus',Sony:'sony',JBL:'jbl',Anker:'anker',Corsair:'corsair',Kingston:'kingstontechnology',SanDisk:'sandisk',Realme:'realme',Amazon:'amazon',Google:'google',Nothing:'nothing',CMF:'cmf',UGREEN:'ugreen',Wipro:'wipro',Netgear:'netgear',Tenda:'tenda','D-Link':'dlink',Zebronics:'zebronics',Portronics:'portronics',Ambrane:'ambrane',Qubo:'qubo',Syska:'syska',Havells:'havells',Fujifilm:'fujifilm',Spigen:'spigen',Milton:'milton',Seagate:'seagate','Western Digital':'westerndigital'};
+    var wbp=null;
+    function applyWBrandCampaign(brand){var box=document.getElementById('w-brand-campaign'),intro=document.getElementById('amazon-platform-intro'),logo=document.getElementById('w-brand-logo'),word=document.getElementById('w-brand-word'),picks=document.getElementById('w-brand-picks');if(!box)return;var active=!!brand&&brand!=='All';box.classList.toggle('active',active);if(intro)intro.classList.toggle('brand-mode',active);var al=document.getElementById('amazon-page-logo');if(al)al.style.display=active?'none':'';if(!active){if(logo)logo.removeAttribute('src');if(word)word.hidden=true;return;}var theme=WBT[brand]||['#171717','#f4f4f4'];box.style.setProperty('--w-accent',theme[0]);box.style.setProperty('--w-soft',theme[1]);document.getElementById('w-brand-title').textContent='Meet '+brand+'.';document.getElementById('w-brand-desc').textContent='Explore signature picks from '+brand+', curated across WORTHSY shopping partners.';word.textContent=brand;word.hidden=true;var slug=WBL[brand];if(slug){logo.src='https://cdn.simpleicons.org/'+slug+'/'+theme[0].replace('#','');logo.alt=brand+' logo';logo.hidden=false;logo.onerror=function(){logo.hidden=true;word.hidden=false;};}else{logo.hidden=true;word.hidden=false;}if(!wbp)wbp=fetch('products.json',{cache:'no-cache'}).then(function(r){return r.json()}).catch(function(){return [];});wbp.then(function(items){if(window.WORTHSY_ACTIVE_BRAND!==brand)return;var norm=function(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'')};var list=items.filter(function(p){var n=String(p.name||'');return norm(p.brand)===norm(brand)||norm(n)===norm(brand)||norm(n).indexOf(norm(brand))===0;});var images=list.filter(function(p){return (Array.isArray(p.images)&&p.images.some(Boolean))||p.image||p.fallback_image;}).slice(0,3);picks.replaceChildren();images.forEach(function(p){var a=document.createElement('a');a.href=p.link||'#amazon';a.target='_blank';a.rel='sponsored noopener noreferrer';var src=Array.isArray(p.images)?(p.images.find(Boolean)||p.fallback_image):(p.image||p.fallback_image);var img=document.createElement('img');img.src=src;img.alt=p.name||brand+' product';img.loading='lazy';var label=document.createElement('span');label.textContent=p.name||brand+' pick';a.append(img,label);picks.append(a);});if(!images.length){var msg=document.createElement('span');msg.textContent='Explore the '+brand+' collection';picks.append(msg);}});}
     function activateBrand(link){
       var brand=link.getAttribute('data-brand-filter');
       if(!brand)return;
@@ -3838,6 +3854,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
       document.querySelectorAll('#wxTrack a[data-brand-filter]').forEach(function(a){
         a.setAttribute('aria-pressed',String(active!=='All'&&a.getAttribute('data-brand-filter')===active));
       });
+      applyWBrandCampaign(active);
       var title=document.getElementById('amazon-page-title');
       var desc=document.getElementById('amazon-page-description');
       var eyebrow=document.getElementById('amazon-page-eyebrow');
@@ -3849,6 +3866,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
       if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
     }
     window.worthsyApplyBrandFilter=activateBrand;
+    var initialWBrand=new URLSearchParams(window.location.search).get('worthsyBrand')||'All';window.WORTHSY_ACTIVE_BRAND=initialWBrand;applyWBrandCampaign(initialWBrand);window.addEventListener('popstate',function(){var b=new URLSearchParams(window.location.search).get('worthsyBrand')||'All';window.WORTHSY_ACTIVE_BRAND=b;applyWBrandCampaign(b);});
     function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');if(i.p){a.href=i.h;a.className='wx-p';}else if(i.sneaker){a.href=i.h;a.setAttribute('data-sneaker-brand',i.n);a.title='Browse '+i.n+' sneakers';}else{a.href='brand.html?brand='+encodeURIComponent(i.n);a.title='Explore '+i.n; a.setAttribute('data-brand-store',i.n);}a.textContent=i.n; if(i.p)a.title='Shop '+i.n+' picks'; f.appendChild(a);});return f;}
     t.replaceChildren(row());
     var d=row();d.childNodes.forEach(function(a){a.setAttribute('aria-hidden','true');a.tabIndex=-1;});t.appendChild(d);
