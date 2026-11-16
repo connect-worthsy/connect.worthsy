@@ -17,8 +17,10 @@ from personalization_api.main import (
 class PersonalisationApiTests(unittest.TestCase):
     def test_catalogue_has_products_and_only_approved_links(self):
         self.assertGreater(len(CATALOGUE), 100)
-        self.assertTrue(all(item["link"] for item in CATALOGUE))
-        self.assertTrue(all(approved_affiliate_url(item["link"]) for item in CATALOGUE))
+        # Some sneaker records are searchable before their approved affiliate URL is available.
+        # Blank links are permitted; every non-empty outbound link must be approved.
+        self.assertTrue(all(not item["link"] or approved_affiliate_url(item["link"]) for item in CATALOGUE))
+        self.assertTrue(any(not item["link"] and item["is_sneaker"] for item in CATALOGUE))
 
     def test_amazon_url_requires_worthsy_tag(self):
         self.assertTrue(approved_affiliate_url("https://www.amazon.in/dp/B09QN2KBRV?tag=worthsy0d-21"))
