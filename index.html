@@ -2721,8 +2721,9 @@ html body .ws-hero-copy{
                 } catch (_) { return '#'; }
             }
             function btn(href, text, cls) { const a = el('a', cls, text); a.href = safeUrl(href); a.target = '_blank'; a.rel = 'sponsored noopener'; return a; }
+            const BRAND_LOGOS = {'Apple':'apple','Xiaomi':'xiaomi','OnePlus':'oneplus','Samsung':'samsung','Logitech':'logitech','TP-Link':'tplink','Philips':'philips','HP':'hp','Dell':'dell','Lenovo':'lenovo','Acer':'acer','ASUS':'asus','Sony':'sony','JBL':'jbl','Anker':'anker','Corsair':'corsair','Kingston':'kingstontechnology','SanDisk':'sandisk','G.Skill':'gskill','Realme':'realme','boAt':'boat','Noise':'noise','Amazon':'amazon','Amazon Basics':'amazon','Fastrack':'fastrack','MSI':'msi','Nothing':'nothing','Google':'google','Seagate':'seagate','UGREEN':'ugreen','Wipro':'wipro','Tenda':'tenda','D-Link':'dlink','Netgear':'netgear','Zebronics':'zebronics','Portronics':'portronics','Ambrane':'ambrane','Qubo':'qubo','Syska':'syska','Havells':'havells','Fujifilm':'fujifilm','Spigen':'spigen','Milton':'milton'};
             function card(p) {
-                const label = LABELS[p.platform] || p.platform;
+                const brand = productBrand(p);
                 const c = el('div', 'product-card bg-[#ffffff] luxury-border p-4 flex flex-col');
                 c.dataset.href = safeUrl(p.link);
                 c.dataset.brand = productBrand(p);
@@ -2741,14 +2742,18 @@ html body .ws-hero-copy{
                         c.appendChild(g);
                     } else { box.classList.add('mb-4'); }
                 }
-                c.appendChild(el('span', 'text-xs font-mono uppercase tracking-widest text-brandAccent mb-1', [p.merchant || label, p.category].filter(Boolean).join(' \u00b7 ')));
+                const brandMark = el('span', 'product-brand-mark flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-2');
+                const brandSlug = BRAND_LOGOS[brand];
+                if (brandSlug) { const logo = el('img', 'h-6 max-w-[76px] object-contain'); logo.src = 'https://cdn.simpleicons.org/' + brandSlug + '/111111'; logo.alt = brand + ' logo'; logo.loading = 'lazy'; logo.onerror = function(){ logo.remove(); brandMark.appendChild(el('span','',brand)); }; brandMark.appendChild(logo); }
+                else brandMark.appendChild(el('span','',brand));
+                if (p.category) brandMark.appendChild(el('span','text-slate-400 font-normal','· ' + p.category));
+                c.appendChild(brandMark);
                 c.appendChild(el('span', 'product-name font-black tracking-wide text-base leading-snug', p.name || 'Product'));
                 if (p.price) c.appendChild(el('span', 'text-brandAccent font-mono text-sm mt-2', p.price));
                 if (p.description) c.appendChild(el('span', 'text-slate-300 text-xs font-mono mt-3 leading-relaxed', p.description));
                 const spacer = el('div', 'mt-4'); c.appendChild(spacer);
-                const b1 = btn(p.link, 'View on ' + (p.merchant || label), 'mt-auto text-center px-4 py-2 text-sm font-bold uppercase tracking-widest bg-brandAccent text-brandBg');
+                const b1 = btn(p.link, 'View product ↗', 'mt-auto text-center px-4 py-2 text-sm font-bold uppercase tracking-widest bg-brandAccent text-brandBg');
                 c.appendChild(b1);
-                if (p.platform === 'amazon') c.appendChild(btn(p.link, 'Read reviews on Amazon', 'mt-2 text-center px-4 py-2 text-xs font-bold uppercase tracking-widest border border-brandAccent text-brandAccent'));
                 return c;
             }
             function empty(text) { const d = el('div', 'col-span-full text-center py-16 bg-[#ffffff]/60 luxury-border'); d.appendChild(el('p', 'logo-wordmark text-2xl text-brandAccent mb-2', 'Products coming soon')); d.appendChild(el('p', 'text-slate-400 text-xs font-mono', text)); return d; }
