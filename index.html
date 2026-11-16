@@ -1602,6 +1602,23 @@ html body .ws-hero-copy{
 #w-brand-picks span{position:absolute;bottom:8px;left:8px;right:8px;background:#ffffffed;padding:7px;border-radius:6px;font-size:9px;font-weight:800;line-height:1.25}
 #amazon-platform-intro.brand-mode #amazon-page-logo,#amazon-platform-intro.brand-mode #amazon-page-title{display:none!important}
 @media(max-width:700px){#w-brand-campaign.active{grid-template-columns:1fr}#w-brand-campaign .w-copy{padding:22px}#w-brand-picks{padding:8px;gap:6px}#w-brand-picks a{min-height:125px;padding:5px}#w-brand-picks span{font-size:8px;left:4px;right:4px;bottom:4px}}
+</style><style id="w-platform-campaign-style">
+.w-platform-campaign{--pc:#111;--ps:#f4f4f4;--pa:#fff;display:none;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px;align-items:stretch;min-height:280px;margin:0 0 34px;border:1px solid var(--pc);border-radius:18px;overflow:hidden;background:linear-gradient(115deg,var(--ps),#fff 75%);color:#111}
+.w-platform-campaign.active{display:grid}
+.w-platform-copy{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.w-platform-logo{display:block;max-width:205px;width:auto;height:54px;object-fit:contain;object-position:left center;margin:0 0 20px}
+.w-platform-kicker{font:900 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--pc)}
+.w-platform-copy h2{font-size:clamp(30px,4vw,50px);line-height:.98;letter-spacing:-.065em;font-weight:950;margin:12px 0}
+.w-platform-copy p{max-width:390px;color:#555;font-size:12px;line-height:1.65;margin:0}
+.w-platform-picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:14px;align-items:stretch}
+.w-platform-pick{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:205px;padding:10px;border:1px solid #e7e7e7;border-radius:13px;background:#fff;color:#111;text-decoration:none;overflow:hidden}
+.w-platform-pick img{width:100%;height:100%;max-height:250px;object-fit:contain}
+.w-platform-pick span{position:absolute;left:7px;right:7px;bottom:7px;padding:7px 8px;border-radius:7px;background:#ffffffed;font-size:9px;line-height:1.3;font-weight:800}
+.w-platform-empty{grid-column:1/-1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:28px;border:1px dashed color-mix(in srgb,var(--pc) 35%,white);border-radius:13px;background:#ffffffa8}
+.w-platform-empty b{font-size:clamp(18px,2vw,26px);letter-spacing:-.04em}
+.w-platform-empty span{font-size:11px;color:#666;margin-top:8px;line-height:1.5}
+.platform-page.w-platform-ready .platform-intro{display:none!important}
+@media(max-width:760px){.w-platform-campaign.active{grid-template-columns:1fr;gap:0}.w-platform-copy{padding:24px 22px 12px}.w-platform-picks{padding:10px;gap:7px}.w-platform-pick{min-height:130px;padding:5px}.w-platform-pick span{font-size:8px;left:4px;right:4px;bottom:4px}}
 </style></head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -2425,6 +2442,7 @@ html body .ws-hero-copy{
 <section id="w-brand-campaign" aria-label="Brand campaign"><div class="w-copy"><span class="w-kicker">BRAND SPOTLIGHT</span><img id="w-brand-logo" class="w-logo" alt="" hidden><div id="w-brand-word" class="w-word" hidden></div><h2 id="w-brand-title">Discover the brand.</h2><p id="w-brand-desc">Explore this brand across WORTHSY shopping partners.</p></div><div id="w-brand-picks"></div></section>
 
         <!-- Amazon product cards are rendered from products.json so counts, sorting and filters share one source of truth. -->
+        <section class="w-platform-campaign" id="w-platform-campaign-amazon" data-platform-campaign="amazon" aria-label="Amazon platform campaign"><div class="w-platform-copy"><span class="w-platform-kicker">THE MARKETPLACE EDIT</span><img class="w-platform-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon logo" loading="eager" decoding="async"><h2>Find your next favourite.</h2><p>Explore WORTHSY picks from Amazon — products across the categories you love.</p></div><div class="w-platform-picks" id="w-platform-picks-amazon"></div></section>
         <div id="products-amazon" data-platform="amazon" class="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
                 <p class="text-center text-[11px] font-mono text-slate-500 mt-10">As an affiliate, WORTHSY may earn a commission on qualifying purchases at no extra cost to you.</p>
     </main>
@@ -2446,6 +2464,7 @@ html body .ws-hero-copy{
  </div>
 
         <!-- PRODUCTS GO HERE. Copy one card below for each product. -->
+        <section class="w-platform-campaign" id="w-platform-campaign-flipkart" data-platform-campaign="flipkart" aria-label="Flipkart platform campaign"><div class="w-platform-copy"><span class="w-platform-kicker">THE BIG SAVINGS EDIT</span><img class="w-platform-logo" src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Flipkart_logo_%282026%29.svg" alt="Flipkart logo" loading="eager" decoding="async"><h2>Big finds. Better deals.</h2><p>Discover standout picks from Flipkart, curated for your next smart buy.</p></div><div class="w-platform-picks" id="w-platform-picks-flipkart"></div></section>
         <div id="products-flipkart" data-platform="flipkart" class="product-grid grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
         <p class="text-center text-[11px] font-mono text-slate-500 mt-10">As an affiliate, WORTHSY may earn a commission on qualifying purchases at no extra cost to you.</p>
     </main>
@@ -2467,6 +2486,7 @@ html body .ws-hero-copy{
  </div>
 
         <!-- PRODUCTS GO HERE. Copy one card below for each product. -->
+        <section class="w-platform-campaign" id="w-platform-campaign-shopify" data-platform-campaign="shopify" aria-label="Shopify platform campaign"><div class="w-platform-copy"><span class="w-platform-kicker">THE INDEPENDENT STORE EDIT</span><img class="w-platform-logo" src="https://cdn.shopify.com/shopifycloud/brochure/assets/brand-assets/shopify-logo-primary-logo-456baa801ee66a0a435671082365958316831c9960c480451dd0330bcdae304f.svg" alt="Shopify logo" loading="eager" decoding="async"><h2>Discover something different.</h2><p>Explore products from independent Shopify-powered stores and makers.</p></div><div class="w-platform-picks" id="w-platform-picks-shopify"></div></section>
         <div id="products-shopify" data-platform="shopify" class="product-grid grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
         <p class="text-center text-[11px] font-mono text-slate-500 mt-10">As an affiliate, WORTHSY may earn a commission on qualifying purchases at no extra cost to you.</p>
     </main>
@@ -2488,6 +2508,7 @@ html body .ws-hero-copy{
  </div>
 
         <!-- PRODUCTS GO HERE. Copy one card below for each product. -->
+        <section class="w-platform-campaign" id="w-platform-campaign-clickbank" data-platform-campaign="clickbank" aria-label="ClickBank platform campaign"><div class="w-platform-copy"><span class="w-platform-kicker">THE DIGITAL DISCOVERY EDIT</span><img class="w-platform-logo" src="https://www.clickbank.com/assets/images/2021/04/Blue_ClickBank_Logo.webp" alt="ClickBank logo" loading="eager" decoding="async"><h2>Ideas worth exploring.</h2><p>Browse selected ClickBank offers and discoveries from the WORTHSY partner catalogue.</p></div><div class="w-platform-picks" id="w-platform-picks-clickbank"></div></section>
         <div id="products-clickbank" data-platform="clickbank" class="product-grid grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
         <p class="text-center text-[11px] font-mono text-slate-500 mt-10">As an affiliate, WORTHSY may earn a commission on qualifying purchases at no extra cost to you.</p>
     </main>
@@ -2509,6 +2530,7 @@ html body .ws-hero-copy{
  </div>
 
         <!-- PRODUCTS GO HERE. Copy one card below for each product. -->
+        <section class="w-platform-campaign" id="w-platform-campaign-coursera" data-platform-campaign="coursera" aria-label="Coursera platform campaign"><div class="w-platform-copy"><span class="w-platform-kicker">THE LEARNING EDIT</span><img class="w-platform-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Coursera_logo_%282020%29.svg" alt="Coursera logo" loading="eager" decoding="async"><h2>Learn something worth knowing.</h2><p>Explore learning opportunities and courses from Coursera through WORTHSY.</p></div><div class="w-platform-picks" id="w-platform-picks-coursera"></div></section>
         <div id="products-coursera" data-platform="coursera" class="product-grid grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
         <p class="text-center text-[11px] font-mono text-slate-500 mt-10">As an affiliate, WORTHSY may earn a commission on qualifying purchases at no extra cost to you.</p>
     </main>
@@ -2530,6 +2552,7 @@ html body .ws-hero-copy{
  </div>
 
         <!-- PRODUCTS GO HERE. Copy one card below for each product. -->
+        <section class="w-platform-campaign" id="w-platform-campaign-awin" data-platform-campaign="awin" aria-label="Awin platform campaign"><div class="w-platform-copy"><span class="w-platform-kicker">THE PARTNER DISCOVERY EDIT</span><img class="w-platform-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Logo-awin-black.svg" alt="Awin logo" loading="eager" decoding="async"><h2>More brands. More to discover.</h2><p>Explore products from brands available through the WORTHSY Awin partner network.</p></div><div class="w-platform-picks" id="w-platform-picks-awin"></div></section>
         <div id="products-awin" data-platform="awin" class="product-grid grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
         <p class="text-center text-[11px] font-mono text-slate-500 mt-10">As an affiliate, WORTHSY may earn a commission on qualifying purchases at no extra cost to you.</p>
     </main>
@@ -2903,6 +2926,7 @@ html body .ws-hero-copy{
             }
             fetch('products.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (list) {
                 window.WORTHSY_PRODUCTS = list;
+                window.dispatchEvent(new Event('worthsy:products-ready'));
                 document.querySelectorAll('.product-grid').forEach(function (g) {
                     const items = list.filter(function (p) { const productText = [p.merchant, p.brand, p.name, p.description, p.category, p.link, p.url, p.fallback_image].concat(Array.isArray(p.images) ? p.images : []).filter(Boolean).join(' '); return p.platform === g.dataset.platform && !/daily[\s._-]*objects/i.test(productText); });
                     if (!items.length) { g.appendChild(empty('Our ' + (LABELS[g.dataset.platform] || '') + ' picks will be listed here.')); return; }
@@ -4028,5 +4052,45 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
  fetch("sneakerhead-products.json?v=3c3a6347",{cache:"no-cache"}).then(r=>{if(!r.ok)throw Error("Catalogue load failed");return r.json()}).then(d=>{const products=Array.isArray(d.products)?d.products:[];cards.forEach(a=>{const m=(a.getAttribute("aria-label")||"").match(/^Explore (.+?) sneakers$/i);if(!m)return;const brand=m[1],list=products.filter(p=>(p.brand||"").toLowerCase()===brand.toLowerCase()).sort((x,y)=>(Number(y.trendScore)||0)-(Number(x.trendScore)||0));a.addEventListener("mouseenter",()=>open(a,brand,list));a.addEventListener("mouseleave",scheduleClose);a.addEventListener("focus",()=>open(a,brand,list));})}).catch(err=>console.error("Sneaker preview could not load:",err));
 })();
 </script>
-</body>
+<script id="worthsy-platform-campaign-engine">
+(function(){
+'use strict';
+var THEMES={amazon:{accent:'#ff9900',soft:'#fff4df'},flipkart:{accent:'#2874f0',soft:'#eaf2ff'},shopify:{accent:'#95bf47',soft:'#f1f8e7'},clickbank:{accent:'#1769aa',soft:'#eaf5ff'},coursera:{accent:'#0056d2',soft:'#edf4ff'},awin:{accent:'#5a2d82',soft:'#f4edfa'}};
+function imgOf(p){return Array.isArray(p.images)?(p.images.find(function(x){return typeof x==='string'&&x.trim();})||p.fallback_image||p.image||''):(p.image||p.fallback_image||'');}
+function render(){
+ var id=(location.hash||'').slice(1).toLowerCase();
+ var page=document.getElementById('page-'+id);
+ document.querySelectorAll('.w-platform-campaign').forEach(function(el){el.classList.toggle('active',el.dataset.platformCampaign===id);});
+ document.querySelectorAll('.platform-page').forEach(function(el){el.classList.toggle('w-platform-ready',el.id==='page-'+id);});
+ var box=document.getElementById('w-platform-campaign-'+id);
+ if(!box)return;
+ var theme=THEMES[id];box.style.setProperty('--pc',theme.accent);box.style.setProperty('--ps',theme.soft);
+ var picks=document.getElementById('w-platform-picks-'+id);if(!picks)return;
+ var list=Array.isArray(window.WORTHSY_PRODUCTS)?window.WORTHSY_PRODUCTS.filter(function(p){return String(p.platform||'').toLowerCase()===id&&imgOf(p);}):[];
+ picks.replaceChildren();
+ list.slice(0,3).forEach(function(p){
+  var a=document.createElement('a');a.className='w-platform-pick';a.href=p.link||p.url||'#';a.target='_blank';a.rel='sponsored noopener noreferrer';
+  var im=document.createElement('img');im.src=imgOf(p);im.alt=p.name||id+' product';im.loading='lazy';im.onerror=function(){a.remove();};
+  var label=document.createElement('span');label.textContent=p.name||id+' pick';a.append(im,label);picks.append(a);
+ });
+ if(!list.length){
+  var empty=document.createElement('div');empty.className='w-platform-empty';
+  var title=document.createElement('b');title.textContent='The '+({flipkart:'Flipkart',shopify:'Shopify',clickbank:'ClickBank',coursera:'Coursera'}[id]||id)+' edit is on its way.';
+  var note=document.createElement('span');note.textContent='This partner currently has no product entries in the WORTHSY catalogue. We’ll show its featured picks here as soon as products are added — no placeholder products.';
+  empty.append(title,note);picks.append(empty);
+ }
+ // The Amazon brand-store campaign takes over when a brand filter is active.
+ if(id==='amazon'){
+  var brand=window.WORTHSY_ACTIVE_BRAND||new URLSearchParams(location.search).get('worthsyBrand')||'All';
+  box.classList.toggle('active',brand==='All');
+  var brandBox=document.getElementById('w-brand-campaign');if(brandBox)brandBox.classList.toggle('active',brand!=='All');
+ }
+}
+window.addEventListener('hashchange',render);
+window.addEventListener('worthsy:products-ready',render);
+window.addEventListener('popstate',render);
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render);else render();
+if(!Array.isArray(window.WORTHSY_PRODUCTS))fetch('products.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(data){window.WORTHSY_PRODUCTS=data;render();}).catch(function(){render();});
+})();
+</script></body>
 </html>
