@@ -66,9 +66,51 @@ footer{font-size:14px!important;padding:32px 0!important}
 
     <link rel="stylesheet" href="marketplace.css?v=1">
 
-<link rel="stylesheet" href="worthsy-universal-nav.css?v=8">
-<script src="worthsy-universal-nav.js?v=8" defer></script>
+<link rel="stylesheet" href="worthsy-universal-nav.css?v=9">
+<script src="worthsy-universal-nav.js?v=9" defer></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://cdn.tailwindcss.com"></script></head><body><header class="wrap top"><a class="worthsy-home-logo" href="index.html" aria-label="Go to WORTHSY homepage" title="Home"><span class="worthsy-wordmark" role="img" aria-label="WORTHSY"><strong>WORTH</strong><em>SY</em></span></a></header><main class="wrap"><section class="hero"><div class="eyebrow">A little about us</div><h1>Good finds.<br>Less guesswork.</h1><p>WORTHSY helps people discover products and brands worth their attention. We bring useful finds together so browsing feels simpler, clearer, and more considered.</p></section><section class="grid"><article class="card"><div class="num">01 / DISCOVER</div><h2>Find your next favourite</h2><p>Explore products across brands and categories, from everyday essentials to tech and lifestyle picks.</p></article><article class="card"><div class="num">02 / EXPLORE</div><h2>Browse with purpose</h2><p>Brand and category discovery helps you get to the products you care about with fewer detours.</p></article><article class="card"><div class="num">03 / CHOOSE</div><h2>Shop more thoughtfully</h2><p>We aim to make product discovery straightforward. Product availability, prices and details may change on retailer websites.</p></article></section></main><footer class="wrap"><span>© 2026 WORTHSY. All rights reserved.</span><span><a href="career.html">Careers</a> · <a href="blog.html">Blog</a> · <a href="index.html#affiliates">Explore</a></span></footer><script src="worthsy-supabase-config.js?v=1"></script>
+<script src="https://cdn.tailwindcss.com"></script></head><body><header class="worthsy-header wx-header fixed top-0 left-0 right-0 z-50">
+        <div class="relative max-w-7xl mx-auto px-5 lg:px-12 h-20 flex items-center justify-between gap-4">
+
+            <a href="index.html" aria-label="WORTHSY home" class="flex items-center shrink-0">
+                <span class="worthsy-logo" role="img" aria-label="WORTHSY"></span>
+            </a>
+            <a href="index.html#gta-ps5-campaign" class="wx-gta-ps5-combo" aria-label="GTA VI and PlayStation 5 campaign">
+                <img src="https://www.rockstargames.com/VI/_next/static/media/vi.0hxa9~pf214xe.png?akim=1&amp;imdensity=1&amp;imwidth=3840" alt="" class="wx-gta-vi-mark">
+                <span class="wx-gta-ps5-mark" aria-hidden="true"><i class="fa-brands fa-playstation"></i><b>PS5</b></span>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 wx-nav" aria-label="Main">
+            <a href="sneakerhead.html" class="wx-sneaker-nav"><svg viewBox="0 0 64 40" aria-hidden="true" focusable="false"><path d="M5 25c7-1 12-4 17-13l5-7 8 9c4 4 9 6 17 7 5 1 8 4 8 8v4H7c-4 0-5-5-2-8Z" fill="currentColor"/><path d="M4 30h56M23 14l7 4m-2-8 7 6m-1-8 7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg><span>Sneakerhead</span></a>
+            <a href="index.html#affiliates">Partners</a>
+            <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="uniSearchBtn" type="button" class="wx-searchpill" aria-label="Search products">
+                    <i class="fa-solid fa-magnifying-glass"></i><span class="hidden sm:inline">Search products</span>
+                </button>
+                <div class="wx-shop"><div class="wx-shop-actions"><a id="wxShopBtn" href="shop.html" class="wx-cta wx-cta-header">Shop now</a><button type="button" id="wxShopToggle" class="wx-cta wx-cta-header wx-shop-arrow" aria-label="Open affiliate platform menu" aria-haspopup="true" aria-expanded="false" aria-controls="wxShopMenu"><i class="fa-solid fa-chevron-down"></i></button></div><div id="wxShopMenu" class="wx-shop-menu" role="menu" hidden><div class="wx-shop-menu-title">Explore affiliate platforms</div><div class="wx-aff-list"><a role="menuitem" href="shop.html#amazon">Amazon</a><a role="menuitem" href="shop.html#flipkart">Flipkart</a><a role="menuitem" href="shop.html#shopify">Shopify</a><a role="menuitem" href="shop.html#clickbank">ClickBank</a><a role="menuitem" href="shop.html#coursera">Coursera</a><a role="menuitem" href="shop.html#awin">Awin</a></div><a class="wx-shop-viewall" href="shop.html">Explore all products <span>→</span></a></div></div>
+                <button id="mobileMenuBtn" aria-label="Toggle navigation" class="lg:hidden p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="hidden lg:hidden wx-mobile px-5 py-4">
+            <a href="sneakerhead.html" class="wx-sneaker-nav"><svg viewBox="0 0 64 40" aria-hidden="true" focusable="false"><path d="M5 25c7-1 12-4 17-13l5-7 8 9c4 4 9 6 17 7 5 1 8 4 8 8v4H7c-4 0-5-5-2-8Z" fill="currentColor"/><path d="M4 30h56M23 14l7 4m-2-8 7 6m-1-8 7 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg><span>Sneakerhead</span></a>
+            <a href="index.html#affiliates">Partners</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <span class="wx-mob-h">Affiliate platforms</span>
+            <a href="index.html#amazon" class="wx-mob-sub">Amazon</a>
+            <a href="index.html#flipkart" class="wx-mob-sub">Flipkart</a>
+            <a href="index.html#shopify" class="wx-mob-sub">Shopify</a>
+            <a href="index.html#clickbank" class="wx-mob-sub">ClickBank</a>
+            <a href="index.html#coursera" class="wx-mob-sub">Coursera</a>
+            <a href="index.html#awin" class="wx-mob-sub">Awin</a>
+        </div>
+    </header><main class="wrap"><section class="hero"><div class="eyebrow">A little about us</div><h1>Good finds.<br>Less guesswork.</h1><p>WORTHSY helps people discover products and brands worth their attention. We bring useful finds together so browsing feels simpler, clearer, and more considered.</p></section><section class="grid"><article class="card"><div class="num">01 / DISCOVER</div><h2>Find your next favourite</h2><p>Explore products across brands and categories, from everyday essentials to tech and lifestyle picks.</p></article><article class="card"><div class="num">02 / EXPLORE</div><h2>Browse with purpose</h2><p>Brand and category discovery helps you get to the products you care about with fewer detours.</p></article><article class="card"><div class="num">03 / CHOOSE</div><h2>Shop more thoughtfully</h2><p>We aim to make product discovery straightforward. Product availability, prices and details may change on retailer websites.</p></article></section></main><footer class="wrap"><span>© 2026 WORTHSY. All rights reserved.</span><span><a href="career.html">Careers</a> · <a href="blog.html">Blog</a> · <a href="index.html#affiliates">Explore</a></span></footer><script src="worthsy-supabase-config.js?v=1"></script>
 <script src="worthsy-search.js?v=community1" defer></script>
 </body></html>
