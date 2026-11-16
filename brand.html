@@ -185,7 +185,7 @@ a{color:inherit;text-decoration:none}button,input,select{font:inherit}
   const partners=new Set(list.map(p=>p.platform||'').filter(Boolean));
   partner.textContent='From '+partners.size+' shopping partners';
   grid.innerHTML=list.length?list.map(p=>{
-   const img=imageOf(p),brandLogo=logoUrl(canonical,'111111');
+   const img=imageOf(p),brandLogo=logoUrl(canonical,theme[0].replace('#',''));
    return '<article class="product-card"><div class="product-image">'+(img?'<img src="'+esc(img)+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.style.display=\'none\'">':'<i class="fa-solid fa-cube"></i>')+'<span class="product-brand-mark">'+(brandLogo?'<img src="'+esc(brandLogo)+'" alt="'+esc(canonical)+' logo" onerror="this.replaceWith(Object.assign(document.createElement(\'span\'),{textContent:'+JSON.stringify(canonical)+'}))">':'<span>'+esc(canonical)+'</span>')+'</span></div><div class="product-copy"><span class="product-category">'+esc(p.category||'Featured pick')+'</span><h2>'+esc(p.name)+'</h2><p>'+esc(p.description||'Discover this '+esc(canonical)+' product through a WORTHSY shopping partner.')+'</p><div class="product-foot"><span class="product-price">'+esc(p.price||'')+'</span><a class="product-buy" href="'+esc(p.link||'#')+'" target="_blank" rel="sponsored noopener noreferrer">VIEW PRODUCT ↗</a></div></div></article>';
   }).join(''):'<div class="empty">No '+esc(canonical)+' products match this search yet. Try another category or check back soon.</div>';
  }
