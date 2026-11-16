@@ -1610,15 +1610,17 @@ html body .ws-hero-copy{
 .w-platform-kicker{font:900 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--pc)}
 .w-platform-copy h2{font-size:clamp(30px,4vw,50px);line-height:.98;letter-spacing:-.065em;font-weight:950;margin:12px 0}
 .w-platform-copy p{max-width:390px;color:#555;font-size:12px;line-height:1.65;margin:0}
-.w-platform-picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:14px;align-items:stretch}
-.w-platform-pick{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:205px;padding:10px;border:1px solid #e7e7e7;border-radius:13px;background:#fff;color:#111;text-decoration:none;overflow:hidden}
+.w-platform-picks{min-width:0;overflow:hidden;padding:14px;align-self:stretch}
+.w-platform-track{display:flex;gap:10px;width:100%;height:100%;transform:translateX(0);transition:transform .68s cubic-bezier(.22,.7,.25,1);will-change:transform}
+.w-platform-pick{position:relative;display:flex;flex:0 0 calc((100% - 20px)/3);align-items:center;justify-content:center;min-width:0;min-height:205px;padding:10px;border:1px solid #e7e7e7;border-radius:13px;background:#fff;color:#111;text-decoration:none;overflow:hidden}
 .w-platform-pick img{width:100%;height:100%;max-height:250px;object-fit:contain}
 .w-platform-pick span{position:absolute;left:7px;right:7px;bottom:7px;padding:7px 8px;border-radius:7px;background:#ffffffed;font-size:9px;line-height:1.3;font-weight:800}
-.w-platform-empty{grid-column:1/-1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:28px;border:1px dashed color-mix(in srgb,var(--pc) 35%,white);border-radius:13px;background:#ffffffa8}
+.w-platform-empty{display:flex;min-height:205px;flex-direction:column;justify-content:center;align-items:flex-start;padding:28px;border:1px dashed color-mix(in srgb,var(--pc) 35%,white);border-radius:13px;background:#ffffffa8}
 .w-platform-empty b{font-size:clamp(18px,2vw,26px);letter-spacing:-.04em}
 .w-platform-empty span{font-size:11px;color:#666;margin-top:8px;line-height:1.5}
 .platform-page.w-platform-ready .platform-intro{display:none!important}
-@media(max-width:760px){.w-platform-campaign.active{grid-template-columns:1fr;gap:0}.w-platform-copy{padding:24px 22px 12px}.w-platform-picks{padding:10px;gap:7px}.w-platform-pick{min-height:130px;padding:5px}.w-platform-pick span{font-size:8px;left:4px;right:4px;bottom:4px}}
+@media(max-width:760px){.w-platform-campaign.active{grid-template-columns:1fr;gap:0}.w-platform-copy{padding:24px 22px 12px}.w-platform-pick{flex-basis:calc((100% - 10px)/2);min-height:130px;padding:5px}.w-platform-pick span{font-size:8px;left:4px;right:4px;bottom:4px}}
+@media(prefers-reduced-motion:reduce){.w-platform-track{transition:none!important}}
 </style></head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -4056,30 +4058,45 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
 (function(){
 'use strict';
 var THEMES={amazon:{accent:'#ff9900',soft:'#fff4df'},flipkart:{accent:'#2874f0',soft:'#eaf2ff'},shopify:{accent:'#95bf47',soft:'#f1f8e7'},clickbank:{accent:'#1769aa',soft:'#eaf5ff'},coursera:{accent:'#0056d2',soft:'#edf4ff'},awin:{accent:'#5a2d82',soft:'#f4edfa'}};
+var carouselTimer=null,activeTrack=null,activeId=null,activeList=[],nextIndex=0,reducedMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function imgOf(p){return Array.isArray(p.images)?(p.images.find(function(x){return typeof x==='string'&&x.trim();})||p.fallback_image||p.image||''):(p.image||p.fallback_image||'');}
+function card(p,id){var a=document.createElement('a');a.className='w-platform-pick';a.href=p.link||p.url||'#';a.target='_blank';a.rel='sponsored noopener noreferrer';var im=document.createElement('img');im.src=imgOf(p);im.alt=p.name||id+' product';im.loading='lazy';im.onerror=function(){a.remove();};var label=document.createElement('span');label.textContent=p.name||id+' pick';a.append(im,label);return a;}
+function stopCarousel(){if(carouselTimer)clearInterval(carouselTimer);carouselTimer=null;if(activeTrack){activeTrack.ontransitionend=null;activeTrack.style.transition='none';activeTrack.style.transform='translateX(0)';}activeTrack=null;activeId=null;activeList=[];nextIndex=0;}
+function tick(){
+ if(!activeTrack||activeList.length<4)return;
+ var first=activeTrack.firstElementChild;if(!first)return;
+ var gap=parseFloat(getComputedStyle(activeTrack).gap)||10;
+ var distance=first.getBoundingClientRect().width+gap;
+ activeTrack.style.transition='transform .68s cubic-bezier(.22,.7,.25,1)';
+ activeTrack.style.transform='translateX(-'+distance+'px)';
+ activeTrack.ontransitionend=function(ev){if(ev.propertyName!=='transform')return;activeTrack.ontransitionend=null;activeTrack.style.transition='none';activeTrack.appendChild(activeTrack.firstElementChild);activeTrack.style.transform='translateX(0)';void activeTrack.offsetHeight;activeTrack.style.transition='transform .68s cubic-bezier(.22,.7,.25,1)';var next=activeList[nextIndex%activeList.length];nextIndex++;activeTrack.appendChild(card(next,activeId));};
+}
+function startCarousel(track,list,id){
+ stopCarousel();if(!track||list.length<4||reducedMotion)return;
+ activeTrack=track;activeList=list;activeId=id;nextIndex=3;
+ carouselTimer=setInterval(tick,3000);
+ var holder=track.parentElement;
+ if(holder){holder.onmouseenter=stopCarousel;holder.onmouseleave=function(){if(!reducedMotion&&activeTrack!==track)startCarousel(track,list,id);};holder.onfocusin=stopCarousel;holder.onfocusout=function(){if(!reducedMotion&&activeTrack!==track)startCarousel(track,list,id);};}
+}
 function render(){
  var id=(location.hash||'').slice(1).toLowerCase();
- var page=document.getElementById('page-'+id);
  document.querySelectorAll('.w-platform-campaign').forEach(function(el){el.classList.toggle('active',el.dataset.platformCampaign===id);});
  document.querySelectorAll('.platform-page').forEach(function(el){el.classList.toggle('w-platform-ready',el.id==='page-'+id);});
- var box=document.getElementById('w-platform-campaign-'+id);
- if(!box)return;
- var theme=THEMES[id];box.style.setProperty('--pc',theme.accent);box.style.setProperty('--ps',theme.soft);
+ var box=document.getElementById('w-platform-campaign-'+id);if(!box){stopCarousel();return;}
+ var theme=THEMES[id];if(!theme){stopCarousel();return;}box.style.setProperty('--pc',theme.accent);box.style.setProperty('--ps',theme.soft);
  var picks=document.getElementById('w-platform-picks-'+id);if(!picks)return;
  var list=Array.isArray(window.WORTHSY_PRODUCTS)?window.WORTHSY_PRODUCTS.filter(function(p){return String(p.platform||'').toLowerCase()===id&&imgOf(p);}):[];
  picks.replaceChildren();
- list.slice(0,3).forEach(function(p){
-  var a=document.createElement('a');a.className='w-platform-pick';a.href=p.link||p.url||'#';a.target='_blank';a.rel='sponsored noopener noreferrer';
-  var im=document.createElement('img');im.src=imgOf(p);im.alt=p.name||id+' product';im.loading='lazy';im.onerror=function(){a.remove();};
-  var label=document.createElement('span');label.textContent=p.name||id+' pick';a.append(im,label);picks.append(a);
- });
- if(!list.length){
+ if(list.length){
+  var track=document.createElement('div');track.className='w-platform-track';track.setAttribute('aria-label',id+' featured products');track.setAttribute('aria-live','off');
+  for(var i=0;i<Math.min(4,list.length);i++)track.appendChild(card(list[i],id));
+  picks.appendChild(track);startCarousel(track,list,id);
+ }else{
   var empty=document.createElement('div');empty.className='w-platform-empty';
   var title=document.createElement('b');title.textContent='The '+({flipkart:'Flipkart',shopify:'Shopify',clickbank:'ClickBank',coursera:'Coursera'}[id]||id)+' edit is on its way.';
-  var note=document.createElement('span');note.textContent='This partner currently has no product entries in the WORTHSY catalogue. We’ll show its featured picks here as soon as products are added — no placeholder products.';
+  var note=document.createElement('span');note.textContent='This partner currently has no product entries in the WORTHSY catalogue. Featured picks will slide here automatically as soon as products are added — no placeholder products.';
   empty.append(title,note);picks.append(empty);
  }
- // The Amazon brand-store campaign takes over when a brand filter is active.
  if(id==='amazon'){
   var brand=window.WORTHSY_ACTIVE_BRAND||new URLSearchParams(location.search).get('worthsyBrand')||'All';
   box.classList.toggle('active',brand==='All');
