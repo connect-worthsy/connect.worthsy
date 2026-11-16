@@ -76,3 +76,13 @@ html body footer.worthsy-footer.wx-foot .wx-foot-bar p{
  html body footer.worthsy-footer.wx-foot .wx-footer-social-links{gap:16px 22px!important}
  html body footer.worthsy-footer.wx-foot .wx-footer-social-links a{font-size:12px!important}
 }
+
+
+/* Visibility fail-safe: shared footer must remain visible on every page. */
+html body>footer.worthsy-footer.wx-foot,
+html body footer.worthsy-footer.wx-foot{
+  display:block!important;visibility:visible!important;opacity:1!important;
+  position:relative!important;z-index:1!important;transform:none!important;
+  clip:auto!important;pointer-events:auto!important;clear:both!important;
+  width:100%!important;min-height:1px!important;
+}
