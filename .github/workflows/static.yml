@@ -53,6 +53,12 @@ jobs:
           # Do not inject a floating "Shop Amazon Finds" button into the main site.
           PY
 
+      - name: Validate WORTHSY catalogue and shared website assets
+        run: |
+          python scripts/validate_catalogue.py
+          node --check worthsy-search.js
+          node --check worthsy-universal-nav.js
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
