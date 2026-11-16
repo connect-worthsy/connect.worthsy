@@ -399,8 +399,7 @@ input:focus,select:focus,textarea:focus{border-color:#cc1010!important;outline:n
 .wst-chat-form .wst-btn{padding:.65rem .9rem}
 @media(max-width:480px){.wst-chat{right:.75rem;width:calc(100vw - 1.5rem)}.wst-chat-btn{right:.9rem}}
 </style>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <style id="worthsy-home-v2">
 /* ===== WORTHSY home v2 — same logo, black / white / red theme, new structure ===== */
@@ -1647,7 +1646,7 @@ html body .ws-hero-copy{
             <div class="flex items-center gap-2 sm:gap-3">
                 <button id="uniSearchBtn" type="button" class="wx-searchpill" aria-label="Search products">
                     <i class="fa-solid fa-magnifying-glass"></i><span class="hidden sm:inline">Search products</span>
-                </button>
+                </button>\n                <button type="button" id="wst-account-open" class="wst-accountbtn" aria-label="Sign in or create a WORTHSY account"><i class="fa-regular fa-user" aria-hidden="true"></i><span class="wst-account-label">Account</span></button>
                 <div class="wx-shop"><div class="wx-shop-actions"><a id="wxShopBtn" href="shop.html" class="wx-cta wx-cta-header">Shop now</a><button type="button" id="wxShopToggle" class="wx-cta wx-cta-header wx-shop-arrow" aria-label="Open affiliate platform menu" aria-haspopup="true" aria-expanded="false" aria-controls="wxShopMenu"><i class="fa-solid fa-chevron-down"></i></button></div><div id="wxShopMenu" class="wx-shop-menu" role="menu" hidden><div class="wx-shop-menu-title">Explore affiliate platforms</div><div class="wx-aff-list"><a role="menuitem" href="shop.html#amazon">Amazon</a><a role="menuitem" href="shop.html#flipkart">Flipkart</a><a role="menuitem" href="shop.html#shopify">Shopify</a><a role="menuitem" href="shop.html#clickbank">ClickBank</a><a role="menuitem" href="shop.html#coursera">Coursera</a><a role="menuitem" href="shop.html#awin">Awin</a></div><a class="wx-shop-viewall" href="shop.html">Explore all products <span>→</span></a></div></div>
                 <button id="mobileMenuBtn" aria-label="Toggle navigation" class="lg:hidden p-2">
                     <i class="fa-solid fa-bars text-xl"></i>
@@ -2288,111 +2287,7 @@ html body .ws-hero-copy{
         <div id="wst-drawer-foot" class="wst-drawer-foot"></div>
     </aside>
     <div id="wst-modal" class="wst-modal" role="dialog" aria-modal="true" aria-label="Product details" aria-hidden="true"></div>
-    <section id="wst-account-layer" class="wst-account-layer" role="dialog" aria-modal="true" aria-labelledby="wst-account-title" aria-hidden="true">
-      <div class="wst-account-card">
-        <div class="wst-bar"></div>
-        <div class="wst-account-head"><div><b id="wst-account-title" class="logo-wordmark text-xl">YOUR WORTHSY ACCOUNT</b><div class="text-xs mt-1" style="color:#666">Sign in to save your cart across devices</div></div><button type="button" id="wst-account-close" class="wst-x" aria-label="Close account panel"><i class="fa-solid fa-xmark"></i></button></div>
-        <div class="wst-account-body">
-          <button type="button" class="wst-account-provider" data-account-provider="google"><i class="fa-brands fa-google"></i> Continue with Google</button>
-          <div id="wst-account-credentials">
-            <div style="text-align:center;font-size:.72rem;color:#777;margin:1rem 0">OR USE EMAIL AND PASSWORD</div>
-            <label for="wst-account-contact" style="font-size:.8rem;font-weight:800">Email address</label>
-            <input id="wst-account-contact" class="wst-account-field" type="email" autocomplete="username" placeholder="you@example.com">
-            <label for="wst-account-password" style="font-size:.8rem;font-weight:800">Password</label>
-            <input id="wst-account-password" class="wst-account-field" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
-              <button type="button" id="wst-account-signin" class="wst-btn">Sign in</button>
-              <button type="button" id="wst-account-signup" class="wst-btn wst-btn-ghost">Create account</button>
-            </div>
-            <button type="button" id="wst-account-reset" class="wst-account-provider" style="font-size:.8rem">Reset password</button>
-          </div>
-          <button type="button" id="wst-account-signout" class="wst-account-provider" hidden>Sign out</button>
-          <p id="wst-account-status" role="status" aria-live="polite" class="wst-account-note">Sign in or create an account to save your cart across devices.</p>
-          <p id="wst-account-security-note" style="font-size:.72rem;line-height:1.5;color:#666;margin-top:.8rem">Use a unique password. WORTHSY will never ask you to share your password with support.</p>
-        </div>
-      </div>
-    </section>
-    <script>
-    /* Early, self-contained account-panel controls: keep the panel usable even if another page script fails. */
-    (function(){
-      var trigger=document.getElementById('wst-account-open');
-      var panel=document.getElementById('wst-account-layer');
-      var closeButton=document.getElementById('wst-account-close');
-      if(!trigger||!panel)return;
-      function openAccount(event){
-        if(event)event.preventDefault();
-        panel.classList.add('open');
-        panel.style.display='flex';
-        panel.setAttribute('aria-hidden','false');
-        document.body.style.overflow='hidden';
-        if(closeButton)closeButton.focus();
-      }
-      function closeAccount(){
-        panel.classList.remove('open');
-        panel.style.display='none';
-        panel.setAttribute('aria-hidden','true');
-        document.body.style.overflow='';
-        trigger.focus();
-      }
-      trigger.addEventListener('click',openAccount);
-      if(closeButton)closeButton.addEventListener('click',closeAccount);
-      panel.addEventListener('click',function(event){if(event.target===panel)closeAccount();});
-      document.addEventListener('keydown',function(event){if(event.key==='Escape'&&panel.classList.contains('open'))closeAccount();});
-      /* Delegated account actions keep the controls responsive even if store initialization fails. */
-      document.addEventListener('click',function(event){
-        var target=event.target&&event.target.closest?event.target.closest('#wst-account-signin,#wst-account-signup,#wst-account-reset,[data-account-provider="google"]'):null;
-        if(!target)return;
-        event.preventDefault();event.stopImmediatePropagation();
-        var status=document.getElementById('wst-account-status'),email=document.getElementById('wst-account-contact'),password=document.getElementById('wst-account-password');
-        function say(message){if(status)status.textContent=message;}
-        function errText(error){var code=error&&error.code||'',messages={'auth/invalid-email':'Enter a valid email address.','auth/missing-password':'Enter your password.','auth/weak-password':'Choose a password with at least 6 characters.','auth/email-already-in-use':'An account already exists for this email. Try signing in.','auth/invalid-credential':'Email or password is incorrect.','auth/user-not-found':'No account was found. Create an account first.','auth/wrong-password':'Email or password is incorrect.','auth/popup-closed-by-user':'Google sign-in was cancelled.','auth/unauthorized-domain':'This website domain is not authorized in Firebase Authentication settings.','auth/network-request-failed':'Network request failed. Check your connection or content blockers.','auth/operation-not-allowed':'This sign-in method is not enabled in Firebase Authentication settings.'};return messages[code]||(error&&error.message)||'Sign-in failed. Please try again.';}
-        try{
-          if(!window.firebase)throw new Error('Firebase SDK did not load. Refresh the page and try again.');
-          if(!firebase.apps.length)firebase.initializeApp({apiKey:'AIzaSyDxBGEZnGnCdUQftwS-QgOVMH5h9WNzecE',authDomain:'connect1worthsy.firebaseapp.com',projectId:'connect1worthsy',storageBucket:'connect1worthsy.firebasestorage.app',messagingSenderId:'655885819600',appId:'1:655885819600:web:333ab84dac36a82f7408d5',measurementId:'G-9Z80CL354X'});
-          var auth=firebase.auth(),mail=email&&email.value.trim(),pass=password&&password.value;
-          if(target.matches('[data-account-provider="google"]')){
-            say('Opening Google sign-in…');var provider=new firebase.auth.GoogleAuthProvider();
-            auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return auth.signInWithPopup(provider);}).then(function(result){say('Google sign-in successful'+(result&&result.user&&result.user.email?' — '+result.user.email:'')+'.');if(panel){panel.classList.remove('open');panel.style.display='none';panel.setAttribute('aria-hidden','true');document.body.style.overflow='';}var label=trigger.querySelector('.wst-account-label');if(label)label.textContent='Logged in';}).catch(function(error){if(error&&['auth/popup-blocked','auth/operation-not-supported-in-this-environment'].indexOf(error.code)!==-1)auth.signInWithRedirect(provider).catch(function(e){say('Google sign-in failed: '+errText(e));});else say('Google sign-in failed: '+errText(error));});return;
-          }
-          if(!mail){say('Enter your email address first.');return;}
-          if(target.id!=='wst-account-reset'&&!pass){say(target.id==='wst-account-signup'?'Enter your email address and choose a password.':'Enter your email address and password.');return;}
-          if(target.id==='wst-account-signup'&&pass.length<6){say('Choose a password with at least 6 characters.');return;}
-          if(target.id==='wst-account-reset'){say('Sending password reset instructions…');auth.sendPasswordResetEmail(mail).then(function(){say('If an account exists for this email, a password reset email will be sent.');}).catch(function(e){say(errText(e));});return;}
-          say(target.id==='wst-account-signup'?'Creating your account…':'Signing in…');
-          auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function(){return target.id==='wst-account-signup'?auth.createUserWithEmailAndPassword(mail,pass):auth.signInWithEmailAndPassword(mail,pass);}).then(function(result){var user=result&&result.user;if(user&&target.id==='wst-account-signup')return user.sendEmailVerification().then(function(){say('Account created. Please verify your email using the link we sent.');});say('Signed in successfully'+(user&&user.email?' as '+user.email:'')+'.');if(panel){panel.classList.remove('open');panel.style.display='none';panel.setAttribute('aria-hidden','true');document.body.style.overflow='';}var label=trigger.querySelector('.wst-account-label');if(label&&user)label.textContent='Logged in';}).catch(function(e){say(errText(e));});
-        }catch(error){say('Account services could not start: '+errText(error));}
-      },true);
-      /* Keep the account panel in sync with Firebase's persisted session after reloads. */
-      try{
-        if(window.firebase){
-          if(!firebase.apps.length)firebase.initializeApp({apiKey:'AIzaSyDxBGEZnGnCdUQftwS-QgOVMH5h9WNzecE',authDomain:'connect1worthsy.firebaseapp.com',projectId:'connect1worthsy',storageBucket:'connect1worthsy.firebasestorage.app',messagingSenderId:'655885819600',appId:'1:655885819600:web:333ab84dac36a82f7408d5',measurementId:'G-9Z80CL354X'});
-          var persistentAuth=firebase.auth();
-          persistentAuth.onAuthStateChanged(function(user){
-            var credentials=document.getElementById('wst-account-credentials');
-            var signout=document.getElementById('wst-account-signout');
-            var security=document.getElementById('wst-account-security-note');
-            var googleButtons=document.querySelectorAll('[data-account-provider="google"]');
-            var label=trigger.querySelector('.wst-account-label');
-            if(credentials)credentials.hidden=!!user;
-            if(signout)signout.hidden=!user;
-            if(security)security.hidden=!!user;
-            googleButtons.forEach(function(button){button.hidden=!!user;});
-            if(label)label.textContent=user?'Logged in':'Account';
-            trigger.setAttribute('aria-label',user?'Logged in to your WORTHSY account':'Open your account');
-            if(user){
-              var status=document.getElementById('wst-account-status');
-              if(status)status.textContent='You are logged in as '+(user.displayName||user.email||'your WORTHSY account')+'.';
-            }
-          });
-          persistentAuth.getRedirectResult().catch(function(error){
-            var status=document.getElementById('wst-account-status');
-            if(status)status.textContent='Google sign-in failed: '+(error&&error.message||'Please try again.');
-          });
-        }
-      }catch(accountStateError){console.error('WORTHSY persisted account state could not be restored:',accountStateError);}
-      window.WORTHSY_OPEN_ACCOUNT=openAccount;
-    })();
-    </script>
+    
         <!-- AI ASSISTANT (floating chat) -->
     <button type="button" id="wst-chat-btn" class="wst-chat-btn" aria-label="Chat with the WORTHSY assistant" aria-expanded="false" aria-controls="wst-chat"><i class="fa-solid fa-comment-dots"></i></button>
     <section id="wst-chat" class="wst-chat" role="dialog" aria-label="WORTHSY assistant" hidden>
@@ -4060,7 +3955,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
 })();
 </script>
 <script src="worthsy-supabase-config.js?v=1"></script>
-<script src="worthsy-search.js?v=community6" defer></script>
+<script src="worthsy-search.js?v=community6" defer></script>\n    <link rel="stylesheet" href="worthsy-account.css?v=1">\n    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js" defer></script>\n    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js" defer></script>\n    <script src="worthsy-account.js?v=1" defer></script>
 
     <script id="worthsy-amazon-community-publisher">
     (function () {
