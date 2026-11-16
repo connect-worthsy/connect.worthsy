@@ -359,7 +359,7 @@ function randomSample(source,n){const a=source.slice();for(let i=a.length-1;i>0;
 function roaming(){
  const picks=randomSample(all,Math.min(18,all.length));
  if(!picks.length){track.innerHTML='<div class="empty">New products are being added.</div>';return;}
- const tile=p=>{const im=imageOf(p);return '<a class="roam-card" href="'+esc(p.link||'#')+'" target="_blank" rel="sponsored noopener"><div class="roam-img">'+(im?'<img loading="lazy" src="'+esc(im)+'" alt="'+esc(p.name||'Product')+'" onerror="this.style.display=\'none\'">':'<i class="fa-solid fa-cube" style="font-size:28px;color:#bbb"></i>')+'</div><div class="roam-info"><strong>'+esc(p.name)+'</strong><small>'+esc(platformName(p))+'</small></div></a>';};
+ const tile=p=>{const im=imageOf(p);return '<a class="roam-card" href="'+esc(p.link||'#')+'" target="_blank" rel="sponsored noopener"><div class="roam-img">'+(im?'<img loading="lazy" src="'+esc(im)+'" alt="'+esc(p.name||'Product')+'" onerror="this.style.display=\'none\'">':'<i class="fa-solid fa-cube" style="font-size:28px;color:#bbb"></i>')+'</div><div class="roam-info"><strong>'+esc(p.name)+'</strong><small>'+esc(productBrand(p))+'</small></div></a>';};
  const half=picks.map(tile).join('');
  track.innerHTML=half+half;
  track.style.animation='none';void track.offsetWidth;track.style.animation='';
