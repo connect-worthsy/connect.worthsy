@@ -219,6 +219,9 @@ footer{border-top:1px solid var(--line);padding:24px 5vw;color:#888;font-size:10
     }
   }
 
+.product-tag.brand-product-tag{display:flex;align-items:center;min-height:26px;background:transparent;padding:0;margin:0 0 7px}
+.product-brand-logo{display:block;max-width:82px;max-height:24px;object-fit:contain}
+.product-brand-word{font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#222}
 </style>
 <style id="worthsy-shop-platform-logos">
 .platform{justify-content:flex-start;align-items:flex-start;gap:13px;min-height:142px}
@@ -343,10 +346,14 @@ const grid=document.getElementById('featuredGrid'),track=document.getElementById
 let all=[],rotationTimer=null;
 const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const imageOf=p=>Array.isArray(p.images)?p.images[0]||'':(p.images||p.image||'');
-const platformName=p=>({amazon:'Amazon',awin:'Awin',dailyobjects:'DailyObjects'}[(p.platform||'').toLowerCase()]||(p.platform||p.merchant||'Partner'));
+const BRAND_NAMES=['Western Digital','Amazon Basics','DailyObjects','TheGiftKart','G.Skill','TP-Link','SanDisk','Kingston','Crucial','Corsair','Logitech','Ambrane','Portronics','Zebronics','Netgear','Samsung','OnePlus','Xiaomi','Realme','Fastrack','Philips','Havells','Wakefit','Fujifilm','Spigen','TORRAS','SUPFINE','FNTCASE','NutriPro','URBN','boAt','Noise','Apple','ASUS','GIGABYTE','Dell','Lenovo','Acer','HP','D-Link','Tenda','Seagate','JBL','Sony','Anker','UGREEN','Qubo','Wipro','Syska','Milton','Tygot','Fire-Boltt','Beetel','MSI','Redragon','Nothing','CMF','Sennheiser','Tribit','Google','MI','EZVIZ','Jio','WD'].sort((a,b)=>b.length-a.length);
+const BRAND_LOGOS={'Apple':'apple','Xiaomi':'xiaomi','OnePlus':'oneplus','Samsung':'samsung','Logitech':'logitech','TP-Link':'tplink','Philips':'philips','HP':'hp','Dell':'dell','Lenovo':'lenovo','Acer':'acer','ASUS':'asus','Sony':'sony','JBL':'jbl','Anker':'anker','Corsair':'corsair','Kingston':'kingstontechnology','SanDisk':'sandisk','G.Skill':'gskill','Realme':'realme','boAt':'boat','Noise':'noise','Amazon':'amazon','Amazon Basics':'amazon','Fastrack':'fastrack','MSI':'msi','Nothing':'nothing','Google':'google','Seagate':'seagate','UGREEN':'ugreen','Wipro':'wipro','Tenda':'tenda','D-Link':'dlink','Netgear':'netgear','Zebronics':'zebronics','Portronics':'portronics','Ambrane':'ambrane','Qubo':'qubo','Syska':'syska','Havells':'havells','Fujifilm':'fujifilm','Spigen':'spigen','Milton':'milton'};
+const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+const productBrand=p=>p.brand&&String(p.brand).trim()?String(p.brand).trim():(BRAND_NAMES.find(b=>norm(p.name)===norm(b)||norm(p.name).startsWith(norm(b)))||(String(p.name||'').split(/\\s+/)[0]||'Brand'));
+const brandLogo=p=>{const b=productBrand(p),slug=BRAND_LOGOS[b];return slug?'<img class="product-brand-logo" src="https://cdn.simpleicons.org/'+slug+'/111111" alt="'+esc(b)+' logo" loading="lazy" onerror="this.replaceWith(document.createTextNode(\''+esc(b)+'\'))">':'<span class="product-brand-word">'+esc(b)+'</span>'};
 function card(p){
- const image=imageOf(p),name=esc(p.name||'Featured product'),platform=esc(platformName(p)),link=esc(p.link||'#');
- return '<article class="product"><div class="product-img">'+(image?'<img loading="lazy" src="'+esc(image)+'" alt="'+name+'" onerror="this.style.display=\'none\'">':'<i class="fa-solid fa-cube" style="font-size:32px;color:#bbb"></i>')+'</div><div class="product-body"><span class="product-tag">'+platform+'</span><h3>'+name+'</h3><p>'+esc(p.description||'Explore this pick on the partner platform.')+'</p><div class="product-bottom"><span class="merchant">'+esc(p.price||'')+'</span><a class="buy" href="'+link+'" target="_blank" rel="sponsored noopener">VIEW PRODUCT ↗</a></div></div></article>';
+ const image=imageOf(p),name=esc(p.name||'Featured product'),link=esc(p.link||'#');
+ return '<article class="product"><div class="product-img">'+(image?'<img loading="lazy" src="'+esc(image)+'" alt="'+name+'" onerror="this.style.display=\'none\'">':'<i class="fa-solid fa-cube" style="font-size:32px;color:#bbb"></i>')+'</div><div class="product-body"><span class="product-tag brand-product-tag">'+brandLogo(p)+'</span><h3>'+name+'</h3><p>'+esc(p.description||'Explore this pick from the brand.')+'</p><div class="product-bottom"><span class="merchant">'+esc(p.price||'')+'</span><a class="buy" href="'+link+'" target="_blank" rel="sponsored noopener">VIEW PRODUCT ↗</a></div></div></article>';
 }
 function randomSample(source,n){const a=source.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a.slice(0,Math.min(n,a.length));}
 function roaming(){
