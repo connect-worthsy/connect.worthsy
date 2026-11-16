@@ -53,11 +53,25 @@ jobs:
           # Do not inject a floating "Shop Amazon Finds" button into the main site.
           PY
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Python API test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r personalization_api/requirements.txt
+
       - name: Validate WORTHSY catalogue and shared website assets
         run: |
           python scripts/validate_catalogue.py
           node --check worthsy-search.js
           node --check worthsy-universal-nav.js
+          node --check worthsy-personalization.js
+
+      - name: Test Python recommendation API
+        run: python -m unittest discover -s tests -v
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
