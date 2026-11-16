@@ -3057,7 +3057,7 @@ html body .ws-hero-copy{
                 };
                 function queryWords(q) {
                     return String(q || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ')
-                        .trim().split(/\\s+/).filter(Boolean);
+                        .trim().split(' ').filter(Boolean);
                 }
                 function matchItems(q) {
                     var words = queryWords(q);
