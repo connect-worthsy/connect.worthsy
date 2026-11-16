@@ -2978,7 +2978,7 @@ html body .ws-hero-copy{
                         var u = new URL(String(url || ''), window.location.href);
                         if (platform === 'amazon') {
                             return (u.hostname === 'amazon.in' || u.hostname === 'www.amazon.in') &&
-                                /^\\/dp\\/[A-Z0-9]{10}\\/?$/i.test(u.pathname) &&
+                                u.pathname.toLowerCase().indexOf('/dp/') === 0 && u.pathname.split('/').length === 3 && u.pathname.split('/')[2].length === 10 &&
                                 u.searchParams.get('tag') === 'worthsy0d-21';
                         }
                         if (platform === 'awin') {
