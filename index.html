@@ -3849,7 +3849,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
       if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
     }
     window.worthsyApplyBrandFilter=activateBrand;
-    function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');if(i.p){a.href=i.h;a.className='wx-p';}else if(i.sneaker){a.href=i.h;a.setAttribute('data-sneaker-brand',i.n);a.title='Browse '+i.n+' sneakers';}else{var current=new URLSearchParams(window.location.search).get('worthsyBrand');var selected=current===i.n;a.href=window.location.pathname+'?worthsyBrand='+encodeURIComponent(selected?'All':i.n)+'#amazon';a.setAttribute('data-brand-filter',i.n);a.setAttribute('aria-pressed',String(selected));}a.textContent=i.n; if(i.p)a.title='Shop '+i.n+' picks'; f.appendChild(a);});return f;}
+    function row(){var f=document.createDocumentFragment();items.forEach(function(i){var a=document.createElement('a');if(i.p){a.href=i.h;a.className='wx-p';}else if(i.sneaker){a.href=i.h;a.setAttribute('data-sneaker-brand',i.n);a.title='Browse '+i.n+' sneakers';}else{a.href='brand.html?brand='+encodeURIComponent(i.n);a.title='Explore '+i.n; a.setAttribute('data-brand-store',i.n);}a.textContent=i.n; if(i.p)a.title='Shop '+i.n+' picks'; f.appendChild(a);});return f;}
     t.replaceChildren(row());
     var d=row();d.childNodes.forEach(function(a){a.setAttribute('aria-hidden','true');a.tabIndex=-1;});t.appendChild(d);
     t.style.animationDuration=Math.max(40,items.length*2.2)+'s';
