@@ -185,7 +185,27 @@ footer{font-size:14px!important;padding:32px 0!important}
         </div>
     </footer><script src="worthsy-supabase-config.js?v=1"></script>
 <script src="worthsy-search.js?v=community6" defer></script>
-    <script src="worthsy-account.js?v=2" defer></script>
+    <section id="wst-account-layer" class="wst-account-layer" role="dialog" aria-modal="true" aria-labelledby="wst-account-title" aria-hidden="true">
+  <div class="wst-account-card">
+    <header class="wst-account-head"><div><b id="wst-account-title">YOUR WORTHSY ACCOUNT</b><div style="font-size:12px;color:#666;margin-top:4px">Sign in to save your cart across devices</div></div><button type="button" id="wst-account-close" class="wst-account-close" aria-label="Close account panel">×</button></header>
+    <div class="wst-account-body">
+      <button type="button" id="wst-account-google" class="wst-account-provider" data-account-provider="google"><i class="fa-brands fa-google" aria-hidden="true"></i> Continue with Google</button>
+      <div id="wst-account-credentials">
+        <div style="text-align:center;font-size:11px;color:#888;margin:14px 0">OR CONTINUE WITH EMAIL</div>
+        <label for="wst-account-contact" style="font-size:12px;font-weight:700">Email address</label>
+        <input id="wst-account-contact" class="wst-account-field" type="email" autocomplete="username" placeholder="you@example.com">
+        <label for="wst-account-password" style="font-size:12px;font-weight:700">Password</label>
+        <input id="wst-account-password" class="wst-account-field" type="password" autocomplete="current-password" minlength="6" placeholder="At least 6 characters">
+        <div class="wst-account-actions"><button type="button" id="wst-account-signin">Sign in</button><button type="button" id="wst-account-signup" class="secondary">Create account</button></div>
+        <button type="button" id="wst-account-reset" class="wst-account-reset">Forgot password?</button>
+      </div>
+      <button type="button" id="wst-account-signout" class="wst-account-provider" hidden>Sign out</button>
+      <p id="wst-account-status" class="wst-account-note" role="status" aria-live="polite">Sign in or create an account to continue.</p>
+      <p id="wst-account-security-note" style="font-size:11px;color:#666;margin-top:10px">Use a unique password. Never share your password with WORTHSY support.</p>
+    </div>
+  </div>
+</section>
+<script src="worthsy-account.js?v=3" defer></script>
 <script src="worthsy-personalization-config.js?v=1"></script>
 <script src="worthsy-personalization.js?v=1" defer></script>
 </body></html>
