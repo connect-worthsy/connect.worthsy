@@ -39,6 +39,30 @@ SYNONYMS = {
     "mouse": ["mice"],
 }
 
+KNOWN_BRANDS = [
+    "Western Digital", "Amazon Basics", "DailyObjects", "TheGiftKart", "G.Skill",
+    "TP-Link", "SanDisk", "Kingston", "Crucial", "Corsair", "Logitech", "Ambrane",
+    "Portronics", "Zebronics", "Netgear", "Samsung", "OnePlus", "Xiaomi", "Realme",
+    "Fastrack", "Philips", "Havells", "Wakefit", "Fujifilm", "Spigen", "boAt",
+    "Noise", "Apple", "ASUS", "GIGABYTE", "Dell", "Lenovo", "Acer", "HP", "D-Link",
+    "Tenda", "Seagate", "JBL", "Sony", "Anker", "UGREEN", "Qubo", "Wipro", "Syska",
+    "Milton", "Tygot", "Fire-Boltt", "MSI", "Redragon", "Nothing", "CMF", "Sennheiser",
+    "Tribit", "Google", "EZVIZ", "Nike", "adidas", "New Balance", "Puma", "Onitsuka Tiger", "Converse"
+]
+
+
+def infer_brand(item: dict[str, Any]) -> str:
+    explicit = str(item.get("brand") or "").strip()
+    if explicit and "amazon india" not in explicit.lower():
+        return explicit
+    name = normalise(item.get("name") or item.get("model"))
+    for brand in sorted(KNOWN_BRANDS, key=len, reverse=True):
+        if name == normalise(brand) or name.startswith(normalise(brand) + " "):
+            return brand
+    merchant = str(item.get("merchant") or "").strip()
+    return "" if "amazon india" in merchant.lower() else merchant
+
+
 OCCASION_TERMS = {
     "birthday": ["audio", "headphones", "speaker", "smartwatch", "gaming", "accessory", "phone"],
     "graduation": ["laptop", "tablet", "headphones", "keyboard", "mouse", "storage"],
@@ -173,7 +197,7 @@ def load_catalogue() -> list[dict[str, Any]]:
         row.update({
             "id": product_id(item),
             "name": str(item.get("name", "")).strip(),
-            "brand": str(item.get("brand") or item.get("merchant") or "").strip(),
+            "brand": infer_brand(item),
             "category": str(item.get("category") or "Other").strip(),
             "platform": "Amazon" if "amazon.in" in link else "Awin",
             "link": link,
