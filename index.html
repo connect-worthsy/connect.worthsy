@@ -4255,5 +4255,7 @@ window.addEventListener('popstate',render);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render);else render();
 if(!Array.isArray(window.WORTHSY_PRODUCTS))fetch('products.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(data){window.WORTHSY_PRODUCTS=data;render();}).catch(function(){render();});
 })();
-</script></body>
+</script><script src="worthsy-personalization-config.js?v=1"></script>
+<script src="worthsy-personalization.js?v=1" defer></script>
+</body>
 </html>
