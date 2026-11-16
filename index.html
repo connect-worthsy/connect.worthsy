@@ -1621,6 +1621,10 @@ html body .ws-hero-copy{
 @media(max-width:760px){.w-platform-campaign.active{grid-template-columns:1fr;gap:0}.w-platform-copy{padding:24px 22px 12px}.w-platform-pick{flex-basis:calc((100% - 10px)/2);min-height:130px;padding:5px}.w-platform-pick span{font-size:8px;left:4px;right:4px;bottom:4px}}
 @media(prefers-reduced-motion:reduce){.w-platform-track{transition:none!important}}
 </style><link rel="stylesheet" href="worthsy-universal-nav.css?v=14">\n<script src="worthsy-universal-nav.js?v=10" defer></script>\n    <link rel="stylesheet" href="worthsy-universal-footer.css?v=1">
+
+    <link rel="stylesheet" href="worthsy-account.css?v=2">
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
@@ -1646,7 +1650,8 @@ html body .ws-hero-copy{
             <div class="flex items-center gap-2 sm:gap-3">
                 <button id="uniSearchBtn" type="button" class="wx-searchpill" aria-label="Search products">
                     <i class="fa-solid fa-magnifying-glass"></i><span class="hidden sm:inline">Search products</span>
-                </button>\n                <button type="button" id="wst-account-open" class="wst-accountbtn" aria-label="Sign in or create a WORTHSY account"><i class="fa-regular fa-user" aria-hidden="true"></i><span class="wst-account-label">Account</span></button>
+                </button>
+                <button type="button" id="wst-account-open" class="wst-accountbtn" aria-label="Sign in or create a WORTHSY account"><i class="fa-regular fa-user" aria-hidden="true"></i><span class="wst-account-label">Account</span></button>
                 <div class="wx-shop"><div class="wx-shop-actions"><a id="wxShopBtn" href="shop.html" class="wx-cta wx-cta-header">Shop now</a><button type="button" id="wxShopToggle" class="wx-cta wx-cta-header wx-shop-arrow" aria-label="Open affiliate platform menu" aria-haspopup="true" aria-expanded="false" aria-controls="wxShopMenu"><i class="fa-solid fa-chevron-down"></i></button></div><div id="wxShopMenu" class="wx-shop-menu" role="menu" hidden><div class="wx-shop-menu-title">Explore affiliate platforms</div><div class="wx-aff-list"><a role="menuitem" href="shop.html#amazon">Amazon</a><a role="menuitem" href="shop.html#flipkart">Flipkart</a><a role="menuitem" href="shop.html#shopify">Shopify</a><a role="menuitem" href="shop.html#clickbank">ClickBank</a><a role="menuitem" href="shop.html#coursera">Coursera</a><a role="menuitem" href="shop.html#awin">Awin</a></div><a class="wx-shop-viewall" href="shop.html">Explore all products <span>→</span></a></div></div>
                 <button id="mobileMenuBtn" aria-label="Toggle navigation" class="lg:hidden p-2">
                     <i class="fa-solid fa-bars text-xl"></i>
@@ -3955,7 +3960,8 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
 })();
 </script>
 <script src="worthsy-supabase-config.js?v=1"></script>
-<script src="worthsy-search.js?v=community6" defer></script>\n    <link rel="stylesheet" href="worthsy-account.css?v=1">\n    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js" defer></script>\n    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js" defer></script>\n    <script src="worthsy-account.js?v=1" defer></script>
+<script src="worthsy-search.js?v=community6" defer></script>
+    <script src="worthsy-account.js?v=2" defer></script>
 
     <script id="worthsy-amazon-community-publisher">
     (function () {
