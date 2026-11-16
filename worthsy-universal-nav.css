@@ -1,14 +1,41 @@
-:root{--worthsy-nav-height:64px}
-.worthsy-universal-bar{position:fixed;inset:0 0 auto;z-index:9999;height:var(--worthsy-nav-height);display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 clamp(16px,4vw,56px);background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(180%) blur(18px);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid #e8e8e8;color:#171717;font-family:Inter,Arial,sans-serif;box-sizing:border-box}
-.worthsy-universal-bar *{box-sizing:border-box}
-.worthsy-universal-brand{display:inline-flex;align-items:center;flex:none;color:#111;text-decoration:none;font-size:23px;font-weight:950;letter-spacing:-.075em;line-height:1}
-.worthsy-universal-brand em{font-style:normal;color:#d71920}
-.worthsy-universal-links{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.5vw,34px);min-width:0}
-.worthsy-universal-links a{color:#424242;text-decoration:none;font-size:12px;font-weight:650;white-space:nowrap;transition:color .18s ease}
-.worthsy-universal-links a:hover,.worthsy-universal-links a[aria-current=page]{color:#d71920}
-.worthsy-universal-action{display:inline-flex;align-items:center;justify-content:center;flex:none;padding:9px 15px;border:1px solid #171717;border-radius:999px;background:#171717;color:#fff;text-decoration:none;font-size:11px;font-weight:750;white-space:nowrap;transition:background .18s ease,border-color .18s ease}
-.worthsy-universal-action:hover{background:#d71920;border-color:#d71920}
+:root{--worthsy-nav-height:80px;--wx-ink:#111;--wx-red:#cc1010;--wx-grad:linear-gradient(90deg,#cc1010,#ff4040)}
 body{padding-top:var(--worthsy-nav-height)!important}
-@media(max-width:760px){.worthsy-universal-bar{gap:12px;padding:0 14px}.worthsy-universal-links{flex:1;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;gap:18px}.worthsy-universal-links::-webkit-scrollbar{display:none}.worthsy-universal-links a{font-size:11px}.worthsy-universal-action{padding:8px 11px;font-size:10px}}
-@media(max-width:420px){.worthsy-universal-brand{font-size:19px}.worthsy-universal-action{display:none}.worthsy-universal-links{gap:15px}}
+.worthsy-universal-bar{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:9999!important;width:100%;height:80px;min-height:80px;display:block!important;margin:0!important;padding:0!important;background:rgba(255,255,255,.97)!important;border:0!important;border-bottom:1px solid #e5e5e5!important;color:#111!important;font-family:Inter,Arial,sans-serif!important;box-sizing:border-box!important;box-shadow:0 2px 12px rgba(0,0,0,.045)}
+.worthsy-universal-bar:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:linear-gradient(90deg,#1c1c1c 0,#1c1c1c 66%,#cc1010 66%,#ff4040 100%);pointer-events:none}
+.worthsy-universal-inner{position:relative;width:100%;max-width:1280px;height:80px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-sizing:border-box}
+.worthsy-universal-brand{display:flex!important;align-items:center;flex:0 0 auto;text-decoration:none!important;padding:0!important;margin:0!important}
+.worthsy-universal-brand .worthsy-logo{display:block;height:44px!important;width:auto;aspect-ratio:1046/322;background-position:center;background-repeat:no-repeat;background-size:contain}
+.worthsy-universal-campaign{display:inline-flex;align-items:center;justify-content:center;gap:7px;flex:0 0 auto;height:42px;margin-left:-8px;padding:3px 7px;text-decoration:none!important;color:#111!important;border-radius:6px;transition:opacity .2s ease,transform .2s ease}
+.worthsy-universal-campaign:hover{opacity:.82;transform:translateY(-1px)}
+.worthsy-universal-campaign img{display:block;width:72px;height:36px;object-fit:contain;object-position:center}
+.worthsy-universal-ps5{display:flex;align-items:center;gap:3px;padding-left:7px;border-left:1px solid #d8d8d8;line-height:1}
+.worthsy-universal-ps5 i{font-size:18px}.worthsy-universal-ps5 b{font-size:14px;font-weight:900;letter-spacing:-.06em}
+.worthsy-universal-links{display:flex!important;align-items:center;gap:32px;min-width:0;margin:0!important;padding:0!important}
+.worthsy-universal-links a{display:inline-flex;align-items:center;gap:8px;padding:6px 0!important;color:#111!important;text-decoration:none!important;font-size:14px;font-weight:600;letter-spacing:.01em!important;white-space:nowrap;background:linear-gradient(90deg,#cc1010,#ff4040) 0 100%/0 2px no-repeat;transition:background-size .25s ease,color .15s ease}
+.worthsy-universal-links a:hover{color:#cc1010!important;background-size:100% 2px}
+.worthsy-universal-links .wx-universal-sneaker svg{width:29px;height:20px;flex:none}
+.worthsy-universal-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.worthsy-universal-search{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-width:40px;height:40px;padding:0 .9rem;border:1px solid #cfcfcf;background:#fff;color:#111;font-size:.85rem;font-weight:600;white-space:nowrap;cursor:pointer}
+.worthsy-universal-search:hover{border-color:#cc1010}
+.worthsy-universal-shop{position:relative;flex:0 0 auto}
+.worthsy-universal-shop-actions{display:inline-flex;align-items:stretch;gap:0;height:42px;white-space:nowrap;border-radius:999px;overflow:hidden;background:#050505}
+.worthsy-universal-shop-main{display:inline-flex;align-items:center;justify-content:center;min-width:92px;height:42px;padding:0 19px;border:0;border-radius:999px 0 0 999px;background:#050505;color:#fff!important;text-decoration:none!important;line-height:1;font-size:12px;font-weight:800;white-space:nowrap}
+.worthsy-universal-shop-toggle{display:inline-flex;align-items:center;justify-content:center;width:42px;min-width:42px;height:42px;padding:0;border:0;border-left:1px solid rgba(255,255,255,.22);background:#050505;color:#fff;cursor:pointer}
+.worthsy-universal-shop-toggle:hover,.worthsy-universal-shop-main:hover{background:#cc1010;color:#fff!important}
+.worthsy-universal-shop-menu{position:absolute;right:0;top:calc(100% + 10px);width:270px;padding:8px;background:#fff;border:1px solid #e5e5e5;border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.15);z-index:10000}
+.worthsy-universal-shop-menu[hidden]{display:none!important}
+.worthsy-universal-menu-title{padding:9px 10px;font-size:12px;font-weight:800;color:#555}
+.worthsy-universal-aff-list{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px 6px 6px}
+.worthsy-universal-aff-list a{padding:8px 10px;border:1px solid #e5e5e5;border-radius:999px;color:#111;text-decoration:none;text-align:center;font-size:13px;font-weight:700}
+.worthsy-universal-aff-list a:hover{background:#fdecec;color:#cc1010;border-color:#cc1010}
+.worthsy-universal-viewall{display:block;padding:10px 12px;color:#111;text-decoration:none;font-size:13px;font-weight:800}
+.worthsy-universal-mobile-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;border:0;background:transparent;color:#111;font-size:20px;cursor:pointer}
+.worthsy-universal-mobile{display:none;padding:12px 20px 18px;background:#fff;border-top:1px solid #e5e5e5;max-height:calc(100vh - 80px);overflow-y:auto}
+.worthsy-universal-mobile.is-open{display:block}
+.worthsy-universal-mobile a{display:block;padding:12px 0;color:#111;text-decoration:none;font-size:14px;font-weight:700;border-bottom:1px solid #eee}
+.worthsy-universal-mobile .wx-mob-h{display:block;padding:14px 0 5px;color:#777;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.worthsy-universal-mobile .wx-mob-sub{padding:9px 0 9px 14px;font-size:13px}
+@media(max-width:1023px){.worthsy-universal-links{display:none!important}.worthsy-universal-mobile-toggle{display:inline-flex}}
+@media(max-width:767px){.worthsy-universal-inner{padding:0 14px;gap:8px}.worthsy-universal-brand .worthsy-logo{height:40px!important}.worthsy-universal-campaign{height:36px;gap:5px;margin-left:-12px;padding:2px 4px}.worthsy-universal-campaign img{width:58px;height:30px}.worthsy-universal-ps5{gap:2px;padding-left:5px}.worthsy-universal-ps5 i{font-size:15px}.worthsy-universal-ps5 b{font-size:12px}.worthsy-universal-search{width:40px;min-width:40px;padding:0}.worthsy-universal-search span{display:none}}
+@media(max-width:420px){.worthsy-universal-inner{padding:0 10px;gap:5px}.worthsy-universal-brand .worthsy-logo{height:35px!important}.worthsy-universal-campaign{margin-left:-10px}.worthsy-universal-campaign img{width:49px}.worthsy-universal-actions{gap:4px}.worthsy-universal-shop-actions{height:38px}.worthsy-universal-shop-main{min-width:70px;height:38px;padding:0 10px;font-size:11px}.worthsy-universal-shop-toggle{width:32px;min-width:32px;height:38px}}
 @media(prefers-reduced-motion:reduce){.worthsy-universal-bar *{transition:none!important}}
