@@ -3984,10 +3984,10 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
     </script>
 
 <style id="wx-sneaker-modal-css">
-.wx-sneaker-modal-backdrop{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.68);display:grid;place-items:center;padding:22px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .32s ease,visibility .32s ease}
+.wx-sneaker-modal-backdrop{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.68);display:grid;place-items:center;padding:22px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .58s ease,visibility .58s ease}
 .wx-sneaker-modal-backdrop.wx-open{opacity:1;visibility:visible;pointer-events:auto}
-.wx-sneaker-modal{position:relative;width:min(960px,92vw);max-height:88vh;overflow:auto;background:#fff;border:1px solid #ddd;border-radius:18px;padding:22px;color:#111;box-shadow:0 24px 80px rgba(0,0,0,.28);opacity:0;transform:translateY(30px) scale(.94);transform-origin:center;transition:transform .48s cubic-bezier(.2,.85,.25,1),opacity .32s ease}
-.wx-sneaker-modal-backdrop.wx-open .wx-sneaker-modal{opacity:1;transform:translateY(0) scale(1)}
+.wx-sneaker-modal{position:relative;width:min(960px,92vw);max-height:88vh;overflow:auto;background:#fff;border:1px solid #ddd;border-radius:18px;padding:22px;color:#111;box-shadow:0 24px 80px rgba(0,0,0,.28);opacity:0;transform:perspective(1200px) translateY(54px) scale(.88) rotateX(3deg);transform-origin:center;transition:transform .82s cubic-bezier(.16,1,.3,1),opacity .58s ease;will-change:transform,opacity}
+.wx-sneaker-modal-backdrop.wx-open .wx-sneaker-modal{opacity:1;transform:perspective(1200px) translateY(0) scale(1) rotateX(0)}
 .wx-sneaker-modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
 .wx-sneaker-modal-title{font-size:clamp(22px,3vw,34px);font-weight:950;letter-spacing:-.04em;text-transform:uppercase}
 .wx-sneaker-modal-sub{font-size:12px;color:#666;margin-top:4px}
