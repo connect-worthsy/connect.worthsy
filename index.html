@@ -4069,7 +4069,7 @@ function tick(){
  var distance=first.getBoundingClientRect().width+gap;
  activeTrack.style.transition='transform .68s cubic-bezier(.22,.7,.25,1)';
  activeTrack.style.transform='translateX(-'+distance+'px)';
- activeTrack.ontransitionend=function(ev){if(ev.propertyName!=='transform')return;activeTrack.ontransitionend=null;activeTrack.style.transition='none';activeTrack.appendChild(activeTrack.firstElementChild);activeTrack.style.transform='translateX(0)';void activeTrack.offsetHeight;activeTrack.style.transition='transform .68s cubic-bezier(.22,.7,.25,1)';var next=activeList[nextIndex%activeList.length];nextIndex++;activeTrack.appendChild(card(next,activeId));};
+ activeTrack.ontransitionend=function(ev){if(ev.propertyName!=='transform')return;activeTrack.ontransitionend=null;activeTrack.style.transition='none';activeTrack.removeChild(activeTrack.firstElementChild);activeTrack.style.transform='translateX(0)';void activeTrack.offsetHeight;activeTrack.style.transition='transform .68s cubic-bezier(.22,.7,.25,1)';var next=activeList[nextIndex%activeList.length];nextIndex++;activeTrack.appendChild(card(next,activeId));};
 }
 function startCarousel(track,list,id){
  stopCarousel();if(!track||list.length<4||reducedMotion)return;
