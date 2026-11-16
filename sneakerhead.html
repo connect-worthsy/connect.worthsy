@@ -285,6 +285,39 @@ body[data-brand-theme]:not([data-brand-theme="all"]) .brand-strip .brand-btn.act
 body[data-brand-theme]:not([data-brand-theme="all"]) .hero h1 em{text-shadow:0 0 26px color-mix(in srgb,var(--brand-accent) 48%,transparent)}
 body[data-brand-theme]:not([data-brand-theme="all"]) .card-tag{box-shadow:0 0 14px color-mix(in srgb,var(--brand-accent) 65%,transparent)}
 
+
+/* Restore restrained brand identities and fix logo card sizing */
+body[data-brand-theme="nike"]{--brand-accent:#111;--brand-accent-contrast:#fff;--brand-wash:#f4f4f4;--brand-deep:#111;--brand-paper:#fff;--brand-line:#d9d9d9}
+body[data-brand-theme="adidas"]{--brand-accent:#111;--brand-accent-contrast:#fff;--brand-wash:#f3f3f3;--brand-deep:#080808;--brand-paper:#fff;--brand-line:#d8d8d8}
+body[data-brand-theme="new-balance"]{--brand-accent:#cf0a2c;--brand-accent-contrast:#fff;--brand-wash:#f8eef0;--brand-deep:#1d252c;--brand-paper:#fff;--brand-line:#e7c5cb}
+body[data-brand-theme="puma"]{--brand-accent:#e41e26;--brand-accent-contrast:#fff;--brand-wash:#f9eeee;--brand-deep:#181818;--brand-paper:#fff;--brand-line:#e9c6c7}
+body[data-brand-theme="onitsuka-tiger"]{--brand-accent:#ffe004;--brand-accent-contrast:#111;--brand-wash:#fffbea;--brand-deep:#111;--brand-paper:#fff;--brand-line:#eadb86}
+body[data-brand-theme="converse"]{--brand-accent:#111;--brand-accent-contrast:#fff;--brand-wash:#f4f4f2;--brand-deep:#191919;--brand-paper:#fff;--brand-line:#d8d8d5}
+body[data-brand-theme]:not([data-brand-theme="all"]){background:#fff;background-image:none;animation:none}
+body[data-brand-theme]:not([data-brand-theme="all"]) .top,body[data-brand-theme]:not([data-brand-theme="all"]) .brand-strip,body[data-brand-theme]:not([data-brand-theme="all"]) .filters input,body[data-brand-theme]:not([data-brand-theme="all"]) .filters select,body[data-brand-theme]:not([data-brand-theme="all"]) .card-media,body[data-brand-theme]:not([data-brand-theme="all"]) .card-info,body[data-brand-theme]:not([data-brand-theme="all"]) .note{background:#fff;background-image:none;animation:none}
+body[data-brand-theme]:not([data-brand-theme="all"]) .hero-grid{background:var(--brand-deep)}
+body[data-brand-theme]:not([data-brand-theme="all"]) .hero .eyebrow,body[data-brand-theme]:not([data-brand-theme="all"]) .hero h1 em{color:var(--brand-accent)}
+body[data-brand-theme]:not([data-brand-theme="all"]) .hero h1 em{text-shadow:none}
+body[data-brand-theme]:not([data-brand-theme="all"]) .brand-strip .brand-btn{box-shadow:none}
+body[data-brand-theme]:not([data-brand-theme="all"]) .brand-strip .brand-btn.active{background:var(--card-brand-ink);border-color:var(--card-brand-line);box-shadow:0 0 0 2px var(--card-brand-line)}
+body[data-brand-theme]:not([data-brand-theme="all"]) .card-tag{box-shadow:none}
+.brand-strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;border:0;background:transparent;align-items:stretch}
+.brand-strip .brand-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-width:0;min-height:112px;padding:14px 8px;overflow:hidden;border:1px solid var(--card-brand-line,#dedede);border-radius:12px;background:var(--card-brand-paper,#fff);color:var(--card-brand-ink,#111);line-height:1.2;text-align:center}
+.brand-strip .brand-logo{display:flex;align-items:center;justify-content:center;width:100%;height:44px;min-width:0;overflow:hidden;color:var(--card-brand-ink,#111)}
+.brand-strip .brand-logo-img{display:block;width:42px;height:42px;max-width:80%;object-fit:contain;flex:0 0 auto}
+.brand-strip .brand-logo-fallback{display:block;max-width:100%;font-size:17px;font-weight:900;letter-spacing:-.04em;line-height:1.1;overflow-wrap:anywhere}
+.brand-strip .brand-caption{display:block;max-width:100%;margin:0;color:var(--card-brand-ink,#111);font-size:9px;font-weight:900;letter-spacing:.1em;line-height:1.25;overflow-wrap:anywhere}
+.brand-strip .brand-card-nike,.brand-strip .brand-card-adidas{--card-brand-paper:#fff;--card-brand-line:#d5d5d5;--card-brand-ink:#111}
+.brand-strip .brand-card-new-balance{--card-brand-paper:#fff;--card-brand-line:#cf0a2c;--card-brand-ink:#cf0a2c}
+.brand-strip .brand-card-puma{--card-brand-paper:#fff;--card-brand-line:#e41e26;--card-brand-ink:#181818}
+.brand-strip .brand-card-onitsuka-tiger{--card-brand-paper:#fffdf0;--card-brand-line:#ffe004;--card-brand-ink:#111}
+.brand-strip .brand-card-converse{--card-brand-paper:#fff;--card-brand-line:#d5d5d5;--card-brand-ink:#111}
+.brand-strip .brand-btn.active{background:var(--card-brand-ink);color:var(--card-brand-paper)}
+.brand-strip .brand-btn.active .brand-logo-img{filter:brightness(0) invert(1)}
+.brand-strip .brand-btn.active .brand-logo-fallback,.brand-strip .brand-btn.active .brand-caption{color:var(--card-brand-paper)}
+.brand-strip .brand-all{--card-brand-paper:#111;--card-brand-line:#111;--card-brand-ink:#fff;background:#111;color:#fff}
+@media(max-width:850px){.brand-strip{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
+@media(max-width:560px){.brand-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.brand-strip .brand-btn{min-height:94px;padding:10px 7px}.brand-strip .brand-logo{height:38px}.brand-strip .brand-logo-img{width:36px;height:36px}}
 </style>
 </head>
 <body>
@@ -334,15 +367,9 @@ function initBrandShowcase(){
 
 function applyBrandTheme(brand){const key=brand?slug(brand):'all';document.body.dataset.brandTheme=key;const label=brand||'All brands';$('heroEyebrow').textContent=brand?label.toUpperCase()+' / THE BRAND EDIT':'WORTHSY / THE SNEAKER EDIT';$('heroHeadline').innerHTML=brand?('DISCOVER<br><em>'+label.toUpperCase()+'</em>'):'FIND YOUR<br> NEXT PAIR.';$('heroDescription').textContent=brand?'Explore the '+label+' sneaker collection, signature silhouettes and latest favourites.':'Iconic silhouettes. Fresh drops. Six brands shaping sneaker culture — all in one place.';$('heroBrandName').textContent=brand?label.toUpperCase():'NIKE';$('heroBrandStampLabel').textContent=brand?'THE BRAND EDIT':'NOW FEATURING';$('heroSlideCount').textContent=brand?'01 / 01':'01 / 06';if(brand){if(window.worthsyBrandTimer){clearInterval(window.worthsyBrandTimer);window.worthsyBrandTimer=null;}const featured=products.filter(p=>p.brand===brand&&p.imageUrl).sort((a,b)=>(b.trendScore||0)-(a.trendScore||0))[0];if(featured){$('heroProductName').textContent=featured.name;$('brandShowcase').style.backgroundImage='linear-gradient(90deg,'+getComputedStyle(document.body).getPropertyValue('--brand-deep').trim()+' 0%,transparent 30%),url('+JSON.stringify(featured.imageUrl)+')';}}else if(!window.worthsyBrandTimer){initBrandShowcase();}}
 function brandLogo(b){
-const logos={
-'Nike':'<svg viewBox="0 0 120 52" role="img" aria-label="Nike logo"><path d="M8 34 108 4 48 43Q25 54 8 34Z" fill="currentColor"/></svg>',
-'adidas':'<svg viewBox="0 0 100 60" role="img" aria-label="adidas logo"><path d="M8 42 28 8 43 17 29 42ZM34 42 54 8 69 17 55 42ZM60 42 80 8 95 17 81 42Z" fill="currentColor"/><path d="M8 48h87" stroke="currentColor" stroke-width="5"/></svg>',
-'New Balance':'<svg viewBox="0 0 120 52" role="img" aria-label="New Balance logo"><path d="M7 40 27 8h12L25 40h9L54 8h12L47 40h9L76 8h12L69 40h9L98 8h13L91 40" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="miter"/><text x="60" y="50" text-anchor="middle" font-size="10" font-weight="900" fill="currentColor">NEW BALANCE</text></svg>',
-'Puma':'<svg viewBox="0 0 120 52" role="img" aria-label="Puma logo"><path d="M9 34c17-8 27-14 37-27 5 9 2 16-5 22 15-1 27-8 38-18-1 13-11 25-29 27-15 2-27-1-41-4Z" fill="currentColor"/><text x="77" y="46" text-anchor="middle" font-size="17" font-weight="950" font-style="italic" fill="currentColor">PUMA</text></svg>',
-'Onitsuka Tiger':'<svg viewBox="0 0 150 52" role="img" aria-label="Onitsuka Tiger logo"><text x="75" y="23" text-anchor="middle" font-size="17" font-weight="900" letter-spacing="1.2" fill="currentColor">ONITSUKA</text><text x="75" y="43" text-anchor="middle" font-size="19" font-weight="950" letter-spacing="2" fill="currentColor">TIGER</text></svg>',
-'Converse':'<svg viewBox="0 0 120 52" role="img" aria-label="Converse logo"><circle cx="26" cy="26" r="21" fill="none" stroke="currentColor" stroke-width="4"/><path d="m26 9 4.5 11 12 1-9 7.5 3 12-10.5-6.5L15.5 40l3-12-9-7.5 12-1Z" fill="currentColor"/><text x="83" y="32" text-anchor="middle" font-size="18" font-weight="950" fill="currentColor">CONVERSE</text></svg>'
-};
-return logos[b]||'<span class="brand-mark">'+b.toUpperCase()+'</span>';
+ const icons={'Nike':{slug:'nike',color:'111111',fallback:'NIKE'},'adidas':{slug:'adidas',color:'111111',fallback:'adidas'},'New Balance':{slug:'newbalance',color:'CF0A2C',fallback:'NB'},'Puma':{slug:'puma',color:'181818',fallback:'PUMA'},'Onitsuka Tiger':{slug:'onitsukatiger',color:'111111',fallback:'ONITSUKA TIGER'},'Converse':{slug:'converse',color:'111111',fallback:'CONVERSE'}};
+ const icon=icons[b];if(!icon)return '<span class="brand-logo-fallback">'+b.toUpperCase()+'</span>';
+ return '<img class="brand-logo-img" src="https://cdn.simpleicons.org/'+icon.slug+'/'+icon.color+'" alt="'+b+' logo" loading="eager" decoding="async" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="brand-logo-fallback" hidden>'+icon.fallback+'</span>';
 }
 function initFilters(){ $('brandStrip').innerHTML='<button class="brand-btn active brand-all" data-brand=""><span class="brand-mark">W</span><span class="brand-caption">ALL BRANDS</span></button>'+brands.map(b=>'<button class="brand-btn brand-card-'+slug(b)+'" data-brand="'+b+'"><span class="brand-logo">'+brandLogo(b)+'</span><span class="brand-caption">'+b.toUpperCase()+'</span></button>').join(''); $('brandFilter').innerHTML='<option value="">All brands</option>'+brands.map(b=>'<option>'+b+'</option>').join(''); $('brandStrip').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ $('brandFilter').value=b.dataset.brand; $('brandStrip').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));applyBrandTheme(b.dataset.brand);render();}));}
 function render(){let list=products.slice();const q=$('search').value.trim().toLowerCase(),brand=$('brandFilter').value,type=$('typeFilter').value,sort=$('sort').value;list=list.filter(p=>(!brand||p.brand===brand)&&(!type||p.category===type)&&(!q||(p.name+' '+p.brand+' '+p.category).toLowerCase().includes(q)));if(sort==='az')list.sort((a,b)=>a.name.localeCompare(b.name));else if(sort==='brand')list.sort((a,b)=>a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name));else list.sort((a,b)=>b.trendScore-a.trendScore);$('resultCount').textContent=list.length+' models';$('countLabel').textContent=list.length+' / 150 MODELS';$('productGrid').innerHTML=list.length?list.map((p,i)=>'<article class="card" tabindex="0" role="button" data-product-index="'+products.indexOf(p)+'" aria-label="View '+p.name+' details"><div class="card-media">'+'<img src="'+imgSrc(p)+'" alt="'+p.name+'" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="imgFail(this)">'+'</div><div class="card-info"><div class="brand-name">'+p.brand+'</div><h3>'+p.name+'</h3><div class="card-type">'+p.category+'</div><div class="card-foot"><span class="pending">Compare stores</span><span aria-hidden="true">↗</span></div></div></article>').join(''):'<div class="empty" style="grid-column:1/-1">No sneakers match these filters. Try another search.</div>';}
