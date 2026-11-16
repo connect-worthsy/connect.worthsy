@@ -63,11 +63,11 @@ body{padding-top:80px!important}
 @media(max-width:640px){.wx-gta-ps5-combo{height:36px;gap:5px;margin-left:-12px;padding:2px 4px}.wx-gta-vi-mark{width:58px;height:30px}.wx-gta-ps5-mark{gap:2px;padding-left:5px}.wx-gta-ps5-mark i{font-size:15px}.wx-gta-ps5-mark b{font-size:12px}.wx-searchpill{padding:0;width:40px}}
 
 
-/* Match the landing-page header dimensions exactly: 80px desktop, 66px mobile */
-body{padding-top:80px!important}
-.worthsy-header{height:80px!important;min-height:80px!important}
-.worthsy-header>div:first-child{height:80px!important;min-height:80px!important}
-.worthsy-header .worthsy-logo{height:44px!important}
+/* Match the live landing-page header: 54px desktop, 66px mobile. */
+body{padding-top:54px!important}
+.worthsy-header{height:54px!important;min-height:54px!important}
+.worthsy-header>div:first-child{height:54px!important;min-height:54px!important;max-width:1200px!important;padding:0 24px!important}
+.worthsy-header .worthsy-logo{height:30px!important}
 @media(max-width:650px){
  body{padding-top:66px!important}
  .worthsy-header{height:66px!important;min-height:66px!important}
