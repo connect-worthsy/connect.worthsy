@@ -218,3 +218,98 @@ body>header.worthsy-header.wx-header #mobileMenuBtn{display:none!important}
  body>header.worthsy-header.wx-header .wx-gta-vi-mark{width:49px!important}
  body>header.worthsy-header.wx-header>div:first-child>div:last-child{gap:4px!important}
 }
+
+
+/* Exact homepage header skin for every page using the cloned homepage markup.
+   Keep these selectors scoped to the real homepage header classes. */
+body{padding-top:54px!important}
+body>header.worthsy-header.wx-header{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;
+  z-index:9999!important;width:100%!important;height:54px!important;min-height:54px!important;
+  margin:0!important;padding:0!important;box-sizing:border-box!important;
+  background:rgba(250,250,252,.82)!important;border:0!important;
+  backdrop-filter:saturate(180%) blur(22px)!important;
+  -webkit-backdrop-filter:saturate(180%) blur(22px)!important;
+  box-shadow:0 1px 0 rgba(0,0,0,.07)!important;color:#1d1d1f!important;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif!important;
+}
+body>header.worthsy-header.wx-header:after{display:none!important}
+body>header.worthsy-header.wx-header>div:first-child{
+  width:100%!important;max-width:1200px!important;height:54px!important;min-height:54px!important;
+  margin:0 auto!important;padding:0 24px!important;box-sizing:border-box!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;
+}
+body>header.worthsy-header.wx-header .worthsy-logo{height:30px!important;width:auto!important;max-height:30px!important;display:block!important}
+body>header.worthsy-header.wx-header .wx-gta-ps5-combo{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;
+  flex:0 0 auto!important;height:42px!important;margin-left:-8px!important;padding:3px 7px!important;
+  color:#111!important;text-decoration:none!important;border-radius:6px!important;background:transparent!important;
+}
+body>header.worthsy-header.wx-header .wx-gta-vi-mark{display:block!important;width:72px!important;height:36px!important;object-fit:contain!important;object-position:center!important}
+body>header.worthsy-header.wx-header .wx-gta-ps5-mark{display:flex!important;align-items:center!important;gap:3px!important;padding-left:7px!important;border-left:1px solid #d8d8d8!important;line-height:1!important;color:#111!important}
+body>header.worthsy-header.wx-header .wx-gta-ps5-mark i{font-size:18px!important}
+body>header.worthsy-header.wx-header .wx-gta-ps5-mark b{font-size:14px!important;font-weight:900!important;letter-spacing:-.06em!important}
+body>header.worthsy-header.wx-header .wx-nav{display:flex!important;align-items:center!important;gap:27px!important;min-width:0!important;margin:0!important;padding:0!important}
+body>header.worthsy-header.wx-header .wx-nav a{
+  display:inline-flex!important;align-items:center!important;gap:8px!important;padding:6px 0!important;
+  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+  color:#424245!important;font:400 12px Inter,Arial,sans-serif!important;letter-spacing:0!important;
+  text-transform:none!important;text-decoration:none!important;white-space:nowrap!important;
+}
+body>header.worthsy-header.wx-header .wx-nav a:hover{color:var(--ws-red,#c8102e)!important;background:transparent!important}
+body>header.worthsy-header.wx-header .wx-nav .wx-sneaker-nav svg{width:29px!important;height:20px!important;flex:none!important}
+body>header.worthsy-header.wx-header>div:first-child>div.flex.items-center.gap-2{
+  display:flex!important;align-items:center!important;gap:8px!important;flex:0 0 auto!important;
+}
+body>header.worthsy-header.wx-header .wx-searchpill{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:.55rem!important;
+  min-width:40px!important;height:40px!important;min-height:0!important;padding:0 .9rem!important;
+  border:0!important;border-radius:999px!important;background:transparent!important;box-shadow:none!important;
+  color:#424245!important;font:400 12px Inter,Arial,sans-serif!important;letter-spacing:0!important;
+  text-transform:none!important;white-space:nowrap!important;
+}
+body>header.worthsy-header.wx-header .wx-searchpill:hover{border:0!important;background:transparent!important;color:#424245!important}
+body>header.worthsy-header.wx-header .wx-cta-header{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  border:0!important;border-radius:999px!important;padding:8px 15px!important;
+  background:#1d1d1f!important;color:#fff!important;font:400 12px Inter,Arial,sans-serif!important;
+  letter-spacing:0!important;text-transform:none!important;box-shadow:none!important;
+}
+body>header.worthsy-header.wx-header .wx-shop-actions{
+  display:inline-flex!important;align-items:stretch!important;gap:0!important;height:42px!important;
+  border-radius:999px!important;overflow:hidden!important;background:#1d1d1f!important;
+}
+body>header.worthsy-header.wx-header .wx-shop-actions #wxShopBtn{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  min-width:92px!important;height:42px!important;padding:0 15px!important;margin:0!important;
+  border:0!important;border-radius:999px 0 0 999px!important;background:#1d1d1f!important;
+  color:#fff!important;font:400 12px Inter,Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;
+}
+body>header.worthsy-header.wx-header .wx-shop-actions .wx-shop-arrow{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  width:42px!important;min-width:42px!important;height:42px!important;padding:0!important;margin:0!important;
+  border:0!important;border-left:1px solid rgba(255,255,255,.22)!important;border-radius:0 999px 999px 0!important;
+  background:#1d1d1f!important;color:#fff!important;
+}
+body>header.worthsy-header.wx-header .wx-shop-actions #wxShopBtn:hover,
+body>header.worthsy-header.wx-header .wx-shop-actions .wx-shop-arrow:hover{background:#333!important;color:#fff!important}
+body>header.worthsy-header.wx-header .wx-mobile{background:#fff!important;border-top:1px solid #e5e5e5!important}
+body>header.worthsy-header.wx-header .wx-mobile a{display:block!important;padding:12px 0!important;border-bottom:1px solid #eee!important;color:#424245!important;font:600 13px Inter,Arial,sans-serif!important;text-transform:none!important}
+@media(max-width:1023px){body>header.worthsy-header.wx-header .wx-nav{display:none!important}}
+@media(max-width:767px){
+  body{padding-top:66px!important}
+  body>header.worthsy-header.wx-header{height:66px!important;min-height:66px!important}
+  body>header.worthsy-header.wx-header>div:first-child{height:66px!important;min-height:66px!important;padding:0 16px!important}
+  body>header.worthsy-header.wx-header .worthsy-logo{height:34px!important;max-height:34px!important}
+  body>header.worthsy-header.wx-header .wx-cta-header{display:none!important}
+  body>header.worthsy-header.wx-header .wx-gta-ps5-combo{height:36px!important;gap:5px!important;margin-left:-12px!important;padding:2px 4px!important}
+  body>header.worthsy-header.wx-header .wx-gta-vi-mark{width:58px!important;height:30px!important}
+  body>header.worthsy-header.wx-header .wx-gta-ps5-mark{gap:2px!important;padding-left:5px!important}
+  body>header.worthsy-header.wx-header .wx-gta-ps5-mark i{font-size:15px!important}
+  body>header.worthsy-header.wx-header .wx-gta-ps5-mark b{font-size:12px!important}
+  body>header.worthsy-header.wx-header .wx-mobile{max-height:calc(100vh - 66px)!important;overflow-y:auto!important}
+}
+@media(max-width:639px){
+  body>header.worthsy-header.wx-header .wx-searchpill{width:40px!important;min-width:40px!important;padding:0!important}
+  body>header.worthsy-header.wx-header .wx-searchpill span{display:none!important}
+}
