@@ -73,6 +73,7 @@
       auth.onAuthStateChanged(user=>{
         const signed=!!user;
         if(credentials)credentials.hidden=signed;
+        [email,password,document.querySelector('label[for="wst-account-contact"]'),document.querySelector('label[for="wst-account-password"]')].forEach(el=>{if(el)el.hidden=signed;});
         if(google)google.hidden=signed;
         if(signout)signout.hidden=!signed;
         document.getElementById("wst-account-reset").hidden=signed;
