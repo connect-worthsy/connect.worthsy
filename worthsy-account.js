@@ -28,6 +28,8 @@
     </div>
   </section>`;
   const ready=()=> {
+    /* The landing page already owns the Firebase + cloud-cart account controller. */
+    if(window.WORTHSY_CLOUD_CART_SAVE)return;
     const trigger=document.getElementById("wst-account-open");
     if(!trigger)return;
     if(!document.getElementById("wst-account-layer"))document.body.insertAdjacentHTML("beforeend",modalMarkup);
