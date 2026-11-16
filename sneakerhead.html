@@ -266,6 +266,25 @@ body[data-brand-theme]:not([data-brand-theme="all"]) .card-info{
 .brand-strip .brand-all .brand-caption{color:#fff}
 @media(max-width:560px){.brand-strip .brand-btn{min-height:92px;padding:10px 7px}.brand-strip .brand-logo{height:38px}.brand-strip .brand-logo svg{height:38px}}
 
+
+/* High-energy neon brand palettes — stronger than the previous pastel cards */
+body[data-brand-theme="nike"]{--brand-accent:#ff4d00;--brand-accent-contrast:#fff;--brand-wash:#ff6a24;--brand-deep:#100a08;--brand-paper:#fff4ed;--brand-line:#ff4d00}
+body[data-brand-theme="adidas"]{--brand-accent:#d7ff00;--brand-accent-contrast:#080808;--brand-wash:#d7ff00;--brand-deep:#080a00;--brand-paper:#f8ffe0;--brand-line:#b8e600}
+body[data-brand-theme="new-balance"]{--brand-accent:#00a8ff;--brand-accent-contrast:#06182b;--brand-wash:#38bdff;--brand-deep:#071a35;--brand-paper:#eaf7ff;--brand-line:#008de0}
+body[data-brand-theme="puma"]{--brand-accent:#ff1744;--brand-accent-contrast:#fff;--brand-wash:#ff4264;--brand-deep:#17050a;--brand-paper:#fff0f3;--brand-line:#ff1744}
+body[data-brand-theme="onitsuka-tiger"]{--brand-accent:#ffe600;--brand-accent-contrast:#171000;--brand-wash:#ffe600;--brand-deep:#171300;--brand-paper:#fffde6;--brand-line:#e8c900}
+body[data-brand-theme="converse"]{--brand-accent:#00e5ff;--brand-accent-contrast:#001014;--brand-wash:#52efff;--brand-deep:#050d12;--brand-paper:#e9fcff;--brand-line:#00bcd4}
+.brand-strip .brand-card-nike{--card-brand-paper:#ff5a1f;--card-brand-line:#ff5a1f;--card-brand-ink:#120b08}
+.brand-strip .brand-card-adidas{--card-brand-paper:#d7ff00;--card-brand-line:#b8e600;--card-brand-ink:#080a00}
+.brand-strip .brand-card-new-balance{--card-brand-paper:#00a8ff;--card-brand-line:#007fd1;--card-brand-ink:#06182b}
+.brand-strip .brand-card-puma{--card-brand-paper:#ff1744;--card-brand-line:#e90032;--card-brand-ink:#19040a}
+.brand-strip .brand-card-onitsuka-tiger{--card-brand-paper:#ffe600;--card-brand-line:#d8bd00;--card-brand-ink:#171300}
+.brand-strip .brand-card-converse{--card-brand-paper:#00e5ff;--card-brand-line:#00bcd4;--card-brand-ink:#001014}
+body[data-brand-theme]:not([data-brand-theme="all"]) .brand-strip .brand-btn{box-shadow:0 5px 18px color-mix(in srgb,var(--brand-accent) 22%,transparent)}
+body[data-brand-theme]:not([data-brand-theme="all"]) .brand-strip .brand-btn.active{box-shadow:0 0 0 2px var(--brand-accent),0 0 24px color-mix(in srgb,var(--brand-accent) 65%,transparent)}
+body[data-brand-theme]:not([data-brand-theme="all"]) .hero h1 em{text-shadow:0 0 26px color-mix(in srgb,var(--brand-accent) 48%,transparent)}
+body[data-brand-theme]:not([data-brand-theme="all"]) .card-tag{box-shadow:0 0 14px color-mix(in srgb,var(--brand-accent) 65%,transparent)}
+
 </style>
 </head>
 <body>
