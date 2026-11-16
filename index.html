@@ -2999,7 +2999,7 @@ html body .ws-hero-copy{
 
                         var seen = Object.create(null);
                         sneakers.forEach(function (p) {
-                            if (!/^https:\/\/www\\.amazon\\.in\/(?:[A-Za-z0-9-]+\/)?dp\/[A-Z0-9]{10}\?tag=worthsy0d-21$/.test(String(p.amazonUrl || '')) && !(/^https:\/\/www\\.awin1\\.com\/pclick\.php\?/.test(String(p.awinUrl || p.affiliateUrl || '')) && /[?&]a=3110404(?:&|$)/.test(String(p.awinUrl || p.affiliateUrl || '')))) return;
+                            if (!/^https:\/\/www\.amazon\.in\/(?:[A-Za-z0-9-]+\/)?dp\/[A-Z0-9]{10}\?tag=worthsy0d-21$/.test(String(p.amazonUrl || '')) && !(/^https:\/\/www\.awin1\.com\/pclick\.php\?/.test(String(p.awinUrl || p.affiliateUrl || '')) && /[?&]a=3110404(?:&|$)/.test(String(p.awinUrl || p.affiliateUrl || '')))) return;
                             var name = p.name || p.model || 'Sneaker';
                             var hay = [name,p.brand,p.category,p.description,p.model,'sneaker sneakers shoes footwear'].filter(Boolean).join(' ').toLowerCase();
                             if (!matches(hay)) return;
