@@ -9076,5 +9076,55 @@
     "price": "",
     "link": "https://www.amazon.in/dp/B0F7X5FC43?tag=worthsy0d-21",
     "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smartphone",
+    "brand": "iQOO",
+    "name": "iQOO Z11x 5G (Prismatic Green, 6GB RAM, 128GB Storage)",
+    "description": "iQOO Z11x 5G smartphone. Individual Amazon India product listing; check Amazon for current price, specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0GP8XTH7K?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/61gQd7MKREL._SX679_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smartphone",
+    "brand": "iQOO",
+    "name": "iQOO Z11 (Solar Flame, 6GB RAM, 128GB Storage)",
+    "description": "iQOO Z11 smartphone. Individual Amazon India product listing; check Amazon for current price, specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0H1WX51F1?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/51CU7Fd2W-L._SL1200_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Charging Cable",
+    "brand": "Ambrane",
+    "name": "Ambrane Unbreakable 3A Fast Charging 1.5m Braided Type-C Cable",
+    "description": "Ambrane braided Type-C charging cable. Individual Amazon India product listing; check Amazon for current price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B098NS6PVG?tag=worthsy0d-21",
+    "images": [
+      "https://m.media-amazon.com/images/I/61W8xeZTwxL._SX679_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Wired Earphones",
+    "brand": "Apple",
+    "name": "Apple EarPods (USB-C)",
+    "description": "Apple EarPods with USB-C connector. Individual Amazon India product listing; check Amazon for current price and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0DCNWN8NZ?tag=worthsy0d-21",
+    "images": []
   }
 ]
