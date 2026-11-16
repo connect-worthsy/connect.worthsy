@@ -2972,11 +2972,9 @@ html body .ws-hero-copy{
                 if(suggestions) suggestions.appendChild(status);
 
                 function approved(url,kind){
-                    try{
-                        var u=new URL(url);
-                        if(kind==='amazon') return u.hostname==='www.amazon.in' && /^\/dp\/[A-Z0-9]{10}$/.test(u.pathname) && u.searchParams.get('tag')==='worthsy0d-21';
-                        if(kind==='awin') return u.hostname==='www.awin1.com' && u.pathname==='/pclick.php' && u.searchParams.get('a')==='3110404';
-                    }catch(e){}
+                    url=String(url||'');
+                    if(kind==='amazon') return /^https:\/\/www\.amazon\.in\/dp\/[A-Z0-9]{10}\?(?:[^#]*&)?tag=worthsy0d-21(?:&|#|$)/.test(url);
+                    if(kind==='awin') return /^https:\/\/www\.awin1\.com\/pclick\.php\?(?:[^#]*&)?a=3110404(?:&|#|$)/.test(url);
                     return false;
                 }
                 function add(p,isSneaker){
@@ -3067,7 +3065,7 @@ html body .ws-hero-copy{
                     }
                     if(hits.length>100){var note=document.createElement('p');note.className='text-xs text-slate-500';note.textContent='Showing first 100 results. Refine your search to narrow them.';out.appendChild(note);}
                 }
-                input.addEventListener('input',run);
+                input.addEventListener('input',run);\n                input.addEventListener('focus',run);
                 input.addEventListener('keydown',function(e){if(e.key==='Enter')run();});
                 btn.addEventListener('click',run);
                 window.addEventListener('worthsy:products-ready',function(){
