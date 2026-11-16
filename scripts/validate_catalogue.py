@@ -109,6 +109,12 @@ def main() -> int:
             raise SystemExit(f"ERROR: {filename} is not loading the shared header assets")
         if "worthsy-search.js" not in html:
             raise SystemExit(f"ERROR: {filename} is not loading the universal search engine")
+        if "worthsy-universal-footer.css" not in html:
+            raise SystemExit(f"ERROR: {filename} is missing the shared footer stylesheet")
+        if len(re.findall(r'<header class="worthsy-header wx-header', html)) != 1:
+            raise SystemExit(f"ERROR: {filename} must contain exactly one shared header")
+        if len(re.findall(r'<footer class="worthsy-footer wx-foot"', html)) != 1:
+            raise SystemExit(f"ERROR: {filename} must contain exactly one shared landing-page footer")
         if "worthsy-personalization-config.js" not in html or "worthsy-personalization.js" not in html:
             raise SystemExit(f"ERROR: {filename} is missing the My WORTHSY personalisation layer")
         if r"\\n</body>" in html:
