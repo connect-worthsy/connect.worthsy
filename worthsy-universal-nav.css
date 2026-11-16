@@ -78,3 +78,29 @@ body{padding-top:54px!important}
 
 /* Remove each page's legacy top bar; the shared homepage header is the only header. */
 body .top, body .topbar, body .page-top{display:none!important}
+
+
+/* FINAL FIX: lock the injected navigation to the homepage's exact outer and inner height. */
+html body>header.worthsy-header,
+html body .worthsy-header.wx-header{
+  position:fixed!important;top:0!important;left:0!important;right:0!important;
+  height:54px!important;min-height:54px!important;max-height:54px!important;
+  padding:0!important;margin:0!important;box-sizing:border-box!important;
+  overflow:visible!important;z-index:9999!important;
+}
+html body .worthsy-header.wx-header>div:first-child{
+  height:54px!important;min-height:54px!important;max-height:54px!important;
+  box-sizing:border-box!important; padding:0 24px!important;
+}
+html body .worthsy-header .worthsy-logo{height:30px!important;max-height:30px!important;width:auto!important;}
+html body{padding-top:54px!important}
+@media(max-width:650px){
+  html body>header.worthsy-header,html body .worthsy-header.wx-header{
+    height:66px!important;min-height:66px!important;max-height:66px!important;
+  }
+  html body .worthsy-header.wx-header>div:first-child{
+    height:66px!important;min-height:66px!important;max-height:66px!important;padding:0 16px!important;
+  }
+  html body .worthsy-header .worthsy-logo{height:34px!important;max-height:34px!important}
+  html body{padding-top:66px!important}
+}
