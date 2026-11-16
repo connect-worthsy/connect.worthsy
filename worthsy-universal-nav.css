@@ -75,3 +75,6 @@ body{padding-top:80px!important}
  .worthsy-header .worthsy-logo{height:34px!important}
  .worthsy-header .wx-cta-header{display:none!important}
 }
+
+/* Remove each page's legacy top bar; the shared homepage header is the only header. */
+body>.top, body>.topbar, body>.page-top{display:none!important}
