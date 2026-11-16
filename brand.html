@@ -130,15 +130,15 @@ a{color:inherit;text-decoration:none}button,input,select{font:inherit}
  const requested=params.get('brand')||'';
  const canonical=BRAND_NAMES.find(b=>norm(b)===norm(requested))||requested.trim();
  function norm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,'')}
- function productBrand(p){const raw=p&&p.brand&&String(p.brand).trim()?String(p.brand).trim():'';const n=String(p&&p.name||'').trim();const found=raw||BRAND_NAMES.find(b=>norm(n)===norm(b)||norm(n).startsWith(norm(b)));const value=found||(n.split(/\s+/)[0]||'Other');return norm(value)==='wd'?'Western Digital':value}
+ function productBrand(p){const n=String(p&&p.name||'').trim();const nameMatch=BRAND_NAMES.find(b=>norm(n)===norm(b)||norm(n).startsWith(norm(b)));const raw=p&&p.brand&&String(p.brand).trim()?String(p.brand).trim():'';const rawMatch=BRAND_NAMES.find(b=>norm(b)===norm(raw));const value=nameMatch||rawMatch||raw||(n.split(/\s+/)[0]||'Other');return norm(value)==='wd'?'Western Digital':value}
  function logoUrl(b,color){const slug=LOGOS[b];return slug?'https://cdn.simpleicons.org/'+slug+'/'+String(color||'111111').replace('#',''):''}
  const theme=THEMES[canonical]||['#171717','#777777','#f4f4f4','#111111'];
  document.documentElement.style.setProperty('--brand-accent',theme[0]);document.documentElement.style.setProperty('--brand-accent-2',theme[1]);document.documentElement.style.setProperty('--brand-bg',theme[2]);document.documentElement.style.setProperty('--brand-ink',theme[3]);document.documentElement.style.setProperty('--brand-panel','#ffffff');document.documentElement.style.setProperty('--brand-soft',theme[2]);
  document.title=canonical+' | Brand Store | WORTHSY';
  document.getElementById('brandTitle').textContent=canonical;
  document.getElementById('brandWordmark').textContent=canonical;
- const logo=logoUrl(canonical,'111111');
- if(logo){const img=document.createElement('img');img.src=logo;img.alt=canonical+' logo';img.onerror=()=>img.remove();document.getElementById('heroLogo').replaceChildren(img);}
+ const logo=logoUrl(canonical,canonical==='boAt'?'E20722':'111111');
+ if(logo){const img=document.createElement('img');img.src=logo;img.alt=canonical+' logo';img.onerror=()=>{img.remove();document.getElementById('brandWordmark').style.display='block';};document.getElementById('heroLogo').replaceChildren(img);}
  const desc=document.getElementById('brandDescription');desc.textContent='Discover '+canonical+' products from every available WORTHSY shopping partner, all in one place.';
  const grid=document.getElementById('productGrid'),search=document.getElementById('brandSearch'),category=document.getElementById('categoryFilter'),sort=document.getElementById('sortFilter'),count=document.getElementById('productCount'),partner=document.getElementById('partnerCount');
  const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
