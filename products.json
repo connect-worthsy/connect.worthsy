@@ -9126,5 +9126,233 @@
     "price": "",
     "link": "https://www.amazon.in/dp/B0DCNWN8NZ?tag=worthsy0d-21",
     "images": []
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Smartwatches",
+    "name": "Noise ColorFit Pulse 3 Smartwatch",
+    "description": "Noise ColorFit Pulse 3 Smartwatch. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CQRQK8L8?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CQRQK8L8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Mice",
+    "name": "acer Flow Wireless Mouse",
+    "description": "acer Flow Wireless Mouse. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D378LN1J?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D378LN1J.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers & Soundbars",
+    "name": "boAt Aavante 2.1 1650 160W Soundbar",
+    "description": "boAt Aavante 2.1 1650 160W Soundbar. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FHJ281GB?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0FHJ281GB.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers & Soundbars",
+    "name": "ZEBRONICS Juke Bar 9550 Pro 5.2 Soundbar",
+    "description": "ZEBRONICS Juke Bar 9550 Pro 5.2 Soundbar. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CJM2NST8?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CJM2NST8.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Cables & Adapters",
+    "name": "Anker 643 USB-C to USB-C 100W Cable",
+    "description": "Anker 643 USB-C to USB-C 100W Cable. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B093GFJ74C?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B093GFJ74C.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "GOBOULT Z40 True Wireless Earbuds",
+    "description": "GOBOULT Z40 True Wireless Earbuds. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0G2GGLTMF?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0G2GGLTMF.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Airdopes 311 Pro Earbuds",
+    "description": "boAt Airdopes 311 Pro Earbuds. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0F8BVSK21?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0F8BVSK21.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "Zebronics Duke Plus Wireless Headphones",
+    "description": "Zebronics Duke Plus Wireless Headphones. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D573MB31?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D573MB31.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Wearables",
+    "name": "Nex-Q2 Smart Fitness Band",
+    "description": "Nex-Q2 Smart Fitness Band. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0HBCRXY26?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0HBCRXY26.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Wearables Accessories",
+    "name": "INEFABLE Mi Band 3 and 4 Replacement Straps",
+    "description": "INEFABLE Mi Band 3 and 4 Replacement Straps. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0BFYPXW8S?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0BFYPXW8S.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Chargers",
+    "name": "65W Fast Charger Adapter and USB-C Cable Combo",
+    "description": "65W Fast Charger Adapter and USB-C Cable Combo. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0GFWVT3K7?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0GFWVT3K7.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Chargers",
+    "name": "65W GaN Trio Multiport Charger",
+    "description": "65W GaN Trio Multiport Charger. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0GCDVHJ5N?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0GCDVHJ5N.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Chargers",
+    "name": "65W GaN Trio Charger Adapter",
+    "description": "65W GaN Trio Charger Adapter. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0GZBCHCPF?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0GZBCHCPF.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers & Soundbars",
+    "name": "GOVO GoSurround 980 525W Soundbar",
+    "description": "GOVO GoSurround 980 525W Soundbar. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0D4ZFVSC1?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0D4ZFVSC1.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Speakers & Soundbars",
+    "name": "ZEBRONICS Zeb-Juke BAR 9500WS PRO Soundbar",
+    "description": "ZEBRONICS Zeb-Juke BAR 9500WS PRO Soundbar. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B09QKZNMVD?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B09QKZNMVD.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Cables & Adapters",
+    "name": "Portronics Konnect X 60W USB-C Cable",
+    "description": "Portronics Konnect X 60W USB-C Cable. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0CSNKC44N?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CSNKC44N.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "Mivi DuoPods Sync Wireless Earbuds",
+    "description": "Mivi DuoPods Sync Wireless Earbuds. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0FTFMNYBV?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0FTFMNYBV.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Airdopes 300 Wireless Earbuds",
+    "description": "boAt Airdopes 300 Wireless Earbuds. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0H2YY6N27?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0H2YY6N27.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Neckbands",
+    "name": "Bluetooth ANC Neckband for OnePlus Nord Z2",
+    "description": "Bluetooth ANC Neckband for OnePlus Nord Z2. Check the Amazon listing for current specifications and availability.",
+    "price": "",
+    "link": "https://www.amazon.in/dp/B0HF5GQZJP?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0HF5GQZJP.01._SCLZZZZZZZ_.jpg"
+    ]
   }
 ]
