@@ -359,7 +359,7 @@ body[data-brand-theme]:not([data-brand-theme="all"]) .card-tag{box-shadow:none}
             <div class="flex items-center gap-2 sm:gap-3">
                 <button id="uniSearchBtn" type="button" class="wx-searchpill" aria-label="Search products">
                     <i class="fa-solid fa-magnifying-glass"></i><span class="hidden sm:inline">Search products</span>
-                </button>
+                </button>\n                <button type="button" id="wst-account-open" class="wst-accountbtn" aria-label="Sign in or create a WORTHSY account"><i class="fa-regular fa-user" aria-hidden="true"></i><span class="wst-account-label">Account</span></button>
                 <div class="wx-shop"><div class="wx-shop-actions"><a id="wxShopBtn" href="shop.html" class="wx-cta wx-cta-header">Shop now</a><button type="button" id="wxShopToggle" class="wx-cta wx-cta-header wx-shop-arrow" aria-label="Open affiliate platform menu" aria-haspopup="true" aria-expanded="false" aria-controls="wxShopMenu"><i class="fa-solid fa-chevron-down"></i></button></div><div id="wxShopMenu" class="wx-shop-menu" role="menu" hidden><div class="wx-shop-menu-title">Explore affiliate platforms</div><div class="wx-aff-list"><a role="menuitem" href="shop.html#amazon">Amazon</a><a role="menuitem" href="shop.html#flipkart">Flipkart</a><a role="menuitem" href="shop.html#shopify">Shopify</a><a role="menuitem" href="shop.html#clickbank">ClickBank</a><a role="menuitem" href="shop.html#coursera">Coursera</a><a role="menuitem" href="shop.html#awin">Awin</a></div><a class="wx-shop-viewall" href="shop.html">Explore all products <span>→</span></a></div></div>
                 <button id="mobileMenuBtn" aria-label="Toggle navigation" class="lg:hidden p-2">
                     <i class="fa-solid fa-bars text-xl"></i>
@@ -783,7 +783,7 @@ fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Catalogue 
             window.addEventListener('hashchange', function () { if (!modal.classList.contains('hidden')) modal.classList.add('hidden'); });
         })();
     </script>
-<script src="worthsy-search.js?v=community6" defer></script>
+<script src="worthsy-search.js?v=community6" defer></script>\n    <link rel="stylesheet" href="worthsy-account.css?v=1">\n    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js" defer></script>\n    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js" defer></script>\n    <script src="worthsy-account.js?v=1" defer></script>
 <script src="worthsy-personalization-config.js?v=1"></script>
 <script src="worthsy-personalization.js?v=1" defer></script>
 </body></html>
