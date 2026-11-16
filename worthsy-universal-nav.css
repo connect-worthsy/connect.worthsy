@@ -77,4 +77,4 @@ body{padding-top:80px!important}
 }
 
 /* Remove each page's legacy top bar; the shared homepage header is the only header. */
-body>.top, body>.topbar, body>.page-top{display:none!important}
+body .top, body .topbar, body .page-top{display:none!important}
