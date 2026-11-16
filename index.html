@@ -2953,58 +2953,103 @@ html body .ws-hero-copy{
                 const go = document.createElement('span'); go.className = 'text-xs font-bold uppercase tracking-widest text-brandAccent whitespace-nowrap'; go.textContent = ext ? 'View' : 'Open page';
                 a.append(l, go); return a;
             }
-            var sneakerSearchCatalogue = fetch('sneakerhead-products.json?v=3c3a6347', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : { products: [] }; }).then(function (d) { return Array.isArray(d.products) ? d.products : []; }).catch(function () { return []; });
+            /* Universal search uses the live product feed plus the dedicated sneaker catalogue.
+               Both are loaded independently and the search reruns when the main feed finishes loading. */
+            var sneakerSearchCatalogue = fetch('sneakerhead-products.json', { cache: 'no-cache' })
+                .then(function (r) { return r.ok ? r.json() : { products: [] }; })
+                .then(function (d) { return Array.isArray(d.products) ? d.products : (Array.isArray(d) ? d : []); })
+                .catch(function () { return []; });
+            var mainSearchCatalogue = window.WORTHSY_PRODUCTS
+                ? Promise.resolve(window.WORTHSY_PRODUCTS)
+                : fetch('products.json', { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; });
+
             function bind(input, out, btn, onNav) {
+                var searchRunId = 0;
                 function run() {
-                    const q = input.value.trim().toLowerCase();
+                    var q = input.value.trim().toLowerCase();
+                    var runId = ++searchRunId;
                     out.textContent = '';
                     if (!q) return;
-                    let found = 0;
-                    document.querySelectorAll('.platform-page').forEach(function (pg) {
-                        const plat = pg.id.replace('page-', '');
-                        const label = plat.charAt(0).toUpperCase() + plat.slice(1);
-                        if (plat.indexOf(q) !== -1) { out.appendChild(row('Platform', label, '#' + plat, false, onNav)); found++; }
-                    });
-                    const words = q.split(/\s+/), LIM = 30; let hits = 0;
-                    sneakerSearchCatalogue.then(function (sneakers) {
-                        let sneakerHits = 0;
+                    var LIM = 40;
+                    var normalized = q.replace(/[^a-z0-9]+/g, ' ').trim();
+                    var words = normalized.split(/\\s+/).filter(Boolean);
+                    var sneakerIntent = /\\b(sneaker|sneakers|shoe|shoes|footwear)\\b/.test(normalized);
+                    var synonyms = sneakerIntent ? ['sneaker','sneakers','shoe','shoes','footwear'] : [];
+                    var platformHits = 0, sneakerHits = 0, productHits = 0, found = 0;
+
+                    function matches(hay) {
+                        hay = String(hay || '').toLowerCase();
+                        if (sneakerIntent && synonyms.some(function (w) { return hay.indexOf(w) !== -1; })) return true;
+                        return words.every(function (w) { return hay.indexOf(w) !== -1; });
+                    }
+                    Promise.all([mainSearchCatalogue, sneakerSearchCatalogue]).then(function (catalogues) {
+                        if (runId !== searchRunId) return;
+                        var main = Array.isArray(catalogues[0]) ? catalogues[0] : [];
+                        var sneakers = Array.isArray(catalogues[1]) ? catalogues[1] : [];
+                        out.textContent = '';
+
+                        document.querySelectorAll('.platform-page').forEach(function (pg) {
+                            var plat = pg.id.replace('page-', '');
+                            var label = plat.charAt(0).toUpperCase() + plat.slice(1);
+                            if (matches(plat + ' ' + label)) {
+                                out.appendChild(row('Platform', label, '#' + plat, false, onNav));
+                                platformHits++; found++;
+                            }
+                        });
+
+                        var seen = Object.create(null);
                         sneakers.forEach(function (p) {
-                            const name = p.name || p.model || 'Sneaker';
-                            const hay = [name, p.brand, p.category, p.description, p.model].filter(Boolean).join(' ').toLowerCase();
-                            if (!words.every(function (w) { return hay.indexOf(w) !== -1; })) return;
-                            sneakerHits++;
+                            var name = p.name || p.model || 'Sneaker';
+                            var hay = [name,p.brand,p.category,p.description,p.model,'sneaker sneakers shoes footwear'].filter(Boolean).join(' ').toLowerCase();
+                            if (!matches(hay)) return;
+                            var key = 'sneaker:' + name.toLowerCase();
+                            if (seen[key]) return;
+                            seen[key] = true; sneakerHits++;
                             if (sneakerHits <= LIM) {
-                                const href = 'sneakerhead.html?product=' + encodeURIComponent(name);
-                                out.appendChild(row(p.brand || 'Sneakerhead', name, href, false));
+                                out.appendChild(row(p.brand || 'Sneakerhead', name, 'sneakerhead.html?product=' + encodeURIComponent(name), false));
                                 found++;
                             }
                         });
+
+                        main.forEach(function (p) {
+                            var hay = [p.name,p.merchant,p.brand,p.category,p.platform,p.description,p.link,p.url,p.fallback_image,p.image]
+                                .concat(Array.isArray(p.images) ? p.images : []).filter(Boolean).join(' ').toLowerCase();
+                            if (/daily[\\s._-]*objects/i.test(hay)) return;
+                            if (!matches(hay)) return;
+                            var key = 'catalogue:' + String(p.platform || '') + ':' + String(p.link || p.url || p.name || '');
+                            if (seen[key]) return;
+                            seen[key] = true; productHits++;
+                            if (productHits <= LIM) {
+                                var href = p.link || p.url || '#';
+                                out.appendChild(row(p.merchant || p.platform || 'WORTHSY', (p.name || 'Product') + (p.price ? ' — ' + p.price : ''), href, true));
+                                found++;
+                            }
+                        });
+
+                        var summary = document.createElement('p');
+                        summary.className = 'text-slate-500 text-xs font-mono mb-3';
+                        summary.textContent = found + ' matching products' + (platformHits ? ' · ' + platformHits + ' platform' + (platformHits === 1 ? '' : 's') : '');
+                        out.insertBefore(summary, out.firstChild);
+
                         if (!found) {
-                            const empty = document.createElement('p');
-                            empty.className = 'text-slate-400 text-xs font-mono';
-                            empty.textContent = 'No products found yet. New picks are added regularly.';
+                            var empty = document.createElement('p');
+                            empty.className = 'text-slate-500 text-sm border border-dashed border-slate-300 rounded-xl p-6 text-center';
+                            empty.textContent = 'No matching products. Try a brand, model, category, or a broader search such as “sneakers”.';
                             out.appendChild(empty);
                         }
-                        if (sneakerHits > LIM) {
-                            const note = document.createElement('p');
-                            note.className = 'text-slate-400 text-xs font-mono';
-                            note.textContent = 'Showing ' + LIM + ' sneaker matches. Add more words to narrow it down.';
+                        var total = sneakerHits + productHits;
+                        if (sneakerHits > LIM || productHits > LIM) {
+                            var note = document.createElement('p');
+                            note.className = 'text-slate-500 text-xs font-mono mt-3';
+                            note.textContent = 'Showing up to ' + LIM + ' results from each catalogue section. Refine your search to narrow the matches.';
                             out.appendChild(note);
                         }
                     });
-                    (window.WORTHSY_PRODUCTS || []).forEach(function (p) {
-                        const hay = ((p.name || '') + ' ' + (p.merchant || '') + ' ' + (p.brand || '') + ' ' + (p.category || '') + ' ' + (p.platform || '') + ' ' + (p.description || '') + ' ' + (p.link || '') + ' ' + (p.url || '') + ' ' + (p.fallback_image || '') + ' ' + (Array.isArray(p.images) ? p.images.join(' ') : '')).toLowerCase();
-                        if (/daily[\\s._-]*objects/i.test(hay)) return;
-                        if (!words.every(function (w) { return hay.indexOf(w) !== -1; })) return;
-                        hits++;
-                        if (hits <= LIM) { out.appendChild(row(p.merchant || p.platform, (p.name || 'Product') + (p.price ? ' \u2014 ' + p.price : ''), p.link, true)); found++; }
-                    });
-                    if (hits > LIM) { const m = document.createElement('p'); m.className = 'text-slate-400 text-xs font-mono'; m.textContent = 'Showing ' + LIM + ' of ' + hits + ' matches. Add more words to narrow it down.'; out.appendChild(m); }
-
                 }
                 input.addEventListener('input', run);
                 input.addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
                 btn.addEventListener('click', run);
+                window.addEventListener('worthsy:products-ready', function () { if (input.value.trim()) run(); });
             }
             const modal = document.getElementById('searchModal');
             const mInput = document.getElementById('modalSearch');
