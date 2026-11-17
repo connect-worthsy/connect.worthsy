@@ -5,12 +5,16 @@ on:
       - "products.json"
       - "sneakerhead-products.json"
       - "scripts/audit_catalogue.py"
+      - "worthsy-motion.js"
+      - "worthsy-universal-nav.js"
       - ".github/workflows/worthsy-catalogue-audit.yml"
   pull_request:
     paths:
       - "products.json"
       - "sneakerhead-products.json"
       - "scripts/audit_catalogue.py"
+      - "worthsy-motion.js"
+      - "worthsy-universal-nav.js"
       - ".github/workflows/worthsy-catalogue-audit.yml"
   workflow_dispatch:
 permissions:
@@ -25,5 +29,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Check storefront JavaScript syntax
+        run: |
+          node --check worthsy-motion.js
+          node --check worthsy-universal-nav.js
       - name: Validate product catalogue
         run: python scripts/audit_catalogue.py
