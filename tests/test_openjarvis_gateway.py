@@ -14,7 +14,7 @@ class OpenJarvisGatewayTests(unittest.TestCase):
         payload = ChatRequest(messages=[{"role": "user", "content": "Find headphones"}])
         with patch.dict(os.environ, {"OPENJARVIS_ENABLED": "false"}, clear=False):
             with self.assertRaises(HTTPException) as error:
-                asyncio.run(openjarvis_chat(payload, None))
+                asyncio.run(openjarvis_chat(payload))
         self.assertEqual(error.exception.status_code, 503)
 
     def test_browser_cannot_supply_system_role(self):
