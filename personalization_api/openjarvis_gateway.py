@@ -9,7 +9,7 @@ import os
 from typing import Literal
 
 import httpx
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
 router = APIRouter()
@@ -25,7 +25,7 @@ class ChatRequest(BaseModel):
 
 
 @router.post("/openjarvis/chat")
-async def openjarvis_chat(payload: ChatRequest, request: Request) -> dict[str, str]:
+async def openjarvis_chat(payload: ChatRequest) -> dict[str, str]:
     if os.getenv("OPENJARVIS_ENABLED", "false").lower() != "true":
         raise HTTPException(status_code=503, detail="WORTHSY AI is not enabled on this environment.")
     base_url = os.getenv("OPENJARVIS_BASE_URL", "").rstrip("/")
@@ -38,7 +38,7 @@ async def openjarvis_chat(payload: ChatRequest, request: Request) -> dict[str, s
 
     query = payload.messages[-1].content
     # Only public, approved catalogue fields are sent to the model.
-    from .main import CATALOGUE, public_product, score_search
+    from .main import CATALOGUE, score_search
 
     ranked = [(score_search(item, query), item) for item in CATALOGUE]
     ranked = sorted((pair for pair in ranked if pair[0] > 0), key=lambda pair: -pair[0])[:8]
