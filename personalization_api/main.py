@@ -464,3 +464,8 @@ def compare(request: CompareRequest) -> dict[str, Any]:
         ],
         "note": "Only catalogue fields are compared. Unavailable specifications and prices are not guessed.",
     }
+
+
+# Optional customer-facing OpenJarvis gateway; disabled until staging secrets are configured.
+from .openjarvis_gateway import router as openjarvis_router
+app.include_router(openjarvis_router)
