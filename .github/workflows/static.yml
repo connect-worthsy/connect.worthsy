@@ -11,9 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+# Keep one Pages deployment active at a time. Never cancel an in-progress
+# deployment just because another commit is pushed.
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -42,7 +44,7 @@ jobs:
                   if str(product.get("platform", "")).lower() != "amazon":
                       continue
                   link = str(product.get("link", ""))
-                  if not re.match(r"^https://www\.amazon\.in/dp/", link, flags=re.I):
+                  if not re.match(r"^https://www\\.amazon\\.in/dp/", link, flags=re.I):
                       continue
                   link = re.sub(r"[?&]tag=[^&]+", "", link)
                   link = link.rstrip("?&")
