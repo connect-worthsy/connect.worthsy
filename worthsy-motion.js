@@ -27,14 +27,15 @@
   }
   function productInfo(el){
     if(!el)return {};
-    const link=el.querySelector('a[href*="amazon.in"],a[href*="awin1.com"]');
+    const link=el.matches&&el.matches('a[href]')?el:el.querySelector('a[href*="amazon.in"],a[href*="awin1.com"]');
     let productId='';
     if(link){try{const u=new URL(link.href);const m=u.pathname.match(/\/dp\/([A-Z0-9]{10})/i);if(m)productId=m[1].toUpperCase()}catch(_){}}
-    const title=el.querySelector('h1,h2,h3,h4,[data-product-name]')?.textContent||el.getAttribute('data-product-name')||'';
-    const meta=el.querySelector('.wsy-p-meta,.wsy-result-meta,[data-product-meta]')?.textContent||'';
-    const bits=meta.split(/[·|]/).map(x=>safeText(x,80)).filter(Boolean);
-    const brand=safeText(el.getAttribute('data-brand')||bits[0]||'');
-    const category=safeText(el.getAttribute('data-category')||bits[1]||'');
+    const title=el.querySelector('h1,h2,h3,h4,[data-product-name],.roam-info strong')?.textContent||el.getAttribute('data-product-name')||'';
+    const brandNode=el.querySelector('.wsy-p-meta,.wsy-result-meta,[data-product-meta],.brand-name,.product-brand-word,.product-tag');
+    const brandImage=el.querySelector('img.product-brand-logo');
+    const categoryNode=el.querySelector('.card-type,[data-product-category]');
+    const brand=safeText(el.getAttribute('data-brand')||(brandNode&&brandNode.textContent)||(brandImage&&brandImage.alt.replace(/\\s+logo$/i,''))||'');
+    const category=safeText(el.getAttribute('data-category')||(categoryNode&&categoryNode.textContent)||'');
     const platform=link?(link.href.includes('amazon.in')?'Amazon':'Awin'):'';
     return {productId:productId||safeText(el.getAttribute('data-product-id')||title,80),brand,category,platform};
   }
@@ -47,12 +48,12 @@
       const top=document.createElement('button');top.id='wsy-back-top';top.type='button';top.textContent='↑';top.setAttribute('aria-label','Back to top');top.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced?'auto':'smooth'}));document.body.appendChild(top);
     }
     if(reduced||!('IntersectionObserver'in window))return;
-    const selectors='.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.wx-brand-card,.brand-card';
+    const selectors='.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid > .product,#productGrid > .card,.roam-card,.platform-logo-card,.brand-strip .brand-btn,.wx-gta-product,.ws-art-card,.wx-brand-card,.brand-card';
     const observer=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.classList.add('wsy-in-view');
-          if(entry.target.matches('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item')){
+          if(entry.target.matches('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid > .product,#productGrid > .card,.roam-card')){
             const info=productInfo(entry.target);
             if(info.productId)send('product_view',info);
           }
