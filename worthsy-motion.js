@@ -41,36 +41,36 @@
   }
   function addMotion(){
     document.body.classList.add('wsy-motion-ready');
-    if(!document.getElementById('wsy-scroll-progress')){
-      const bar=document.createElement('div');bar.id='wsy-scroll-progress';bar.setAttribute('aria-hidden','true');document.body.appendChild(bar);
-    }
-    if(!document.getElementById('wsy-back-top')){
-      const top=document.createElement('button');top.id='wsy-back-top';top.type='button';top.textContent='↑';top.setAttribute('aria-label','Back to top');top.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced?'auto':'smooth'}));document.body.appendChild(top);
-    }
-    if(reduced||!('IntersectionObserver'in window))return;
-    const selectors='.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid .product,.roam-track .product,#productGrid > .card,.roam-card,.platform-logo-card,.brand-strip .brand-btn,.wx-gta-product,.ws-art-card,.wx-brand-card,.brand-card,.ws-brand-grid > *,section .section-head';
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          entry.target.classList.add('wsy-in-view');
-          if(entry.target.matches('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid .product,.roam-track .product,#productGrid > .card,.roam-card')){
-            const info=productInfo(entry.target);
-            if(info.productId)send('product_view',info);
-          }
-          observer.unobserve(entry.target);
-        }
-      });
-    },{rootMargin:'0px 0px -7% 0px',threshold:.08});
+    if(!document.getElementById('wsy-scroll-progress')){const bar=document.createElement('div');bar.id='wsy-scroll-progress';bar.setAttribute('aria-hidden','true');document.body.appendChild(bar)}
+    if(!document.getElementById('wsy-back-top')){const top=document.createElement('button');top.id='wsy-back-top';top.type='button';top.textContent='↑';top.setAttribute('aria-label','Back to top');top.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced?'auto':'smooth'}));document.body.appendChild(top)}
+    const revealSelectors='main > section,main > .hero,main > .wrap > .hero,.ws-hero,.hero:not(header .hero),.brand-hero,.brand-signature,.brand-toolbar,.brand-disclaimer,.signature-grid,.wx-gta-campaign,.platform-grid,.search-section,.roam-section,.cta-band,.form-shell,.articles > .article,.articles > article,.article,.hero-art,.hero-visual,.hero-grid > .hero-copy,.hero-grid > .hero-art,.hero-inner > *, .section-head,.wrap > .note,.brand-main,.brand-shell > section,.product-grid > *,#productGrid > .card,#featuredGrid > *, .roam-track > *, .platform-grid > *, .signature-grid > *,.fields > *,footer .grid > div,.wx-footer-social,.wx-foot-bar,.modal-layout > *';
+    const cardSelectors='.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid .product,.roam-track .product,#productGrid > .card,.roam-card,.article,.platform-logo-card,.platform,.signature-pick,.wx-gta-product,.ws-art-card,.wx-brand-card,.brand-card,.ws-brand-grid > *,.card';
+    const interactiveSelectors='button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,.signature-cta,[role="button"]';
+    const observer=(!reduced&&'IntersectionObserver'in window)?new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('wsy-in-view');if(entry.target.matches(cardSelectors)){const info=productInfo(entry.target);if(info.productId)send('product_view',info)}observer.unobserve(entry.target)}
+    }),{rootMargin:'0px 0px -6% 0px',threshold:.06}):null;
     const decorate=root=>{
-      (root||document).querySelectorAll(selectors).forEach((el,i)=>{
-        if(el.dataset.wsyMotion==='1')return;
-        el.dataset.wsyMotion='1';el.classList.add('wsy-motion-item','wsy-motion-hover');
-        el.style.setProperty('--wsy-motion-delay',Math.min(i%7,6)*45+'ms');
-        observer.observe(el);
+      if(!root||!root.querySelectorAll)return;
+      const nodes=new Set();
+      if(root.nodeType===1&&root.matches(revealSelectors+','+cardSelectors))nodes.add(root);
+      root.querySelectorAll(revealSelectors+','+cardSelectors).forEach(el=>nodes.add(el));
+      let order=0;
+      nodes.forEach(el=>{
+        if(el.dataset.wsyMotion==='1'||el.closest('[hidden],[aria-hidden="true"]'))return;
+        el.dataset.wsyMotion='1';el.classList.add('wsy-motion-item');
+        if(el.matches(cardSelectors))el.classList.add('wsy-motion-hover');
+        el.style.setProperty('--wsy-motion-delay',Math.min(order%8,7)*55+'ms');order++;
+        if(observer)observer.observe(el);else el.classList.add('wsy-in-view');
       });
+      root.querySelectorAll(interactiveSelectors).forEach(el=>{if(!el.dataset.wsyInteractive){el.dataset.wsyInteractive='1';el.classList.add('wsy-interactive')}});
+      root.querySelectorAll('a[href]').forEach(el=>{if(!el.dataset.wsyLinkMotion){el.dataset.wsyLinkMotion='1';if(!el.closest('header,button,.wx-shop-menu'))el.classList.add('wsy-link-motion')}});
+      root.querySelectorAll('input,select,textarea').forEach(el=>{if(!el.dataset.wsyInputMotion){el.dataset.wsyInputMotion='1';el.classList.add('wsy-input-motion')}});
+      root.querySelectorAll('.product-card img,.product-item img,.product-grid img,#productGrid img,.article img,.hero-visual img,.hero-art img,.signature-pick img').forEach(el=>el.classList.add('wsy-image-motion'));
     };
-    decorate();
-    if('MutationObserver'in window)new MutationObserver(records=>records.forEach(r=>r.addedNodes.forEach(n=>{if(n.nodeType===1){if(n.matches&&n.matches(selectors))decorate(n.parentNode);else decorate(n)}}))).observe(document.body,{childList:true,subtree:true});
+    const hero=document.querySelector('.ws-hero,.hero,.brand-hero,.hero-grid,.hero-inner,.wx-gta-campaign');
+    if(hero&&!reduced){hero.querySelectorAll('.ws-eyebrow,.eyebrow,.hero-copy,.hero-inner > *,h1,h2,.hero-art,.hero-visual,.hero-actions,.hero-description,.hero-grid > *').forEach((el,i)=>{if(i<12){el.classList.add('wsy-hero-enter');if(i>0)el.classList.add('wsy-hero-delay-'+Math.min(i%4,3))}})}
+    decorate(document);
+    if('MutationObserver'in window&&!window.WORTHSY_MOTION_OBSERVER){window.WORTHSY_MOTION_OBSERVER=new MutationObserver(records=>records.forEach(r=>r.addedNodes.forEach(n=>{if(n.nodeType===1)decorate(n)})));window.WORTHSY_MOTION_OBSERVER.observe(document.body,{childList:true,subtree:true})}
   }
   let scrollQueued=false;
   function onScroll(){
