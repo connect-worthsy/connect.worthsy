@@ -9524,5 +9524,41 @@
     "images": [
       "https://cdn1.smartprix.com/rx-iMkEv6s3F-w420-h420/cmf-by-nothing-buds.webp"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "Sony ULT Wear WH-ULT900N Wireless Noise Cancelling Headphones",
+    "description": "Over-ear wireless headphones with active noise cancellation and ULT bass modes. Verify current variant and availability on Amazon.",
+    "price": "₹12,989",
+    "link": "https://www.amazon.in/dp/B0CWVX1GNX?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0CWVX1GNX.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "soundcore by Anker Q20i Hybrid Active Noise Cancelling Headphones",
+    "description": "Over-ear Bluetooth headphones with hybrid active noise cancellation. Verify current price and availability on Amazon.",
+    "price": "₹4,499",
+    "link": "https://www.amazon.in/dp/B0C3HCD34R?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0C3HCD34R.01._SCLZZZZZZZ_.jpg"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "boAt Rockerz Prime 415 Wireless Headphones",
+    "description": "Over-ear Bluetooth headphones with 40 mm drivers and up to 120 hours claimed playback. Verify current price and availability on Amazon.",
+    "price": "₹1,899",
+    "link": "https://www.amazon.in/dp/B0FZL2NCFV?tag=worthsy0d-21",
+    "images": [
+      "https://images-na.ssl-images-amazon.com/images/P/B0FZL2NCFV.01._SCLZZZZZZZ_.jpg"
+    ]
   }
 ]
