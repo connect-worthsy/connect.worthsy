@@ -9452,5 +9452,77 @@
     "images": [
       "https://cdn1.smartprix.com/rx-ibQY052Ua-w280-h280/realme-buds-wireless.webp"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "OnePlus Nord Buds 4 Pro",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 6.0 and microphone.",
+    "price": "₹4,199",
+    "link": "https://www.amazon.in/dp/B0GQTSHLLR?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iyKqPpM4d-w280-h280/oneplus-nord-buds-4.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "realme Buds Air 7",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 5.4 and microphone.",
+    "price": "₹2,982",
+    "link": "https://www.amazon.in/dp/B0DRD8HRG3?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-icBm4MMic-w280-h280/realme-buds-air-7.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "OnePlus Nord Buds 4",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 6.1 and microphone.",
+    "price": "₹3,198",
+    "link": "https://www.amazon.in/dp/B0H3Q5DPP9?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iqXajifNL-w280-h280/oneplus-nord-buds-4.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "GoBoult Z40 Pro V2.0",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 5.4 and microphone.",
+    "price": "₹1,299",
+    "link": "https://www.amazon.in/dp/B0GRV6L413?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iMXP9LSGn-w280-h280/goboult-z40-pro-v2-0.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "realme Buds Air 8 Pro",
+    "description": "Wireless TWS earbuds with 11 mm + 6 mm dual DAC drivers, adaptive active noise cancellation and up to 50 hours battery life with case.",
+    "price": "₹6,999",
+    "link": "https://www.amazon.in/dp/B0H2D1CGQG?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iGvh8GfTk-w420-h420/realme-buds-air-8-pr.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "CMF by Nothing Buds Pro 2",
+    "description": "Wireless TWS earbuds with 11 mm bass driver plus 6 mm micro-planar tweeter, 50 dB hybrid ANC and up to 43 hours battery life with case.",
+    "price": "₹4,299",
+    "link": "https://www.amazon.in/dp/B0D9BKWRRG?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iMkEv6s3F-w420-h420/cmf-by-nothing-buds.webp"
+    ]
   }
 ]
