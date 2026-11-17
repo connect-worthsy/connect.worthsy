@@ -83,11 +83,6 @@
           if(!reduced&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){card.addEventListener('pointermove',event=>{const r=card.getBoundingClientRect(),px=Math.max(0,Math.min(1,(event.clientX-r.left)/r.width)),py=Math.max(0,Math.min(1,(event.clientY-r.top)/r.height));card.style.setProperty('--wsy-tilt-x',((px-.5)*10).toFixed(2)+'deg');card.style.setProperty('--wsy-tilt-y',((.5-py)*10).toFixed(2)+'deg');card.style.setProperty('--wsy-light-x',(px*100).toFixed(1)+'%');card.style.setProperty('--wsy-light-y',(py*100).toFixed(1)+'%')},{passive:true});card.addEventListener('pointerleave',()=>{card.style.setProperty('--wsy-tilt-x','0deg');card.style.setProperty('--wsy-tilt-y','0deg');card.style.setProperty('--wsy-light-x','50%');card.style.setProperty('--wsy-light-y','50%')},{passive:true})}
           const badge=card.querySelector('[class*="badge"],.badge,.product-badge,.discount-badge');
           if(badge)badge.classList.add('wsy-animated-badge');
-          const image=card.querySelector('img');
-          if(image&&!image.parentElement.classList.contains('wsy-product-image-frame')){
-            const parent=image.parentElement;
-            if(parent&&parent!==card){parent.classList.add('wsy-product-image-frame')}
-          }
         }
       });
       const magnets=Array.from(root.querySelectorAll('button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]'));
