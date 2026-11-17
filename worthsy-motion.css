@@ -47,3 +47,49 @@
   .wsy-motion-item{opacity:1!important;translate:none!important;scale:1!important;transition:none!important}
   .wsy-motion-hover,.wsy-motion-hover img,.wsy-image-motion,.wsy-interactive,.wsy-link-motion,.wsy-input-motion,.ws-art-card,.wx-gta-product,.hero-art,.hero-visual,.ws-hero-art,#wsy-scroll-progress,#wsy-back-top{animation:none!important;transition:none!important;transform:none!important;translate:none!important;scale:1!important}
 }
+
+/* WORTHSY cinematic interaction layer — native CSS/JS, monochrome and progressive. */
+@media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine){
+  .wsy-tilt-card{position:relative;transform-style:preserve-3d;transform:perspective(950px) rotateX(var(--wsy-tilt-y,0deg)) rotateY(var(--wsy-tilt-x,0deg)) translate3d(0,var(--wsy-card-lift,0px),0);transition:transform .24s cubic-bezier(.2,.75,.25,1),box-shadow .35s ease;will-change:transform}
+  .wsy-tilt-card:hover{--wsy-card-lift:-4px;box-shadow:0 24px 48px rgba(0,0,0,.14)!important}
+  .wsy-tilt-card:focus-within{--wsy-card-lift:-2px}
+  .wsy-tilt-card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(circle at var(--wsy-light-x,50%) var(--wsy-light-y,50%),rgba(255,255,255,.34),transparent 48%);transition:opacity .3s ease;z-index:2}
+  .wsy-tilt-card:hover::after{opacity:1}
+  .wsy-tilt-card img{transform:translateZ(22px);backface-visibility:hidden}
+  .wsy-magnetic{translate:var(--wsy-magnet-x,0px) var(--wsy-magnet-y,0px);transition:translate .28s cubic-bezier(.2,.8,.2,1),transform .25s ease}
+  .wsy-cursor-ring,.wsy-cursor-dot{position:fixed;left:0;top:0;z-index:1000005;pointer-events:none;border-radius:50%;opacity:0;contain:layout style;will-change:transform}
+  .wsy-cursor-ring{width:34px;height:34px;border:1px solid rgba(0,0,0,.55);margin:-17px 0 0 -17px;transition:width .2s ease,height .2s ease,margin .2s ease,background .2s ease,border-color .2s ease}
+  .wsy-cursor-dot{width:4px;height:4px;background:#111;margin:-2px 0 0 -2px}
+  .wsy-cursor-ring.is-active{width:54px;height:54px;margin:-27px 0 0 -27px;background:rgba(0,0,0,.06);border-color:#111}
+  body.wsy-cursor-ready,a,button,[role="button"]{cursor:auto}
+  body.wsy-cursor-ready a,body.wsy-cursor-ready button,body.wsy-cursor-ready [role="button"]{cursor:pointer}
+  .wsy-reveal-left{translate:-44px 0;clip-path:inset(0 0 0 0)}
+  .wsy-reveal-right{translate:44px 0}
+  .wsy-reveal-scale{scale:.94;translate:0 18px}
+  .wsy-reveal-clip{clip-path:inset(0 0 16% 0);translate:0 24px}
+  .wsy-reveal-left.wsy-in-view,.wsy-reveal-right.wsy-in-view,.wsy-reveal-clip.wsy-in-view{translate:0 0;clip-path:inset(0)}
+  .wsy-reveal-scale.wsy-in-view{scale:1;translate:0 0}
+  .wsy-parallax-layer{will-change:transform;transform:translate3d(0,var(--wsy-parallax-y,0px),0) scale(var(--wsy-parallax-scale,1))}
+  .wsy-product-image-frame{overflow:hidden}
+  .wsy-product-image-frame img{transition:transform .85s cubic-bezier(.16,1,.3,1),filter .5s ease}
+  .wsy-tilt-card:hover .wsy-product-image-frame img{transform:translateZ(28px) scale(1.065);filter:contrast(1.04)}
+  .wsy-animated-badge{animation:wsy-badge-arrive .65s cubic-bezier(.16,1,.3,1) both}
+  @keyframes wsy-badge-arrive{from{opacity:0;translate:0 8px;scale:.88}to{opacity:1;translate:0 0;scale:1}}
+  .wsy-page-curtain{position:fixed;inset:0;z-index:1000004;background:#090909;pointer-events:none;transform:scaleY(0);transform-origin:bottom;transition:transform .52s cubic-bezier(.77,0,.175,1)}
+  .wsy-page-curtain.is-entering{transform:scaleY(1);transform-origin:top}
+  .wsy-page-curtain.is-leaving{transform:scaleY(1);transform-origin:bottom}
+  .wsy-page-curtain::after{content:"WORTHSY";position:absolute;left:50%;top:50%;translate:-50% -50%;color:#fff;font:800 clamp(20px,3vw,34px)/1 Inter,Arial,sans-serif;letter-spacing:.22em;opacity:0;transition:opacity .2s ease .18s}
+  .wsy-page-curtain.is-leaving::after{opacity:1}
+  .wsy-page-curtain.is-entering::after{opacity:0;transition-delay:0s}
+  .wsy-page-scene-home .wsy-hero-enter{transform-origin:50% 70%}
+  .wsy-page-scene-shop .wsy-motion-item{transition-duration:.62s}
+  .wsy-page-scene-sneaker .wsy-hero-enter{filter:blur(0)}
+  .wsy-page-scene-editorial .wsy-motion-item{transition-duration:.9s}
+}
+@media (hover:none),(pointer:coarse){
+  .wsy-tilt-card,.wsy-magnetic{transform:none!important;translate:none!important}
+  .wsy-cursor-ring,.wsy-cursor-dot{display:none!important}
+}
+@media (prefers-reduced-motion:reduce){
+  .wsy-tilt-card,.wsy-magnetic,.wsy-reveal-left,.wsy-reveal-right,.wsy-reveal-scale,.wsy-reveal-clip,.wsy-parallax-layer,.wsy-page-curtain,.wsy-cursor-ring,.wsy-cursor-dot,.wsy-animated-badge{animation:none!important;transition:none!important;transform:none!important;translate:none!important;scale:1!important;clip-path:none!important}
+}
