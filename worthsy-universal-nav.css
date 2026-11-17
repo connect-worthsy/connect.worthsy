@@ -107,3 +107,24 @@ html body header.worthsy-header.wx-header{
 }
 html body{padding-top:54px!important}
 @media(max-width:767px){html body{padding-top:66px!important}}
+
+/* Final shared-shell lock: loaded last on every WORTHSY page. */
+html body header.worthsy-header.wx-header{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ position:fixed!important;inset:0 0 auto 0!important;z-index:999999!important;
+ width:100%!important;height:54px!important;min-height:54px!important;max-height:54px!important;
+ margin:0!important;padding:0!important;transform:none!important;clip:auto!important;
+ overflow:visible!important;pointer-events:auto!important;box-sizing:border-box!important;
+}
+html body header.worthsy-header.wx-header>div:first-child{
+ height:54px!important;min-height:54px!important;max-height:54px!important;
+ max-width:1200px!important;margin:0 auto!important;padding:0 24px!important;
+ display:flex!important;align-items:center!important;justify-content:space-between!important;
+}
+html body header.worthsy-header.wx-header .worthsy-logo{height:30px!important;max-height:30px!important}
+html body{padding-top:54px!important}
+@media(max-width:767px){
+ html body header.worthsy-header.wx-header{height:66px!important;min-height:66px!important;max-height:66px!important}
+ html body header.worthsy-header.wx-header>div:first-child{height:66px!important;min-height:66px!important;max-height:66px!important;padding:0 14px!important}
+ html body{padding-top:66px!important}
+}
