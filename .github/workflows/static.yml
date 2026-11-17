@@ -70,6 +70,8 @@ jobs:
           python scripts/validate_catalogue.py
           node --check worthsy-search.js
           node --check worthsy-universal-nav.js
+          node --check worthsy-motion.js
+          python scripts/validate_motion.py
           node --check worthsy-personalization.js
 
       - name: Test Python recommendation API
