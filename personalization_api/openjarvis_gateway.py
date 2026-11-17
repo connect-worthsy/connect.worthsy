@@ -6,13 +6,35 @@ service is deployed and OPENJARVIS_ENABLED=true is set on the API host.
 from __future__ import annotations
 
 import os
+import time
+from collections import defaultdict, deque
 from typing import Literal
 
 import httpx
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
 router = APIRouter()
+
+_ALLOWED_ORIGINS = {"https://www.worthsy.in", "https://worthsy.in"}
+_RATE_WINDOW_SECONDS = 60
+_RATE_LIMIT = 20
+_REQUESTS: dict[str, deque[float]] = defaultdict(deque)
+
+
+def _check_origin_and_rate_limit(request: Request) -> None:
+    origin = request.headers.get("origin", "")
+    if origin not in _ALLOWED_ORIGINS:
+        raise HTTPException(status_code=403, detail="This origin is not allowed.")
+    # Use the direct peer address; do not trust caller-supplied forwarding headers.
+    client_ip = request.client.host if request.client else "unknown"
+    now = time.monotonic()
+    bucket = _REQUESTS[client_ip]
+    while bucket and now - bucket[0] > _RATE_WINDOW_SECONDS:
+        bucket.popleft()
+    if len(bucket) >= _RATE_LIMIT:
+        raise HTTPException(status_code=429, detail="Too many messages. Please try again shortly.")
+    bucket.append(now)
 
 
 class ChatMessage(BaseModel):
@@ -25,7 +47,8 @@ class ChatRequest(BaseModel):
 
 
 @router.post("/openjarvis/chat")
-async def openjarvis_chat(payload: ChatRequest) -> dict[str, str]:
+async def openjarvis_chat(payload: ChatRequest, request: Request) -> dict[str, str]:
+    _check_origin_and_rate_limit(request)
     if os.getenv("OPENJARVIS_ENABLED", "false").lower() != "true":
         raise HTTPException(status_code=503, detail="WORTHSY AI is not enabled on this environment.")
     base_url = os.getenv("OPENJARVIS_BASE_URL", "").rstrip("/")
