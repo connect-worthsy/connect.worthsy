@@ -14,7 +14,7 @@
    const link=document.createElement('link');link.rel='stylesheet';link.href='worthsy-motion.css?v=1';link.dataset.wsyMotionStyle='true';document.head.appendChild(link);
   }
   if(!document.querySelector('script[data-wsy-motion-script]')){
-   const script=document.createElement('script');script.src='worthsy-motion.js?v=2';script.dataset.wsyMotionScript='true';document.head.appendChild(script);
+   const script=document.createElement('script');script.src='worthsy-motion.js?v=3';script.dataset.wsyMotionScript='true';document.head.appendChild(script);
   }
  };
  const mount=async()=>{
