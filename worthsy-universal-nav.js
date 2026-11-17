@@ -9,7 +9,7 @@
   mobileBtn?.addEventListener('click',()=>{const open=!mobile.classList.contains('is-open');mobile.classList.toggle('is-open',open);mobileBtn.setAttribute('aria-expanded',String(open));mobileBtn.innerHTML=open?'<i class="fa-solid fa-xmark text-xl"></i>':'<i class="fa-solid fa-bars text-xl"></i>'});
   // The shared search engine owns #uniSearchBtn on every page. Never redirect it.
  };
- const loadEnhancements=()=>{\n  if(!document.querySelector('link[data-wsy-motion-style]')){\n   const link=document.createElement('link');link.rel='stylesheet';link.href='worthsy-motion.css?v=1';link.dataset.wsyMotionStyle='true';document.head.appendChild(link);\n  }\n  if(!document.querySelector('script[data-wsy-motion-script]')){\n   const script=document.createElement('script');script.src='worthsy-motion.js?v=1';script.dataset.wsyMotionScript='true';document.head.appendChild(script);\n  }\n };\n const mount=async()=>{\n  loadEnhancements();
+ const loadEnhancements=()=>{\n  if(!document.querySelector('link[data-wsy-motion-style]')){\n   const link=document.createElement('link');link.rel='stylesheet';link.href='worthsy-motion.css?v=1';link.dataset.wsyMotionStyle='true';document.head.appendChild(link);\n  }\n  if(!document.querySelector('script[data-wsy-motion-script]')){\n   const script=document.createElement('script');script.src='worthsy-motion.js?v=2';script.dataset.wsyMotionScript='true';document.head.appendChild(script);\n  }\n };\n const mount=async()=>{\n  loadEnhancements();
   let header=document.querySelector('body>header.worthsy-header.wx-header');
   if(!header){
    try{
