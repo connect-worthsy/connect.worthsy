@@ -86,3 +86,31 @@ html body footer.worthsy-footer.wx-foot{
   clip:auto!important;pointer-events:auto!important;clear:both!important;
   width:100%!important;min-height:1px!important;
 }
+
+/* Final shared-shell lock: loaded last on every WORTHSY page. */
+html body footer.worthsy-footer.wx-foot{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ position:relative!important;z-index:2!important;float:none!important;clear:both!important;
+ inset:auto!important;transform:none!important;clip:auto!important;overflow:visible!important;
+ pointer-events:auto!important;box-sizing:border-box!important;
+ width:100%!important;max-width:none!important;min-width:0!important;
+ height:auto!important;min-height:1px!important;max-height:none!important;
+ margin:48px 0 0!important;padding:0!important;
+ background:#f7f7f7!important;color:#222!important;border-top:1px solid #e8e8e8!important;
+}
+html body footer.worthsy-footer.wx-foot>.max-w-7xl{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ width:100%!important;max-width:1240px!important;min-height:1px!important;
+ margin:0 auto!important;padding:28px 24px 14px!important;box-sizing:border-box!important;
+}
+html body footer.worthsy-footer.wx-foot .grid{
+ display:grid!important;grid-template-columns:1.7fr repeat(4,minmax(0,1fr))!important;
+ gap:20px 28px!important;row-gap:24px!important;
+}
+@media(max-width:900px){
+ html body footer.worthsy-footer.wx-foot .grid{grid-template-columns:1fr 1fr!important}
+ html body footer.worthsy-footer.wx-foot .grid>:first-child{grid-column:1/-1!important}
+}
+@media(max-width:640px){
+ html body footer.worthsy-footer.wx-foot>.max-w-7xl{padding:2.5rem 18px 1.5rem!important}
+}
