@@ -1,13 +1,19 @@
 import asyncio
 import os
+import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 from fastapi import HTTPException
 from pydantic import ValidationError
 from starlette.requests import Request
 
-from personalization_api.openjarvis_gateway import ChatRequest, openjarvis_chat
+from personalization_api.openjarvis_gateway import (
+    ChatRequest,
+    _website_context,
+    openjarvis_chat,
+)
 
 
 def allowed_request():
@@ -39,6 +45,18 @@ class OpenJarvisGatewayTests(unittest.TestCase):
     def test_chat_history_is_bounded(self):
         with self.assertRaises(ValidationError):
             ChatRequest(messages=[{"role": "user", "content": "x" * 601}])
+
+    def test_website_context_retrieves_relevant_visible_copy(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "index.html").write_text(
+                "<h2>Shipping</h2><p>Returns and refunds across India.</p>"
+                "<script>fake hidden refund policy</script>",
+                encoding="utf-8",
+            )
+            result = _website_context("returns refunds", root)
+        self.assertIn("Returns and refunds across India", result)
+        self.assertNotIn("fake hidden", result)
 
 
 if __name__ == "__main__":
