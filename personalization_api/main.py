@@ -8,13 +8,14 @@ and are discarded after the response.
 from __future__ import annotations
 
 import hashlib
+import httpx
 import json
 import re
 from pathlib import Path
 from typing import Any
 from urllib.parse import parse_qs, urlparse
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -463,6 +464,89 @@ def compare(request: CompareRequest) -> dict[str, Any]:
             for item in items
         ],
         "note": "Only catalogue fields are compared. Unavailable specifications and prices are not guessed.",
+    }
+
+
+# Read-only WORTHSY administrator API. Firebase ID tokens are verified server-side
+# against Google's Identity Toolkit before any admin data is returned.
+_ADMIN_EMAIL = "connect.worthsy@gmail.com"
+_FIREBASE_WEB_API_KEY = "AIzaSyDxBGEZnGnCdUQftwS-QgOVMH5h9WNzecE"
+
+
+async def _require_worthsy_admin(request: Request) -> dict[str, Any]:
+    authorization = request.headers.get("authorization", "")
+    if not authorization.lower().startswith("bearer "):
+        raise HTTPException(status_code=401, detail="Administrator sign-in is required.")
+    token = authorization.split(" ", 1)[1].strip()
+    if not token or len(token) > 5000:
+        raise HTTPException(status_code=401, detail="Invalid administrator session.")
+    try:
+        async with httpx.AsyncClient(timeout=httpx.Timeout(8.0, connect=3.0)) as client:
+            response = await client.post(
+                "https://identitytoolkit.googleapis.com/v1/accounts:lookup",
+                params={"key": _FIREBASE_WEB_API_KEY},
+                json={"idToken": token},
+            )
+            response.raise_for_status()
+            users = response.json().get("users", [])
+    except (httpx.HTTPError, ValueError, TypeError):
+        raise HTTPException(status_code=503, detail="Administrator identity verification is temporarily unavailable.")
+    if not users:
+        raise HTTPException(status_code=401, detail="Administrator session could not be verified.")
+    user = users[0]
+    email = str(user.get("email") or "").strip().lower()
+    if email != _ADMIN_EMAIL or user.get("emailVerified") is not True:
+        raise HTTPException(status_code=403, detail="This account is not authorised to access WORTHSY administration.")
+    return {"email": email, "uid": str(user.get("localId") or "")}
+
+
+@app.get("/admin/overview")
+async def admin_overview(request: Request) -> dict[str, Any]:
+    admin = await _require_worthsy_admin(request)
+    brands = sorted({str(item.get("brand") or "").strip() for item in CATALOGUE if item.get("brand")})
+    categories = sorted({str(item.get("category") or "Other").strip() for item in CATALOGUE})
+    missing_links = sum(not item.get("link") for item in CATALOGUE)
+    missing_images = sum(not item.get("image") for item in CATALOGUE)
+    missing_prices = sum(item.get("price_value") is None for item in CATALOGUE)
+    return {
+        "administrator": admin["email"],
+        "products": len(CATALOGUE),
+        "brands": len(brands),
+        "categories": len(categories),
+        "missing_links": missing_links,
+        "missing_images": missing_images,
+        "missing_prices": missing_prices,
+        "service": "WORTHSY Python API",
+        "catalogue_source": "Repository product catalogue",
+        "mode": "read_only",
+    }
+
+
+@app.get("/admin/catalogue-audit")
+async def admin_catalogue_audit(request: Request) -> dict[str, Any]:
+    await _require_worthsy_admin(request)
+    issues: list[dict[str, str]] = []
+    seen_links: set[str] = set()
+    for item in CATALOGUE:
+        name = str(item.get("name") or "Unnamed product")
+        link = str(item.get("link") or "")
+        image = str(item.get("image") or "")
+        if not link:
+            issues.append({"product": name, "issue": "Missing affiliate link"})
+        elif link in seen_links:
+            issues.append({"product": name, "issue": "Duplicate affiliate destination"})
+        else:
+            seen_links.add(link)
+        if not image:
+            issues.append({"product": name, "issue": "Missing product image"})
+        if item.get("price_value") is None:
+            issues.append({"product": name, "issue": "No catalogue price; verify at retailer"})
+    return {
+        "checked": len(CATALOGUE),
+        "issue_count": len(issues),
+        "issues": issues[:200],
+        "truncated": len(issues) > 200,
+        "note": "Structural catalogue checks only; retailer availability and live prices are not verified.",
     }
 
 
