@@ -70,7 +70,75 @@
     const hero=document.querySelector('.ws-hero,.hero,.brand-hero,.hero-grid,.hero-inner,.wx-gta-campaign');
     if(hero&&!reduced){hero.querySelectorAll('.ws-eyebrow,.eyebrow,.hero-copy,.hero-inner > *,h1,h2,.hero-art,.hero-visual,.hero-actions,.hero-description,.hero-grid > *').forEach((el,i)=>{if(i<12){el.classList.add('wsy-hero-enter');if(i>0)el.classList.add('wsy-hero-delay-'+Math.min(i%4,3))}})}
     decorate(document);
-    if('MutationObserver'in window&&!window.WORTHSY_MOTION_OBSERVER){window.WORTHSY_MOTION_OBSERVER=new MutationObserver(records=>records.forEach(r=>r.addedNodes.forEach(n=>{if(n.nodeType===1)decorate(n)})));window.WORTHSY_MOTION_OBSERVER.observe(document.body,{childList:true,subtree:true})}
+    const pageName=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+    document.body.classList.add(pageName==='index.html'?'wsy-page-scene-home':pageName.includes('sneaker')?'wsy-page-scene-sneaker':pageName==='shop.html'?'wsy-page-scene-shop':(['about.html','career.html','blog.html'].includes(pageName)?'wsy-page-scene-editorial':'wsy-page-scene-brand'));
+    function enhanceMotion(root){
+      if(!root||!root.querySelectorAll)return;
+      const cards=root.querySelectorAll(cardSelectors);
+      cards.forEach(card=>{
+        if(card.dataset.wsyTilt!=='1'){
+          card.dataset.wsyTilt='1';
+          card.classList.add('wsy-tilt-card');
+          const badge=card.querySelector('[class*="badge"],.badge,.product-badge,.discount-badge');
+          if(badge)badge.classList.add('wsy-animated-badge');
+          const image=card.querySelector('img');
+          if(image&&!image.parentElement.classList.contains('wsy-product-image-frame')){
+            const parent=image.parentElement;
+            if(parent&&parent!==card){parent.classList.add('wsy-product-image-frame')}
+          }
+        }
+      });
+      root.querySelectorAll('button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]').forEach(el=>{
+        if(el.dataset.wsyMagnetic==='1')return;
+        el.dataset.wsyMagnetic='1';
+        if(!reduced&&window.matchMedia('(hover:hover) and (pointer:fine)').matches)el.classList.add('wsy-magnetic');
+      });
+      root.querySelectorAll('.hero-art,.hero-visual,.ws-hero-art,.hero-grid > img,.brand-hero img,.wx-gta-campaign img').forEach(el=>{
+        if(!el.dataset.wsyParallax){el.dataset.wsyParallax='1';el.classList.add('wsy-parallax-layer')}
+      });
+      root.querySelectorAll('.wsy-motion-item').forEach((el,i)=>{
+        if(el.dataset.wsyReveal)return;
+        el.dataset.wsyReveal='1';
+        if(el.matches(cardSelectors))el.classList.add('wsy-reveal-scale');
+        else if(/hero|brand-signature|signature-grid|article|form-shell/i.test(el.className||''))el.classList.add(i%2?'wsy-reveal-right':'wsy-reveal-left');
+        else if(/section|platform|roam|grid|footer/i.test(el.className||''))el.classList.add('wsy-reveal-clip');
+      });
+    }
+    function installCursor(){
+      if(reduced||!window.matchMedia('(hover:hover) and (pointer:fine)').matches||document.querySelector('.wsy-cursor-ring'))return;
+      const ring=document.createElement('span'),dot=document.createElement('span');
+      ring.className='wsy-cursor-ring';dot.className='wsy-cursor-dot';ring.setAttribute('aria-hidden','true');dot.setAttribute('aria-hidden','true');
+      document.body.append(ring,dot);document.body.classList.add('wsy-cursor-ready');
+      let x=-100,y=-100,rx=-100,ry=-100,raf=0;
+      const paint=()=>{raf=0;rx+=(x-rx)*.24;ry+=(y-ry)*.24;ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';dot.style.transform='translate3d('+x+'px,'+y+'px,0)';if(Math.abs(x-rx)+Math.abs(y-ry)>.3)raf=requestAnimationFrame(paint)};
+      document.addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY;ring.style.opacity='1';dot.style.opacity='1';if(!raf)raf=requestAnimationFrame(paint)},{passive:true});
+      document.addEventListener('pointerover',e=>{const hot=e.target.closest&&e.target.closest('a,button,[role="button"],.wsy-tilt-card');ring.classList.toggle('is-active',!!hot)},{passive:true});
+      document.addEventListener('pointerout',e=>{if(!e.relatedTarget){ring.style.opacity='0';dot.style.opacity='0'}},{passive:true});
+    }
+    function installCurtain(){
+      if(reduced||document.querySelector('.wsy-page-curtain'))return;
+      const curtain=document.createElement('div');curtain.className='wsy-page-curtain';curtain.setAttribute('aria-hidden','true');document.body.appendChild(curtain);
+      requestAnimationFrame(()=>curtain.classList.add('is-entering'));
+      setTimeout(()=>curtain.classList.remove('is-entering'),560);
+      document.addEventListener('click',event=>{
+        const link=event.target.closest&&event.target.closest('a[href]');
+        if(!link||event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+        if(link.target&&link.target!=='_self'||link.hasAttribute('download'))return;
+        let url;try{url=new URL(link.href,location.href)}catch(_){return}
+        if(url.origin!==location.origin||url.pathname===location.pathname||/^mailto:|^tel:/i.test(link.href))return;
+        if(/\.(pdf|zip|png|jpe?g|webp|svg|mp4)$/i.test(url.pathname))return;
+        event.preventDefault();
+        if(curtain.dataset.busy==='1')return;
+        curtain.dataset.busy='1';curtain.classList.remove('is-entering');curtain.classList.add('is-leaving');
+        setTimeout(()=>location.assign(url.href),520);
+      },true);
+      window.addEventListener('pageshow',()=>{curtain.dataset.busy='';curtain.classList.remove('is-leaving');curtain.classList.add('is-entering');setTimeout(()=>curtain.classList.remove('is-entering'),520)});
+    }
+    enhanceMotion(document);
+    installCursor();
+    installCurtain();
+
+    if('MutationObserver'in window&&!window.WORTHSY_MOTION_OBSERVER){window.WORTHSY_MOTION_OBSERVER=new MutationObserver(records=>records.forEach(r=>r.addedNodes.forEach(n=>{if(n.nodeType===1){decorate(n);enhanceMotion(n)}})));window.WORTHSY_MOTION_OBSERVER.observe(document.body,{childList:true,subtree:true})}
   }
   let scrollQueued=false;
   function onScroll(){
