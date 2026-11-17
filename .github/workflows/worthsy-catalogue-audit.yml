@@ -1,0 +1,29 @@
+name: WORTHSY catalogue integrity
+on:
+  push:
+    paths:
+      - "products.json"
+      - "sneakerhead-products.json"
+      - "scripts/audit_catalogue.py"
+      - ".github/workflows/worthsy-catalogue-audit.yml"
+  pull_request:
+    paths:
+      - "products.json"
+      - "sneakerhead-products.json"
+      - "scripts/audit_catalogue.py"
+      - ".github/workflows/worthsy-catalogue-audit.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out WORTHSY
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate product catalogue
+        run: python scripts/audit_catalogue.py
