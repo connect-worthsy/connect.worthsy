@@ -1,21 +1,37 @@
-/* WORTHSY premium motion layer — additive, monochrome and layout-safe. */
+/* WORTHSY — site-wide monochrome motion system. Additive: no layout or colour redesign. */
 :root{scroll-behavior:smooth}
 @media(prefers-reduced-motion:no-preference){
-  body.wsy-motion-ready{animation:wsy-page-enter .75s cubic-bezier(.16,1,.3,1) both}
-  @keyframes wsy-page-enter{from{opacity:.55;filter:blur(3px)}to{opacity:1;filter:blur(0)}}
-  .wsy-motion-item{opacity:0;transform:translate3d(0,34px,0) scale(.975);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);transition-delay:var(--wsy-motion-delay,0ms);will-change:opacity,transform}
-  .wsy-motion-item.wsy-in-view{opacity:1;transform:translate3d(0,0,0) scale(1);will-change:auto}
-  .wsy-motion-hover{transition:transform .32s cubic-bezier(.2,.8,.2,1),box-shadow .32s ease,border-color .32s ease!important}
-  .wsy-motion-hover:hover{transform:translate3d(0,-8px,0)!important;box-shadow:0 18px 38px rgba(0,0,0,.12)!important;border-color:#aaa!important}
-  .wsy-motion-hover img{transition:transform .65s cubic-bezier(.2,.8,.2,1),filter .4s ease}
-  .wsy-motion-hover:hover img{transform:scale(1.065);filter:contrast(1.035)}
+  body.wsy-motion-ready{animation:wsy-page-enter .72s cubic-bezier(.16,1,.3,1) both}
+  @keyframes wsy-page-enter{from{opacity:.72;filter:blur(2px)}to{opacity:1;filter:blur(0)}}
+  body.wsy-motion-ready>header.worthsy-header{animation:wsy-header-drop .72s cubic-bezier(.16,1,.3,1) both}
+  @keyframes wsy-header-drop{from{opacity:0;translate:0 -16px}to{opacity:1;translate:0 0}}
+  .wsy-hero-enter{animation:wsy-hero-enter .95s cubic-bezier(.16,1,.3,1) both}
+  .wsy-hero-enter.wsy-hero-delay-1{animation-delay:.10s}
+  .wsy-hero-enter.wsy-hero-delay-2{animation-delay:.20s}
+  .wsy-hero-enter.wsy-hero-delay-3{animation-delay:.32s}
+  @keyframes wsy-hero-enter{from{opacity:0;translate:0 24px;scale:.985;filter:blur(5px)}to{opacity:1;translate:0 0;scale:1;filter:blur(0)}}
+  .wsy-motion-item{opacity:0;translate:0 30px;scale:.985;transition:opacity .72s cubic-bezier(.16,1,.3,1),translate .78s cubic-bezier(.16,1,.3,1),scale .78s cubic-bezier(.16,1,.3,1);transition-delay:var(--wsy-motion-delay,0ms);will-change:opacity,translate,scale}
+  .wsy-motion-item.wsy-in-view{opacity:1;translate:0 0;scale:1;will-change:auto}
+  .wsy-motion-hover{transition:transform .34s cubic-bezier(.2,.8,.2,1),box-shadow .34s ease,border-color .34s ease,background-color .25s ease!important}
+  .wsy-motion-hover:hover{transform:translate3d(0,-6px,0)!important;box-shadow:0 16px 34px rgba(0,0,0,.12)!important;border-color:#aaa!important}
+  .wsy-motion-hover img,.wsy-image-motion{transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .5s ease}
+  .wsy-motion-hover:hover img,.wsy-image-motion:hover{transform:scale(1.045);filter:contrast(1.035)}
+  .wsy-interactive{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,background-color .25s ease,color .25s ease,border-color .25s ease}
+  .wsy-interactive:hover{transform:translateY(-2px)}
+  .wsy-interactive:active{transform:translateY(0) scale(.975)}
+  .wsy-link-motion{background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;transition:background-size .3s ease}
+  .wsy-link-motion:hover{background-size:100% 1px}
+  .wsy-input-motion{transition:border-color .25s ease,box-shadow .25s ease,background-color .25s ease}
+  .wsy-input-motion:focus{box-shadow:0 0 0 3px rgba(0,0,0,.08)}
   .ws-art-card{animation:wsy-float 5.5s ease-in-out infinite;will-change:transform}
-  .ws-art-card-two{animation-delay:-1.8s}
-  .ws-art-card-three{animation-delay:-3.6s}
+  .ws-art-card-two{animation-delay:-1.8s}.ws-art-card-three{animation-delay:-3.6s}
   @keyframes wsy-float{0%,100%{translate:0 0}50%{translate:0 -11px}}
-  .wx-gta-product{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
-  .wx-gta-product:hover{transform:translateY(-6px)}
-  .wsy-motion-hover:active{transform:scale(.985)!important}
+  .wx-gta-product{transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s ease}
+  .wx-gta-product:hover{transform:translateY(-7px)}
+  .hero-art,.hero-visual,.ws-hero-art{transform-origin:center;animation:wsy-art-breathe 9s ease-in-out infinite}
+  @keyframes wsy-art-breathe{0%,100%{scale:1}50%{scale:1.012}}
+  .wsy-section-rule{transform-origin:left;animation:wsy-rule-in .9s .2s cubic-bezier(.16,1,.3,1) both}
+  @keyframes wsy-rule-in{from{scale:0 1}to{scale:1 1}}
   #wsy-back-top{transition:opacity .25s ease,transform .25s ease,visibility .25s ease,background .2s ease,color .2s ease}
   #wsy-scroll-progress{transition:width .08s linear}
 }
@@ -27,7 +43,7 @@
 @media(max-width:640px){#wsy-back-top{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:40px;height:40px}}
 @media(prefers-reduced-motion:reduce){
   :root{scroll-behavior:auto}
-  body.wsy-motion-ready{animation:none}
-  .wsy-motion-item{opacity:1!important;transform:none!important;transition:none!important}
-  .wsy-motion-hover,.wsy-motion-hover img,.ws-art-card,.wx-gta-product,#wsy-scroll-progress,#wsy-back-top{animation:none!important;transition:none!important;transform:none!important;translate:none!important}
+  body.wsy-motion-ready,body.wsy-motion-ready>header.worthsy-header{animation:none}
+  .wsy-motion-item{opacity:1!important;translate:none!important;scale:1!important;transition:none!important}
+  .wsy-motion-hover,.wsy-motion-hover img,.wsy-image-motion,.wsy-interactive,.wsy-link-motion,.wsy-input-motion,.ws-art-card,.wx-gta-product,.hero-art,.hero-visual,.ws-hero-art,#wsy-scroll-progress,#wsy-back-top{animation:none!important;transition:none!important;transform:none!important;translate:none!important;scale:1!important}
 }
