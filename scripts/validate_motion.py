@@ -21,7 +21,7 @@ for asset in ("worthsy-motion.css?v=4", "worthsy-motion.js?v=6"):
     if asset not in nav:
         errors.append(f"Motion loader missing {asset}")
 motion = (ROOT / "worthsy-motion.js").read_text(encoding="utf-8")
-for feature in ("installCurtain", "enhanceMotion", "installCursor", "IntersectionObserver", "prefers-reduced-motion"):
+for feature in ("installCurtain", "enhanceMotion", "installCursor", "IntersectionObserver", "prefers-reduced-motion", ".wst-card", "#wst-grid > *", ".wst-btn"):
     if feature not in motion:
         errors.append(f"Motion runtime missing expected feature: {feature}")
 css = (ROOT / "worthsy-motion.css").read_text(encoding="utf-8")
