@@ -95,3 +95,29 @@
 }
 
 @media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine){body.wsy-cursor-ready,body.wsy-cursor-ready *{cursor:none!important}}
+
+
+/* Layered transitions for existing cart, product quick-view, account and navigation UI. */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes wsy-backdrop-arrive{from{opacity:0;backdrop-filter:blur(0)}to{opacity:1;backdrop-filter:blur(6px)}}
+  @keyframes wsy-panel-arrive{from{opacity:0;transform:translate3d(0,24px,0) scale(.975);filter:blur(5px)}to{opacity:1;transform:translate3d(0,0,0) scale(1);filter:blur(0)}}
+  @keyframes wsy-drawer-arrive{from{transform:translate3d(100%,0,0)}to{transform:translate3d(0,0,0)}}
+  @keyframes wsy-menu-arrive{from{opacity:0;transform:translate3d(0,-8px,0) scale(.985)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+  .wst-account-layer.open,.wst-modal.open,.modal-backdrop:not([hidden]),#searchModal.open,#searchModal:not([hidden]){animation:wsy-backdrop-arrive .32s ease both}
+  .wst-account-layer.open .wst-account-card,.wst-modal.open .wst-panel,.modal-backdrop .product-modal,#sneakerModal .product-modal{animation:wsy-panel-arrive .48s cubic-bezier(.16,1,.3,1) both}
+  .wst-drawer.open{animation:wsy-drawer-arrive .42s cubic-bezier(.16,1,.3,1) both}
+  .wst-drawer.open .wst-drawer-head{animation:wsy-panel-arrive .42s .04s both}
+  .wst-drawer.open .wst-drawer-body{animation:wsy-panel-arrive .46s .08s both}
+  .wst-drawer.open .wst-drawer-foot{animation:wsy-panel-arrive .46s .12s both}
+  .wx-shop-menu:not([hidden]),#mobileMenu.is-open{animation:wsy-menu-arrive .28s cubic-bezier(.16,1,.3,1) both;transform-origin:top right}
+  #searchModal .modalResults,#modalResults,#modalSuggestions{animation:wsy-panel-arrive .32s cubic-bezier(.16,1,.3,1) both}
+  .wst-gal img,.modal-visual img,#modalVisual img{transition:transform .65s cubic-bezier(.16,1,.3,1),opacity .35s ease,filter .4s ease}
+  .wst-gal img:hover,.modal-visual img:hover,#modalVisual img:hover{transform:scale(1.025);filter:contrast(1.04)}
+}
+@media (prefers-reduced-motion:reduce){
+  .wst-account-layer.open,.wst-modal.open,.modal-backdrop:not([hidden]),#searchModal.open,#searchModal:not([hidden]),
+  .wst-account-layer.open .wst-account-card,.wst-modal.open .wst-panel,.modal-backdrop .product-modal,#sneakerModal .product-modal,
+  .wst-drawer.open,.wst-drawer.open .wst-drawer-head,.wst-drawer.open .wst-drawer-body,.wst-drawer.open .wst-drawer-foot,
+  .wx-shop-menu:not([hidden]),#mobileMenu.is-open,#searchModal .modalResults,#modalResults,#modalSuggestions,
+  .wst-gal img,.modal-visual img,#modalVisual img{animation:none!important;transition:none!important}
+}
