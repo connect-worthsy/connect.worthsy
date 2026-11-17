@@ -1,6 +1,6 @@
-/* OpenJarvis remains disabled until the isolated staging service is deployed and verified. */
+/* Customer-facing OpenJarvis chat uses the WORTHSY server-side gateway. */
 window.WORTHSY_OPENJARVIS_CONFIG = window.WORTHSY_OPENJARVIS_CONFIG || {
-  enabled: false,
-  apiBase: "",
+  enabled: true,
+  apiBase: "https://worthsy-jarvis-gateway.onrender.com",
   chatPath: "/openjarvis/chat"
 };
