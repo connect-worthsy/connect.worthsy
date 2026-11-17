@@ -30,12 +30,12 @@
     const link=el.matches&&el.matches('a[href]')?el:el.querySelector('a[href*="amazon.in"],a[href*="awin1.com"]');
     let productId='';
     if(link){try{const u=new URL(link.href);const m=u.pathname.match(/\/dp\/([A-Z0-9]{10})/i);if(m)productId=m[1].toUpperCase()}catch(_){}}
-    const title=el.querySelector('h1,h2,h3,h4,[data-product-name],.roam-info strong')?.textContent||el.getAttribute('data-product-name')||'';
+    const title=el.querySelector('h1,h2,h3,h4,[data-product-name],.roam-info strong')?.textContent||el.getAttribute('data-product-name')||document.getElementById('modalName')?.textContent||'';
     const brandNode=el.querySelector('.wsy-p-meta,.wsy-result-meta,[data-product-meta],.brand-name,.product-brand-word,.product-tag');
     const brandImage=el.querySelector('img.product-brand-logo');
     const categoryNode=el.querySelector('.card-type,[data-product-category]');
-    const brand=safeText(el.getAttribute('data-brand')||(brandNode&&brandNode.textContent)||(brandImage&&brandImage.alt.replace(/\\s+logo$/i,''))||'');
-    const category=safeText(el.getAttribute('data-category')||(categoryNode&&categoryNode.textContent)||'');
+    const brand=safeText(el.getAttribute('data-brand')||(brandNode&&brandNode.textContent)||(brandImage&&brandImage.alt.replace(/\\s+logo$/i,''))||document.getElementById('modalBrand')?.textContent||'');
+    const category=safeText(el.getAttribute('data-category')||(categoryNode&&categoryNode.textContent)||document.getElementById('modalCategory')?.textContent||'');
     const platform=link?(link.href.includes('amazon.in')?'Amazon':'Awin'):'';
     return {productId:productId||safeText(el.getAttribute('data-product-id')||title,80),brand,category,platform};
   }
@@ -89,8 +89,8 @@
     const compare=target.closest&&target.closest('[data-wsy-compare]');
     if(save){send('wishlist_toggle',{productId:safeText(save.getAttribute('data-wsy-save'),80)});return}
     if(compare){send('compare_toggle',{productId:safeText(compare.getAttribute('data-wsy-compare'),80)});return}
-    const brand=target.closest&&target.closest('[data-brand-filter],.brand-filter,[data-filter-brand]');
-    if(brand){send('brand_filter',{brand:safeText(brand.getAttribute('data-brand-filter')||brand.getAttribute('data-filter-brand')||brand.textContent)});return}
+    const brand=target.closest&&target.closest('[data-brand-filter],.brand-filter,[data-filter-brand],.brand-strip .brand-btn');
+    if(brand){send('brand_filter',{brand:safeText(brand.getAttribute('data-brand-filter')||brand.getAttribute('data-filter-brand')||brand.dataset.brand||brand.textContent)});return}
     const category=target.closest&&target.closest('[data-category-filter],.category-filter,[data-filter-category]');
     if(category){send('category_filter',{category:safeText(category.getAttribute('data-category-filter')||category.getAttribute('data-filter-category')||category.textContent)});return}
     const outbound=target.closest&&target.closest('a[href]');
@@ -100,9 +100,9 @@
     }
   },{passive:true});
   document.addEventListener('keydown',event=>{
-    if(event.key==='Enter'&&event.target&&event.target.matches('#wsy-search-input,[type="search"],[data-wsy-search]'))send('search_submit',{});
+    if(event.key==='Enter'&&event.target&&event.target.matches('#wsy-search-input,#search,[type="search"],[data-wsy-search]'))send('search_submit',{});
   });
-  window.addEventListener('scroll',onScroll,{passive:true});
+  document.addEventListener('change',event=>{const el=event.target;if(!el||!el.matches)return;if(el.matches('#brandFilter,[data-brand-filter],.brand-filter'))send('brand_filter',{brand:safeText(el.value||el.getAttribute('data-brand-filter'))});else if(el.matches('#categoryFilter,[data-category-filter],.category-filter'))send('category_filter',{category:safeText(el.value||el.getAttribute('data-category-filter'))})});\n  window.addEventListener('scroll',onScroll,{passive:true});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{addMotion();onScroll();send('page_view',{})},{once:true});
   else {addMotion();onScroll();send('page_view',{})}
 })();
