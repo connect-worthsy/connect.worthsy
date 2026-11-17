@@ -9344,5 +9344,113 @@
     "images": [
       "https://images.dailyobjects.com/marche/product-images/1101/indigo-stack-phone-case-cover-for-iphone-16-images/Indigo-Stack-Phone-Case-iPhone-16-vw.png?tr=cm-pad_resize%2Cv-4%2Cbg-FFFFFF"
     ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "realme Buds Air 8",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 5.4 and up to 58 hours battery life with case.",
+    "price": "₹3,799",
+    "link": "https://www.amazon.in/dp/B0GDQCTYFB?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-icv5Zy7g9-w280-h280/realme-buds-air-8.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "realme Buds T500 Pro",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 6.1 and 12.4 mm drivers.",
+    "price": "₹2,999",
+    "link": "https://www.amazon.in/dp/B0GVZ85TQ6?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-ieqxDcHNS-w280-h280/realme-buds-t500-pro.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "OnePlus Buds 4",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 5.4 and microphone.",
+    "price": "₹6,099",
+    "link": "https://www.amazon.in/dp/B0FCMRVJKH?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iQBzQULzY-w280-h280/oneplus-buds-4.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "Samsung Galaxy Buds 3 Pro",
+    "description": "Wireless in-ear TWS earbuds with active noise cancellation, Bluetooth 5.4 and microphone.",
+    "price": "₹15,990",
+    "link": "https://www.amazon.in/dp/B0D7M4G3NP?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iZoSZ7E3P-w280-h280/samsung-galaxy-buds.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "boAt Nirvana Ion ANC True Wireless Earbuds",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 5.2 and microphone.",
+    "price": "₹1,799",
+    "link": "https://www.amazon.in/dp/B0CF5PNVZH?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iHqOHSuJ5-w280-h280/boat-nirvana-ion-anc.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "realme Buds Air 7 Pro",
+    "description": "Wireless TWS earbuds with active noise cancellation, Bluetooth 5.4 and microphone.",
+    "price": "₹5,499",
+    "link": "https://www.amazon.in/dp/B0F8BGP4DQ?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iMS7Yb3RW-w280-h280/realme-buds-air-7-pr.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Headphones",
+    "name": "Srhythm NC25 Wireless Headphone",
+    "description": "Over-ear wireless and wired headphones with Bluetooth 5.3 and active noise cancellation.",
+    "price": "₹7,999",
+    "link": "https://www.amazon.in/dp/B07F62W3TQ?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iqLqta2BX-w280-h280/srhythm-nc25-wireles.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Earbuds",
+    "name": "realme Buds T310",
+    "description": "Wireless in-ear TWS earbuds with Bluetooth 5.4, microphone and 12.4 mm drivers.",
+    "price": "₹1,899",
+    "link": "https://www.amazon.in/dp/B0FVLFTL4B?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iLN8HJF6F-w280-h280/realme-buds-t310-tru.webp"
+    ]
+  },
+  {
+    "platform": "amazon",
+    "merchant": "Amazon India",
+    "category": "Neckbands",
+    "name": "realme Buds Wireless 5 ANC",
+    "description": "Wireless neckband earphones with active noise cancellation, Bluetooth 5.4 and microphone.",
+    "price": "₹1,599",
+    "link": "https://www.amazon.in/dp/B0DNPWJLQC?tag=worthsy0d-21",
+    "images": [
+      "https://cdn1.smartprix.com/rx-iLN8HJF6F-w280-h280/realme-buds-t310-tru.webp"
+    ]
   }
 ]
