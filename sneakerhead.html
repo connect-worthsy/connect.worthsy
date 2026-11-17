@@ -500,7 +500,10 @@ function storeList(p){
  }
  marketplaceSearch.forEach(s=>list.push({name:s.name,url:searchLink(s.base,query),price:'Search this exact model · confirm size and price',kind:'marketplace',search:true}));
  if(/^https:\/\/www\.amazon\.in\/(?:[A-Za-z0-9-]+\/)?dp\/[A-Z0-9]{10}\?tag=worthsy0d-21$/.test(a)) list.push({name:'Amazon India · WORTHSY affiliate',url:a,price:p.price||'Price shown by Amazon',kind:'affiliate'});
- else list.push({name:'Amazon India · Affiliate link',url:'',price:'Affiliate product link not yet verified',kind:'pending'});
+ else {
+  list.push({name:'Amazon India',url:searchLink('https://www.amazon.in/s?k=',query),price:'Search this exact model · compare available sellers',kind:'marketplace',search:true});
+  list.push({name:'Amazon India · Affiliate link',url:'',price:'Individual affiliate product link not yet verified',kind:'pending'});
+ }
  if(/^https:\/\/www\.awin1\.com\/pclick\.php\?/.test(w)&&/[?&]a=3110404(?:&|$)/.test(w)) list.push({name:'Awin · WORTHSY affiliate',url:w,price:p.price||'Price shown by retailer',kind:'affiliate'});
  else list.push({name:'Awin · Affiliate link',url:'',price:'Awin deep link not yet added for this sneaker',kind:'pending'});
  return list;
