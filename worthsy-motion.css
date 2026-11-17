@@ -93,3 +93,5 @@
 @media (prefers-reduced-motion:reduce){
   .wsy-tilt-card,.wsy-magnetic,.wsy-reveal-left,.wsy-reveal-right,.wsy-reveal-scale,.wsy-reveal-clip,.wsy-parallax-layer,.wsy-page-curtain,.wsy-cursor-ring,.wsy-cursor-dot,.wsy-animated-badge{animation:none!important;transition:none!important;transform:none!important;translate:none!important;scale:1!important;clip-path:none!important}
 }
+
+@media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine){body.wsy-cursor-ready,body.wsy-cursor-ready *{cursor:none!important}}
