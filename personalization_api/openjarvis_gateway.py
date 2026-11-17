@@ -42,7 +42,7 @@ class _VisibleText(HTMLParser):
 
     def handle_endtag(self, tag: str) -> None:
         if self.active_tag == tag:
-            value = re.sub(r"\\s+", " ", " ".join(self.parts)).strip()
+            value = re.sub(r"\s+", " ", " ".join(self.parts)).strip()
             if value and len(value) <= 700:
                 self.blocks.append(value)
             self.active_tag = None
@@ -83,7 +83,7 @@ def _website_context(query: str, root: Path) -> str:
         selected.append(f"[{page}] {block}")
         if len(selected) >= 14:
             break
-    return "\\n".join(selected) if selected else "No directly relevant page copy was found."
+    return "\n".join(selected) if selected else "No directly relevant page copy was found."
 
 
 def _check_origin_and_rate_limit(request: Request) -> None:
@@ -150,8 +150,8 @@ async def openjarvis_chat(payload: ChatRequest, request: Request) -> dict[str, s
         "relevant WORTHSY page or support section. Distinguish published site information from "
         "general advice. Never request passwords, OTPs, payment card details, or authentication "
         "tokens. Reply in the customer's language, clearly and conversationally.\n\n"
-        "RELEVANT WORTHSY WEBSITE COPY:\\n" + website_context +
-        "\\n\\nMATCHING PUBLIC CATALOGUE ITEMS:\\n" + str(catalogue_context)
+        "RELEVANT WORTHSY WEBSITE COPY:\n" + website_context +
+        "\n\nMATCHING PUBLIC CATALOGUE ITEMS:\n" + str(catalogue_context)
     )
     messages = [{"role": "system", "content": system}] + [
         {"role": message.role, "content": message.content}
