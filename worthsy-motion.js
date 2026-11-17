@@ -43,9 +43,9 @@
     document.body.classList.add('wsy-motion-ready');
     if(!document.getElementById('wsy-scroll-progress')){const bar=document.createElement('div');bar.id='wsy-scroll-progress';bar.setAttribute('aria-hidden','true');document.body.appendChild(bar)}
     if(!document.getElementById('wsy-back-top')){const top=document.createElement('button');top.id='wsy-back-top';top.type='button';top.textContent='↑';top.setAttribute('aria-label','Back to top');top.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced?'auto':'smooth'}));document.body.appendChild(top)}
-    const revealSelectors='main > section,main > .hero,main > .wrap > .hero,.ws-hero,.hero:not(header .hero),.brand-hero,.brand-signature,.brand-toolbar,.brand-disclaimer,.signature-grid,.wx-gta-campaign,.platform-grid,.search-section,.roam-section,.cta-band,.form-shell,.articles > .article,.articles > article,.article,.hero-art,.hero-visual,.hero-grid > .hero-copy,.hero-grid > .hero-art,.hero-inner > *, .section-head,.wrap > .note,.brand-main,.brand-shell > section,.product-grid > *,#productGrid > .card,#featuredGrid > *, .roam-track > *, .platform-grid > *, .signature-grid > *,.fields > *,footer .grid > div,.wx-footer-social,.wx-foot-bar,.modal-layout > *';
-    const cardSelectors='.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid .product,.roam-track .product,#productGrid > .card,.roam-card,.article,.platform-logo-card,.platform,.signature-pick,.wx-gta-product,.ws-art-card,.wx-brand-card,.brand-card,.ws-brand-grid > *,.card';
-    const interactiveSelectors='button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,.signature-cta,[role="button"]';
+    const revealSelectors='#wst-grid > *,#wst-home-grid > *,main > section,main > .hero,main > .wrap > .hero,.ws-hero,.hero:not(header .hero),.brand-hero,.brand-signature,.brand-toolbar,.brand-disclaimer,.signature-grid,.wx-gta-campaign,.platform-grid,.search-section,.roam-section,.cta-band,.form-shell,.articles > .article,.articles > article,.article,.hero-art,.hero-visual,.hero-grid > .hero-copy,.hero-grid > .hero-art,.hero-inner > *, .section-head,.wrap > .note,.brand-main,.brand-shell > section,.product-grid > *,#productGrid > .card,#featuredGrid > *, .roam-track > *, .platform-grid > *, .signature-grid > *,.fields > *,footer .grid > div,.wx-footer-social,.wx-foot-bar,.modal-layout > *';
+    const cardSelectors='.wst-card,#wst-grid > .wst-card,#wst-home-grid > .wst-card,.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid .product,.roam-track .product,#productGrid > .card,.roam-card,.article,.platform-logo-card,.platform,.signature-pick,.wx-gta-product,.ws-art-card,.wx-brand-card,.brand-card,.ws-brand-grid > *,.card';
+    const interactiveSelectors='button,.wst-btn,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,.signature-cta,[role="button"]';
     const observer=(!reduced&&'IntersectionObserver'in window)?new IntersectionObserver(entries=>entries.forEach(entry=>{
       if(entry.isIntersecting){entry.target.classList.add('wsy-in-view');if(entry.target.matches(cardSelectors)){const info=productInfo(entry.target);if(info.productId)send('product_view',info)}observer.unobserve(entry.target)}
     }),{rootMargin:'0px 0px -6% 0px',threshold:.06}):null;
@@ -85,8 +85,8 @@
           if(badge)badge.classList.add('wsy-animated-badge');
         }
       });
-      const magnets=Array.from(root.querySelectorAll('button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]'));
-      if(root.nodeType===1&&root.matches('button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]'))magnets.unshift(root);
+      const magnets=Array.from(root.querySelectorAll('button,.wst-btn,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]'));
+      if(root.nodeType===1&&root.matches('button,.wst-btn,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]'))magnets.unshift(root);
       magnets.forEach(el=>{
         if(el.dataset.wsyMagnetic==='1')return;
         el.dataset.wsyMagnetic='1';
