@@ -95,7 +95,7 @@
     if(category){send('category_filter',{category:safeText(category.getAttribute('data-category-filter')||category.getAttribute('data-filter-category')||category.textContent)});return}
     const outbound=target.closest&&target.closest('a[href]');
     if(outbound&&/amazon\.in|awin1\.com/i.test(outbound.href)){
-      const card=outbound.closest('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item')||outbound;
+      const card=outbound.closest('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid > .product,#productGrid > .card,.roam-card')||outbound;
       send('product_click',productInfo(card));
     }
   },{passive:true});
