@@ -48,12 +48,12 @@
       const top=document.createElement('button');top.id='wsy-back-top';top.type='button';top.textContent='↑';top.setAttribute('aria-label','Back to top');top.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced?'auto':'smooth'}));document.body.appendChild(top);
     }
     if(reduced||!('IntersectionObserver'in window))return;
-    const selectors='.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid > .product,#productGrid > .card,.roam-card,.platform-logo-card,.brand-strip .brand-btn,.wx-gta-product,.ws-art-card,.wx-brand-card,.brand-card';
+    const selectors='.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid .product,.roam-track .product,#productGrid > .card,.roam-card,.platform-logo-card,.brand-strip .brand-btn,.wx-gta-product,.ws-art-card,.wx-brand-card,.brand-card,.ws-brand-grid > *,section .section-head';
     const observer=new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.classList.add('wsy-in-view');
-          if(entry.target.matches('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid > .product,#productGrid > .card,.roam-card')){
+          if(entry.target.matches('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid .product,.roam-track .product,#productGrid > .card,.roam-card')){
             const info=productInfo(entry.target);
             if(info.productId)send('product_view',info);
           }
@@ -95,7 +95,7 @@
     if(category){send('category_filter',{category:safeText(category.getAttribute('data-category-filter')||category.getAttribute('data-filter-category')||category.textContent)});return}
     const outbound=target.closest&&target.closest('a[href]');
     if(outbound&&/amazon\.in|awin1\.com/i.test(outbound.href)){
-      const card=outbound.closest('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid > .product,#productGrid > .card,.roam-card')||outbound;
+      const card=outbound.closest('.wsy-p-card,.wsy-result-shell,.wsy-result,[data-product-card],.product-card,.product-item,.product-grid .product,.roam-track .product,#productGrid > .card,.roam-card')||outbound;
       send('product_click',productInfo(card));
     }
   },{passive:true});
