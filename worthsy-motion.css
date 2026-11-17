@@ -121,3 +121,5 @@
   .wx-shop-menu:not([hidden]),#mobileMenu.is-open,#searchModal .modalResults,#modalResults,#modalSuggestions,
   .wst-gal img,.modal-visual img,#modalVisual img{animation:none!important;transition:none!important}
 }
+
+@media (prefers-reduced-motion:no-preference) and (hover:hover) and (pointer:fine){.wsy-tilt-card:hover img{transform:translateZ(28px) scale(1.065);filter:contrast(1.04)}}
