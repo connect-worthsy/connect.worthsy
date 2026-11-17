@@ -1307,6 +1307,10 @@ html body .ws-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px 
     #gta-ps5-campaign .wx-gta-panel{padding:28px 14px 22px!important}
   }
 
+  /* Remove the stray gap above the GTA VI campaign while preserving its artwork. */
+  #gta-ps5-campaign.wx-gta-campaign{margin-top:0!important;padding-top:0!important}
+  #gta-ps5-campaign .wx-gta-panel{margin-top:0!important}
+
   /* Desktop: stretch only the three product cards to fill the campaign's vertical space */
   @media(min-width:821px){
     #gta-ps5-campaign .wx-gta-panel{
@@ -1620,7 +1624,9 @@ html body .ws-hero-copy{
 .platform-page.w-platform-ready .platform-intro{display:none!important}
 @media(max-width:760px){.w-platform-campaign.active{grid-template-columns:1fr;gap:0}.w-platform-copy{padding:24px 22px 12px}.w-platform-pick{flex-basis:calc((100% - 10px)/2);min-height:130px;padding:5px}.w-platform-pick span{font-size:8px;left:4px;right:4px;bottom:4px}}
 @media(prefers-reduced-motion:reduce){.w-platform-track{transition:none!important}}
-</style><link rel="stylesheet" href="worthsy-universal-nav.css?v=15">\n<script src="worthsy-universal-nav.js?v=17" defer></script>\n    <link rel="stylesheet" href="worthsy-universal-footer.css?v=2">
+</style><link rel="stylesheet" href="worthsy-universal-nav.css?v=15">
+<script src="worthsy-universal-nav.js?v=17" defer></script>
+    <link rel="stylesheet" href="worthsy-universal-footer.css?v=2">
 
     <link rel="stylesheet" href="worthsy-account.css?v=2">
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
