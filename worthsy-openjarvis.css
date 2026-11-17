@@ -23,5 +23,5 @@
 .wsy-jarvis-suggest{border:1px solid #ddd;background:#fff;color:#111;border-radius:999px;padding:7px 10px;font-size:11px;cursor:pointer}
 #wsy-jarvis-connect-note{margin:12px;padding:12px;border:1px solid #ddd;border-radius:10px;background:#fff;color:#555;font-size:11px;line-height:1.5}
 .wsy-ask-ai{display:inline-flex;align-items:center;justify-content:center;gap:7px;margin:10px 0 0;padding:9px 13px;border:1px solid #111;border-radius:9px;background:#111;color:#fff;font-size:12px;font-weight:700;cursor:pointer}
-@media(max-width:560px){#wsy-jarvis-launch{right:14px;bottom:14px;width:60px;height:60px;padding:6px}#wsy-jarvis-panel{right:8px;bottom:72px;width:calc(100vw - 16px);height:min(500px,calc(100dvh - 150px))}}
+@media(max-width:560px){#wsy-jarvis-launch{right:14px;bottom:30px;width:60px;height:60px;padding:6px}#wsy-jarvis-panel{right:8px;bottom:88px;width:calc(100vw - 16px);height:min(500px,calc(100dvh - 150px))}}
 @media(prefers-reduced-motion:no-preference){#wsy-jarvis-launch{transition:transform .18s ease,background .18s ease}}
