@@ -74,11 +74,13 @@
     document.body.classList.add(pageName==='index.html'?'wsy-page-scene-home':pageName.includes('sneaker')?'wsy-page-scene-sneaker':pageName==='shop.html'?'wsy-page-scene-shop':(['about.html','career.html','blog.html'].includes(pageName)?'wsy-page-scene-editorial':'wsy-page-scene-brand'));
     function enhanceMotion(root){
       if(!root||!root.querySelectorAll)return;
-      const cards=root.querySelectorAll(cardSelectors);
+      const cards=Array.from(root.querySelectorAll(cardSelectors));
+      if(root.nodeType===1&&root.matches(cardSelectors))cards.unshift(root);
       cards.forEach(card=>{
         if(card.dataset.wsyTilt!=='1'){
           card.dataset.wsyTilt='1';
           card.classList.add('wsy-tilt-card');
+          if(!reduced&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){card.addEventListener('pointermove',event=>{const r=card.getBoundingClientRect(),px=Math.max(0,Math.min(1,(event.clientX-r.left)/r.width)),py=Math.max(0,Math.min(1,(event.clientY-r.top)/r.height));card.style.setProperty('--wsy-tilt-x',((px-.5)*10).toFixed(2)+'deg');card.style.setProperty('--wsy-tilt-y',((.5-py)*10).toFixed(2)+'deg');card.style.setProperty('--wsy-light-x',(px*100).toFixed(1)+'%');card.style.setProperty('--wsy-light-y',(py*100).toFixed(1)+'%')},{passive:true});card.addEventListener('pointerleave',()=>{card.style.setProperty('--wsy-tilt-x','0deg');card.style.setProperty('--wsy-tilt-y','0deg');card.style.setProperty('--wsy-light-x','50%');card.style.setProperty('--wsy-light-y','50%')},{passive:true})}
           const badge=card.querySelector('[class*="badge"],.badge,.product-badge,.discount-badge');
           if(badge)badge.classList.add('wsy-animated-badge');
           const image=card.querySelector('img');
@@ -88,10 +90,12 @@
           }
         }
       });
-      root.querySelectorAll('button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]').forEach(el=>{
+      const magnets=Array.from(root.querySelectorAll('button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]'));
+      if(root.nodeType===1&&root.matches('button,.btn,.ws-button,.wx-cta,.wx-gta-cta,.product-buy,[role="button"]'))magnets.unshift(root);
+      magnets.forEach(el=>{
         if(el.dataset.wsyMagnetic==='1')return;
         el.dataset.wsyMagnetic='1';
-        if(!reduced&&window.matchMedia('(hover:hover) and (pointer:fine)').matches)el.classList.add('wsy-magnetic');
+        if(!reduced&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){el.classList.add('wsy-magnetic');el.addEventListener('pointermove',event=>{const r=el.getBoundingClientRect(),dx=Math.max(-7,Math.min(7,(event.clientX-(r.left+r.width/2))*.13)),dy=Math.max(-7,Math.min(7,(event.clientY-(r.top+r.height/2))*.13));el.style.setProperty('--wsy-magnet-x',dx.toFixed(1)+'px');el.style.setProperty('--wsy-magnet-y',dy.toFixed(1)+'px')},{passive:true});el.addEventListener('pointerleave',()=>{el.style.setProperty('--wsy-magnet-x','0px');el.style.setProperty('--wsy-magnet-y','0px')},{passive:true})}
       });
       root.querySelectorAll('.hero-art,.hero-visual,.ws-hero-art,.hero-grid > img,.brand-hero img,.wx-gta-campaign img').forEach(el=>{
         if(!el.dataset.wsyParallax){el.dataset.wsyParallax='1';el.classList.add('wsy-parallax-layer')}
@@ -146,6 +150,7 @@
     requestAnimationFrame(()=>{
       scrollQueued=false;
       const doc=document.documentElement,max=doc.scrollHeight-doc.clientHeight,progress=max>0?(doc.scrollTop/max)*100:0;
+      if(!reduced&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){document.querySelectorAll('.wsy-parallax-layer').forEach(el=>{const r=el.getBoundingClientRect(),offset=Math.max(-28,Math.min(28,(window.innerHeight/2-(r.top+r.height/2))*.035));el.style.setProperty('--wsy-parallax-y',offset.toFixed(1)+'px')})}
       const bar=document.getElementById('wsy-scroll-progress'),top=document.getElementById('wsy-back-top');
       if(bar)bar.style.width=progress.toFixed(2)+'%';
       if(top)top.classList.toggle('is-visible',doc.scrollTop>420);
