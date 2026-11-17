@@ -11,10 +11,10 @@
  };
  const loadEnhancements=()=>{
   if(!document.querySelector('link[data-wsy-motion-style]')){
-   const link=document.createElement('link');link.rel='stylesheet';link.href='worthsy-motion.css?v=1';link.dataset.wsyMotionStyle='true';document.head.appendChild(link);
+   const link=document.createElement('link');link.rel='stylesheet';link.href='worthsy-motion.css?v=2';link.dataset.wsyMotionStyle='true';document.head.appendChild(link);
   }
   if(!document.querySelector('script[data-wsy-motion-script]')){
-   const script=document.createElement('script');script.src='worthsy-motion.js?v=3';script.dataset.wsyMotionScript='true';document.head.appendChild(script);
+   const script=document.createElement('script');script.src='worthsy-motion.js?v=4';script.dataset.wsyMotionScript='true';document.head.appendChild(script);
   }
  };
  const mount=async()=>{
