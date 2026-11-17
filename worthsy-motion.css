@@ -1,0 +1,24 @@
+/* WORTHSY motion layer — additive only; does not alter the locked shell dimensions. */
+:root{scroll-behavior:smooth}
+@media(prefers-reduced-motion:no-preference){
+  body.wsy-motion-ready{animation:wsy-page-in .42s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes wsy-page-in{from{opacity:.72}to{opacity:1}}
+  .wsy-motion-item{opacity:0;transform:translateY(14px);transition:opacity .48s ease,transform .48s cubic-bezier(.2,.7,.2,1);transition-delay:var(--wsy-motion-delay,0ms);will-change:opacity,transform}
+  .wsy-motion-item.wsy-in-view{opacity:1;transform:translateY(0);will-change:auto}
+  .wsy-motion-hover{transition:box-shadow .22s ease,border-color .22s ease!important}
+  .wsy-motion-hover:hover{box-shadow:0 12px 32px rgba(0,0,0,.08)!important;border-color:#bdbdbd!important}
+  #wsy-scroll-progress{transition:width .08s linear}
+  #wsy-back-top{transition:opacity .2s ease,transform .2s ease,visibility .2s ease}
+}
+#wsy-scroll-progress{position:fixed;top:0;left:0;width:0;height:2px;background:#111;z-index:1000002;pointer-events:none}
+#wsy-back-top{position:fixed;right:22px;bottom:22px;z-index:1000001;width:42px;height:42px;border:1px solid #222;border-radius:50%;background:#111;color:#fff;font:700 18px/1 Inter,Arial,sans-serif;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);box-shadow:0 4px 18px rgba(0,0,0,.15)}
+#wsy-back-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+#wsy-back-top:hover{background:#fff;color:#111}
+#wsy-back-top:focus-visible{outline:2px solid #111;outline-offset:3px}
+@media(max-width:640px){#wsy-back-top{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:40px;height:40px}}
+@media(prefers-reduced-motion:reduce){
+  :root{scroll-behavior:auto}
+  body.wsy-motion-ready{animation:none}
+  .wsy-motion-item{opacity:1!important;transform:none!important;transition:none!important}
+  .wsy-motion-hover,#wsy-scroll-progress,#wsy-back-top{transition:none!important}
+}
