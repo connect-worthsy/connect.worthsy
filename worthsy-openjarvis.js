@@ -22,9 +22,9 @@ form.addEventListener('submit',function(e){e.preventDefault();ask(input.value);}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 window.WORTHSY_OPENJARVIS_OPEN=function(q){open(q||'');if(q&&enabled)ask(q);};
 /* Add an AI hand-off beside the existing universal-search controls without replacing search. */
-function addAskButton(parent,queryFn){if(!parent||parent.querySelector('.wsy-ask-ai'))return;var b=document.createElement('button');b.type='button';b.className='wsy-ask-ai';b.textContent='✳ Ask AI about this';b.addEventListener('click',function(){var q=queryFn();window.WORTHSY_OPENJARVIS_OPEN(q||'');});parent.appendChild(b);}
-function connectSearch(){var searchInput=document.getElementById('modalSearch');if(searchInput){var row=searchInput.parentElement;addAskButton(row.parentElement,function(){return searchInput.value.trim();});}
-var universal=document.getElementById('wsy-search-input');if(universal){var wrap=document.getElementById('wsy-search-input-wrap');addAskButton(wrap&&wrap.parentElement,function(){return universal.value.trim();});}}
+function addAskButton(anchor,queryFn){if(!anchor||!anchor.parentElement||anchor.parentElement.querySelector('.wsy-ask-ai'))return;var b=document.createElement('button');b.type='button';b.className='wsy-ask-ai';b.textContent='✳ Ask AI about this';b.addEventListener('click',function(){var q=queryFn();window.WORTHSY_OPENJARVIS_OPEN(q||'');});anchor.parentElement.insertBefore(b,anchor.nextSibling);}
+function connectSearch(){var searchInput=document.getElementById('modalSearch');if(searchInput){var row=searchInput.parentElement;addAskButton(row,function(){return searchInput.value.trim();});}
+var universal=document.getElementById('wsy-search-input');if(universal){var wrap=document.getElementById('wsy-search-input-wrap');addAskButton(wrap,function(){return universal.value.trim();});}}
 connectSearch();
 var observer=new MutationObserver(connectSearch);observer.observe(document.body,{childList:true,subtree:true});
 })();
