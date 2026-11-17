@@ -1,6 +1,6 @@
 # WORTHSY + OpenJarvis Integration Plan
 
-Status: staging design only. This document does not enable OpenJarvis, change production services, or alter the customer-facing website.
+Status: customer UI and fail-closed API gateway implemented on staging. OpenJarvis inference is still disabled; no production services or production website have been changed.
 
 ## Decisions
 
@@ -20,7 +20,7 @@ Status: staging design only. This document does not enable OpenJarvis, change pr
 
 1. Existing WORTHSY frontend remains the customer interface.
 2. Existing WORTHSY backend remains the trusted application boundary and source of truth.
-3. Add a WORTHSY AI gateway behind the backend. It authenticates requests, validates inputs, checks consent, applies rate limits, redacts sensitive data, and enforces tool permissions.
+3. A WORTHSY AI gateway now exists at `POST /openjarvis/chat`. It validates short chat histories, enriches prompts only with public catalogue matches, and proxies to OpenJarvis. It is fail-closed until explicitly enabled. Before enabling, add edge-level rate limits and confirm the hosting network boundary.
 4. Run OpenJarvis as an isolated service on a persistent Linux host/container, reachable only from the gateway over a private network or authenticated TLS.
 5. Configure a hybrid inference router: local inference for eligible requests; approved cloud provider only for allowed request classes and only after data minimisation. Never send payment credentials or unnecessary identity data to a model.
 6. Expose narrowly scoped tools to agents. Tools return structured data and cannot accept arbitrary shell commands or arbitrary SQL.
@@ -77,14 +77,15 @@ Status: staging design only. This document does not enable OpenJarvis, change pr
 
 ## Staging and release sequence
 
-1. Preserve the current main branch and record its baseline commit.
-2. Work only on `staging/openjarvis-integration`.
-3. Add the gateway contract and automated tests without changing the live frontend.
-4. Deploy OpenJarvis to an isolated staging service with synthetic/test data and no production secrets.
-5. Verify authentication, consent enforcement, tool allowlists, rate limits, logging, data deletion, model fallback policy, and service shutdown behaviour.
-6. Run compatibility tests against existing WORTHSY search, product catalogue, affiliate links, cart, account, wishlist, header/footer, and mobile layouts.
-7. Run load, latency, failure-mode, and security tests. If OpenJarvis is unavailable, existing WORTHSY functionality must continue working.
-8. Open a reviewed pull request from staging to main. Production rollout requires an explicit human approval and a rollback plan.
+1. Preserve the current main branch; all work remains on `staging/openjarvis-integration`.
+2. The isolated monochrome customer assistant UI is now included on the existing HTML pages. It adds a floating launcher and an `Ask AI` hand-off beside the existing search controls; existing catalogue search remains unchanged.
+3. The FastAPI gateway is added at `POST /openjarvis/chat` and defaults to HTTP 503 until enabled. The frontend config also defaults to disabled, so the assistant is a staging preview and cannot send messages yet.
+4. Deploy OpenJarvis to a separate persistent staging host, bind it to a private interface/network, and configure its OpenAI-compatible `/v1/chat/completions` endpoint.
+5. Configure `OPENJARVIS_ENABLED=true`, `OPENJARVIS_BASE_URL`, and `OPENJARVIS_MODEL` only in the staging API host's secret/environment settings. Add `OPENJARVIS_API_KEY` only if the OpenJarvis ingress is configured to require it. Set `enabled: true` and the staging API `apiBase` in `worthsy-openjarvis-config.js` only after the gateway is reachable.
+6. Configure hosting-edge rate limiting, request logging without message-body retention, TLS/private networking, and a restrictive OpenJarvis ingress policy before enabling the endpoint. CORS is not authentication.
+7. Verify that customer messages contain no passwords, payment details, OTPs, tokens, or unnecessary personal data; verify catalogue grounding, model errors, rate limits, and shutdown behaviour.
+8. Run compatibility tests against existing WORTHSY search, product catalogue, affiliate links, cart, account, wishlist, header/footer, and mobile layouts.
+9. Open a reviewed pull request from staging to main. Production rollout requires explicit human approval and a rollback plan.
 
 ## Rollback
 
@@ -101,6 +102,15 @@ Status: staging design only. This document does not enable OpenJarvis, change pr
 - Its existing health endpoint reports that customer data is not stored.
 - Therefore, consent-based persistent personalisation is a new capability and must be designed explicitly; it must not be silently added to the existing stateless endpoints.
 - The current Render Blueprint uses the free plan. It is not an assumed production host for persistent model inference. OpenJarvis should be evaluated on separate persistent infrastructure.
+
+## Current staging implementation
+
+- Added `worthsy-openjarvis.css`, `worthsy-openjarvis.js`, and `worthsy-openjarvis-config.js` to the repository and referenced them from the existing HTML pages. The assistant uses the existing black-and-white visual language.
+- The floating launcher and search-to-AI hand-off are present in staging. The main search/catalogue flow is not replaced.
+- Added `personalization_api/openjarvis_gateway.py`, included its router in the existing FastAPI app, and added `httpx` as a dependency.
+- The gateway forwards only bounded user/assistant messages plus up to eight public catalogue matches. It does not accept browser-supplied system prompts, tool definitions, arbitrary URLs, or customer account/payment data.
+- Both frontend and backend are disabled by default. No AI response can be generated until a private OpenJarvis host and staging configuration are supplied.
+- No OpenJarvis process has been installed or deployed; no Render service or production deployment was changed.
 
 ## Go-live gates
 
