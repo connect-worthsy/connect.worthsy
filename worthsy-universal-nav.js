@@ -1,37 +1,61 @@
-(()=>{
- const wire=header=>{
-  if(!header||header.dataset.sharedReady==='true')return;
+(()=> {
+ 'use strict';
+ function wire(header){
+  if(!header || header.dataset.sharedReady==='true') return;
   header.dataset.sharedReady='true';
-  const shopToggle=header.querySelector('#wxShopToggle'),shopMenu=header.querySelector('#wxShopMenu');
-  shopToggle?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const open=shopMenu.hidden;shopMenu.hidden=!open;shopToggle.setAttribute('aria-expanded',String(open))});
-  document.addEventListener('click',e=>{if(!e.target.closest('.wx-shop')&&shopMenu){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false')}});\n  shopMenu?.addEventListener('click',e=>{if(e.target.closest('a[role=\"menuitem\"],a.wx-shop-viewall')){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false')}});\n  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&shopMenu&&!shopMenu.hidden){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false');shopToggle?.focus()}});\n  window.addEventListener('hashchange',()=>{if(shopMenu){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false')}});
-  const mobileBtn=header.querySelector('#mobileMenuBtn'),mobile=header.querySelector('#mobileMenu');
-  mobileBtn?.addEventListener('click',()=>{const open=!mobile.classList.contains('is-open');mobile.classList.toggle('is-open',open);mobileBtn.setAttribute('aria-expanded',String(open));mobileBtn.innerHTML=open?'<i class="fa-solid fa-xmark text-xl"></i>':'<i class="fa-solid fa-bars text-xl"></i>'});
-  // The shared search engine owns #uniSearchBtn on every page. Never redirect it.
- };
- const loadEnhancements=()=>{
-  if(!document.querySelector('link[data-wsy-motion-style]')){
-   const link=document.createElement('link');link.rel='stylesheet';link.href='worthsy-motion.css?v=5';link.dataset.wsyMotionStyle='true';document.head.appendChild(link);
+  const shop=header.querySelector('.wx-shop');
+  const toggle=header.querySelector('#wxShopToggle');
+  const menu=header.querySelector('#wxShopMenu');
+  if(toggle && menu){
+   const setOpen=(open)=>{
+    menu.hidden=!open;
+    toggle.setAttribute('aria-expanded',String(open));
+    toggle.setAttribute('aria-label',open?'Close affiliate platform menu':'Open affiliate platform menu');
+   };
+   toggle.addEventListener('click',(event)=>{
+    event.preventDefault();
+    event.stopPropagation();
+    setOpen(menu.hidden);
+   });
+   menu.addEventListener('click',(event)=>{
+    if(event.target.closest('a')) setOpen(false);
+   });
+   document.addEventListener('click',(event)=>{
+    if(shop && !shop.contains(event.target)) setOpen(false);
+   });
+   document.addEventListener('keydown',(event)=>{
+    if(event.key==='Escape' && !menu.hidden){setOpen(false);toggle.focus();}
+   });
+   window.addEventListener('hashchange',()=>setOpen(false));
   }
-  if(!document.querySelector('script[data-wsy-motion-script]')){
-   const script=document.createElement('script');script.src='worthsy-motion.js?v=7';script.dataset.wsyMotionScript='true';document.head.appendChild(script);
+  const mobileBtn=header.querySelector('#mobileMenuBtn');
+  const mobile=header.querySelector('#mobileMenu');
+  if(mobileBtn && mobile){
+   mobileBtn.addEventListener('click',()=>{
+    const open=!mobile.classList.contains('is-open');
+    mobile.classList.toggle('is-open',open);
+    mobileBtn.setAttribute('aria-expanded',String(open));
+    mobileBtn.innerHTML=open?'<i class="fa-solid fa-xmark text-xl"></i>':'<i class="fa-solid fa-bars text-xl"></i>';
+   });
   }
- };
- const mount=async()=>{
-  loadEnhancements();
+ }
+ function mount(){
   let header=document.querySelector('body>header.worthsy-header.wx-header');
-  if(!header){
-   try{
-    const response=await fetch('index.html',{cache:'no-store'});if(!response.ok)throw new Error('HTTP '+response.status);
-    const parsed=new DOMParser().parseFromString(await response.text(),'text/html');
-    header=parsed.querySelector('body>header.worthsy-header.wx-header')?.cloneNode(true);
-    if(!header)throw new Error('Homepage header not found');
-    document.querySelectorAll('body>header').forEach(el=>el.remove());
-    document.body.prepend(header);
-   }catch(err){console.error('WORTHSY header load failed',err);return}
-  }
-  header.querySelectorAll('a[href^="#"]').forEach(a=>a.setAttribute('href','index.html'+a.getAttribute('href')));
-  wire(header);
- };
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
+  if(!header){header=document.querySelector('header.worthsy-header.wx-header');}
+  if(header){wire(header);return;}
+  fetch('index.html',{cache:'no-store'}).then(response=>{
+   if(!response.ok) throw new Error('HTTP '+response.status);
+   return response.text();
+  }).then(html=>{
+   const parsed=new DOMParser().parseFromString(html,'text/html');
+   const source=parsed.querySelector('body>header.worthsy-header.wx-header');
+   if(!source) throw new Error('Homepage header not found');
+   header=source.cloneNode(true);
+   document.querySelectorAll('body>header').forEach(el=>el.remove());
+   document.body.prepend(header);
+   wire(header);
+  }).catch(error=>console.error('WORTHSY navigation failed:',error));
+ }
+ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',mount,{once:true});
+ else mount();
 })();
