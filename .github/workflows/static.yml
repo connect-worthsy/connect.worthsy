@@ -73,6 +73,7 @@ jobs:
           node --check worthsy-motion.js
           python scripts/validate_motion.py
           node --check worthsy-personalization.js
+          node --check worthsy-community.js
 
       - name: Test Python recommendation API
         run: python -m unittest discover -s tests -v
