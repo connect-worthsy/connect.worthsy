@@ -128,3 +128,5 @@ html body{padding-top:54px!important}
  html body header.worthsy-header.wx-header>div:first-child{height:66px!important;min-height:66px!important;max-height:66px!important;padding:0 14px!important}
  html body{padding-top:66px!important}
 }
+
+body>header.worthsy-header.wx-header #wxShopMenu.is-open{display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important}
