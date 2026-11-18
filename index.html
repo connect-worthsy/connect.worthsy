@@ -1625,7 +1625,7 @@ html body .ws-hero-copy{
 @media(max-width:760px){.w-platform-campaign.active{grid-template-columns:1fr;gap:0}.w-platform-copy{padding:24px 22px 12px}.w-platform-pick{flex-basis:calc((100% - 10px)/2);min-height:130px;padding:5px}.w-platform-pick span{font-size:8px;left:4px;right:4px;bottom:4px}}
 @media(prefers-reduced-motion:reduce){.w-platform-track{transition:none!important}}
 </style><link rel="stylesheet" href="worthsy-universal-nav.css?v=15">
-<script src="worthsy-universal-nav.js?v=17" defer></script>
+<script src="worthsy-universal-nav.js?v=18" defer></script>
     <link rel="stylesheet" href="worthsy-universal-footer.css?v=2">
 
     <link rel="stylesheet" href="worthsy-account.css?v=2">
@@ -4020,15 +4020,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !b
     t.style.animationDuration=Math.max(40,items.length*2.2)+'s';
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);else build();
-  var t=document.getElementById('wxShopToggle'),m=document.getElementById('wxShopMenu');
-  if(!t||!m)return;
-  function close(){m.hidden=true;t.setAttribute('aria-expanded','false');}
-  t.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var o=m.hidden;close();if(o){m.hidden=false;t.setAttribute('aria-expanded','true');}});
-  m.addEventListener('click',function(e){if(e.target.closest('a'))close();});
-  document.addEventListener('click',function(e){if(!m.contains(e.target)&&!t.contains(e.target))close();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
-  window.addEventListener('hashchange',close);
-})();
+  ;
 </script>
 <script src="worthsy-supabase-config.js?v=1"></script>
 <script src="worthsy-search.js?v=community7" defer></script>
