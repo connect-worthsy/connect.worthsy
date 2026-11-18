@@ -49,5 +49,6 @@ jobs:
           node --check worthsy-personalization.js
           node --check worthsy-openjarvis.js
           node --check worthsy-public-upgrades.js
+          node --check worthsy-community.js
       - name: Check live website and Python gateway
         run: python scripts/monitor_site.py
