@@ -1828,6 +1828,40 @@ html body .ws-hero{padding-top:72px!important}
         </div>
       </section>
 
+      <!-- FEATURED INSTAGRAM REEL -->
+      <section class="wx-instagram-feature" id="worthsy-instagram-reel" aria-label="Featured WORTHSY Instagram reel">
+        <div class="wx-instagram-feature-inner">
+          <p class="wx-instagram-feature-kicker">A MOMENT FROM OUR FEED</p>
+          <h2 class="wx-instagram-feature-title">WORTHSY, IN MOTION.</h2>
+          <p class="wx-instagram-feature-copy">A little more of what we’re building. Watch our latest featured reel.</p>
+          <div class="wx-instagram-reel-shell">
+            <div class="wx-instagram-reel-frame">
+              <iframe
+                src="https://www.instagram.com/reel/DfxiTBynDm6/embed"
+                title="WORTHSY Instagram Reel"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+          <div class="wx-instagram-reel-footer">
+            <a href="https://www.instagram.com/reel/DfxiTBynDm6/" target="_blank" rel="noopener noreferrer">WATCH ON INSTAGRAM ↗</a>
+          </div>
+        </div>
+      </section>
+      <script>
+      (function(){
+        var section=document.getElementById('worthsy-instagram-reel');
+        if(!section)return;
+        if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){section.classList.add('wx-reel-visible');return;}
+        var observer=new IntersectionObserver(function(entries){
+          entries.forEach(function(entry){if(entry.isIntersecting){section.classList.add('wx-reel-visible');observer.unobserve(section);}});
+        },{threshold:.16});
+        observer.observe(section);
+      })();
+      </script>
+
       <!-- BRANDS -->
       <section id="featured-brands" class="ws-section">
         <div class="ws-section-head">
