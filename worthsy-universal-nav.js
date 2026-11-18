@@ -4,7 +4,7 @@
   header.dataset.sharedReady='true';
   const shopToggle=header.querySelector('#wxShopToggle'),shopMenu=header.querySelector('#wxShopMenu');
   shopToggle?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();const open=shopMenu.hidden;shopMenu.hidden=!open;shopToggle.setAttribute('aria-expanded',String(open))});
-  document.addEventListener('click',e=>{if(!e.target.closest('.wx-shop')&&shopMenu){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false')}});
+  document.addEventListener('click',e=>{if(!e.target.closest('.wx-shop')&&shopMenu){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false')}});\n  shopMenu?.addEventListener('click',e=>{if(e.target.closest('a[role=\"menuitem\"],a.wx-shop-viewall')){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false')}});\n  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&shopMenu&&!shopMenu.hidden){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false');shopToggle?.focus()}});\n  window.addEventListener('hashchange',()=>{if(shopMenu){shopMenu.hidden=true;shopToggle?.setAttribute('aria-expanded','false')}});
   const mobileBtn=header.querySelector('#mobileMenuBtn'),mobile=header.querySelector('#mobileMenu');
   mobileBtn?.addEventListener('click',()=>{const open=!mobile.classList.contains('is-open');mobile.classList.toggle('is-open',open);mobileBtn.setAttribute('aria-expanded',String(open));mobileBtn.innerHTML=open?'<i class="fa-solid fa-xmark text-xl"></i>':'<i class="fa-solid fa-bars text-xl"></i>'});
   // The shared search engine owns #uniSearchBtn on every page. Never redirect it.
