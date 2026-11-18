@@ -1828,58 +1828,37 @@ html body .ws-hero{padding-top:72px!important}
         </div>
       </section>
 
-      <!-- WORTHSY INSTAGRAM SLIDESHOW -->
-      <section class="wx-instagram-feature" id="worthsy-instagram-reel" aria-label="WORTHSY Instagram slideshow">
-        <div class="wx-instagram-slider" data-wx-slider>
+      <!-- WORTHSY CONTINUOUS INSTAGRAM REEL MARQUEE -->
+      <section class="wx-instagram-feature" id="worthsy-instagram-reel" aria-label="WORTHSY Instagram reels">
+        <div class="wx-instagram-slider" data-wx-marquee>
           <div class="wx-instagram-track">
             <div class="wx-instagram-slide">
-              <div class="wx-instagram-reel-shell">
-                <div class="wx-instagram-reel-frame">
-                  <iframe src="https://www.instagram.com/reel/DfxiTBynDm6/embed" title="WORTHSY Instagram Reel" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-              </div>
+              <div class="wx-instagram-reel-shell"><div class="wx-instagram-reel-frame">
+                <iframe src="https://www.instagram.com/reel/DfxiTBynDm6/embed" title="WORTHSY Instagram Reel" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              </div></div>
             </div>
             <div class="wx-instagram-slide">
-              <div class="wx-instagram-reel-shell">
-                <div class="wx-instagram-reel-frame">
-                  <iframe src="https://www.instagram.com/p/Df45lS1tRZm/embed" title="WORTHSY Instagram post" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                </div>
-              </div>
+              <div class="wx-instagram-reel-shell"><div class="wx-instagram-reel-frame">
+                <iframe src="https://www.instagram.com/p/Df45lS1tRZm/embed" title="WORTHSY Instagram post" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              </div></div>
             </div>
-          </div>
-          <div class="wx-instagram-slider-controls">
-            <button class="wx-instagram-arrow" type="button" data-wx-prev aria-label="Previous Instagram post">‹</button>
-            <div class="wx-instagram-dots" aria-label="Choose Instagram slide">
-              <button class="wx-instagram-dot is-active" type="button" data-wx-dot="0" aria-label="Show first Instagram post"></button>
-              <button class="wx-instagram-dot" type="button" data-wx-dot="1" aria-label="Show second Instagram post"></button>
-            </div>
-            <button class="wx-instagram-arrow" type="button" data-wx-next aria-label="Next Instagram post">›</button>
           </div>
         </div>
       </section>
       <script>
       (function(){
-        var root=document.querySelector('[data-wx-slider]');
+        var root=document.querySelector('[data-wx-marquee]');
         if(!root||root.dataset.ready)return;
         root.dataset.ready='1';
         var track=root.querySelector('.wx-instagram-track');
-        var slides=[].slice.call(root.querySelectorAll('.wx-instagram-slide'));
-        var dots=[].slice.call(root.querySelectorAll('[data-wx-dot]'));
-        var index=0,timer=null;
-        function show(n){
-          index=(n+slides.length)%slides.length;
-          track.style.transform='translateX(-'+(index*100)+'%)';
-          dots.forEach(function(dot,i){dot.classList.toggle('is-active',i===index);dot.setAttribute('aria-current',i===index?'true':'false');});
-        }
-        function stop(){if(timer){clearInterval(timer);timer=null;}}
-        function start(){stop();if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){timer=setInterval(function(){show(index+1);},7000);}}
-        root.querySelector('[data-wx-prev]').addEventListener('click',function(){show(index-1);start();});
-        root.querySelector('[data-wx-next]').addEventListener('click',function(){show(index+1);start();});
-        dots.forEach(function(dot){dot.addEventListener('click',function(){show(Number(dot.getAttribute('data-wx-dot')));start();});});
-        root.addEventListener('mouseenter',stop);root.addEventListener('mouseleave',start);
-        root.addEventListener('focusin',stop);root.addEventListener('focusout',start);
-        document.addEventListener('visibilitychange',function(){if(document.hidden)stop();else start();});
-        show(0);start();
+        var originals=[].slice.call(track.children);
+        originals.forEach(function(slide){
+          var clone=slide.cloneNode(true);
+          clone.setAttribute('aria-hidden','true');
+          clone.querySelectorAll('iframe').forEach(function(frame){frame.setAttribute('tabindex','-1');});
+          track.appendChild(clone);
+        });
+        if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)root.classList.add('wx-marquee-static');
       })();
       </script>
 
