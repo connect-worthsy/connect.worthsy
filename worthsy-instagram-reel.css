@@ -1,17 +1,16 @@
-/* WORTHSY Instagram slideshow — compact glass card */
-.wx-instagram-feature{position:relative;isolation:isolate;overflow:hidden;padding:24px 14px 30px;background:transparent;color:#171717;text-align:center;border:0}
-.wx-instagram-slider{position:relative;width:min(100%,390px);margin:0 auto;overflow:hidden;padding:8px 0 2px}
-.wx-instagram-track{display:flex;width:100%;transition:transform .65s cubic-bezier(.22,.75,.25,1);will-change:transform}
-.wx-instagram-slide{flex:0 0 100%;width:100%;display:flex;justify-content:center;align-items:center;padding:4px 18px 12px;box-sizing:border-box}
-.wx-instagram-reel-shell{position:relative;width:min(340px,calc(100vw - 72px));flex:0 1 340px;margin:0 auto;padding:7px;border:1px solid rgba(255,255,255,.8);border-radius:19px;background:rgba(255,255,255,.42);backdrop-filter:blur(18px) saturate(145%);-webkit-backdrop-filter:blur(18px) saturate(145%);box-shadow:0 12px 34px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.85);transform:rotate(-2deg);transition:transform .35s ease,box-shadow .35s ease}
-.wx-instagram-slide:hover .wx-instagram-reel-shell{transform:translateY(-3px) rotate(0deg);box-shadow:0 18px 42px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.9)}
-.wx-instagram-reel-frame{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;border-radius:13px;background:#f4f4f4}
+/* WORTHSY continuous horizontal Instagram reel slideshow */
+.wx-instagram-feature{position:relative;isolation:isolate;overflow:hidden;width:100%;padding:24px 0 30px;background:transparent;color:#171717;border:0}
+.wx-instagram-slider{position:relative;width:100%;margin:0 auto;overflow:hidden;padding:12px 0 18px}
+.wx-instagram-track{display:flex;align-items:center;gap:clamp(18px,2.5vw,34px);width:max-content;animation:wx-instagram-marquee 42s linear infinite;will-change:transform}
+.wx-instagram-slide{flex:0 0 auto;width:clamp(210px,22vw,280px);display:flex;justify-content:center;align-items:center;padding:4px 0 12px;box-sizing:border-box}
+.wx-instagram-reel-shell{position:relative;width:100%;margin:0;padding:6px;border:1px solid rgba(255,255,255,.76);border-radius:18px;background:rgba(255,255,255,.36);backdrop-filter:blur(18px) saturate(145%);-webkit-backdrop-filter:blur(18px) saturate(145%);box-shadow:0 12px 30px rgba(0,0,0,.10),inset 0 1px 0 rgba(255,255,255,.82);transform:rotate(-2deg);transition:transform .35s ease,box-shadow .35s ease}
+.wx-instagram-slide:nth-child(even) .wx-instagram-reel-shell{transform:rotate(2deg)}
+.wx-instagram-slide:hover .wx-instagram-reel-shell{transform:translateY(-4px) rotate(0deg);box-shadow:0 18px 40px rgba(0,0,0,.15),inset 0 1px 0 rgba(255,255,255,.9)}
+.wx-instagram-reel-frame{position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;border-radius:12px;background:#f4f4f4}
 .wx-instagram-reel-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
-.wx-instagram-slider-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin:10px auto 0}
-.wx-instagram-arrow{display:grid;place-items:center;width:30px;height:30px;padding:0;border:1px solid rgba(0,0,0,.14);border-radius:50%;background:rgba(255,255,255,.72);color:#171717;font-size:22px;line-height:1;cursor:pointer;transition:background .2s ease,transform .2s ease}
-.wx-instagram-arrow:hover{background:#171717;color:#fff;transform:scale(1.06)}
-.wx-instagram-dots{display:flex;align-items:center;gap:8px}
-.wx-instagram-dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#c5c5c5;cursor:pointer;transition:width .25s ease,background .25s ease}
-.wx-instagram-dot.is-active{width:20px;border-radius:8px;background:#171717}
-@media(max-width:600px){.wx-instagram-feature{padding:18px 10px 24px}.wx-instagram-slider{width:min(100%,370px)}.wx-instagram-reel-shell{width:min(330px,calc(100vw - 54px));padding:6px;border-radius:16px}.wx-instagram-reel-frame{border-radius:11px}}
-@media(prefers-reduced-motion:reduce){.wx-instagram-track,.wx-instagram-reel-shell,.wx-instagram-arrow,.wx-instagram-dot{transition:none}}
+.wx-instagram-slider:hover .wx-instagram-track{animation-play-state:paused}
+.wx-instagram-slider:focus-within .wx-instagram-track{animation-play-state:paused}
+@keyframes wx-instagram-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.wx-instagram-slider.wx-marquee-static .wx-instagram-track{animation:none}
+@media(max-width:600px){.wx-instagram-feature{padding:16px 0 22px}.wx-instagram-slider{padding:8px 0 12px}.wx-instagram-track{gap:16px;animation-duration:34s}.wx-instagram-slide{width:clamp(190px,66vw,245px)}.wx-instagram-reel-shell{padding:5px;border-radius:15px}.wx-instagram-reel-frame{border-radius:10px}}
+@media(prefers-reduced-motion:reduce){.wx-instagram-track{animation:none}}
