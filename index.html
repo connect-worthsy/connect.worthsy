@@ -4239,6 +4239,11 @@ if(!Array.isArray(window.WORTHSY_PRODUCTS))fetch('products.json',{cache:'no-cach
 <style id="worthsy-amazon-welcome-popup-css">
 #wsy-jarvis-launch{bottom:82px!important}
 @media(max-width:560px){#wsy-jarvis-launch{bottom:62px!important}}
+#wsy-amazon-reopen{position:fixed;right:35px;bottom:158px;z-index:2147482501;width:44px;height:44px;display:grid;place-items:center;border:1px solid #bbb;border-radius:50%;background:#fff;color:#111;box-shadow:0 5px 18px #0002;cursor:pointer}
+#wsy-amazon-reopen[hidden]{display:none!important}
+#wsy-amazon-reopen svg{width:20px;height:20px;display:block}
+#wsy-amazon-reopen:hover{background:#111;color:#fff;border-color:#111}
+@media(max-width:560px){#wsy-amazon-reopen{right:22px;bottom:138px;width:42px;height:42px}}
 #wsy-amazon-welcome-overlay{position:fixed;inset:auto 24px 158px auto;z-index:2147482500;display:block;width:min(370px,calc(100vw - 28px));padding:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;pointer-events:none}
 #wsy-amazon-welcome-overlay[hidden]{display:none!important}
 #wsy-amazon-welcome-popup{position:relative;width:100%;max-height:min(430px,calc(100dvh - 190px));overflow:auto;background:#fff;color:#111;border:1px solid #ddd;border-radius:15px;padding:17px;box-shadow:0 10px 32px #0002;pointer-events:auto;animation:wsyAmazonWelcomeIn .22s ease-out}
@@ -4266,9 +4271,20 @@ if(!Array.isArray(window.WORTHSY_PRODUCTS))fetch('products.json',{cache:'no-cach
   overlay.setAttribute('role','presentation');
   overlay.innerHTML='<section id="wsy-amazon-welcome-popup" role="dialog" aria-modal="false" aria-labelledby="wsy-amazon-welcome-title"><button id="wsy-amazon-welcome-close" type="button" aria-label="Close converter">×</button><div class="wsy-amazon-welcome-kicker">A WORTHSY community tool</div><h2 id="wsy-amazon-welcome-title" class="wsy-amazon-welcome-heading">Amazon Link Converter</h2><p class="wsy-amazon-welcome-copy">Convert an Amazon India product link and submit it to the WORTHSY catalogue.</p><div id="wsy-amazon-welcome-content"></div></section>';
   document.body.appendChild(overlay);
+  var reopen=document.createElement('button');
+  reopen.id='wsy-amazon-reopen';
+  reopen.type='button';
+  reopen.setAttribute('aria-label','Reopen Amazon Link Converter');
+  reopen.title='Amazon Link Converter';
+  reopen.hidden=true;
+  reopen.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.1 0l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"/><path d="M14 11a5 5 0 0 0-7.1 0l-2 2A5 5 0 0 0 12 20.1l1.1-1.1"/></svg>';
+  document.body.appendChild(reopen);
+  function closeConverter(){overlay.hidden=true;reopen.hidden=false;}
+  function openConverter(){overlay.hidden=false;reopen.hidden=true;}
   overlay.querySelector('#wsy-amazon-welcome-content').appendChild(converter);
-  overlay.querySelector('#wsy-amazon-welcome-close').addEventListener('click',function(){overlay.hidden=true;});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!overlay.hidden)overlay.hidden=true;});
+  overlay.querySelector('#wsy-amazon-welcome-close').addEventListener('click',closeConverter);
+  reopen.addEventListener('click',openConverter);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!overlay.hidden)closeConverter();});
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
