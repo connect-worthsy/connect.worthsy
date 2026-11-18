@@ -1851,13 +1851,7 @@ html body .ws-hero{padding-top:72px!important}
         if(!root||root.dataset.ready)return;
         root.dataset.ready='1';
         var track=root.querySelector('.wx-instagram-track');
-        var originals=[].slice.call(track.children);
-        originals.forEach(function(slide){
-          var clone=slide.cloneNode(true);
-          clone.setAttribute('aria-hidden','true');
-          clone.querySelectorAll('iframe').forEach(function(frame){frame.setAttribute('tabindex','-1');});
-          track.appendChild(clone);
-        });
+        /* Keep only the original Instagram posts: no cloned/repeated embeds. */
         if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)root.classList.add('wx-marquee-static');
       })();
       </script>
