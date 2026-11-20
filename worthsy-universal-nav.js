@@ -13,7 +13,18 @@
   button.setAttribute('aria-expanded','true');
   button.setAttribute('aria-label','Close affiliate platform menu');
  };
+ function removeHeaderLinks(){
+  const header=document.querySelector('header.worthsy-header.wx-header');
+  if(!header)return;
+  header.querySelectorAll('a').forEach(a=>{
+   const label=(a.textContent||'').trim().replace(/\\s+/g,' ').toLowerCase();
+   if(['partners','about','contact'].includes(label))a.remove();
+  });
+ }
  function init(){
+  removeHeaderLinks();
+  const header=document.querySelector('header.worthsy-header.wx-header');
+  if(header){new MutationObserver(removeHeaderLinks).observe(header,{childList:true,subtree:true});}
   document.addEventListener('click',(event)=>{
    const button=event.target.closest('#wxShopToggle');
    if(button){
