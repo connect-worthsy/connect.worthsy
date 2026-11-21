@@ -130,3 +130,6 @@ html body{padding-top:54px!important}
 }
 
 body>header.worthsy-header.wx-header #wxShopMenu.is-open{display:block!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+
+/* Force-hide the legacy universal-header links across desktop and mobile nav */
+body>header.worthsy-header.wx-header .wx-nav a[href="#affiliates"],body>header.worthsy-header.wx-header .wx-nav a[href="#about"],body>header.worthsy-header.wx-header .wx-nav a[href="#contact"],body>header.worthsy-header.wx-header #mobileMenu a[href="#affiliates"],body>header.worthsy-header.wx-header #mobileMenu a[href="#about"],body>header.worthsy-header.wx-header #mobileMenu a[href="#contact"]{display:none!important;visibility:hidden!important;width:0!important;padding:0!important;margin:0!important}
