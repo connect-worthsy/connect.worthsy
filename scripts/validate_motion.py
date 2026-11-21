@@ -12,7 +12,7 @@ for name in PAGES:
         errors.append(f"Missing page: {name}")
         continue
     html = path.read_text(encoding="utf-8")
-    if not re.search(r'worthsy-universal-nav\.js\?v=17', html):
+    if not re.search(r'worthsy-universal-nav\.js\?v=21', html):
         errors.append(f"{name}: shared navigation loader v17 missing")
 for name in ("worthsy-motion.css", "worthsy-motion.js", "worthsy-universal-nav.js"):
     if not (ROOT / name).is_file():
