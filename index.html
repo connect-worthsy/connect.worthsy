@@ -1662,31 +1662,7 @@ html body #affiliates #wxTrack a{display:inline-flex!important;visibility:visibl
 #affiliates .ws-disclosure{display:block!important;text-align:center!important;font-size:11px!important;color:#666!important;margin:12px auto!important}
 </style>
 
-<style id="worthsy-partner-strip-restoration">
-#affiliates.wx-marquee-sec{display:block!important;visibility:visible!important;opacity:1!important;max-width:1280px;margin:26px auto 34px;padding:0 20px!important}
-#affiliates .wx-marquee-title{font:700 10px 'Space Mono',monospace!important;letter-spacing:.16em!important;text-transform:uppercase!important;text-align:center!important;margin:0 0 12px!important;color:#111!important}
-#affiliates .wx-marquee{border-top:1px solid #ddd!important;border-bottom:1px solid #ddd!important;overflow:hidden!important;padding:15px 0!important;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)!important}
-#affiliates #wxTrack{display:flex!important;width:max-content!important;gap:0!important;animation:wxslide 70s linear infinite!important}
-#affiliates #wxTrack:hover{animation-play-state:paused!important}
-#affiliates #wxTrack a{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;white-space:nowrap!important;padding:8px 24px!important;margin:0 5px!important;border:1px solid var(--w-brand-border,#e5e5e5)!important;border-radius:999px!important;background:var(--w-brand-soft,#fff)!important;color:var(--w-brand-ink,#111)!important;text-decoration:none!important;font-size:13px!important;font-weight:850!important;letter-spacing:.015em!important;transition:transform .2s,background .2s,color .2s!important}
-#affiliates #wxTrack a:before{content:''!important;width:8px!important;height:8px!important;flex:0 0 8px!important;border-radius:50%!important;background:var(--w-brand-color,#111)!important}
-#affiliates #wxTrack a:hover{transform:translateY(-2px)!important;background:var(--w-brand-color,#111)!important;color:#fff!important}
-#affiliates #wxTrack a.wx-partner{border-radius:8px!important;font-size:12px!important}
-#affiliates .ws-disclosure{display:block!important;text-align:center!important;font-size:10px!important;color:#666!important;margin:10px auto!important}
-@media(prefers-reduced-motion:reduce){#affiliates #wxTrack{animation:none!important}}
-</style>
-<script id="worthsy-brand-strip-final">
-(function(){
- const partner=[['Amazon','#ff9900','#fff5e8'],['Flipkart','#2874f0','#eef4ff'],['Shopify','#95bf47','#f2f8e8'],['ClickBank','#1769aa','#eaf5ff'],['Coursera','#0056d2','#edf4ff'],['Awin','#5a2d82','#f4edfa']];
- const colors={'boAt':['#e31b36','#fff4f5'],'Noise':['#111','#f4f7ee'],'Apple':['#111','#f5f5f7'],'Xiaomi':['#ff6900','#fff5ed'],'OnePlus':['#eb0029','#fff0f2'],'Samsung':['#1428a0','#f0f2ff'],'Logitech':['#00b8fc','#eefaff'],'Ambrane':['#00a7e1','#eefaff'],'URBN':['#1d1d1f','#f2f2f2'],'TP-Link':['#167d88','#e9fbfc'],'Philips':['#0066a1','#eef8ff'],'Havells':['#ed1c24','#fff1f1'],'Kingston':['#ed1c24','#fff1f1'],'Crucial':['#00a3e0','#effaff'],'Corsair':['#e9a11b','#fff8e8'],'G.Skill':['#c81922','#fff1f1'],'ASUS':['#111','#f2f2f2'],'Dell':['#0076ce','#eef7ff'],'Lenovo':['#e2231a','#fff1f0'],'Acer':['#83b81a','#f5fae9'],'D-Link':['#c8102e','#fff0f3'],'Netgear':['#00a8e0','#edfbff'],'Tenda':['#e60012','#fff0f1'],'SanDisk':['#e31837','#fff0f3'],'Seagate':['#6ebe4a','#f3faef'],'JBL':['#f37021','#fff4eb'],'Sony':['#111','#f3f3f3'],'Realme':['#ffc915','#fff9e2'],'Anker':['#00a9e0','#effbff'],'Portronics':['#ed1c24','#fff1f1'],'Zebronics':['#f58220','#fff5eb'],'UGREEN':['#00a650','#edfff4'],'Qubo':['#f36f21','#fff4ed'],'Wipro':['#34205f','#f4f0ff'],'Syska':['#e31e24','#fff1f1'],'HP':['#0096d6','#eefaff'],'DailyObjects':['#202020','#f2f2f2'],'Fastrack':['#111','#fffbe5'],'Fire-Boltt':['#111','#f7f7f7'],'MSI':['#e31e24','#fff1f1'],'Nothing':['#111','#f2f2f2'],'CMF':['#ff5a00','#fff3eb'],'Google':['#4285f4','#eff5ff']};
- const sneakers=['Nike','adidas','New Balance','Puma','Onitsuka Tiger','Converse'];
- function run(){const track=document.getElementById('wxTrack');if(!track)return;let brands=[];document.querySelectorAll('#brand-logo-grid .brand-logo-card').forEach(card=>{let href=card.getAttribute('href')||'';let b='';try{b=new URL(href,location.href).searchParams.get('brand')||''}catch(e){}if(!b)b=(card.getAttribute('aria-label')||'').replace(/^Open\s+/,'').replace(/\s+brand store$/,'').replace(/^Explore\s+/,'').replace(/\s+products$/,'').trim();if(b)brands.push(b)});fetch('products.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).then(data=>{(Array.isArray(data)?data:[]).forEach(p=>{if(p&&p.brand)brands.push(String(p.brand).trim())});}).catch(()=>{}).finally(()=>build(track,brands));}
- function build(track,brands){let unique=[...new Set(brands.filter(Boolean))].sort((a,b)=>a.localeCompare(b));let entries=[...partner.map(p=>({name:p[0],url:'#'+p[0].toLowerCase(),color:p[1],soft:p[2],partner:true})),...unique.map(n=>({name:n,url:'brand.html?brand='+encodeURIComponent(n),color:(colors[n]||['#111','#f4f4f4'])[0],soft:(colors[n]||['#111','#f4f4f4'])[1]})),...sneakers.map(n=>({name:n,url:'sneakerhead.html?brand='+encodeURIComponent(n)+'#collection',color:'#111',soft:'#f4f4f4'}))];
- function row(){let frag=document.createDocumentFragment();entries.forEach(e=>{let a=document.createElement('a');a.href=e.url;a.textContent=e.name;a.style.setProperty('--w-brand-color',e.color);a.style.setProperty('--w-brand-soft',e.soft);a.style.setProperty('--w-brand-ink','#111');a.style.setProperty('--w-brand-border',e.color+'55');a.className=e.partner?'wx-partner':'';a.title=e.partner?'Explore '+e.name+' on WORTHSY':'Browse '+e.name+' brand collection';if(e.partner)a.setAttribute('data-platform',e.name.toLowerCase());frag.appendChild(a)});return frag}
- track.replaceChildren(row());let clone=row();clone.childNodes.forEach(a=>{a.setAttribute('aria-hidden','true');a.tabIndex=-1});track.appendChild(clone);track.style.animationDuration=Math.max(45,entries.length*1.65)+'s';}
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
-})();
-</script>
+
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
