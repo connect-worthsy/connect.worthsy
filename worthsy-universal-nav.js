@@ -13,6 +13,10 @@
   button.setAttribute('aria-expanded','true');
   button.setAttribute('aria-label','Close affiliate platform menu');
  };
+ function installMotionAssets(){
+  if(!document.querySelector('link[data-worthsy-motion]')){const l=document.createElement('link');l.rel='stylesheet';l.href='worthsy-motion.css?v=5';l.setAttribute('data-worthsy-motion','');document.head.appendChild(l);}
+  if(!document.querySelector('script[data-worthsy-motion]')){const s=document.createElement('script');s.src='worthsy-motion.js?v=7';s.defer=true;s.setAttribute('data-worthsy-motion','');document.head.appendChild(s);}
+ }
  function removeHeaderLinks(){
   const header=document.querySelector('header.worthsy-header.wx-header');
   if(!header)return;
@@ -22,6 +26,7 @@
   });
  }
  function init(){
+  installMotionAssets();
   removeHeaderLinks();
   const header=document.querySelector('header.worthsy-header.wx-header');
   if(header){new MutationObserver(removeHeaderLinks).observe(header,{childList:true,subtree:true});}
