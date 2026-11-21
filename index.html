@@ -4275,5 +4275,16 @@ body:has(#wsy-jarvis-panel.open) #wsy-amazon-reopen{display:none!important}
 
 <script src="worthsy-community.js?v=1" defer></script>
 <script src="worthsy-motion.js?v=1" defer></script>
+
+<script id="worthsy-marquee-repair">
+(function(){
+ var fallback=['boAt','Noise','Apple','Xiaomi','OnePlus','Samsung','Logitech','Ambrane','URBN','TP-Link','Philips','Havells','Kingston','Crucial','Corsair','G.Skill','ASUS','Dell','Lenovo','Acer','D-Link','Netgear','Tenda','SanDisk','Seagate','JBL','Sony','Realme','Anker','Portronics','Zebronics','UGREEN','Qubo','Wipro','Syska','HP','iQOO','Amazon Basics','Milton','Wakefit','Fujifilm','Spigen','TORRAS','SUPFINE','FNTCASE','Tygot','TheGiftKart','Fastrack','Fire-Boltt','MSI','Redragon','Nothing','CMF','Sennheiser','Google','MI','EZVIZ','Jio','Western Digital','DailyObjects','NutriPro','GIGABYTE','GOBOULT','GOVO','Mivi','INEFABLE'];
+ var partners=[['Amazon','#amazon'],['Flipkart','#flipkart'],['Shopify','#shopify'],['ClickBank','#clickbank'],['Coursera','#coursera'],['Awin','#awin']];
+ var sneakers=['Nike','adidas','New Balance','Puma','Onitsuka Tiger','Converse'];
+ function repair(){var track=document.getElementById('wxTrack');if(!track)return;var brands=[];document.querySelectorAll('#brand-logo-grid .brand-logo-card').forEach(function(card){var n=card.getAttribute('aria-label')||'';var href=card.getAttribute('href')||'';try{n=new URL(href,location.href).searchParams.get('brand')||n;}catch(e){}n=n.trim();if(n&&brands.indexOf(n)<0)brands.push(n);});fallback.forEach(function(n){if(brands.indexOf(n)<0)brands.push(n);});brands.sort(function(a,b){return a.localeCompare(b)});var items=partners.map(function(p){return {n:p[0],href:p[1],partner:true}}).concat(brands.map(function(n){return {n:n,href:'brand.html?brand='+encodeURIComponent(n)}})).concat(sneakers.map(function(n){return {n:n,href:'sneakerhead.html?brand='+encodeURIComponent(n)+'#collection',sneaker:true}}));
+ function row(){var frag=document.createDocumentFragment();items.forEach(function(it){var a=document.createElement('a');a.href=it.href;a.textContent=it.n;a.title=it.partner?'Shop '+it.n+' picks':'Explore '+it.n;if(it.partner)a.className='wx-p';if(it.sneaker)a.setAttribute('data-sneaker-brand',it.n);else if(!it.partner)a.setAttribute('data-brand-store',it.n);frag.appendChild(a)});return frag;}track.replaceChildren(row());var clone=row();clone.childNodes.forEach(function(a){a.setAttribute('aria-hidden','true');a.tabIndex=-1;});track.appendChild(clone);track.style.animationDuration=Math.max(40,items.length*2.2)+'s';}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',repair);else repair();
+})();
+</script>
 </body>
 </html>
