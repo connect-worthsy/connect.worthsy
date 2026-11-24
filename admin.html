@@ -28,6 +28,7 @@ h1{font-size:clamp(30px,5vw,48px);letter-spacing:-.06em;margin:36px 0 8px}p{colo
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<style id="worthsy-christmas-unified">#worthsy-snow-canvas{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;pointer-events:none!important;z-index:99998!important;opacity:1!important;display:block!important;visibility:visible!important}.wxmas-banner{position:relative;z-index:5;background:linear-gradient(90deg,#123b2b,#1d5b40,#123b2b);color:#fff;text-align:center;padding:10px 14px;font-size:12px;letter-spacing:.12em;font-weight:700}.wxmas-lights{height:9px;display:flex;justify-content:space-around;position:relative;z-index:7;pointer-events:none}.wxmas-lights i{width:7px;height:7px;border-radius:50%;background:#e53935;box-shadow:0 0 9px currentColor;animation:wxmas-blink 1.6s infinite alternate}.wxmas-lights i:nth-child(3n){background:#e9c46a}.wxmas-lights i:nth-child(2n){background:#58a878}@keyframes wxmas-blink{to{opacity:.25}}.wxmas-ticker{background:#b3262d;color:#fff;overflow:hidden;white-space:nowrap;padding:7px 0;font-size:11px;letter-spacing:.12em}.wxmas-ticker span{display:inline-block;animation:wxmas-scroll 26s linear infinite}@keyframes wxmas-scroll{from{transform:translateX(100vw)}to{transform:translateX(-100%)}}.wxmas-tree{position:fixed;left:12px;bottom:14px;z-index:99997;font-size:25px;pointer-events:none;animation:wxmas-sway 4s ease-in-out infinite}@keyframes wxmas-sway{50%{transform:rotate(6deg)}}#wxmas-controls{display:none!important}@media(prefers-reduced-motion:reduce){.wxmas-lights i,.wxmas-ticker span,.wxmas-tree{animation:none!important}}</style>
 </head>
 <body>
 <div class="shell">
@@ -81,5 +82,18 @@ document.getElementById('refresh').addEventListener('click',loadOverview);
 document.getElementById('runAudit').addEventListener('click',runAudit);
 })();
 </script>
+<script id="worthsy-christmas-unified-script">(()=>{if(window.__worthsyXmasUnified)return;window.__worthsyXmasUnified=true;try{
+const banner=document.createElement('div');banner.className='wxmas-banner';banner.innerHTML='✦ <span style="color:#ffd9a0">WORTHSY CHRISTMAS EDITION</span> ✦ FESTIVE FINDS • HOLIDAY MAGIC • JOY ✦';
+const lights=document.createElement('div');lights.className='wxmas-lights';lights.innerHTML=Array.from({length:42},()=>'<i></i>').join('');
+const ticker=document.createElement('div');ticker.className='wxmas-ticker';ticker.innerHTML='<span>✦ CHRISTMAS IS HERE ✦ DISCOVER FESTIVE FINDS ✦ MAKE THIS SEASON MAGICAL ✦ CHRISTMAS IS HERE ✦ DISCOVER FESTIVE FINDS ✦</span>';
+const header=document.querySelector('header');if(header&&header.parentNode){if(!document.querySelector('.wxmas-banner'))header.parentNode.insertBefore(banner,header);if(!document.querySelector('.wxmas-lights'))header.parentNode.insertBefore(lights,header.nextSibling)}else{document.body.prepend(banner,lights)}
+if(!document.querySelector('.wxmas-ticker')){const main=document.querySelector('main');if(main)main.prepend(ticker);else banner.after(ticker)}
+if(!document.querySelector('.wxmas-tree')){const tree=document.createElement('div');tree.className='wxmas-tree';tree.textContent='🎄';document.body.append(tree)}
+const existing=document.getElementById('worthsy-snow-canvas');if(existing)existing.remove();
+const c=document.createElement('canvas');c.id='worthsy-snow-canvas';c.setAttribute('aria-hidden','true');document.body.appendChild(c);const ctx=c.getContext('2d');let W,H,flakes=[];
+function resize(){W=innerWidth;H=innerHeight;c.width=Math.round(W*(devicePixelRatio||1));c.height=Math.round(H*(devicePixelRatio||1));c.style.width=W+'px';c.style.height=H+'px';ctx.setTransform(devicePixelRatio||1,0,0,devicePixelRatio||1,0,0);flakes=Array.from({length:W<600?90:170},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*3+1,vy:Math.random()*1.8+.65,vx:Math.random()*1.2-.6,a:Math.random()*6.28}))}
+resize();window.addEventListener('resize',resize);
+function draw(){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba(255,255,255,.96)';ctx.shadowColor='rgba(255,255,255,.55)';ctx.shadowBlur=4;ctx.beginPath();for(const f of flakes){ctx.moveTo(f.x+f.r,f.y);ctx.arc(f.x,f.y,f.r,0,Math.PI*2);f.y+=f.vy;f.x+=f.vx+Math.sin(f.a+=.018)*.35;if(f.y>H+6){f.y=-6;f.x=Math.random()*W}if(f.x>W+5)f.x=-5;if(f.x<-5)f.x=W+5}ctx.fill();ctx.shadowBlur=0;requestAnimationFrame(draw)}requestAnimationFrame(draw);
+}catch(e){console.error('Christmas theme initialization error',e)}})();</script>
 </body>
 </html>
