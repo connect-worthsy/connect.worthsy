@@ -1684,6 +1684,9 @@ html body #affiliates #wxTrack a{display:inline-flex!important;visibility:visibl
 @media(prefers-reduced-motion:reduce){#worthsy-snow-canvas,.wxmas-lights i,.wxmas-ticker span,.wxmas-tree{animation:none!important}}
 </style>
 <style id="wxmas-controls-hide-permanent">#wxmas-controls{display:none!important}</style>
+
+<style id="wxmas-controls-hide-permanent-v2">html body #wxmas-controls,html body div#wxmas-controls,html body #wxmas-controls *{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}</style>
+<script id="wxmas-controls-remove-v2">(()=>{const kill=()=>document.querySelectorAll('#wxmas-controls').forEach(e=>e.remove());kill();new MutationObserver(kill).observe(document.documentElement,{childList:true,subtree:true});})();</script>
 </head>
 <body class="bg-brandBg text-slate-100 min-h-screen selection:bg-brandAccent selection:text-brandBg">
 
