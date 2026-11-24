@@ -349,6 +349,25 @@ body[data-brand-theme]:not([data-brand-theme="all"]) .card-tag{box-shadow:none}
 
 <style id="wxmas-controls-hide-permanent-v2">html body #wxmas-controls,html body div#wxmas-controls,html body #wxmas-controls *{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}</style>
 <script id="wxmas-controls-remove-v2">(()=>{const kill=()=>document.querySelectorAll('#wxmas-controls').forEach(e=>e.remove());kill();new MutationObserver(kill).observe(document.documentElement,{childList:true,subtree:true});})();</script>
+<style id="worthsy-christmas-2026">
+:root{--xmas-red:#b3262d;--xmas-green:#164b36;--xmas-gold:#c9a45c}
+#worthsy-snow-canvas{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:9998}
+.wxmas-banner{position:relative;z-index:5;background:linear-gradient(90deg,#123b2b,#1d5b40,#123b2b);color:#fff;text-align:center;padding:10px 14px;font-size:12px;letter-spacing:.12em;font-weight:700}
+.wxmas-banner .wxmas-red{color:#ffd9a0}
+.wxmas-lights{height:9px;display:flex;justify-content:space-around;overflow:hidden;pointer-events:none;position:relative;z-index:7}
+.wxmas-lights i{width:7px;height:7px;border-radius:50%;background:#e53935;box-shadow:0 0 9px currentColor;animation:wxmas-blink 1.6s infinite alternate}
+.wxmas-lights i:nth-child(3n){background:#e9c46a;animation-delay:.4s}.wxmas-lights i:nth-child(2n){background:#58a878;animation-delay:.8s}
+@keyframes wxmas-blink{to{opacity:.25;filter:brightness(.6)}}
+#wxmas-controls{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;gap:8px}
+#wxmas-controls button{background:#164b36!important;color:#fff!important;border:1px solid #c9a45c!important;border-radius:999px;padding:10px 13px;font-size:12px;box-shadow:0 4px 18px #0002!important;cursor:pointer}
+.wxmas-ticker{background:#b3262d;color:#fff;overflow:hidden;white-space:nowrap;padding:7px 0;font-size:11px;letter-spacing:.12em}
+.wxmas-ticker span{display:inline-block;animation:wxmas-scroll 26s linear infinite}
+@keyframes wxmas-scroll{from{transform:translateX(100vw)}to{transform:translateX(-100%)}}
+.wxmas-tree{position:fixed;left:12px;bottom:14px;z-index:9997;font-size:25px;pointer-events:none;animation:wxmas-sway 4s ease-in-out infinite}
+@keyframes wxmas-sway{50%{transform:rotate(6deg)}}
+@media(max-width:600px){#wxmas-controls{right:9px;bottom:9px}#wxmas-controls button{padding:8px 10px}.wxmas-banner{font-size:10px}}
+@media(prefers-reduced-motion:reduce){#worthsy-snow-canvas,.wxmas-lights i,.wxmas-ticker span,.wxmas-tree{animation:none!important}}
+</style>
 </head>
 <body>
 <header class="worthsy-header wx-header fixed top-0 left-0 right-0 z-50">
@@ -845,4 +864,22 @@ fetch(DATA_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Catalogue 
 
 <script src="worthsy-community.js?v=1" defer></script>
 <script src="worthsy-motion.js?v=1" defer></script>
+<script id="worthsy-christmas-2026-script">
+(()=>{if(window.__worthsyXmas26)return;window.__worthsyXmas26=true;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const banner=document.createElement('div');banner.className='wxmas-banner';banner.innerHTML='✦ <span class="wxmas-red">WORTHSY CHRISTMAS EDITION</span> ✦  FESTIVE FINDS • HOLIDAY MAGIC • JOY ✦'; 
+const lights=document.createElement('div');lights.className='wxmas-lights';lights.innerHTML=Array.from({length:42},()=>'<i></i>').join('');
+const ticker=document.createElement('div');ticker.className='wxmas-ticker';ticker.innerHTML='<span>✦ CHRISTMAS IS HERE ✦ DISCOVER FESTIVE FINDS ✦ MAKE THIS SEASON MAGICAL ✦ CHRISTMAS IS HERE ✦ DISCOVER FESTIVE FINDS ✦</span>';
+const header=document.querySelector('header');if(header&&header.parentNode){header.parentNode.insertBefore(banner,header);header.parentNode.insertBefore(lights,header.nextSibling)}else document.body.prepend(banner,lights); 
+const main=document.querySelector('main');if(main)main.prepend(ticker);else banner.after(ticker);
+const tree=document.createElement('div');tree.className='wxmas-tree';tree.textContent='🎄';document.body.append(tree);
+const canvas=document.createElement('canvas');canvas.id='worthsy-snow-canvas';canvas.setAttribute('aria-hidden','true');document.body.append(canvas);
+const ctx=canvas.getContext('2d');let w,h,flakes=[];const resize=()=>{w=canvas.width=innerWidth*devicePixelRatio;h=canvas.height=innerHeight*devicePixelRatio;canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);flakes=Array.from({length:innerWidth<600?65:120},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*2.7+.7,s:Math.random()*1.1+.35,d:Math.random()*1.2-.6,a:Math.random()*Math.PI*2}))};resize();addEventListener('resize',resize);
+let active=!reduce;function draw(){if(!active||document.hidden)return;ctx.clearRect(0,0,innerWidth,innerHeight);ctx.fillStyle='rgba(255,255,255,.85)';ctx.beginPath();for(const f of flakes){ctx.moveTo(f.x,f.y);ctx.arc(f.x,f.y,f.r,0,Math.PI*2);f.y+=f.s;f.x+=Math.sin(f.a+=.012)*.5+f.d;if(f.y>innerHeight+5){f.y=-5;f.x=Math.random()*innerWidth}if(f.x>innerWidth+5)f.x=-5;if(f.x<-5)f.x=innerWidth+5}ctx.fill();requestAnimationFrame(draw)}if(active)draw();
+const controls=document.createElement('div');controls.id='wxmas-controls';controls.innerHTML='<button type="button" id="wxmas-snow-toggle" aria-label="Toggle snowfall">❄ Snow ON</button><button type="button" id="wxmas-decor-toggle" aria-label="Toggle Christmas decorations">🎄 Festive ON</button>';document.body.append(controls);
+controls.querySelector('#wxmas-snow-toggle').onclick=()=>{active=!active;canvas.style.display=active?'block':'none';controls.querySelector('#wxmas-snow-toggle').textContent=active?'❄ Snow ON':'❄ Snow OFF';if(active)draw()};
+let festive=true;controls.querySelector('#wxmas-decor-toggle').onclick=()=>{festive=!festive;banner.style.display=lights.style.display=ticker.style.display=tree.style.display=festive?'':'none';controls.querySelector('#wxmas-decor-toggle').textContent=festive?'🎄 Festive ON':'🎄 Festive OFF'};
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&active)draw()});
+})();
+</script>
 </body></html>
