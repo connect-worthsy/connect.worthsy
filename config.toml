@@ -1,0 +1,4 @@
+project_id = "aipooedxncqslcrxfyyv"
+
+[functions.submit-amazon-product]
+verify_jwt = false
