@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>WORTHSY | Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#fff;--ink:#111;--muted:#666;--line:#e5e5e5;--soft:#f6f6f6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer}.shell{max-width:1180px;margin:auto;padding:28px 24px 64px}
+.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:8px 0 22px}
+.logo{font-size:25px;font-weight:900;letter-spacing:.09em}.sub{font-size:10px;letter-spacing:.2em;color:var(--muted);margin-top:5px}
+.eyebrow{font-size:10px;letter-spacing:.18em;color:var(--muted);font-weight:700}
+h1{font-size:clamp(30px,5vw,48px);letter-spacing:-.06em;margin:36px 0 8px}p{color:var(--muted);line-height:1.6}
+.panel{border:1px solid var(--line);padding:24px;border-radius:14px;background:#fff}
+.login{max-width:440px;margin:64px auto}.field{display:block;width:100%;padding:13px 14px;border:1px solid #ccc;border-radius:7px;margin:10px 0 14px;background:#fff;color:#111}
+.btn{border:1px solid #111;background:#111;color:#fff;padding:12px 18px;border-radius:7px;font-weight:700}.btn.secondary{background:#fff;color:#111}.btn:disabled{opacity:.5;cursor:wait}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.status{font-size:13px;min-height:22px;margin-top:14px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:24px 0}
+.metric{border:1px solid var(--line);border-radius:12px;padding:19px;background:#fff}.metric small{display:block;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}.metric strong{display:block;font-size:34px;letter-spacing:-.05em;margin-top:12px}
+.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:36px 0 14px}.section-head h2{font-size:18px;margin:0;letter-spacing:-.03em}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--soft);font-size:10px;letter-spacing:.1em;text-transform:uppercase}tr:last-child td{border-bottom:0}
+.note{font-size:12px;color:var(--muted)}[hidden]{display:none!important}
+@media(max-width:760px){.shell{padding:18px 15px 48px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.top{align-items:flex-start}.metric strong{font-size:28px}.section-head{align-items:flex-start;flex-direction:column}}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<style id="worthsy-christmas-unified">#worthsy-snow-canvas{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;pointer-events:none!important;z-index:99998!important;opacity:1!important;display:block!important;visibility:visible!important}.wxmas-banner{position:relative;z-index:5;background:linear-gradient(90deg,#123b2b,#1d5b40,#123b2b);color:#fff;text-align:center;padding:10px 14px;font-size:12px;letter-spacing:.12em;font-weight:700}.wxmas-lights{height:9px;display:flex;justify-content:space-around;position:relative;z-index:7;pointer-events:none}.wxmas-lights i{width:7px;height:7px;border-radius:50%;background:#e53935;box-shadow:0 0 9px currentColor;animation:wxmas-blink 1.6s infinite alternate}.wxmas-lights i:nth-child(3n){background:#e9c46a}.wxmas-lights i:nth-child(2n){background:#58a878}@keyframes wxmas-blink{to{opacity:.25}}.wxmas-ticker{background:#b3262d;color:#fff;overflow:hidden;white-space:nowrap;padding:7px 0;font-size:11px;letter-spacing:.12em}.wxmas-ticker span{display:inline-block;animation:wxmas-scroll 26s linear infinite}@keyframes wxmas-scroll{from{transform:translateX(100vw)}to{transform:translateX(-100%)}}.wxmas-tree{position:fixed;left:12px;bottom:14px;z-index:99997;font-size:25px;pointer-events:none;animation:wxmas-sway 4s ease-in-out infinite}@keyframes wxmas-sway{50%{transform:rotate(6deg)}}#wxmas-controls{display:none!important}@media(prefers-reduced-motion:reduce){.wxmas-lights i,.wxmas-ticker span,.wxmas-tree{animation:none!important}}</style>
+<style id="worthsy-christmas-creatures-style">
+#wxmas-scene{position:fixed;inset:0;z-index:99990;pointer-events:none;overflow:hidden}
+.wxmas-side-tree{position:absolute;bottom:12px;font-size:clamp(32px,5vw,65px);filter:drop-shadow(0 2px 5px #0003);animation:wxmas-tree-bob 4s ease-in-out infinite}
+.wxmas-side-tree.left{left:10px}.wxmas-side-tree.right{right:10px;animation-delay:1.3s}
+.wxmas-snowman{position:absolute;bottom:10px;font-size:clamp(30px,4vw,52px);animation:wxmas-snowman-bob 3.5s ease-in-out infinite}
+.wxmas-snowman.left{left:65px}.wxmas-snowman.right{right:65px;animation-delay:1s}
+.wxmas-santa-flight{position:absolute;top:12%;left:-20%;white-space:nowrap;font-size:clamp(36px,5vw,64px);filter:drop-shadow(0 3px 4px #0002);animation:wxmas-santa-fly 26s linear infinite}
+.wxmas-santa-flight span{display:inline-block;transform:scaleX(-1)}
+.wxmas-star{position:absolute;color:#ffe7a1;font-size:20px;animation:wxmas-star-pulse 2.5s ease-in-out infinite}
+@keyframes wxmas-santa-fly{0%{left:-22%;top:12%}35%{top:18%}60%{top:8%}100%{left:120%;top:14%}}
+@keyframes wxmas-tree-bob{50%{transform:translateY(-5px) rotate(2deg)}}
+@keyframes wxmas-snowman-bob{50%{transform:translateY(-4px)}}
+@keyframes wxmas-star-pulse{50%{opacity:.3;transform:scale(.75)}}
+@media(max-width:600px){.wxmas-snowman.left{left:50px}.wxmas-snowman.right{right:50px}.wxmas-side-tree{bottom:6px}.wxmas-snowman{bottom:6px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top"><div><div class="logo">WORTHSY</div><div class="sub">PRIVATE ADMINISTRATION</div></div><a href="/" style="color:#111;font-size:12px;font-weight:700">BACK TO STORE ↗</a></header>
+<section id="login" class="panel login">
+<div class="eyebrow">RESTRICTED ACCESS</div><h1 style="font-size:32px;margin-top:14px">Administrator sign in</h1>
+<p>Only the authorised WORTHSY administrator account can open this dashboard.</p>
+<input id="email" class="field" type="email" autocomplete="username" placeholder="Administrator email">
+<input id="password" class="field" type="password" autocomplete="current-password" placeholder="Password">
+<div class="actions"><button id="passwordLogin" class="btn">Sign in</button><button id="googleLogin" class="btn secondary">Continue with Google</button></div>
+<div id="loginStatus" class="status" role="status" aria-live="polite"></div>
+</section>
+<section id="dashboard" hidden>
+<div class="eyebrow">WORTHSY CONTROL CENTRE</div><h1>Overview</h1>
+<p id="welcome">Secure administrator session</p>
+<div class="actions"><button id="refresh" class="btn">Refresh data</button><button id="runAudit" class="btn secondary">Run catalogue audit</button><button id="logout" class="btn secondary">Sign out</button></div>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+<div class="grid">
+<div class="metric"><small>Products</small><strong id="products">—</strong></div>
+<div class="metric"><small>Brands</small><strong id="brands">—</strong></div>
+<div class="metric"><small>Categories</small><strong id="categories">—</strong></div>
+<div class="metric"><small>Missing affiliate links</small><strong id="missingLinks">—</strong></div>
+<div class="metric"><small>Missing images</small><strong id="missingImages">—</strong></div>
+<div class="metric"><small>Unlisted prices</small><strong id="missingPrices">—</strong></div>
+<div class="metric"><small>API service</small><strong style="font-size:18px" id="service">—</strong></div>
+<div class="metric"><small>Access</small><strong style="font-size:18px">READ ONLY</strong></div>
+</div>
+<div class="section-head"><h2>Catalogue audit</h2><span class="note" id="auditSummary">Run an audit to inspect catalogue issues.</span></div>
+<div class="table-wrap"><table><thead><tr><th>Product</th><th>Finding</th></tr></thead><tbody id="auditRows"><tr><td colspan="2" class="note">No audit has been run.</td></tr></tbody></table></div>
+<p class="note" style="margin-top:18px">This first dashboard release is read-only. It does not edit products, affiliate links, orders, customer accounts, or website settings.</p>
+</section>
+</div>
+<script>
+(function(){
+'use strict';
+var firebaseConfig={apiKey:"AIzaSyDxBGEZnGnCdUQftwS-QgOVMH5h9WNzecE",authDomain:"connect1worthsy.firebaseapp.com",projectId:"connect1worthsy",storageBucket:"connect1worthsy.firebasestorage.app",messagingSenderId:"655885819600",appId:"1:655885819600:web:333ab84dac36a82f7408d5"};
+var ADMIN="connect.worthsy@gmail.com",API="https://worthsy-jarvis-gateway.onrender.com";
+var login=document.getElementById('login'),dashboard=document.getElementById('dashboard'),loginStatus=document.getElementById('loginStatus'),status=document.getElementById('status'),auth;
+function say(el,msg){el.textContent=msg;}
+function showLogin(msg){dashboard.hidden=true;login.hidden=false;if(msg)say(loginStatus,msg);}
+function showDashboard(){login.hidden=true;dashboard.hidden=false;}
+function api(path){return auth.currentUser.getIdToken().then(function(token){return fetch(API+path,{headers:{Authorization:'Bearer '+token,Accept:'application/json'}});}).then(function(r){if(!r.ok)return r.json().catch(function(){return {};}).then(function(x){throw new Error(x.detail||'Request failed ('+r.status+')');});return r.json();});}
+function loadOverview(){say(status,'Loading secure dashboard data…');return api('/admin/overview').then(function(d){document.getElementById('welcome').textContent='Signed in as '+d.administrator;['products','brands','categories','missing_links','missing_images','missing_prices'].forEach(function(k){var id={missing_links:'missingLinks',missing_images:'missingImages',missing_prices:'missingPrices'}[k]||k;document.getElementById(id).textContent=Number(d[k]||0).toLocaleString();});document.getElementById('service').textContent=d.service||'Online';say(status,'Dashboard data refreshed.');}).catch(function(e){say(status,e.message);});}
+function runAudit(){say(status,'Checking the product catalogue…');return api('/admin/catalogue-audit').then(function(d){var body=document.getElementById('auditRows');body.textContent='';(d.issues||[]).forEach(function(item){var tr=document.createElement('tr'),name=document.createElement('td'),issue=document.createElement('td');name.textContent=item.product;issue.textContent=item.issue;tr.append(name,issue);body.appendChild(tr);});if(!d.issues||!d.issues.length){var tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=2;td.textContent='No structural catalogue issues found.';tr.appendChild(td);body.appendChild(tr);}document.getElementById('auditSummary').textContent=d.issue_count+' findings across '+d.checked+' products'+(d.truncated?' (first 200 shown)':'');say(status,'Catalogue audit complete. '+d.issue_count+' findings.');}).catch(function(e){say(status,e.message);});}
+function acceptUser(user){if(!user){showLogin('Sign in with the authorised administrator account.');return;}if(String(user.email||'').toLowerCase()!==ADMIN||user.emailVerified!==true){auth.signOut();showLogin('Access denied. Use the verified WORTHSY administrator account.');return;}showDashboard();loadOverview();}
+try{if(!firebase.apps.length)firebase.initializeApp(firebaseConfig);auth=firebase.auth();auth.onAuthStateChanged(acceptUser);}catch(e){showLogin('Authentication could not be started. Refresh and try again.');}
+document.getElementById('passwordLogin').addEventListener('click',function(){var email=document.getElementById('email').value.trim(),password=document.getElementById('password').value;if(!email||!password){say(loginStatus,'Enter your administrator email and password.');return;}say(loginStatus,'Signing in…');auth.signInWithEmailAndPassword(email,password).catch(function(e){say(loginStatus,e.message||'Sign-in failed.');});});
+document.getElementById('googleLogin').addEventListener('click',function(){say(loginStatus,'Opening Google sign-in…');auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(function(e){say(loginStatus,e.message||'Google sign-in failed.');});});
+document.getElementById('logout').addEventListener('click',function(){auth.signOut().then(function(){showLogin('You have signed out.');});});
+document.getElementById('refresh').addEventListener('click',loadOverview);
+document.getElementById('runAudit').addEventListener('click',runAudit);
+})();
+</script>
+<script id="worthsy-christmas-unified-script">(()=>{if(window.__worthsyXmasUnified)return;window.__worthsyXmasUnified=true;try{
+const banner=document.createElement('div');banner.className='wxmas-banner';banner.innerHTML='✦ <span style="color:#ffd9a0">WORTHSY CHRISTMAS EDITION</span> ✦ FESTIVE FINDS • HOLIDAY MAGIC • JOY ✦';
+const lights=document.createElement('div');lights.className='wxmas-lights';lights.innerHTML=Array.from({length:42},()=>'<i></i>').join('');
+const ticker=document.createElement('div');ticker.className='wxmas-ticker';ticker.innerHTML='<span>✦ CHRISTMAS IS HERE ✦ DISCOVER FESTIVE FINDS ✦ MAKE THIS SEASON MAGICAL ✦ CHRISTMAS IS HERE ✦ DISCOVER FESTIVE FINDS ✦</span>';
+const header=document.querySelector('header');if(header&&header.parentNode){if(!document.querySelector('.wxmas-banner'))header.parentNode.insertBefore(banner,header);if(!document.querySelector('.wxmas-lights'))header.parentNode.insertBefore(lights,header.nextSibling)}else{document.body.prepend(banner,lights)}
+if(!document.querySelector('.wxmas-ticker')){const main=document.querySelector('main');if(main)main.prepend(ticker);else banner.after(ticker)}
+if(!document.querySelector('.wxmas-tree')){const tree=document.createElement('div');tree.className='wxmas-tree';tree.textContent='🎄';document.body.append(tree)}
+const existing=document.getElementById('worthsy-snow-canvas');if(existing)existing.remove();
+const c=document.createElement('canvas');c.id='worthsy-snow-canvas';c.setAttribute('aria-hidden','true');document.body.appendChild(c);const ctx=c.getContext('2d');let W,H,flakes=[];
+function resize(){W=innerWidth;H=innerHeight;c.width=Math.round(W*(devicePixelRatio||1));c.height=Math.round(H*(devicePixelRatio||1));c.style.width=W+'px';c.style.height=H+'px';ctx.setTransform(devicePixelRatio||1,0,0,devicePixelRatio||1,0,0);flakes=Array.from({length:W<600?90:170},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*3+1,vy:Math.random()*1.8+.65,vx:Math.random()*1.2-.6,a:Math.random()*6.28}))}
+resize();window.addEventListener('resize',resize);
+function draw(){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba(255,255,255,.96)';ctx.shadowColor='rgba(255,255,255,.55)';ctx.shadowBlur=4;ctx.beginPath();for(const f of flakes){ctx.moveTo(f.x+f.r,f.y);ctx.arc(f.x,f.y,f.r,0,Math.PI*2);f.y+=f.vy;f.x+=f.vx+Math.sin(f.a+=.018)*.35;if(f.y>H+6){f.y=-6;f.x=Math.random()*W}if(f.x>W+5)f.x=-5;if(f.x<-5)f.x=W+5}ctx.fill();ctx.shadowBlur=0;requestAnimationFrame(draw)}requestAnimationFrame(draw);
+}catch(e){console.error('Christmas theme initialization error',e)}})();</script>
+<script id="worthsy-christmas-creatures-script">(()=>{if(window.__worthsyChristmasCreatures)return;window.__worthsyChristmasCreatures=true;const add=()=>{if(document.getElementById('wxmas-scene'))return;const scene=document.createElement('div');scene.id='wxmas-scene';scene.setAttribute('aria-hidden','true');scene.innerHTML='<div class="wxmas-side-tree left">🎄</div><div class="wxmas-side-tree right">🎄</div><div class="wxmas-snowman left">☃️</div><div class="wxmas-snowman right">⛄</div><div class="wxmas-santa-flight"><span>🎅🛷</span></div><div class="wxmas-star" style="top:25%;left:12%">✦</div><div class="wxmas-star" style="top:38%;right:13%;animation-delay:.8s">✧</div><div class="wxmas-star" style="top:60%;left:20%;animation-delay:1.4s">✦</div>';document.body.append(scene)};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',add,{once:true});else add()})();</script>
+</body>
+</html>

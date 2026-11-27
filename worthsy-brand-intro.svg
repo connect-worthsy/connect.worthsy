@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+<rect width="1080" height="1350" fill="#fff"/>
+<rect x="34" y="34" width="1012" height="1282" fill="none" stroke="#111" stroke-width="2"/>
+<text x="82" y="112" font-family="Arial, Helvetica, sans-serif" font-size="26" letter-spacing="8" fill="#111">WORTHSY</text>
+<line x1="82" y1="150" x2="998" y2="150" stroke="#111" stroke-width="2"/>
+<text x="82" y="300" font-family="Arial, Helvetica, sans-serif" font-size="24" letter-spacing="5" fill="#555">DISCOVER SOMETHING BETTER</text>
+<text x="78" y="435" font-family="Arial, Helvetica, sans-serif" font-size="106" font-weight="700" letter-spacing="-4" fill="#111">EVERYDAY</text>
+<text x="78" y="550" font-family="Arial, Helvetica, sans-serif" font-size="106" font-weight="700" letter-spacing="-4" fill="#111">BRANDS.</text>
+<text x="82" y="625" font-family="Arial, Helvetica, sans-serif" font-size="31" fill="#444">All your everyday discoveries,</text>
+<text x="82" y="670" font-family="Arial, Helvetica, sans-serif" font-size="31" fill="#444">in one simple place.</text>
+<g fill="#fff" stroke="#111" stroke-width="2">
+<rect x="82" y="760" width="276" height="174" rx="2"/>
+<rect x="402" y="760" width="276" height="174" rx="2"/>
+<rect x="722" y="760" width="276" height="174" rx="2"/>
+</g>
+<g stroke="#111" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="170" y="802" width="100" height="72" rx="10"/><path d="M186 891h68"/>
+<path d="M500 821h80v70h-80z"/><path d="M510 811h60M520 801h40"/>
+<circle cx="860" cy="842" r="34"/><path d="M860 808v68M826 842h68"/>
+</g>
+<g font-family="Arial, Helvetica, sans-serif" font-size="21" letter-spacing="3" fill="#111" text-anchor="middle">
+<text x="220" y="911">TECH</text><text x="540" y="911">ESSENTIALS</text><text x="860" y="911">EVERYDAY</text>
+</g>
+<line x1="82" y1="1010" x2="998" y2="1010" stroke="#111" stroke-width="2"/>
+<text x="82" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#111">Explore products from</text>
+<text x="82" y="1125" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#111">Everyday Brands....</text>
+<text x="82" y="1242" font-family="Arial, Helvetica, sans-serif" font-size="23" letter-spacing="3" fill="#555">WORTHSY.IN</text>
+<path d="M885 1204h113v3H885z M980 1188l18 17-18 17" fill="none" stroke="#111" stroke-width="3"/>
+</svg>
