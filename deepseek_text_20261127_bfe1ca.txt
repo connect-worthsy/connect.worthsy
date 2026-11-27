@@ -1,0 +1,14 @@
+worthsy/
+├── index.html
+├── shop.html
+├── deals.html
+├── reviews.html
+├── compare.html
+├── about.html
+├── contact.html
+├── privacy.html
+├── .nojekyll
+├── README.md
+└── assets/
+    ├── app.css
+    └── app.js
