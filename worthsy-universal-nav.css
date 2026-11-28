@@ -221,27 +221,13 @@ html body #worthsy-modern-sidebar #wm-account-open:hover .wm-tx,html body #worth
 html.wm-collapsed body #worthsy-modern-sidebar #wm-collapse{left:50%!important;right:auto!important;transform:translateX(-50%)!important;margin:0!important;display:flex!important;align-items:center!important;justify-content:center!important;width:36px!important;height:36px!important;padding:0!important;}
 html body #worthsy-modern-sidebar #wm-collapse{display:flex!important;align-items:center!important;justify-content:center!important;}
 
-/* v27: subtle cross-page fade navigation */
-@media (prefers-reduced-motion: no-preference){
- html{view-transition-name:page-root;}
- ::view-transition-old(page-root){animation:worthsy-page-out .16s ease both;}
- ::view-transition-new(page-root){animation:worthsy-page-in .24s ease both;}
-}
-@keyframes worthsy-page-out{to{opacity:0;}}
-@keyframes worthsy-page-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
-/* v28 transition: graceful navigation fade with reduced-motion support */
+/* v30: single, non-transforming cross-document transition to prevent sidebar flash */
 @media (prefers-reduced-motion: no-preference){
- html{view-transition-name:root;}
- ::view-transition-old(root){animation:worthsy-out .18s ease both;}
- ::view-transition-new(root){animation:worthsy-in .28s cubic-bezier(.2,.7,.2,1) both;}
+ @view-transition{navigation:auto;}
+ ::view-transition-old(root){animation:worthsyFadeOut .12s ease-out both;}
+ ::view-transition-new(root){animation:worthsyFadeIn .22s ease-out both;}
 }
-@keyframes worthsy-out{to{opacity:0;transform:translateY(-3px)}}
-@keyframes worthsy-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-/* v29: full-page smooth navigation transition, including browsers without native support */
-@media (prefers-reduced-motion: no-preference){
- html{animation:worthsyPageEnter .34s cubic-bezier(.22,.61,.36,1) both;}
- body{animation:worthsyPageEnter .34s cubic-bezier(.22,.61,.36,1) both;}
-}
-@keyframes worthsyPageEnter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion: reduce){@view-transition{navigation:none;}}
+@keyframes worthsyFadeOut{to{opacity:.92;}}
+@keyframes worthsyFadeIn{from{opacity:.96;}to{opacity:1;}}
