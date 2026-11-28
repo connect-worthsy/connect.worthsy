@@ -223,10 +223,11 @@ html body #worthsy-modern-sidebar #wm-collapse{display:flex!important;align-item
 
 
 
-/* v31: simple, subtle page fade only; no transforms or sidebar animation */
+
+/* v32: clean one-sided page reveal; previous page stays still, no crossfade */
 @media (prefers-reduced-motion: no-preference){
  @view-transition{navigation:auto;}
- ::view-transition-old(root){animation:worthsySimpleFade .12s linear both;}
- ::view-transition-new(root){animation:worthsySimpleFade .16s linear both reverse;}
+ ::view-transition-old(root){animation:none!important;}
+ ::view-transition-new(root){animation:worthsyPageReveal .14s ease-out both!important;}
 }
-@keyframes worthsySimpleFade{from{opacity:1;}to{opacity:0;}}
+@keyframes worthsyPageReveal{from{opacity:0;}to{opacity:1;}}
