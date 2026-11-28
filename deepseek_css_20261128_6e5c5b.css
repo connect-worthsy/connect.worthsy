@@ -1,5 +1,0 @@
-.main::-webkit-scrollbar, .sidebar::-webkit-scrollbar{width:8px}
-.main::-webkit-scrollbar-track{background:transparent}
-.main::-webkit-scrollbar-thumb{background:#dcdcdc;border-radius:99px;border:2px solid #fff}
-.main::-webkit-scrollbar-thumb:hover{background:#bdbdbd}
-.sidebar::-webkit-scrollbar-thumb{background:#e6e6e6;border-radius:99px}
