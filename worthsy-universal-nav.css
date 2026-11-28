@@ -222,12 +222,11 @@ html.wm-collapsed body #worthsy-modern-sidebar #wm-collapse{left:50%!important;r
 html body #worthsy-modern-sidebar #wm-collapse{display:flex!important;align-items:center!important;justify-content:center!important;}
 
 
-/* v30: single, non-transforming cross-document transition to prevent sidebar flash */
+
+/* v31: simple, subtle page fade only; no transforms or sidebar animation */
 @media (prefers-reduced-motion: no-preference){
  @view-transition{navigation:auto;}
- ::view-transition-old(root){animation:worthsyFadeOut .12s ease-out both;}
- ::view-transition-new(root){animation:worthsyFadeIn .22s ease-out both;}
+ ::view-transition-old(root){animation:worthsySimpleFade .12s linear both;}
+ ::view-transition-new(root){animation:worthsySimpleFade .16s linear both reverse;}
 }
-@media (prefers-reduced-motion: reduce){@view-transition{navigation:none;}}
-@keyframes worthsyFadeOut{to{opacity:.92;}}
-@keyframes worthsyFadeIn{from{opacity:.96;}to{opacity:1;}}
+@keyframes worthsySimpleFade{from{opacity:1;}to{opacity:0;}}
