@@ -1,8 +1,0 @@
-.sidebar{
-  position:fixed; inset:0 auto 0 0; width:var(--sidebar-w);
-  height:100vh; height:100dvh;
-  background:var(--bg); border-right:1px solid var(--line);
-  display:flex; flex-direction:column;
-  overflow-y:auto; overscroll-behavior:contain;
-  z-index:50;
-}
