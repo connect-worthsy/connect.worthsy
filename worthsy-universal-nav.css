@@ -133,3 +133,13 @@ body>header.worthsy-header.wx-header #wxShopMenu.is-open{display:block!important
 
 /* Force-hide the legacy universal-header links across desktop and mobile nav */
 body>header.worthsy-header.wx-header .wx-nav a[href="#affiliates"],body>header.worthsy-header.wx-header .wx-nav a[href="#about"],body>header.worthsy-header.wx-header .wx-nav a[href="#contact"],body>header.worthsy-header.wx-header #mobileMenu a[href="#affiliates"],body>header.worthsy-header.wx-header #mobileMenu a[href="#about"],body>header.worthsy-header.wx-header #mobileMenu a[href="#contact"]{display:none!important;visibility:hidden!important;width:0!important;padding:0!important;margin:0!important}
+
+/* Sidebar expand/collapse control: keep it in a dedicated top corner, never over navigation items */
+@media(min-width:801px){
+ #worthsy-modern-sidebar{position:fixed!important;overflow-x:hidden!important;overflow-y:auto!important;}
+ #worthsy-modern-sidebar #wm-collapse{position:absolute!important;top:12px!important;right:12px!important;z-index:20!important;margin:0!important;flex-shrink:0!important;}
+ #worthsy-modern-sidebar .wm-brand{padding-top:0!important;padding-right:44px!important;min-height:48px!important;box-sizing:border-box!important;}
+ html.wm-collapsed #worthsy-modern-sidebar #wm-collapse{right:12px!important;top:12px!important;}
+ html.wm-collapsed #worthsy-modern-sidebar .wm-brand{padding-right:0!important;padding-top:48px!important;min-height:88px!important;}
+ #worthsy-modern-sidebar nav,#worthsy-modern-sidebar .wm-bottom{position:relative!important;z-index:1!important;clear:both!important;}
+}
