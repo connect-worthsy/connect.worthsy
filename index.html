@@ -3707,7 +3707,7 @@ function supportSubmit(e) {
   if(open)open.addEventListener('click',openAccountPanel);
   if(close)close.addEventListener('click',hide);
   if(layer){layer.addEventListener('click',function(e){if(e.target===layer)hide();});}
-  document.addEventListener('click',function(e){var trigger=e.target&&e.target.closest?e.target.closest('[data-open-account]'):null;if(trigger){e.preventDefault();openAccountPanel(e);}});
+  document.addEventListener('click',function(e){var trigger=e.target&&e.target.closest?e.target.closest('[data-open-account],#wm-account-open'):null;if(trigger){e.preventDefault();openAccountPanel(e);}});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&layer&&layer.classList.contains('open'))hide();});
   try{
     if(!window.firebase)throw new Error('Firebase SDK failed to load. Refresh and try again.');
