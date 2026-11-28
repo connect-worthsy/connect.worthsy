@@ -200,3 +200,7 @@ html body #worthsy-modern-sidebar .wm-label{padding:16px 10px 6px!important;colo
 html body #worthsy-modern-sidebar .wm-bottom{margin-top:auto!important;padding-top:10px!important;border-top:1px solid #eee!important;}
 html body #worthsy-modern-sidebar .wm-bottom a{color:#111!important;}
 html.wm-collapsed body #worthsy-modern-sidebar .wm-label{background:#eee!important;}
+
+/* Account control typography/icon explicitly black on the white sidebar */
+html body #worthsy-modern-sidebar #wm-account-open,html body #worthsy-modern-sidebar #wm-account-open .wm-tx,html body #worthsy-modern-sidebar #wm-account-open .wm-ic{color:#111!important;}
+html body #worthsy-modern-sidebar #wm-account-open:hover,html body #worthsy-modern-sidebar #wm-account-open:hover .wm-tx,html body #worthsy-modern-sidebar #wm-account-open:hover .wm-ic{color:#fff!important;background:#d71920!important;}
