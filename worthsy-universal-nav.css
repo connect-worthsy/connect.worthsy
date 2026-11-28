@@ -143,3 +143,13 @@ body>header.worthsy-header.wx-header .wx-nav a[href="#affiliates"],body>header.w
  html.wm-collapsed #worthsy-modern-sidebar .wm-brand{padding-right:0!important;padding-top:48px!important;min-height:88px!important;}
  #worthsy-modern-sidebar nav,#worthsy-modern-sidebar .wm-bottom{position:relative!important;z-index:1!important;clear:both!important;}
 }
+
+/* Stabilize Today's picks/deals row: keep sidebar content in a fixed flex layout */
+@media(min-width:801px){
+ #worthsy-modern-sidebar{display:flex!important;flex-direction:column!important;}
+ #worthsy-modern-sidebar .wm-brand{flex:0 0 auto!important;position:relative!important;}
+ #worthsy-modern-sidebar .wm-deal{display:flex!important;position:relative!important;flex:0 0 auto!important;align-items:center!important;width:100%!important;box-sizing:border-box!important;margin:8px 0 12px!important;transform:none!important;translate:none!important;}
+ #worthsy-modern-sidebar nav{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;}
+ #worthsy-modern-sidebar nav a{position:relative!important;transform:none!important;translate:none!important;box-sizing:border-box!important;}
+ #worthsy-modern-sidebar #wm-collapse{position:absolute!important;}
+}
