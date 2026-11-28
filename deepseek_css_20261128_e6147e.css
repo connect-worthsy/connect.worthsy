@@ -1,0 +1,4 @@
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;transition:...}
+.card:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 12px 30px rgba(0,0,0,.07)}
+.thumb{aspect-ratio:4/3;display:grid;place-items:center;font-weight:800;font-size:34px;color:#111;background:linear-gradient(135deg,#f7f7f7,#ececec)}
