@@ -220,3 +220,12 @@ html body #worthsy-modern-sidebar #wm-account-open:hover{background:#d71920!impo
 html body #worthsy-modern-sidebar #wm-account-open:hover .wm-tx,html body #worthsy-modern-sidebar #wm-account-open:hover .wm-ic{color:#fff!important;}
 html.wm-collapsed body #worthsy-modern-sidebar #wm-collapse{left:50%!important;right:auto!important;transform:translateX(-50%)!important;margin:0!important;display:flex!important;align-items:center!important;justify-content:center!important;width:36px!important;height:36px!important;padding:0!important;}
 html body #worthsy-modern-sidebar #wm-collapse{display:flex!important;align-items:center!important;justify-content:center!important;}
+
+/* v27: subtle cross-page fade navigation */
+@media (prefers-reduced-motion: no-preference){
+ html{view-transition-name:page-root;}
+ ::view-transition-old(page-root){animation:worthsy-page-out .16s ease both;}
+ ::view-transition-new(page-root){animation:worthsy-page-in .24s ease both;}
+}
+@keyframes worthsy-page-out{to{opacity:0;}}
+@keyframes worthsy-page-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
