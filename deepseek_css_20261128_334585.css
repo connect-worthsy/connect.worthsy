@@ -1,7 +1,0 @@
-@media(max-width:900px){
-  .sidebar{transform:translateX(-100%);transition:transform .3s;box-shadow:...}
-  .sidebar.open{transform:none}
-  .main{margin-left:0}
-  .menu-btn{display:grid}
-  .overlay{...}
-}
