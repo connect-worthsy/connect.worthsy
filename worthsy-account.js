@@ -86,7 +86,7 @@
       });
       document.getElementById("wst-account-google").addEventListener("click",async()=>{
         try{say("Opening Google sign-in…");await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());say("Google sign-in successful.");close();}
-        catch(e){if(e.code==="auth/popup-blocked"||e.code==="auth/operation-not-supported-in-this-environment"){try{await auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());}catch(x){say(explain(x));}}else say(explain(e));}
+        catch(e){if(e.code==="auth/popup-blocked"||e.code==="auth/operation-not-supported-in-this-environment"||e.code==="auth/cancelled-popup-request"){try{say("Redirecting to Google…");await auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());}catch(x){say(explain(x));}}else say(explain(e));}
       });
       document.getElementById("wst-account-signin").addEventListener("click",async()=>{
         const mail=email.value.trim(),pass=password.value;
