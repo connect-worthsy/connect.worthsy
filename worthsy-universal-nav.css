@@ -238,3 +238,10 @@ html body #worthsy-modern-sidebar #wm-collapse{display:flex!important;align-item
 }
 @keyframes worthsy-out{to{opacity:0;transform:translateY(-3px)}}
 @keyframes worthsy-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* v29: full-page smooth navigation transition, including browsers without native support */
+@media (prefers-reduced-motion: no-preference){
+ html{animation:worthsyPageEnter .34s cubic-bezier(.22,.61,.36,1) both;}
+ body{animation:worthsyPageEnter .34s cubic-bezier(.22,.61,.36,1) both;}
+}
+@keyframes worthsyPageEnter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
