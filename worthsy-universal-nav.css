@@ -204,3 +204,12 @@ html.wm-collapsed body #worthsy-modern-sidebar .wm-label{background:#eee!importa
 /* Account control typography/icon explicitly black on the white sidebar */
 html body #worthsy-modern-sidebar #wm-account-open,html body #worthsy-modern-sidebar #wm-account-open .wm-tx,html body #worthsy-modern-sidebar #wm-account-open .wm-ic{color:#111!important;}
 html body #worthsy-modern-sidebar #wm-account-open:hover,html body #worthsy-modern-sidebar #wm-account-open:hover .wm-tx,html body #worthsy-modern-sidebar #wm-account-open:hover .wm-ic{color:#fff!important;background:#d71920!important;}
+
+/* v25 force-white-sidebar */
+#worthsy-modern-sidebar,#worthsy-modern-sidebar *{box-sizing:border-box!important}
+html body #worthsy-modern-sidebar{background-color:#fff!important;color:#111!important;border-right:1px solid #ddd!important;}
+html body #worthsy-modern-sidebar a,html body #worthsy-modern-sidebar button{color:#111!important;}
+html body #worthsy-modern-sidebar a span,html body #worthsy-modern-sidebar button span,html body #worthsy-modern-sidebar svg{color:#111!important;}
+html body #worthsy-modern-sidebar a:hover,html body #worthsy-modern-sidebar button:hover{background:#d71920!important;color:#fff!important;}
+html body #worthsy-modern-sidebar a:hover span,html body #worthsy-modern-sidebar button:hover span,html body #worthsy-modern-sidebar a:hover svg,html body #worthsy-modern-sidebar button:hover svg{color:#fff!important;}
+html body #worthsy-modern-sidebar #wm-deal,html body #worthsy-modern-sidebar .wm-deal{background:#d71920!important;color:#fff!important;}
