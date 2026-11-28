@@ -153,3 +153,18 @@ body>header.worthsy-header.wx-header .wx-nav a[href="#affiliates"],body>header.w
  #worthsy-modern-sidebar nav a{position:relative!important;transform:none!important;translate:none!important;box-sizing:border-box!important;}
  #worthsy-modern-sidebar #wm-collapse{position:absolute!important;}
 }
+
+
+/* WORTHSY sidebar light blend: match the site's white canvas */
+#worthsy-modern-sidebar{background:#fff!important;color:#171717!important;border-right:1px solid #e7e7e7!important;box-shadow:none!important;}
+#worthsy-modern-sidebar nav a,#worthsy-modern-sidebar .wm-bottom a,#worthsy-modern-sidebar #wm-theme{color:#222!important;}
+#worthsy-modern-sidebar nav a:hover,#worthsy-modern-sidebar nav a[aria-current="page"],#worthsy-modern-sidebar .wm-bottom a:hover,#worthsy-modern-sidebar #wm-theme:hover{background:#f3f3f3!important;color:#111!important;}
+#worthsy-modern-sidebar .wm-bottom a{color:#666!important;}
+#worthsy-modern-sidebar .wm-label{color:#888!important;}
+#worthsy-modern-sidebar .wm-bottom{border-top:1px solid #eee!important;}
+#worthsy-modern-sidebar .wm-deal,#worthsy-modern-sidebar .wm-deal:hover{background:#d71920!important;color:#fff!important;}
+#worthsy-modern-sidebar #wm-collapse{background:#fff!important;color:#222!important;border:1px solid #e5e5e5!important;}
+#worthsy-modern-sidebar #wm-collapse:hover{background:#f3f3f3!important;color:#111!important;}
+#worthsy-modern-sidebar .wm-logo{color:#171717!important;}
+#worthsy-modern-sidebar .wm-logo b{border-color:#d71920!important;background:#fff!important;color:#111!important;}
+@media(min-width:801px){html.wm-collapsed #worthsy-modern-sidebar .wm-label{background:#eee!important;}}
