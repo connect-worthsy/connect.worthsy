@@ -229,3 +229,12 @@ html body #worthsy-modern-sidebar #wm-collapse{display:flex!important;align-item
 }
 @keyframes worthsy-page-out{to{opacity:0;}}
 @keyframes worthsy-page-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+/* v28 transition: graceful navigation fade with reduced-motion support */
+@media (prefers-reduced-motion: no-preference){
+ html{view-transition-name:root;}
+ ::view-transition-old(root){animation:worthsy-out .18s ease both;}
+ ::view-transition-new(root){animation:worthsy-in .28s cubic-bezier(.2,.7,.2,1) both;}
+}
+@keyframes worthsy-out{to{opacity:0;transform:translateY(-3px)}}
+@keyframes worthsy-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
